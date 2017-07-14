@@ -64,11 +64,6 @@ Configure Policy
 
 7. Set the **Enforcement Mode** to Transparent
 
-1. 
-2. 
-
-1. 
-
 Accept Remaining Default Policy Settings
 ----------------------------------------
 
