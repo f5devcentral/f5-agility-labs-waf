@@ -36,9 +36,9 @@ Create Policy
 
     |image44|
 
-1. Click on the **“Create”** button.
+3. Click on the **“Create”** button.
 
-2. Name the policy “hackazon\_DoS” and click “\ **Finished**\ ” to
+4. Name the policy “hackazon\_DoS” and click “\ **Finished**\ ” to
    complete the creation of this DoS profile.
 
     |image45|
@@ -124,16 +124,12 @@ Apply Bot Defense Logging Profile
 
 2. Click on \ **Policies** under the \ **Security** tab at the top
 
-3. 
-4. Within the Available logging profiles menu,
+3. Within the Available logging profiles menu,
    select \ **bot-defense\_allrequests** and then click
    the \ **<<** arrows to move the logging policy to
    the \ **Selected** profile.
 
-5. Click on the \ **Update** button to apply the policy.
-
-+----+
-+----+
+4. Click on the \ **Update** button to apply the policy.
 
     NOTE: You can associate multiple logging profiles with a given
     virtual server. F5 allows for an incredible amount of logging
@@ -149,8 +145,7 @@ Apply Bot Defense Logging Profile
 Test the Proactive Bot Defense Policy
 -------------------------------------
 
-1. 
-2. From the command line execute the following command several times:
+1. From the command line execute the following command several times:
 
     curl –k https://hackazon.f5demo.com
 
@@ -171,15 +166,14 @@ Validate that the Proactive Bot Defense Policy is Working
 
     |image53|
 
-1. Notice that the detected bot activity has been logged and is now
+2. Notice that the detected bot activity has been logged and is now
    being displayed for review.
 
     |image54|
 
-1. Note the stated reason for the request being blocked. You may have to
+3. Note the stated reason for the request being blocked. You may have to
    scroll to the right to see this reason. What was the stated reason?
 
-2. 
 
 BOT Signatures 
 ---------------
@@ -193,10 +187,10 @@ BOT Signatures
 
     |image56|
 
-1. **Select “Proactive Bot Defense**\ ” under the list of **“Application
+3. **Select “Proactive Bot Defense**\ ” under the list of **“Application
    Security” options.**
 
-2. In the **“Application Security >>** **Proactive Bot Defense”**
+4. In the **“Application Security >>** **Proactive Bot Defense”**
    section, click the **“Edit”** link for **“Operation** **Mode”** and
    then change the setting from **“Always”** to **“During Attack”** and
    click **“Update”** to complete the policy change.
@@ -205,15 +199,13 @@ BOT Signatures
 
    |image57|
 
-3. Run cURL again. :curl –k https://hackazon.f5demo.com.
+5. Run cURL again. :curl –k https://hackazon.f5demo.com.
 
    **The site should respond normally now every time.**
 
-4. cURL is considered an **HTTP Library tool** and falls in **the Benign
+5. cURL is considered an **HTTP Library tool** and falls in **the Benign
    Category**.
 
-+----+
-+----+
 
 NOTE: Just how benign are HTTP library tools? cURL can easily be
 scripted in a variety of ways and can be used as a downloader to siphon
@@ -224,79 +216,67 @@ interacting with your site.
 Selectively Blocking BOT Categories
 -----------------------------------
 
-1. 
-2. Under your hackazon DoS profile in **“Application Security >> Bot
+1. Under your hackazon DoS profile in **“Application Security >> Bot
    Signatures”** click on the **“Edit”** link for the **“Bot Signature
    Categories”** section.
 
    |image58|
 
-3. Change the HTTP Library action from **“None”** to **“Block”** under
+2. Change the HTTP Library action from **“None”** to **“Block”** under
    the **“Benign Categories”** section and click **“Update”** to apply
    the policy changes.
 
    |image59|\ 6. Run the curl command against the site.
 
-4. 8. Run cURL again: curl –k https://hackazon.f5demo.com
+3. Run cURL again: curl –k https://hackazon.f5demo.com
 
    |image60|
 
-5. Whammo!!!…as soon as the BOT is revealed…the connection is dropped.
-   TLS doesn’t even establish.
+   Whammo!!!…as soon as the BOT is revealed…the connection is dropped.
+   The TLS doesn’t get established.
 
-6. 
-7. Let’s say we actually DO want to allow cURL or another automated
+   Let’s say we actually DO want to allow cURL or another automated
    tool. We may have developers that rely on curl so let’s whitelist
    just that.
 
-8. 
-9. To Whitelist cURL:
+**To Whitelist cURL:**
 
-1. 1. **Go to the Bot Signatures** **list** **and find curl**. Move it
+1. **Go to the Bot Signatures** **list** **and find curl**. Move it
    to disabled signatures and **click update. **
-
-   u now receive an error. The connection is getting dropped as soon as
-   curl is identified as the
-
-   policy changes.
 
 |image61|
 
-Run the curl command again against the site.
 
-1. 2. Run cURL again: curl –k https://hackazon.f5demo.com and you should
+2. Run cURL again: curl –k https://hackazon.f5demo.com and you should
    be back in business. By now you should know the expected output.
 
-2. | 3. Change HTTP Library to: **Report**
-   | Remove CURL from the whitelist and set http libraries category to
-     just report
+3. Change HTTP Library to: **Report**
+   Remove CURL from the whitelist and set http libraries category to
+   just report
 
-3. |image62|
+|image62|
 
-    4. Change Operation Mode to: **Normal**
-
-    ot defense back to always and click update
+4. Change Operation Mode to: **Normal**
 
 |image63|
 
 We are going to leverage the IPRep virtual server from the earlier lab
 to get some randomness.
 
-1. Run the cURL command several times: **curl –k https://10.128.10.210**
+5. Run the cURL command several times: **curl –k https://10.128.10.210**
 
-2. 
 
 |image64|
 
-1. 6. Review the event logs at **“Event Logs>>Bot Defense”** You will
+6. Review the event logs at **“Event Logs>>Bot Defense”** You will
    now see geo-data for the BOT connection attempts.
 
 |image65|
 
-1. Navigate to **“Security** **> Overview”** and review the default
+7. Navigate to **“Security** **> Overview”** and review the default
    report elements.
 
-2. Click **“Overview** **>** **Application** **>** **Traffic**\ ”:
+8. Click **“Overview** **>** **Application** **>** **Traffic**\ ”:
 
 |image66|
 
@@ -305,12 +285,7 @@ to get some randomness.
 
 |image67|
 
-1. 
-2. 
-3. 
-4. Click the **DoS tab** at the top. The DOS Visibility Screen loads.
-
-5. 
+10. Click the **DoS tab** at the top. The DOS Visibility Screen loads.
 
     |image68|
 
@@ -320,17 +295,17 @@ accurate results.
 Although there have not been any L7 DoS attacks some of the widgets
 along the right contain statistics from the BOT mitigations.
 
-1. Click the **“Analysis”** tab at the top and review the graphs
+11. Click the **“Analysis”** tab at the top and review the graphs
    available to you.
 
 |image69|
 
-1. Click the **“URL Latencies”** tab at the top and review the graphs
+12. Click the **“URL Latencies”** tab at the top and review the graphs
    available to you.
 
 |image70|
 
-1. Click the **“Custom Page”** tab at the top and review the graphs
+13. Click the **“Custom Page”** tab at the top and review the graphs
    available to you.
 
    Please feel free to add widgets and/or explore the ASM interface
