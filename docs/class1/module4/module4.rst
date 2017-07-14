@@ -428,4 +428,3 @@ along the right contain statistics from the BOT mitigations.
    :maxdepth: 1
    :glob:
 
-   lab*

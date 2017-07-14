@@ -263,4 +263,3 @@ inbound traffic as having the malicious sources.
    :maxdepth: 1
    :glob:
 
-   lab*

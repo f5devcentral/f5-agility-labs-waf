@@ -213,4 +213,3 @@ traffic to be blocked. This will be clarified later in the lab*)
    :maxdepth: 1
    :glob:
 
-   lab*
