@@ -1,0 +1,1177 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. Examples of Common Formatting &#8212; F5 WAF: Practical Intro to L7 Security  documentation</title>
+    
+    <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/f5_agility_theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Markdown files are also supported" href="markdown.html" />
+    <link rel="prev" title="2.4.2. Lab – Power-on the BIG-IP Appliance" href="class1/module4/lab2.html" />
+<!--
+# Copyright 2017 F5 Networks
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row corp-header">
+      <div class="container corp-header">
+        <div class="container corp-menu">
+          <ul>
+            <li><a href="https://f5.com" class="internalLink">F5.com</a></li>
+            <li><a href="https://support.f5.com">Support</a></li>
+            <li><a href="https://devcentral.f5.com">Community</a></li>
+            <li><a href="https://github.com/F5Networks">GitHub</a></li>
+            <li><a href="https://f5.com/about-us/careers">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pageHeader">
+      <div class="container stat">
+        <div class="col-xs-12 stat">
+          <a class="internalLink" href="https://f5.com">
+            <img class="logo" src="https://cdn.f5.com/websites/support/assets/images/logo.svg" width="50" height="44" alt="F5 Networks" title="F5 Networks" border="0">
+          </a>
+            <ul id="MainMenu" class="main-menu">
+              <li>
+                <a href="#">Products
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ProductsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Connectors</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-asp-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon ASP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Kubernetes BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/f5-kube-proxy/latest" data-link-type="Nav: Mega">F5 Kubernetes Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/products/connectors">See all </a></--span-->
+                      </li>
+                      <li class="divider"></li>
+                      <li class="third"><span class="a-mm-h">Application Service Proxy</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/asp/latest" data-link-type="Nav: Mega">F5 Application Service Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a href="/products/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Container Integrations
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ContainersSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Container Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/marathon/" data-link-type="Nav: Mega">Mesos Marathon</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/kubernetes/" data-link-type="Nav: Mega">Kubernetes</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/openshift/" data-link-type="Nav: Mega">RedHat OpenShift</a></li>
+                        </ul>
+                        <span class="seemore"><a data-link-type="Nav: Mega" href="http://clouddocs.f5.com/containers/latest">View details </a></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Clouds
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="CloudsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Cloud Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/cloud/openstack/" data-link-type="Nav: Mega">OpenStack</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/cloud/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Resources
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+                <div class="menu-panel soft-hide" id="UPCProgramSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third">
+                        <span class="a-mm-h">Downloads</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://hub.docker.com/r/f5networks/" class="internalLink">Docker Hub</a></li>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://store.docker.com/images/f5networks" class="internalLink">Docker Store</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <span class="a-mm-h">OpenSource</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://github.com/F5Networks" class="internalLink">GitHub</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <a href="//university.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega">F5 University</a>
+                        <ul>
+                          <li>
+                            <p>Get up to speed with free self-paced courses</p>
+                          </li>
+                        </ul>
+                        <a data-ng-href="https://devcentral.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega" href="https://devcentral.f5.com">DevCentral</a>
+                        <ul>
+                          <li>
+                            <p>Join the community of 250,000+ technical peers</p>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container-fluid -->
+</nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 sidebar">
+         <h4><a href="./">F5 WAF: Practical Intro to L7 Security </a></h4>
+<div id="searchbox" style="display: none" role="search">
+  <form class="search" action="search.html" method="get">
+    <div>
+      <input type="text" name="q" placeholder="Search" style="padding-left: 6px;"/>
+      <!-- <input type="submit" value="Go" style="margin-top: 4px;"/> -->
+      <button type="submit" class="btn btn-primary btn-xs">Go</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="caption">
+   <span class="caption-text">Current Page</span>
+  </p>
+  <ul>
+<li><a class="reference internal" href="#">3. Examples of Common Formatting</a><ul>
+<li><a class="reference internal" href="#text-markup">3.1. Text Markup</a><ul>
+<li><a class="reference internal" href="#emphasis">3.1.1. Emphasis</a></li>
+<li><a class="reference internal" href="#code-samples">3.1.2. Code Samples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#substitutions">3.2. Substitutions</a><ul>
+<li><a class="reference internal" href="#pre-configured-substitutions">3.2.1. Pre-configured Substitutions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hyperlinks">3.3. Hyperlinks</a><ul>
+<li><a class="reference internal" href="#external">3.3.1. External</a></li>
+<li><a class="reference internal" href="#internal">3.3.2. Internal</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lists">3.4. Lists</a><ul>
+<li><a class="reference internal" href="#unordered-lists">3.4.1. Unordered Lists</a></li>
+<li><a class="reference internal" href="#ordered-lists">3.4.2. Ordered Lists</a></li>
+<li><a class="reference internal" href="#nested-lists">3.4.3. Nested Lists</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tables">3.5. Tables</a><ul>
+<li><a class="reference internal" href="#list-tables">3.5.1. List Tables</a><ul>
+<li><a class="reference internal" href="#with-stub-column">3.5.1.1. With Stub Column</a></li>
+<li><a class="reference internal" href="#without-stub-column">3.5.1.2. Without Stub Column</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#grid-tables">3.5.2. Grid Tables</a><ul>
+<li><a class="reference internal" href="#giant-tables">3.5.2.1. Giant Tables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simple-tables">3.5.3. Simple Tables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#admonitions">3.6. Admonitions</a><ul>
+<li><a class="reference internal" href="#tmsh">3.6.1. TMSH</a></li>
+<li><a class="reference internal" href="#hint">3.6.2. Hint</a></li>
+<li><a class="reference internal" href="#important">3.6.3. Important</a></li>
+<li><a class="reference internal" href="#tip">3.6.4. Tip</a></li>
+<li><a class="reference internal" href="#note">3.6.5. Note</a></li>
+<li><a class="reference internal" href="#attention">3.6.6. Attention</a></li>
+<li><a class="reference internal" href="#caution">3.6.7. Caution</a></li>
+<li><a class="reference internal" href="#warning">3.6.8. Warning</a></li>
+<li><a class="reference internal" href="#error">3.6.9. Error</a></li>
+<li><a class="reference internal" href="#danger">3.6.10. Danger</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#todo-s">3.7. TODO’s</a></li>
+<li><a class="reference internal" href="#font-awesome-icons">3.8. Font-Awesome Icons</a></li>
+</ul>
+</li>
+</ul>
+
+
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class1/class1.html">2. Class - F5 WAF: Practical Intro to L7 Security</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Examples of Common Formatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#text-markup">3.1. Text Markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#substitutions">3.2. Substitutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hyperlinks">3.3. Hyperlinks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lists">3.4. Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tables">3.5. Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admonitions">3.6. Admonitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo-s">3.7. TODO’s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#font-awesome-icons">3.8. Font-Awesome Icons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">4. Markdown files are also supported</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="class1/module4/lab2.html"
+                        title="previous chapter">2.4.2. Lab – Power-on the BIG-IP Appliance</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="markdown.html"
+                        title="next chapter">4. Markdown files are also supported</a></p>
+        
+      </div>
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <h4>
+          <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="index.html">F5 WAF: Practical Intro to L7 Security</a>
+          <span class="right"><a href="genindex.html">Index</a></span>
+        </h4>
+        
+  <div class="section" id="examples-of-common-formatting">
+<h1>3. Examples of Common Formatting<a class="headerlink" href="#examples-of-common-formatting" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Examples need to be removed from your class</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>To remove this page:</p>
+<ol class="last arabic simple">
+<li>Edit the <code class="docutils literal"><span class="pre">index.rst</span></code> file and remove the <code class="docutils literal"><span class="pre">examples</span></code> line</li>
+<li>Delete the <code class="docutils literal"><span class="pre">examples.rst</span></code> file</li>
+</ol>
+</div>
+<p>This page has examples of many different types of formatting that can be
+achieved using reStructuredText.  Complete documentation is available at:</p>
+<p><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a></p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last"><a class="reference external" href="_sources/examples.rst.txt">Click here to view the source of this page</a></p>
+</div>
+<div class="section" id="text-markup">
+<h2>3.1. Text Markup<a class="headerlink" href="#text-markup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="emphasis">
+<h3>3.1.1. Emphasis<a class="headerlink" href="#emphasis" title="Permalink to this headline">¶</a></h3>
+<p><em>italic text</em></p>
+<p><strong>bold text</strong></p>
+</div>
+<div class="section" id="code-samples">
+<h3>3.1.2. Code Samples<a class="headerlink" href="#code-samples" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">code</span> <span class="pre">sample</span></code></p>
+<p>This is one example of a code block:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="nb">print</span> <span class="s1">&#39;import done&#39;</span>
+</pre></div>
+</div>
+<p>Code block without syntax highlighting:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>$ ls -l
+total 96
+-rw-r--r--  1 user  staff   610 Jun 22 17:51 Makefile
+drwxr-xr-x  4 user  staff   136 Jun 22 21:14 _build
+drwxr-xr-x  3 user  staff   102 Jun 22 21:16 _static
+drwxr-xr-x  3 user  staff   102 Jun 22 17:55 _templates
+drwxr-xr-x  5 user  staff   170 Jun 22 21:00 class1
+-rw-r--r--  1 user  staff  6764 Jun 22 21:26 conf.py
+-rw-r--r--@ 1 user  staff   733 Jun 22 21:41 examples.rst
+-rw-r--r--  1 user  staff   152 Jun 22 21:32 index.rst
+-rw-r--r--  1 user  staff   995 Jun 22 20:55 intro.rst
+-rw-r--r--  1 user  staff   817 Jun 22 17:51 make.bat
+$
+</pre></div>
+</div>
+<p>Code block with syntax highlighting:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A list of supported languages can be found at
+<a class="reference external" href="http://build-me-the-docs-please.readthedocs.io/en/latest/Using_Sphinx/ShowingCodeExamplesInSphinx.html#pygments-lexers">here</a></p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="k">print</span> <span class="s1">&#39;Sum: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">sum</span>
+</pre></div>
+</div>
+<p>Code block with highlighting and line numbers:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="k">print</span> <span class="s1">&#39;Sum: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">sum</span>
+</pre></div>
+</td></tr></table></div>
+<p>Code block with highlighting, line numbers, and line highlighting:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="hll"><span class="nb">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span><span class="hll"><span class="k">print</span> <span class="s1">&#39;Sum: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">sum</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="substitutions">
+<h2>3.2. Substitutions<a class="headerlink" href="#substitutions" title="Permalink to this headline">¶</a></h2>
+<p>rST:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">|name|</span> <span class="ow">replace</span><span class="p">::</span> replacement <span class="ge">*text*</span>
+
+|name|
+</pre></div>
+</div>
+<p>Result:</p>
+<p>replacement <em>text</em></p>
+<div class="section" id="pre-configured-substitutions">
+<h3>3.2.1. Pre-configured Substitutions<a class="headerlink" href="#pre-configured-substitutions" title="Permalink to this headline">¶</a></h3>
+<p>A number of common substitutions are pre-configured for convenience:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|classname|</span></code></td>
+<td>F5 WAF: Practical Intro to L7 Security</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">|classbold|</span></code></td>
+<td><strong>F5 WAF: Practical Intro to L7 Security</strong></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|classitalic|</span></code></td>
+<td><em>F5 WAF: Practical Intro to L7 Security</em></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">|ltm|</span></code></td>
+<td>Local Traffic Manager</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|adc|</span></code></td>
+<td>Application Delivery Controller</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">|gtm|</span></code></td>
+<td>Global Traffic Manager</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|dns|</span></code></td>
+<td>DNS</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">|asm|</span></code></td>
+<td>Application Security Manager</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|afm|</span></code></td>
+<td>Advanced Firewall Manager</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">|apm|</span></code></td>
+<td>Access Policy Manager</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|ipi|</span></code></td>
+<td>IP Intelligence</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">|iwf|</span></code></td>
+<td>iWorkflow</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|biq|</span></code></td>
+<td>BIG-IQ</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">|bip|</span></code></td>
+<td>BIG-IP</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|f5|</span></code></td>
+<td>F5 Networks</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">|f5i|</span></code></td>
+<td>F5 Networks, Inc.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|year|</span></code></td>
+<td>2017</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="hyperlinks">
+<h2>3.3. Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="external">
+<h3>3.3.1. External<a class="headerlink" href="#external" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Bare URL: <a class="reference external" href="https://www.f5.com">https://www.f5.com</a></li>
+<li>Named Link: Click <a class="reference external" href="https://www.f5.com">here</a> to goto F5’s website</li>
+</ul>
+</div>
+<div class="section" id="internal">
+<h3>3.3.2. Internal<a class="headerlink" href="#internal" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Reference section headers in this document: <a class="reference external" href="#hyperlinks">Hyperlinks</a></li>
+<li>Reference other pages: <a class="reference internal" href="index.html#welcome"><span class="std std-ref">Welcome</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="lists">
+<h2>3.4. Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unordered-lists">
+<h3>3.4.1. Unordered Lists<a class="headerlink" href="#unordered-lists" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>This</li>
+<li>Is</li>
+<li>A</li>
+<li>List</li>
+</ul>
+</div>
+<div class="section" id="ordered-lists">
+<h3>3.4.2. Ordered Lists<a class="headerlink" href="#ordered-lists" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+<li>Four</li>
+</ol>
+</div>
+<div class="section" id="nested-lists">
+<h3>3.4.3. Nested Lists<a class="headerlink" href="#nested-lists" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>This<ol class="arabic">
+<li>One</li>
+<li>Two<ul>
+<li>Alpha</li>
+<li>Bravo</li>
+<li>Charlie</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Is<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+</li>
+<li>A</li>
+<li>Nested</li>
+<li>List</li>
+</ul>
+</div>
+</div>
+<div class="section" id="tables">
+<h2>3.5. Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-tables">
+<h3>3.5.1. List Tables<a class="headerlink" href="#list-tables" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="with-stub-column">
+<h4>3.5.1.1. With Stub Column<a class="headerlink" href="#with-stub-column" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="40%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head stub"><strong>Column 1 (Stub)</strong></th>
+<th class="head"><strong>Column 2</strong></th>
+<th class="head"><strong>Column 3</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><th class="stub">Row 1</th>
+<td>Value 1</td>
+<td>Value 2</td>
+</tr>
+<tr class="row-odd"><th class="stub">Row 2</th>
+<td>Value 1</td>
+<td>Value 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="without-stub-column">
+<h4>3.5.1.2. Without Stub Column<a class="headerlink" href="#without-stub-column" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="40%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Column 1</strong></th>
+<th class="head"><strong>Column 2</strong></th>
+<th class="head"><strong>Column 3</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Row 1</td>
+<td>Value 1</td>
+<td>Value 2</td>
+</tr>
+<tr class="row-odd"><td>Row 2</td>
+<td>Value 1</td>
+<td>Value 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="grid-tables">
+<h3>3.5.2. Grid Tables<a class="headerlink" href="#grid-tables" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="21%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Header row, column 1
+(header rows optional)</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+<th class="head">Header 4</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>body row 1, column 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>column 4</td>
+</tr>
+<tr class="row-odd"><td>body row 2</td>
+<td colspan="3">Cells may span columns.</td>
+</tr>
+<tr class="row-even"><td>body row 3</td>
+<td rowspan="2">Cells may
+span rows.</td>
+<td colspan="2" rowspan="2"><ul class="first last simple">
+<li>Table cells</li>
+<li>contain</li>
+<li>body elements.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>body row 4</td>
+</tr>
+<tr class="row-even"><td>body row 5</td>
+<td colspan="2">Cells may also be
+empty: <code class="docutils literal"><span class="pre">--&gt;</span></code></td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="giant-tables">
+<h4>3.5.2.1. Giant Tables<a class="headerlink" href="#giant-tables" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Header 1</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+<th class="head">Header 1</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+<th class="head">Header 1</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+<th class="head">Header 1</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+</tr>
+<tr class="row-odd"><td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+</tr>
+<tr class="row-even"><td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+</tr>
+<tr class="row-odd"><td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="simple-tables">
+<h3>3.5.3. Simple Tables<a class="headerlink" href="#simple-tables" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="29%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A and B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="admonitions">
+<h2>3.6. Admonitions<a class="headerlink" href="#admonitions" title="Permalink to this headline">¶</a></h2>
+<p>Admonitions (a.k.a Callouts) can be used to make important information stand
+out.  Examples of different admonitions are shown below.</p>
+<p><strong>When including TMSH commands please use the TMSH admonition</strong></p>
+<div class="section" id="tmsh">
+<h3>3.6.1. TMSH<a class="headerlink" href="#tmsh" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-tmsh admonition">
+<p class="first admonition-title">TMSH</p>
+<p class="last">tmsh show sys hardware</p>
+</div>
+</div>
+<div class="section" id="hint">
+<h3>3.6.2. Hint<a class="headerlink" href="#hint" title="Permalink to this headline">¶</a></h3>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">This is a HINT admonition</p>
+</div>
+</div>
+<div class="section" id="important">
+<h3>3.6.3. Important<a class="headerlink" href="#important" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This is a IMPORTANT admonition</p>
+</div>
+</div>
+<div class="section" id="tip">
+<h3>3.6.4. Tip<a class="headerlink" href="#tip" title="Permalink to this headline">¶</a></h3>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">This is a TIP admonition</p>
+</div>
+</div>
+<div class="section" id="note">
+<h3>3.6.5. Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a NOTE admonition</p>
+</div>
+</div>
+<div class="section" id="attention">
+<h3>3.6.6. Attention<a class="headerlink" href="#attention" title="Permalink to this headline">¶</a></h3>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">This is a ATTENTION admonition</p>
+</div>
+</div>
+<div class="section" id="caution">
+<h3>3.6.7. Caution<a class="headerlink" href="#caution" title="Permalink to this headline">¶</a></h3>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">This is a CAUTION admonition</p>
+</div>
+</div>
+<div class="section" id="warning">
+<h3>3.6.8. Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is a WARNING admonition</p>
+</div>
+</div>
+<div class="section" id="error">
+<h3>3.6.9. Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h3>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<p class="last">This is a ERROR admonition</p>
+</div>
+</div>
+<div class="section" id="danger">
+<h3>3.6.10. Danger<a class="headerlink" href="#danger" title="Permalink to this headline">¶</a></h3>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">This is a DANGER admonition</p>
+</div>
+</div>
+</div>
+<div class="section" id="todo-s">
+<h2>3.7. TODO’s<a class="headerlink" href="#todo-s" title="Permalink to this headline">¶</a></h2>
+<p>TODO items can be marked in your docs.  By default the item will be included
+in the generated docs and a build warning will be printed.</p>
+<p>To change the defaults edit <code class="docutils literal"><span class="pre">conf.py</span></code> and look modify</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">todo_emit_warnings</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">todo_include_todos</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Here is the rST code for a TODO:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">TODO</span><span class="p">::</span> This is my example todo.  Please ignore me.
+
+<span class="p">..</span> <span class="ow">TODO</span><span class="p">::</span> This is my second example todo.  Please ignore me.
+</pre></div>
+</div>
+<p>And the TODO themselves:</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">This is my first example todo.  Please ignore me.</p>
+</div>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">This is my second example todo.  Please ignore me.</p>
+</div>
+<p>You can also get a list of TODO’s:</p>
+<p>rST:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">TODOLIST</span><span class="p">::</span>
+</pre></div>
+</div>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Need class description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/class1.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/class1.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs lab description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module1/lab1.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module1/lab1.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module1/lab1.html#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module1/lab1.rst, line 40.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module1/lab1.html#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module1/lab1.rst, line 60.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs lab description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module1/lab2.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module1/lab2.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module1/lab2.html#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module1/lab2.rst, line 41.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module1/lab2.html#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module1/lab2.rst, line 59.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs lab description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module2/lab1.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module2/lab1.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module2/lab1.html#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module2/lab1.rst, line 41.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module2/lab1.html#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module2/lab1.rst, line 59.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs lab description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module2/lab2.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module2/lab2.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module2/lab2.html#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module2/lab2.rst, line 40.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module2/lab2.html#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module2/lab2.rst, line 55.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs module description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module2/module2.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module2/module2.rst, line 194.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs lab description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module3/lab1.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module3/lab1.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module3/lab1.html#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module3/lab1.rst, line 41.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module3/lab1.html#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module3/lab1.rst, line 59.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs lab description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module3/lab2.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module3/lab2.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module3/lab2.html#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module3/lab2.rst, line 40.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module3/lab2.html#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module3/lab2.rst, line 55.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs module description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module3/module2.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module3/module2.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs lab description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module4/lab1.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module4/lab1.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module4/lab1.html#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module4/lab1.rst, line 41.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module4/lab1.html#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module4/lab1.rst, line 59.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs lab description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module4/lab2.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module4/lab2.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module4/lab2.html#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module4/lab2.rst, line 40.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs task description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module4/lab2.html#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module4/lab2.rst, line 55.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Needs module description</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="class1/module4/module2.html#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/class1/module4/module2.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">Examples need to be removed from your class</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#index-0"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/examples.rst, line 33.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">This is my first example todo.  Please ignore me.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#index-1"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/examples.rst, line 425.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Todo</p>
+<p class="last">This is my second example todo.  Please ignore me.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="#index-2"><em>original entry</em></a> is located in /Users/jenison/Desktop/Agility/f5-agility-labs-waf/docs/examples.rst, line 427.)</p>
+</div>
+<div class="section" id="font-awesome-icons">
+<h2>3.8. Font-Awesome Icons<a class="headerlink" href="#font-awesome-icons" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">f5-sphinx-theme</span></code> can use icons from the Font Awesome:</p>
+<p><a class="reference external" href="http://fontawesome.io/icons/">http://fontawesome.io/icons/</a></p>
+<p>For example:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="m">*</span> <span class="na">:fonticon:</span><span class="nv">`fa fa-home`</span>
+<span class="m">*</span> <span class="na">:fonticon:</span><span class="nv">`fa fa-home fa-lg`</span>
+<span class="m">*</span> <span class="na">:fonticon:</span><span class="nv">`fa fa-home fa-border`</span>
+<span class="m">*</span> <span class="na">:fonticon:</span><span class="nv">`fa fa-home fa-2x`</span>
+<span class="m">*</span> <span class="na">:fonticon:</span><span class="nv">`fa fa-home fa-3x`</span>
+<span class="m">*</span> <span class="na">:fonticon:</span><span class="nv">`fa fa-home fa-4x`</span>
+<span class="m">*</span> <span class="na">:fonticon:</span><span class="nv">`fa fa-gear fa-spin fa-4x`</span>
+<span class="m">*</span> <span class="na">:fonticon:</span><span class="nv">`fa fa-gear fa-spin fa-4x text-success`</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><span class="icon fa fa-home"></span></li>
+<li><span class="icon fa fa-home fa-lg"></span></li>
+<li><span class="icon fa fa-home fa-border"></span></li>
+<li><span class="icon fa fa-home fa-2x"></span></li>
+<li><span class="icon fa fa-home fa-3x"></span></li>
+<li><span class="icon fa fa-home fa-4x"></span></li>
+<li><span class="icon fa fa-gear fa-spin fa-4x"></span></li>
+<li><span class="icon fa fa-gear fa-spin fa-4x text-success"></span></li>
+</ul>
+</div>
+</div>
+
+
+        
+		     <div class="row next-prev-btn-row">
+           <div class="col-lg-12">
+           
+		        <a href="class1/module4/lab2.html" title="2.4.2. Lab – Power-on the BIG-IP Appliance" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+           
+           
+              <a href="markdown.html" title="4. Markdown files are also supported" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+           
+		     </div>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="content-fluid pre-footer">
+            <div class="blocks-container">
+              <div class="block">
+                <h3>Support Programs</h3>
+                <p>Regionally located support centers enable F5 to provide support in a number of languages through native-speaking support engineers.</p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/support/support-offerings" target="_blank" href="https://f5.com/support/support-offerings">See more
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Contact Support</h3>
+                <p>
+                  North America: 1-888-882-7535<br>
+                  Outside North America: 800-11-275-435
+                </p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" href="https://f5.com/about-us/contact#regional-support">Local Support Numbers
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Feedback and Help</h3>
+                <p>Have questions, suggestions, or just want to get something off your chest? Let us know.</p>
+                <a class="btn" data-ui-sref="siteFeedback" target="_blank" href="https://support.f5.com/csp/siteFeedback">Leave feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer">
+            <div class="container">
+              <div class="col-sm-3 col-md-2">
+                <h4>About F5</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/about-us/contact" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact" class="internalLink">Contact F5</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/about-us/careers" target="_blank" data-link-type="footer" href="https://f5.com/about-us/careers" class="internalLink">Careers</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-3 col-md-2">
+                <h4>Education</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/education/training" target="_blank" data-link-type="footer" href="https://f5.com/education/training" class="internalLink">Training</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/certification" target="_blank" data-link-type="footer" href="https://f5.com/education/certification" class="internalLink">Certification</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/training/free-courses" target="_blank" data-link-type="footer" href="https://f5.com/education/training/free-courses" class="internalLink">Free Online Training</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-sm-3 col-md-2">
+                <h4>F5 sites</h4>
+                <ul>
+                <li><a data-ng-href="https://f5.com" target="_blank" data-link-type="footer" href="https://f5.com" class="internalLink">F5.com</a>
+                </li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" data-link-type="footer" href="https://devcentral.f5.com" class="internalLink">Community</a>
+                </li>
+                <li><a data-ng-href="https://partners.f5.com" target="_blank" data-link-type="footer" href="https://partners.f5.com" class="internalLink">Partners</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-3 col-md-2">
+            <h4>Support Tasks</h4>
+            <ul>
+                <li><a data-ui-sref="mySupport.createServiceRequest" data-link-type="footer" href="https://support.f5.com/csp/my-support/service-request">Create Service Request </a>
+                </li>
+                <li><a data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact#regional-support" class="internalLink">Contact Support</a>
+                </li>
+                <li><a data-ui-sref="siteFeedback" target="_blank" data-link-type="footer" href="https://support.f5.com/csp/siteFeedback">Leave feedback [+]</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-md-3 right">
+            <h4>Connect with us</h4>
+            <ul class="social_icons">
+                <li><a href="//twitter.com/f5networks" target="_blank" data-name="twitter" data-type="" data-prefix="social" data-utf="E032" title="Twitter" class="externalLink"><i class="icon-1x icon-twitter icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.linkedin.com/companies/f5-networks" target="_blank" class="linkedin externalLink" title="LinkedIn"><i class="icon-1x icon-linkedin icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.facebook.com/f5networksinc" target="_blank" class="facebook externalLink" title="Facebook"><i class="icon-1x icon-facebook icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.youtube.com/f5networksinc" target="_blank" class="youtube externalLink" title="YouTube"><i class="icon-1x icon-youtube icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" class="devcentral internalLink" title="DevCentral" href="https://devcentral.f5.com"><i class="icon-1x icon-dc-pos icon-inverse-circle" data-link-type="footer"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="content-fluid left">
+            <div class="col-xs-12">
+                <p>
+                    © Copyright <span class="ng-binding">2017</span> by F5 Networks, Inc. |
+                    <a data-ng-href="https://f5.com/about-us/policies" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies" class="internalLink">Policies</a> |
+                    <a data-ng-href="https://f5.com/about-us/policies/trademarks" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies/trademarks" class="internalLink">Trademarks</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</footer>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="_static/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict(true)
+  </script>
+  </body>
+</html>

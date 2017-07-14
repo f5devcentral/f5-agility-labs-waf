@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2.1. Module – Base Policy Creation &#8212; F5 WAF: Practical Intro to L7 Security  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" href="lab1.html" />
+    <link rel="prev" title="2. Class - F5 WAF: Practical Intro to L7 Security" href="../class1.html" />
+<!--
+# Copyright 2017 F5 Networks
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row corp-header">
+      <div class="container corp-header">
+        <div class="container corp-menu">
+          <ul>
+            <li><a href="https://f5.com" class="internalLink">F5.com</a></li>
+            <li><a href="https://support.f5.com">Support</a></li>
+            <li><a href="https://devcentral.f5.com">Community</a></li>
+            <li><a href="https://github.com/F5Networks">GitHub</a></li>
+            <li><a href="https://f5.com/about-us/careers">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pageHeader">
+      <div class="container stat">
+        <div class="col-xs-12 stat">
+          <a class="internalLink" href="https://f5.com">
+            <img class="logo" src="https://cdn.f5.com/websites/support/assets/images/logo.svg" width="50" height="44" alt="F5 Networks" title="F5 Networks" border="0">
+          </a>
+            <ul id="MainMenu" class="main-menu">
+              <li>
+                <a href="#">Products
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ProductsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Connectors</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-asp-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon ASP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Kubernetes BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/f5-kube-proxy/latest" data-link-type="Nav: Mega">F5 Kubernetes Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/products/connectors">See all </a></--span-->
+                      </li>
+                      <li class="divider"></li>
+                      <li class="third"><span class="a-mm-h">Application Service Proxy</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/asp/latest" data-link-type="Nav: Mega">F5 Application Service Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a href="/products/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Container Integrations
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ContainersSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Container Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/marathon/" data-link-type="Nav: Mega">Mesos Marathon</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/kubernetes/" data-link-type="Nav: Mega">Kubernetes</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/openshift/" data-link-type="Nav: Mega">RedHat OpenShift</a></li>
+                        </ul>
+                        <span class="seemore"><a data-link-type="Nav: Mega" href="http://clouddocs.f5.com/containers/latest">View details </a></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Clouds
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="CloudsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Cloud Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/cloud/openstack/" data-link-type="Nav: Mega">OpenStack</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/cloud/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Resources
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+                <div class="menu-panel soft-hide" id="UPCProgramSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third">
+                        <span class="a-mm-h">Downloads</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://hub.docker.com/r/f5networks/" class="internalLink">Docker Hub</a></li>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://store.docker.com/images/f5networks" class="internalLink">Docker Store</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <span class="a-mm-h">OpenSource</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://github.com/F5Networks" class="internalLink">GitHub</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <a href="//university.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega">F5 University</a>
+                        <ul>
+                          <li>
+                            <p>Get up to speed with free self-paced courses</p>
+                          </li>
+                        </ul>
+                        <a data-ng-href="https://devcentral.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega" href="https://devcentral.f5.com">DevCentral</a>
+                        <ul>
+                          <li>
+                            <p>Join the community of 250,000+ technical peers</p>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container-fluid -->
+</nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 sidebar">
+         <h4><a href="../../">F5 WAF: Practical Intro to L7 Security </a></h4>
+<div id="searchbox" style="display: none" role="search">
+  <form class="search" action="../../search.html" method="get">
+    <div>
+      <input type="text" name="q" placeholder="Search" style="padding-left: 6px;"/>
+      <!-- <input type="submit" value="Go" style="margin-top: 4px;"/> -->
+      <button type="submit" class="btn btn-primary btn-xs">Go</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="caption">
+   <span class="caption-text">Current Page</span>
+  </p>
+  <ul>
+<li><a class="reference internal" href="#">2.1. Module – Base Policy Creation</a><ul>
+<li><a class="reference internal" href="#objective">2.1.1. Objective:</a></li>
+<li><a class="reference internal" href="#create-policy">2.1.2. Create Policy</a></li>
+<li><a class="reference internal" href="#configure-policy">2.1.3. Configure Policy</a></li>
+<li><a class="reference internal" href="#accept-remaining-default-policy-settings">2.1.4. Accept Remaining Default Policy Settings</a></li>
+<li><a class="reference internal" href="#verify-asm-profile-is-applied">2.1.5. Verify ASM Profile is Applied</a></li>
+<li><a class="reference internal" href="#create-application-security-logging-profile">2.1.6. Create Application Security Logging Profile</a></li>
+<li><a class="reference internal" href="#apply-asm-logging-profile">2.1.7. Apply ASM Logging Profile</a></li>
+<li><a class="reference internal" href="#test-asm-policy">2.1.8. Test ASM Policy</a><ul>
+<li><a class="reference internal" href="#review-server-technologies">2.1.8.1. Review Server Technologies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - F5 WAF: Practical Intro to L7 Security</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Module – Base Policy Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.2. Module – False Positive Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.3. Module – Adding Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.4. Module – Proactive Bot Defense</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">3. Examples of Common Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../markdown.html">4. Markdown files are also supported</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../class1.html"
+                        title="previous chapter">2. Class - F5 WAF: Practical Intro to L7 Security</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lab1.html"
+                        title="next chapter">2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image</a></p>
+        
+      </div>
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <h4>
+          <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">F5 WAF: Practical Intro to L7 Security</a>
+          <span class="right"><a href="../../genindex.html">Index</a></span>
+        </h4>
+        
+  <div class="section" id="module-base-policy-creation">
+<h1>2.1. Module – Base Policy Creation<a class="headerlink" href="#module-base-policy-creation" title="Permalink to this headline">¶</a></h1>
+<p>Exercise 1 – Base Policy Creation</p>
+<div class="section" id="objective">
+<h2>2.1.1. Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Create a security policy using manual policy building</p>
+</li>
+<li><p class="first">Enable application security logging profile</p>
+</li>
+<li><p class="first">Validate that both the policy and logging profile are working</p>
+</li>
+<li><p class="first">Review the auto-detection of web server capabilities (i.e. Apache,
+jQuery, etc)</p>
+</li>
+<li><p class="first">Estimated time for completion: <strong>30 minutes</strong></p>
+<p>This lab will demonstrate how to create and build a security policy
+using manual policy building.</p>
+<p>Before we begin, ensure that you have three virtual servers,
+<strong>hackazon.f5demo.com_https_vs</strong>,
+<strong>hackazon.f5demo.com_http_vs</strong>, and
+<strong>ip_rep_target_https_vs</strong>. You will be working primarily with
+<strong>hackazon.f5demo.com_https_vs</strong>. Screenshot below:</p>
+<p><a class="reference internal" href="../../_images/image4.png"><img alt="image1" src="../../_images/image4.png" style="width: 6.40625in; height: 1.60156in;" /></a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="create-policy">
+<h2>2.1.2. Create Policy<a class="headerlink" href="#create-policy" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">On the Main tab, click&nbsp;<strong>Security</strong>&nbsp;&gt;&nbsp;<strong>Application
+Security</strong>&nbsp;&gt;&nbsp;<strong>Security Policies</strong>. The Active Policies screen opens.</p>
+</li>
+<li><p class="first">Click on <strong>“Policies List”</strong></p>
+<p><a class="reference internal" href="../../_images/image5.png"><img alt="image2" src="../../_images/image5.png" style="width: 5.81875in; height: 1.52742in;" /></a></p>
+</li>
+<li><p class="first">Click the&nbsp;<strong>Create New Policy</strong>&nbsp;button. The policy creation wizard
+opens.</p>
+</li>
+</ol>
+<p><a class="reference internal" href="../../_images/image6.png"><img alt="image3" src="../../_images/image6.png" style="width: 5.87937in; height: 3.13315in;" /></a></p>
+</div>
+<div class="section" id="configure-policy">
+<h2>2.1.3. Configure Policy<a class="headerlink" href="#configure-policy" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Click the <strong>Advanced</strong> button (Top-Right) to ensure that all the
+available policy creation options are displayed.</li>
+<li>Name the security policy “<strong>hackazon_asm</strong>” and ensure that
+the&nbsp;<strong>Policy Type</strong>&nbsp;is&nbsp;<strong>Security</strong>.</li>
+<li>Verify the <strong>Policy Template</strong> is set to Fundamental.</li>
+<li>Assign this policy to the “<strong>hackazon.f5demo.com_https_vs</strong>”
+from the&nbsp;<strong>Virtual Server</strong>&nbsp;drop down.</li>
+<li>(This is required to set the Learning Mode, why might this be
+necessary?)</li>
+<li>Go back up two settings to&nbsp;<strong>Learning Mode</strong>&nbsp;and set it
+to&nbsp;<strong>Manual</strong>.</li>
+<li>Set the <strong>Enforcement Mode</strong> to Transparent</li>
+</ol>
+<p>1.
+2.</p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+</div>
+<div class="section" id="accept-remaining-default-policy-settings">
+<h2>2.1.4. Accept Remaining Default Policy Settings<a class="headerlink" href="#accept-remaining-default-policy-settings" title="Permalink to this headline">¶</a></h2>
+<p><strong>Your settings should reflect this figure:</strong><a class="reference internal" href="../../_images/image11.png"><img alt="image4" src="../../_images/image11.png" style="width: 6.50000in; height: 3.54931in;" /></a></p>
+<ol class="arabic">
+<li><p class="first">Click&nbsp;<strong>Create Policy</strong>&nbsp;to complete the policy creation process.</p>
+</li>
+<li><p class="first">After policy creation is complete, the properties will be displayed
+for review within the Policies List menu.</p>
+</li>
+<li><p class="first">Click <strong>Apply</strong> while the <strong>hackazon_asm</strong> policy is selected.</p>
+<blockquote>
+<div><p><strong>NOTE:</strong> ASM behaves differently than LTM regarding changes. When
+editing BIG-IP LTM Configurations in the Configuration Utility (Web
+UI) changes are saved and applied immediately. In BIG-IP ASM,
+changes <strong>must be saved first</strong> and then at the time of the
+Administrator’s choosing, they can be Applied (or activated) to
+BIG-IP ASM. This can be viewed as a “Deferred Commit” behavior. ASM
+allows for rollbacks of configuration.</p>
+</div></blockquote>
+</li>
+</ol>
+<p><a class="reference internal" href="../../_images/image12.png"><img alt="image5" src="../../_images/image12.png" style="width: 6.50000in; height: 2.35833in;" /></a></p>
+</div>
+<div class="section" id="verify-asm-profile-is-applied">
+<h2>2.1.5. Verify ASM Profile is Applied<a class="headerlink" href="#verify-asm-profile-is-applied" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Under&nbsp;<strong>Local Traffic</strong>&nbsp;&gt;&nbsp;<strong>Virtual Servers</strong>, click
+on&nbsp;<strong>hackazon.f5demo.com_https_vs</strong>.</li>
+<li>Click on&nbsp;<strong>Policies</strong>&nbsp;under the&nbsp;<strong>Security</strong>&nbsp;tab at the top of
+the&nbsp;<strong>hackazon.f5demo.com_https_vs</strong> details menu.</li>
+<li>In the&nbsp;<strong>Application Security Policy</strong> drop down menu, ensure
+Application Security Policy is <strong>Enabled…</strong> and the <strong>Policy:</strong>
+drop-down selection shows the hackazon_asm policy.</li>
+<li></li>
+<li>Notice Log Profile is set to <strong>Disabled</strong></li>
+<li></li>
+</ol>
+</div>
+<div class="section" id="create-application-security-logging-profile">
+<h2>2.1.6. Create Application Security Logging Profile<a class="headerlink" href="#create-application-security-logging-profile" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">In the Configuration Utility, navigate to: &nbsp;<strong>Security</strong>&nbsp;&gt;&nbsp;<strong>Event
+Logs</strong>&nbsp;&gt;&nbsp;<strong>Logging Profiles</strong>&nbsp;then <strong>click the plus icon</strong>.</p>
+</li>
+<li><p class="first">Enter a Profile Name&nbsp;<strong>asm_allrequests</strong>, select the checkbox
+for&nbsp;<strong>Application Security</strong>.</p>
+</li>
+<li><p class="first">Change the&nbsp;<strong>Configuration</strong>&nbsp;dropdown to&nbsp;<strong>Advanced</strong>&nbsp;under
+the&nbsp;<strong>Application Security</strong>&nbsp;logging section, and then set
+the&nbsp;<strong>Response Logging</strong>&nbsp;dropdown to: “<strong>For&nbsp;All Requests”</strong>.</p>
+</li>
+<li><p class="first">Change the&nbsp;<strong>Request Type</strong>&nbsp;under&nbsp;<strong>Storage Filter</strong>&nbsp;to&nbsp;<strong>All
+Requests</strong>. Click&nbsp;<strong>Finished</strong>.</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image14.png"><img alt="image6" src="../../_images/image14.png" style="width: 6.50000in; height: 5.44653in;" /></a></p>
+</div></blockquote>
+</li>
+</ol>
+<p><strong>Question:</strong> Would logging all requests and responses in a production
+environment be a best practice?</p>
+</div>
+<div class="section" id="apply-asm-logging-profile">
+<h2>2.1.7. Apply ASM Logging Profile<a class="headerlink" href="#apply-asm-logging-profile" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Under&nbsp;<strong>Local Traffic</strong>&nbsp;&gt;&nbsp;<strong>Virtual Servers</strong>, click
+on&nbsp;<strong>hackazon.f5demo.com_https_vs</strong>.</p>
+</li>
+<li><p class="first">Click on&nbsp;<strong>Policies</strong>&nbsp;under the&nbsp;<strong>Security</strong>&nbsp;tab at the top of
+the&nbsp;<strong>hackazon.f5demo.com_https_vs</strong> details menu.</p>
+</li>
+<li><p class="first">In the&nbsp;<strong>Log Profile</strong>&nbsp;drop down menu, select&nbsp;<strong>Enabled…</strong>.</p>
+</li>
+<li><p class="first">Within the Available logging profiles menu,
+select&nbsp;<strong>asm_allrequests</strong>&nbsp;and then click the&nbsp;<strong>&lt;&lt;</strong>&nbsp;arrows to
+move the logging policy to the&nbsp;<strong>Selected</strong>&nbsp;profile.</p>
+</li>
+<li><p class="first">Click on the&nbsp;<strong>Update</strong>&nbsp;button to apply the policy.</p>
+<p><a class="reference internal" href="../../_images/image17.png"><img alt="image7" src="../../_images/image17.png" style="width: 6.50000in; height: 5.24444in;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="test-asm-policy">
+<h2>2.1.8. Test ASM Policy<a class="headerlink" href="#test-asm-policy" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Open Firefox and navigate to <a class="reference external" href="https://hackazon.f5demo.com">https://hackazon.f5demo.com</a></p>
+</li>
+<li><p class="first"><em>(You’ll find a toolbar shortcut for the Hackazon link and this can
+be used.)</em></p>
+<p><a class="reference internal" href="../../_images/image19.png"><img alt="image8" src="../../_images/image19.png" style="width: 5.00000in; height: 2.53125in;" /></a></p>
+</li>
+<li><p class="first">Interact with the application by clicking the Hackazon logo and any
+of the items under the Special Selection title that appear on the
+front page. <strong>Please</strong> refrain from experimenting with the site using
+any “exploit” techniques that you might be familiar with.</p>
+</li>
+<li></li>
+<li><p class="first">On the BIG-IP, navigate to <strong>Security &gt; Event Logs &gt; Application &gt;
+Requests</strong> and verify that requests are being observed.</p>
+</li>
+<li><p class="first"><strong>Tip:</strong> You will need to clear the “Illegal Requests” only filter:</p>
+<p><a class="reference internal" href="../../_images/image20.png"><img alt="image9" src="../../_images/image20.png" style="width: 6.50000in; height: 3.10278in;" /></a></p>
+<p>You should be able to see both the raw client request and server
+response for the event that you selected.</p>
+<p><strong>For</strong> <strong>example:</strong></p>
+<p><a class="reference internal" href="../../_images/image21.png"><img alt="image10" src="../../_images/image21.png" style="width: 6.50000in; height: 2.88681in;" /></a></p>
+</li>
+</ol>
+<div class="section" id="review-server-technologies">
+<h3>2.1.8.1. Review Server Technologies<a class="headerlink" href="#review-server-technologies" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">On the BIG-IP, navigate to <strong>Security &gt; Application Security &gt; Policy
+Building &gt; Traffic Learning</strong></p>
+</li>
+<li><p class="first">You will see that ASM has detected 4 or more Server Technologies just
+from the site browsing you did in the previous section.</p>
+<p><a class="reference internal" href="../../_images/image22.png"><img alt="image11" src="../../_images/image22.png" style="width: 6.50000in; height: 2.36458in;" /></a></p>
+</li>
+<li><p class="first">Select all the <strong>Add Server Technology recommendations</strong> and click
+<strong>Accept Suggestions</strong>.</p>
+</li>
+<li><p class="first">Be sure to click “Apply Policy at the top right:</p>
+<p><a class="reference internal" href="../../_images/image23.png"><img alt="image12" src="../../_images/image23.png" style="width: 5.63131in; height: 2.39391in;" /></a></p>
+<p><strong>Question:</strong> What about the other suggestion regarding “Add Valid
+Host Name”? Should this be accepted, why or why not?</p>
+<p><strong>Question:</strong> How does accepting Server Technologies affect
+Signatures?</p>
+</li>
+</ol>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2.html">2.1.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+        
+		     <div class="row next-prev-btn-row">
+           <div class="col-lg-12">
+           
+		        <a href="../class1.html" title="2. Class - F5 WAF: Practical Intro to L7 Security" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+           
+           
+              <a href="lab1.html" title="2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+           
+		     </div>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="content-fluid pre-footer">
+            <div class="blocks-container">
+              <div class="block">
+                <h3>Support Programs</h3>
+                <p>Regionally located support centers enable F5 to provide support in a number of languages through native-speaking support engineers.</p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/support/support-offerings" target="_blank" href="https://f5.com/support/support-offerings">See more
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Contact Support</h3>
+                <p>
+                  North America: 1-888-882-7535<br>
+                  Outside North America: 800-11-275-435
+                </p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" href="https://f5.com/about-us/contact#regional-support">Local Support Numbers
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Feedback and Help</h3>
+                <p>Have questions, suggestions, or just want to get something off your chest? Let us know.</p>
+                <a class="btn" data-ui-sref="siteFeedback" target="_blank" href="https://support.f5.com/csp/siteFeedback">Leave feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer">
+            <div class="container">
+              <div class="col-sm-3 col-md-2">
+                <h4>About F5</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/about-us/contact" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact" class="internalLink">Contact F5</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/about-us/careers" target="_blank" data-link-type="footer" href="https://f5.com/about-us/careers" class="internalLink">Careers</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-3 col-md-2">
+                <h4>Education</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/education/training" target="_blank" data-link-type="footer" href="https://f5.com/education/training" class="internalLink">Training</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/certification" target="_blank" data-link-type="footer" href="https://f5.com/education/certification" class="internalLink">Certification</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/training/free-courses" target="_blank" data-link-type="footer" href="https://f5.com/education/training/free-courses" class="internalLink">Free Online Training</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-sm-3 col-md-2">
+                <h4>F5 sites</h4>
+                <ul>
+                <li><a data-ng-href="https://f5.com" target="_blank" data-link-type="footer" href="https://f5.com" class="internalLink">F5.com</a>
+                </li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" data-link-type="footer" href="https://devcentral.f5.com" class="internalLink">Community</a>
+                </li>
+                <li><a data-ng-href="https://partners.f5.com" target="_blank" data-link-type="footer" href="https://partners.f5.com" class="internalLink">Partners</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-3 col-md-2">
+            <h4>Support Tasks</h4>
+            <ul>
+                <li><a data-ui-sref="mySupport.createServiceRequest" data-link-type="footer" href="https://support.f5.com/csp/my-support/service-request">Create Service Request </a>
+                </li>
+                <li><a data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact#regional-support" class="internalLink">Contact Support</a>
+                </li>
+                <li><a data-ui-sref="siteFeedback" target="_blank" data-link-type="footer" href="https://support.f5.com/csp/siteFeedback">Leave feedback [+]</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-md-3 right">
+            <h4>Connect with us</h4>
+            <ul class="social_icons">
+                <li><a href="//twitter.com/f5networks" target="_blank" data-name="twitter" data-type="" data-prefix="social" data-utf="E032" title="Twitter" class="externalLink"><i class="icon-1x icon-twitter icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.linkedin.com/companies/f5-networks" target="_blank" class="linkedin externalLink" title="LinkedIn"><i class="icon-1x icon-linkedin icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.facebook.com/f5networksinc" target="_blank" class="facebook externalLink" title="Facebook"><i class="icon-1x icon-facebook icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.youtube.com/f5networksinc" target="_blank" class="youtube externalLink" title="YouTube"><i class="icon-1x icon-youtube icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" class="devcentral internalLink" title="DevCentral" href="https://devcentral.f5.com"><i class="icon-1x icon-dc-pos icon-inverse-circle" data-link-type="footer"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="content-fluid left">
+            <div class="col-xs-12">
+                <p>
+                    © Copyright <span class="ng-binding">2017</span> by F5 Networks, Inc. |
+                    <a data-ng-href="https://f5.com/about-us/policies" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies" class="internalLink">Policies</a> |
+                    <a data-ng-href="https://f5.com/about-us/policies/trademarks" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies/trademarks" class="internalLink">Trademarks</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</footer>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict(true)
+  </script>
+  </body>
+</html>
