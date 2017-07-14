@@ -243,4 +243,3 @@ Review Server Technologies
    :maxdepth: 1
    :glob:
 
-   lab*
