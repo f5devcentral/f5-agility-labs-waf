@@ -94,6 +94,12 @@ Geolocation
 3. Open **Local Traffic** **>** **iRules** and open the iRule titled
    hackazon\_irule and review the code.
 
++-----------------------------------------------------------------------------------------------------------------------------------------+
+|when HTTP_REQUEST {                                                                                                                      | 
+|   HTTP::header replace X-Forwarded-For "[expr (int(rand()*221)+1)].[expr int(rand()*254)].[expr int(rand()*254)].[expr int(rand()*254)]"| 
+|}                                                                                                                                        |
++-----------------------------------------------------------------------------------------------------------------------------------------+
+
 NOTE: The above iRule is essentially scanning the HTTP headers and when
 it finds the X-Forwarded-For header it will replace the original source
 IP address with a randomized IP address. Since we are only manipulating
@@ -201,7 +207,6 @@ inbound traffic as having the malicious sources.
 | bit 7 - Phishing                                                                                                                                                                                                                  |
 |                                                                                                                                                                                                                                   |
 | bit 8 - Proxy                                                                                                                                                                                                                     |
-+===================================================================================================================================================================================================================================+
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 5. Close the Firefox Private Browsing window.
