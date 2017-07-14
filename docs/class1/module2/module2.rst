@@ -71,7 +71,7 @@ What is the purpose of the “-k” option?
 
     Why did you not receive the block page?
 
-** Disable Signature Staging and Attempt an Illegal REquest **
+**Disable Signature Staging and Attempt an Illegal Request**
 
 1. Navigate to **Security** **>** **Application Security** **>**
    **Policy Building** **>** **Learning and Blocking Settings** and in
@@ -101,7 +101,7 @@ NOTE: In a production environment you may have thousands of blocked
 events and you will need to respond to issues quickly. Searching via the
 support ID is the fastest way to achieve this.
 
-** Find a blocked request in the event logs using the Support ID **
+**Find a blocked request in the event logs using the Support ID**
 
 1. Click the magnifying glass. In the pop out box enter the last four
    digits of the Support ID you noted previously and click “Apply
