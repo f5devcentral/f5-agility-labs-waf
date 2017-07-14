@@ -208,23 +208,10 @@
   </form>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-  <p class="caption">
-   <span class="caption-text">Current Page</span>
-  </p>
-  <ul>
-<li><a class="reference internal" href="#">1. Getting Started</a><ul>
-<li><a class="reference internal" href="#lab-network-overview">1.1. Lab Network Overview</a></li>
-</ul>
-</li>
-</ul>
-
 
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lab-network-overview">1.1. Lab Network Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="class1/class1.html">2. Class - F5 WAF: Practical Intro to L7 Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">3. Examples of Common Formatting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">4. Markdown files are also supported</a></li>
@@ -253,61 +240,6 @@ lab and access your jump host.</p>
 <p class="last">All work for this lab will be performed exclusively from the Windows
 jumphost. No installation or interaction with your local system is
 required.</p>
-</div>
-<div class="section" id="lab-network-overview">
-<h2>1.1. Lab Network Overview<a class="headerlink" href="#lab-network-overview" title="Permalink to this headline">¶</a></h2>
-<p>Each student will have access to a Windows 7 “Jumpbox”. Information
-required to gain RDP access to the Jumpbox will be provided in each
-session.</p>
-<p>Each student will have a BIG-IP VE environment with IP addressing as
-below:</p>
-<blockquote>
-<div><p>10.0.0.0/24 – Management Subnet</p>
-<p>10.0.0.4/24 – BIGIP mgmt IP</p>
-<p>10.0.0.100/24 – Win7 “Jumpbox” mgmt IP</p>
-<p>10.128.10.0/24 – External Subnet</p>
-<p>10.128.10.200 – auction.f5demo.com virtual server</p>
-<p>10.128.20.0/24 – Internal Subnet</p>
-<p>10.128.20.245 – BIGIP self IP</p>
-<p>10.128.20.210 – Hackazon.f5demo.com webserver</p>
-</div></blockquote>
-<p>All operations in this lab will be performed from within a Windows 7
-“Jumpbox” running in the cloud, which you’ll reach using a Microsoft
-Remote Desktop Connection client running on your personal workstation.
-Lab instructors will provide a hostname for you to use to access your
-personal lab environment.</p>
-<p><strong>Important: If you are using a *VPN client* inform your instructors. We
-are using an IP filter on the cloud environment that restricts access</strong>
-<strong>to known IP’s.</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="41%" />
-<col width="27%" />
-<col width="31%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><em>Device</em></th>
-<th class="head"><em>Username</em></th>
-<th class="head"><em>Password</em></th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Windows 7 Jumpbox</td>
-<td>student</td>
-<td>401elliottW!</td>
-</tr>
-<tr class="row-odd"><td>BIG-IP (HTTPS)</td>
-<td>admin</td>
-<td>401elliottW!</td>
-</tr>
-<tr class="row-even"><td>BIG-IP (SSH)</td>
-<td>root</td>
-<td>401elliottW!</td>
-</tr>
-</tbody>
-</table>
-<p>Please use the <strong>Chrome web browser</strong> to access the BIG-IP Configuration
-Utility (WebUI) which is accessible at: <a class="reference external" href="https://10.128.1.245">https://10.128.1.245</a>.</p>
 </div>
 </div>
 

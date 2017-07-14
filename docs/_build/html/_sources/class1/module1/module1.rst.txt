@@ -2,8 +2,6 @@ Module – Base Policy Creation
 =============================
 
 
-Exercise 1 – Base Policy Creation
-
 Objective:
 ----------
 

@@ -8,10 +8,10 @@ This class covers the following topics:
 - Adding Context
 - Proactive Bot Defense
 
-Expected time to complete: **3 hours**
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
+   intro*
    module*/module*

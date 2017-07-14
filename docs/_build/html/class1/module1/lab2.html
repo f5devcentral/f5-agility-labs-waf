@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2.1.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor &#8212; F5 WAF: Practical Intro to L7 Security  documentation</title>
+    <title>2.2.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor &#8212; F5 WAF: Practical Intro to L7 Security  documentation</title>
     
     <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.2. Module – False Positive Scenarios" href="../module2/module2.html" />
-    <link rel="prev" title="2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" href="lab1.html" />
+    <link rel="next" title="2.3. Module – False Positive Scenarios" href="../module2/module2.html" />
+    <link rel="prev" title="2.2.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" href="lab1.html" />
 <!--
 # Copyright 2017 F5 Networks
 #
@@ -212,9 +212,9 @@
    <span class="caption-text">Current Page</span>
   </p>
   <ul>
-<li><a class="reference internal" href="#">2.1.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor</a><ul>
-<li><a class="reference internal" href="#task-upload-the-image-to-your-hypervisor">2.1.8.1.2.1. Task – Upload the image to your Hypervisor</a></li>
-<li><a class="reference internal" href="#task-start-a-bip-ve-instance">2.1.8.1.2.2. Task – Start a BIG-IP Virtual Edition Instance</a></li>
+<li><a class="reference internal" href="#">2.2.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor</a><ul>
+<li><a class="reference internal" href="#task-upload-the-image-to-your-hypervisor">2.2.8.1.2.1. Task – Upload the image to your Hypervisor</a></li>
+<li><a class="reference internal" href="#task-start-a-bip-ve-instance">2.2.8.1.2.2. Task – Start a BIG-IP Virtual Edition Instance</a></li>
 </ul>
 </li>
 </ul>
@@ -224,10 +224,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - F5 WAF: Practical Intro to L7 Security</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="module1.html">2.1. Module – Base Policy Creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.2. Module – False Positive Scenarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.3. Module – Adding Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.4. Module – Proactive Bot Defense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">2.1. Lab Network Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="module1.html">2.2. Module – Base Policy Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.3. Module – False Positive Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.4. Module – Adding Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.5. Module – Proactive Bot Defense</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples.html">3. Examples of Common Formatting</a></li>
@@ -236,10 +237,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="lab1.html"
-                        title="previous chapter">2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image</a></p>
+                        title="previous chapter">2.2.8.1.1. Lab – Download the BIG-IP Virtual Edition Image</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../module2/module2.html"
-                        title="next chapter">2.2. Module – False Positive Scenarios</a></p>
+                        title="next chapter">2.3. Module – False Positive Scenarios</a></p>
         
       </div>
       <div class="col-md-offset-3 col-sm-offset-3 main">
@@ -249,7 +250,7 @@
         </h4>
         
   <div class="section" id="lab-install-a-bip-ve-image-on-a-hypervisor">
-<h1>2.1.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor<a class="headerlink" href="#lab-install-a-bip-ve-image-on-a-hypervisor" title="Permalink to this headline">¶</a></h1>
+<h1>2.2.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor<a class="headerlink" href="#lab-install-a-bip-ve-image-on-a-hypervisor" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">Needs lab description</p>
@@ -257,7 +258,7 @@
 <p>In the previous lab we learned how to download the BIG-IP Virtual Edition image.  Now, we
 can install the image onto a hypervisor.</p>
 <div class="section" id="task-upload-the-image-to-your-hypervisor">
-<h2>2.1.8.1.2.1. Task – Upload the image to your Hypervisor<a class="headerlink" href="#task-upload-the-image-to-your-hypervisor" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.8.1.2.1. Task – Upload the image to your Hypervisor<a class="headerlink" href="#task-upload-the-image-to-your-hypervisor" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-1">
 <p class="first admonition-title">Todo</p>
 <p class="last">Needs task description</p>
@@ -278,7 +279,7 @@ can install the image onto a hypervisor.</p>
 </ol>
 </div>
 <div class="section" id="task-start-a-bip-ve-instance">
-<h2>2.1.8.1.2.2. Task – Start a BIG-IP Virtual Edition Instance<a class="headerlink" href="#task-start-a-bip-ve-instance" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.8.1.2.2. Task – Start a BIG-IP Virtual Edition Instance<a class="headerlink" href="#task-start-a-bip-ve-instance" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-2">
 <p class="first admonition-title">Todo</p>
 <p class="last">Needs task description</p>
@@ -299,10 +300,10 @@ the previous task.</p>
 		     <div class="row next-prev-btn-row">
            <div class="col-lg-12">
            
-		        <a href="lab1.html" title="2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+		        <a href="lab1.html" title="2.2.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
            
            
-              <a href="../module2/module2.html" title="2.2. Module – False Positive Scenarios" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+              <a href="../module2/module2.html" title="2.3. Module – False Positive Scenarios" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
            
 		     </div>
          </div>

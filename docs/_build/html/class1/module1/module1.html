@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2.1. Module – Base Policy Creation &#8212; F5 WAF: Practical Intro to L7 Security  documentation</title>
+    <title>2.2. Module – Base Policy Creation &#8212; F5 WAF: Practical Intro to L7 Security  documentation</title>
     
     <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" href="lab1.html" />
-    <link rel="prev" title="2. Class - F5 WAF: Practical Intro to L7 Security" href="../class1.html" />
+    <link rel="next" title="2.2.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" href="lab1.html" />
+    <link rel="prev" title="2.1. Lab Network Overview" href="../intro.html" />
 <!--
 # Copyright 2017 F5 Networks
 #
@@ -212,16 +212,16 @@
    <span class="caption-text">Current Page</span>
   </p>
   <ul>
-<li><a class="reference internal" href="#">2.1. Module – Base Policy Creation</a><ul>
-<li><a class="reference internal" href="#objective">2.1.1. Objective:</a></li>
-<li><a class="reference internal" href="#create-policy">2.1.2. Create Policy</a></li>
-<li><a class="reference internal" href="#configure-policy">2.1.3. Configure Policy</a></li>
-<li><a class="reference internal" href="#accept-remaining-default-policy-settings">2.1.4. Accept Remaining Default Policy Settings</a></li>
-<li><a class="reference internal" href="#verify-asm-profile-is-applied">2.1.5. Verify ASM Profile is Applied</a></li>
-<li><a class="reference internal" href="#create-application-security-logging-profile">2.1.6. Create Application Security Logging Profile</a></li>
-<li><a class="reference internal" href="#apply-asm-logging-profile">2.1.7. Apply ASM Logging Profile</a></li>
-<li><a class="reference internal" href="#test-asm-policy">2.1.8. Test ASM Policy</a><ul>
-<li><a class="reference internal" href="#review-server-technologies">2.1.8.1. Review Server Technologies</a></li>
+<li><a class="reference internal" href="#">2.2. Module – Base Policy Creation</a><ul>
+<li><a class="reference internal" href="#objective">2.2.1. Objective:</a></li>
+<li><a class="reference internal" href="#create-policy">2.2.2. Create Policy</a></li>
+<li><a class="reference internal" href="#configure-policy">2.2.3. Configure Policy</a></li>
+<li><a class="reference internal" href="#accept-remaining-default-policy-settings">2.2.4. Accept Remaining Default Policy Settings</a></li>
+<li><a class="reference internal" href="#verify-asm-profile-is-applied">2.2.5. Verify ASM Profile is Applied</a></li>
+<li><a class="reference internal" href="#create-application-security-logging-profile">2.2.6. Create Application Security Logging Profile</a></li>
+<li><a class="reference internal" href="#apply-asm-logging-profile">2.2.7. Apply ASM Logging Profile</a></li>
+<li><a class="reference internal" href="#test-asm-policy">2.2.8. Test ASM Policy</a><ul>
+<li><a class="reference internal" href="#review-server-technologies">2.2.8.1. Review Server Technologies</a></li>
 </ul>
 </li>
 </ul>
@@ -233,10 +233,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - F5 WAF: Practical Intro to L7 Security</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Module – Base Policy Creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.2. Module – False Positive Scenarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.3. Module – Adding Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.4. Module – Proactive Bot Defense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">2.1. Lab Network Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Module – Base Policy Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.3. Module – False Positive Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.4. Module – Adding Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/module4.html">2.5. Module – Proactive Bot Defense</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples.html">3. Examples of Common Formatting</a></li>
@@ -244,11 +245,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../class1.html"
-                        title="previous chapter">2. Class - F5 WAF: Practical Intro to L7 Security</a></p>
+  <p class="topless"><a href="../intro.html"
+                        title="previous chapter">2.1. Lab Network Overview</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="lab1.html"
-                        title="next chapter">2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image</a></p>
+                        title="next chapter">2.2.8.1.1. Lab – Download the BIG-IP Virtual Edition Image</a></p>
         
       </div>
       <div class="col-md-offset-3 col-sm-offset-3 main">
@@ -258,10 +259,9 @@
         </h4>
         
   <div class="section" id="module-base-policy-creation">
-<h1>2.1. Module – Base Policy Creation<a class="headerlink" href="#module-base-policy-creation" title="Permalink to this headline">¶</a></h1>
-<p>Exercise 1 – Base Policy Creation</p>
+<h1>2.2. Module – Base Policy Creation<a class="headerlink" href="#module-base-policy-creation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="objective">
-<h2>2.1.1. Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.1. Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Create a security policy using manual policy building</p>
 </li>
@@ -285,7 +285,7 @@ using manual policy building.</p>
 </ul>
 </div>
 <div class="section" id="create-policy">
-<h2>2.1.2. Create Policy<a class="headerlink" href="#create-policy" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.2. Create Policy<a class="headerlink" href="#create-policy" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">On the Main tab, click&nbsp;<strong>Security</strong>&nbsp;&gt;&nbsp;<strong>Application
 Security</strong>&nbsp;&gt;&nbsp;<strong>Security Policies</strong>. The Active Policies screen opens.</p>
@@ -300,7 +300,7 @@ opens.</p>
 <p><a class="reference internal" href="../../_images/image6.png"><img alt="image3" src="../../_images/image6.png" style="width: 5.87937in; height: 3.13315in;" /></a></p>
 </div>
 <div class="section" id="configure-policy">
-<h2>2.1.3. Configure Policy<a class="headerlink" href="#configure-policy" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.3. Configure Policy<a class="headerlink" href="#configure-policy" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Click the <strong>Advanced</strong> button (Top-Right) to ensure that all the
 available policy creation options are displayed.</li>
@@ -322,7 +322,7 @@ to&nbsp;<strong>Manual</strong>.</li>
 </ol>
 </div>
 <div class="section" id="accept-remaining-default-policy-settings">
-<h2>2.1.4. Accept Remaining Default Policy Settings<a class="headerlink" href="#accept-remaining-default-policy-settings" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.4. Accept Remaining Default Policy Settings<a class="headerlink" href="#accept-remaining-default-policy-settings" title="Permalink to this headline">¶</a></h2>
 <p><strong>Your settings should reflect this figure:</strong><a class="reference internal" href="../../_images/image11.png"><img alt="image4" src="../../_images/image11.png" style="width: 6.50000in; height: 3.54931in;" /></a></p>
 <ol class="arabic">
 <li><p class="first">Click&nbsp;<strong>Create Policy</strong>&nbsp;to complete the policy creation process.</p>
@@ -345,7 +345,7 @@ allows for rollbacks of configuration.</p>
 <p><a class="reference internal" href="../../_images/image12.png"><img alt="image5" src="../../_images/image12.png" style="width: 6.50000in; height: 2.35833in;" /></a></p>
 </div>
 <div class="section" id="verify-asm-profile-is-applied">
-<h2>2.1.5. Verify ASM Profile is Applied<a class="headerlink" href="#verify-asm-profile-is-applied" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.5. Verify ASM Profile is Applied<a class="headerlink" href="#verify-asm-profile-is-applied" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Under&nbsp;<strong>Local Traffic</strong>&nbsp;&gt;&nbsp;<strong>Virtual Servers</strong>, click
 on&nbsp;<strong>hackazon.f5demo.com_https_vs</strong>.</li>
@@ -360,7 +360,7 @@ drop-down selection shows the hackazon_asm policy.</li>
 </ol>
 </div>
 <div class="section" id="create-application-security-logging-profile">
-<h2>2.1.6. Create Application Security Logging Profile<a class="headerlink" href="#create-application-security-logging-profile" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.6. Create Application Security Logging Profile<a class="headerlink" href="#create-application-security-logging-profile" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">In the Configuration Utility, navigate to: &nbsp;<strong>Security</strong>&nbsp;&gt;&nbsp;<strong>Event
 Logs</strong>&nbsp;&gt;&nbsp;<strong>Logging Profiles</strong>&nbsp;then <strong>click the plus icon</strong>.</p>
@@ -383,7 +383,7 @@ Requests</strong>. Click&nbsp;<strong>Finished</strong>.</p>
 environment be a best practice?</p>
 </div>
 <div class="section" id="apply-asm-logging-profile">
-<h2>2.1.7. Apply ASM Logging Profile<a class="headerlink" href="#apply-asm-logging-profile" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.7. Apply ASM Logging Profile<a class="headerlink" href="#apply-asm-logging-profile" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Under&nbsp;<strong>Local Traffic</strong>&nbsp;&gt;&nbsp;<strong>Virtual Servers</strong>, click
 on&nbsp;<strong>hackazon.f5demo.com_https_vs</strong>.</p>
@@ -403,7 +403,7 @@ move the logging policy to the&nbsp;<strong>Selected</strong>&nbsp;profile.</p>
 </ol>
 </div>
 <div class="section" id="test-asm-policy">
-<h2>2.1.8. Test ASM Policy<a class="headerlink" href="#test-asm-policy" title="Permalink to this headline">¶</a></h2>
+<h2>2.2.8. Test ASM Policy<a class="headerlink" href="#test-asm-policy" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Open Firefox and navigate to <a class="reference external" href="https://hackazon.f5demo.com">https://hackazon.f5demo.com</a></p>
 </li>
@@ -429,7 +429,7 @@ response for the event that you selected.</p>
 </li>
 </ol>
 <div class="section" id="review-server-technologies">
-<h3>2.1.8.1. Review Server Technologies<a class="headerlink" href="#review-server-technologies" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.8.1. Review Server Technologies<a class="headerlink" href="#review-server-technologies" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">On the BIG-IP, navigate to <strong>Security &gt; Application Security &gt; Policy
 Building &gt; Traffic Learning</strong></p>
@@ -451,8 +451,8 @@ Signatures?</p>
 </ol>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lab1.html">2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab2.html">2.1.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">2.2.8.1.1. Lab – Download the BIG-IP Virtual Edition Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2.html">2.2.8.1.2. Lab – Install a BIG-IP Virtual Edition image on a Hypervisor</a></li>
 </ul>
 </div>
 </div>
@@ -464,10 +464,10 @@ Signatures?</p>
 		     <div class="row next-prev-btn-row">
            <div class="col-lg-12">
            
-		        <a href="../class1.html" title="2. Class - F5 WAF: Practical Intro to L7 Security" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+		        <a href="../intro.html" title="2.1. Lab Network Overview" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
            
            
-              <a href="lab1.html" title="2.1.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+              <a href="lab1.html" title="2.2.8.1.1. Lab – Download the BIG-IP Virtual Edition Image" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
            
 		     </div>
          </div>

@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2.4. Module – Proactive Bot Defense &#8212; F5 WAF: Practical Intro to L7 Security  documentation</title>
+    <title>2.5. Module – Proactive Bot Defense &#8212; F5 WAF: Practical Intro to L7 Security  documentation</title>
     
     <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.4.10.1. Lab – Install a F5 Networks BIG-IP Appliance" href="lab1.html" />
-    <link rel="prev" title="2.3.4.2. Lab – Power-on the BIG-IP Appliance" href="../module3/lab2.html" />
+    <link rel="next" title="2.5.10.1. Lab – Install a F5 Networks BIG-IP Appliance" href="lab1.html" />
+    <link rel="prev" title="2.4.4.2. Lab – Power-on the BIG-IP Appliance" href="../module3/lab2.html" />
 <!--
 # Copyright 2017 F5 Networks
 #
@@ -212,17 +212,17 @@
    <span class="caption-text">Current Page</span>
   </p>
   <ul>
-<li><a class="reference internal" href="#">2.4. Module – Proactive Bot Defense</a><ul>
-<li><a class="reference internal" href="#objective">2.4.1. Objective:</a></li>
-<li><a class="reference internal" href="#create-policy">2.4.2. Create Policy</a></li>
-<li><a class="reference internal" href="#configure-policy">2.4.3. Configure Policy</a></li>
-<li><a class="reference internal" href="#apply-proactive-bot-defense-policy">2.4.4. Apply Proactive Bot Defense Policy</a></li>
-<li><a class="reference internal" href="#create-bot-defense-logging-profile">2.4.5. Create Bot Defense Logging Profile</a></li>
-<li><a class="reference internal" href="#apply-bot-defense-logging-profile">2.4.6. Apply Bot Defense Logging Profile</a></li>
-<li><a class="reference internal" href="#test-the-proactive-bot-defense-policy">2.4.7. Test the Proactive Bot Defense Policy</a></li>
-<li><a class="reference internal" href="#validate-that-the-proactive-bot-defense-policy-is-working">2.4.8. Validate that the Proactive Bot Defense Policy is Working</a></li>
-<li><a class="reference internal" href="#bot-signatures">2.4.9. BOT Signatures</a></li>
-<li><a class="reference internal" href="#selectively-blocking-bot-categories">2.4.10. Selectively Blocking BOT Categories</a></li>
+<li><a class="reference internal" href="#">2.5. Module – Proactive Bot Defense</a><ul>
+<li><a class="reference internal" href="#objective">2.5.1. Objective:</a></li>
+<li><a class="reference internal" href="#create-policy">2.5.2. Create Policy</a></li>
+<li><a class="reference internal" href="#configure-policy">2.5.3. Configure Policy</a></li>
+<li><a class="reference internal" href="#apply-proactive-bot-defense-policy">2.5.4. Apply Proactive Bot Defense Policy</a></li>
+<li><a class="reference internal" href="#create-bot-defense-logging-profile">2.5.5. Create Bot Defense Logging Profile</a></li>
+<li><a class="reference internal" href="#apply-bot-defense-logging-profile">2.5.6. Apply Bot Defense Logging Profile</a></li>
+<li><a class="reference internal" href="#test-the-proactive-bot-defense-policy">2.5.7. Test the Proactive Bot Defense Policy</a></li>
+<li><a class="reference internal" href="#validate-that-the-proactive-bot-defense-policy-is-working">2.5.8. Validate that the Proactive Bot Defense Policy is Working</a></li>
+<li><a class="reference internal" href="#bot-signatures">2.5.9. BOT Signatures</a></li>
+<li><a class="reference internal" href="#selectively-blocking-bot-categories">2.5.10. Selectively Blocking BOT Categories</a></li>
 </ul>
 </li>
 </ul>
@@ -232,10 +232,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - F5 WAF: Practical Intro to L7 Security</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../module1/module1.html">2.1. Module – Base Policy Creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.2. Module – False Positive Scenarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.3. Module – Adding Context</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. Module – Proactive Bot Defense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">2.1. Lab Network Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/module1.html">2.2. Module – Base Policy Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/module2.html">2.3. Module – False Positive Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/module3.html">2.4. Module – Adding Context</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.5. Module – Proactive Bot Defense</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples.html">3. Examples of Common Formatting</a></li>
@@ -244,10 +245,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="../module3/lab2.html"
-                        title="previous chapter">2.3.4.2. Lab – Power-on the BIG-IP Appliance</a></p>
+                        title="previous chapter">2.4.4.2. Lab – Power-on the BIG-IP Appliance</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="lab1.html"
-                        title="next chapter">2.4.10.1. Lab – Install a F5 Networks BIG-IP Appliance</a></p>
+                        title="next chapter">2.5.10.1. Lab – Install a F5 Networks BIG-IP Appliance</a></p>
         
       </div>
       <div class="col-md-offset-3 col-sm-offset-3 main">
@@ -257,9 +258,9 @@
         </h4>
         
   <div class="section" id="module-proactive-bot-defense">
-<h1>2.4. Module – Proactive Bot Defense<a class="headerlink" href="#module-proactive-bot-defense" title="Permalink to this headline">¶</a></h1>
+<h1>2.5. Module – Proactive Bot Defense<a class="headerlink" href="#module-proactive-bot-defense" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="objective">
-<h2>2.4.1. Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.1. Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Create a DoS profile</li>
 <li>Enable proactive bot defense</li>
@@ -269,7 +270,7 @@
 </ul>
 </div>
 <div class="section" id="create-policy">
-<h2>2.4.2. Create Policy<a class="headerlink" href="#create-policy" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.2. Create Policy<a class="headerlink" href="#create-policy" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">IMPORTANT – To clearly demonstrate just the Bot Defense profile,
 please <strong>disable</strong> <strong>the Application Security Policy from the</strong>
@@ -305,7 +306,7 @@ complete the creation of this DoS profile.</p>
 </ol>
 </div>
 <div class="section" id="configure-policy">
-<h2>2.4.3. Configure Policy<a class="headerlink" href="#configure-policy" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.3. Configure Policy<a class="headerlink" href="#configure-policy" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first"><strong>Click</strong> the newly created “hackazon_DoS” profile listed under the
 <strong>“Security &gt; Dos Protection &gt; DoS Profiles”</strong> list.</p>
@@ -339,7 +340,7 @@ Defense hackazon_DoS profile.</p>
 </ol>
 </div>
 <div class="section" id="apply-proactive-bot-defense-policy">
-<h2>2.4.4. Apply Proactive Bot Defense Policy<a class="headerlink" href="#apply-proactive-bot-defense-policy" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.4. Apply Proactive Bot Defense Policy<a class="headerlink" href="#apply-proactive-bot-defense-policy" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Under&nbsp;<strong>Local Traffic</strong>&nbsp;&gt;&nbsp;<strong>Virtual Servers</strong>, click
 on&nbsp;<strong>hackazon.f5demo.com_https_vs</strong>.</p>
@@ -357,7 +358,7 @@ the profile.</p>
 </ol>
 </div>
 <div class="section" id="create-bot-defense-logging-profile">
-<h2>2.4.5. Create Bot Defense Logging Profile<a class="headerlink" href="#create-bot-defense-logging-profile" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.5. Create Bot Defense Logging Profile<a class="headerlink" href="#create-bot-defense-logging-profile" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Open a new tab for the Configuration Utility and navigate to:
 &nbsp;<strong>Security</strong>&nbsp;&gt;&nbsp;<strong>Event Logs</strong>&nbsp;&gt;&nbsp;<strong>Logging Profiles</strong>&nbsp;then <strong>click
@@ -380,7 +381,7 @@ logging profile and added DoS logging definitions.</p>
 <p><a class="reference internal" href="../../_images/image77.png"><img alt="image50" src="../../_images/image77.png" style="width: 6.50000in; height: 5.05278in;" /></a></p>
 </div>
 <div class="section" id="apply-bot-defense-logging-profile">
-<h2>2.4.6. Apply Bot Defense Logging Profile<a class="headerlink" href="#apply-bot-defense-logging-profile" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.6. Apply Bot Defense Logging Profile<a class="headerlink" href="#apply-bot-defense-logging-profile" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Under&nbsp;<strong>Local Traffic</strong>&nbsp;&gt;&nbsp;<strong>Virtual Servers</strong>, click
 on&nbsp;<strong>hackazon.f5demo.com_https_vs</strong>.</li>
@@ -414,7 +415,7 @@ Policy events.</p>
 </div></blockquote>
 </div>
 <div class="section" id="test-the-proactive-bot-defense-policy">
-<h2>2.4.7. Test the Proactive Bot Defense Policy<a class="headerlink" href="#test-the-proactive-bot-defense-policy" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.7. Test the Proactive Bot Defense Policy<a class="headerlink" href="#test-the-proactive-bot-defense-policy" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li></li>
 <li><p class="first">From the command line execute the following command several times:</p>
@@ -431,7 +432,7 @@ blocked.</p>
 </ol>
 </div>
 <div class="section" id="validate-that-the-proactive-bot-defense-policy-is-working">
-<h2>2.4.8. Validate that the Proactive Bot Defense Policy is Working<a class="headerlink" href="#validate-that-the-proactive-bot-defense-policy-is-working" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.8. Validate that the Proactive Bot Defense Policy is Working<a class="headerlink" href="#validate-that-the-proactive-bot-defense-policy-is-working" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Navigate to <strong>Security</strong> &gt; <strong>Event Logs</strong> &gt; <strong>Bot Defense</strong> &gt;
 <strong>Requests</strong>.</p>
@@ -455,7 +456,7 @@ scroll to the right to see this reason. What was the stated reason?</li>
 </ol>
 </div>
 <div class="section" id="bot-signatures">
-<h2>2.4.9. BOT Signatures<a class="headerlink" href="#bot-signatures" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.9. BOT Signatures<a class="headerlink" href="#bot-signatures" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first"><strong>Navigate to Security &gt;</strong> <strong>DoS Protection &gt;</strong> <strong>DoS Profiles.</strong></p>
 <p><a class="reference internal" href="../../_images/image84.png"><img alt="image55" src="../../_images/image84.png" style="width: 5.58056in; height: 2.81736in;" /></a></p>
@@ -501,7 +502,7 @@ used? wget? There are many use-cases where you simply do not want a tool
 interacting with your site.</p>
 </div>
 <div class="section" id="selectively-blocking-bot-categories">
-<h2>2.4.10. Selectively Blocking BOT Categories<a class="headerlink" href="#selectively-blocking-bot-categories" title="Permalink to this headline">¶</a></h2>
+<h2>2.5.10. Selectively Blocking BOT Categories<a class="headerlink" href="#selectively-blocking-bot-categories" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li></li>
 <li><p class="first">Under your hackazon DoS profile in <strong>“Application Security &gt;&gt; Bot
@@ -615,8 +616,8 @@ further.</p>
 </ol>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lab1.html">2.4.10.1. Lab – Install a F5 Networks BIG-IP Appliance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab2.html">2.4.10.2. Lab – Power-on the BIG-IP Appliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">2.5.10.1. Lab – Install a F5 Networks BIG-IP Appliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2.html">2.5.10.2. Lab – Power-on the BIG-IP Appliance</a></li>
 </ul>
 </div>
 </div>
@@ -627,10 +628,10 @@ further.</p>
 		     <div class="row next-prev-btn-row">
            <div class="col-lg-12">
            
-		        <a href="../module3/lab2.html" title="2.3.4.2. Lab – Power-on the BIG-IP Appliance" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+		        <a href="../module3/lab2.html" title="2.4.4.2. Lab – Power-on the BIG-IP Appliance" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
            
            
-              <a href="lab1.html" title="2.4.10.1. Lab – Install a F5 Networks BIG-IP Appliance" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+              <a href="lab1.html" title="2.5.10.1. Lab – Install a F5 Networks BIG-IP Appliance" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
            
 		     </div>
          </div>
