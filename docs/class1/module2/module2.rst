@@ -5,8 +5,6 @@ Module – False Positive Scenarios
 Objective:
 ----------
 
--  
--  
 -  Demonstrate False Positive (FP) meta violation
 
 -  Signature and Parameter staging behavior
@@ -14,8 +12,8 @@ Objective:
 -  Identify FP in event viewer, review learning suggestions, modify,
    test
 
--  
--  Estimated time for completion: **30 minutes**
+
+**Estimated time for completion: 30 minutes **
 
 Demonstrate a False Positive
 ----------------------------
@@ -31,12 +29,11 @@ Demonstrate a False Positive
 
 3. Click **Save**
 
-4. 
-5. and then click **Apply** **Policy**
+4. and then click **Apply** **Policy**
 
    **Use cURL to retrieve the web content**
 
-6. On the jump host, you'll find a toolbar shortcut as shown for the
+5. On the jump host, you'll find a toolbar shortcut as shown for the
    Windows Command Prompt. Please click that shortcut to open a Windows
    Command Shell:\ |image14|
 
@@ -44,9 +41,7 @@ Demonstrate a False Positive
 
    **curl** **-k** **https://hackazon.f5demo.com** **\| more**
 
-7. 
-
-|image15|
+   |image15|
 
 You may need to scroll back/forward to see all the output.
 
@@ -55,17 +50,17 @@ You may need to scroll back/forward to see all the output.
 
 What is the purpose of the “-k” option?
 
+** Examine Event Logs **
+
 1. Review the log at **Security** **>** **Event Logs** **>**
    **Application** **>** **Requests** and find the “Attack Signature
    Detected” event for your request.
 
-2. Don’t forget to **remove**
-
-3. **the “illegal requests filter”** to view “all requests”.
+2. Don’t forget to **remove** the **“illegal requests filter”** to view “all requests”.
 
    |image16|
 
-4. In the log click the “down arrow” next to the “Attack Signature
+3. In the log click the “down arrow” next to the “Attack Signature
    Detected” title:
 
    |image17|
@@ -76,6 +71,8 @@ What is the purpose of the “-k” option?
 
     Why did you not receive the block page?
 
+** Disable Signature Staging and Attempt an Illegal REquest **
+
 1. Navigate to **Security** **>** **Application Security** **>**
    **Policy Building** **>** **Learning and Blocking Settings** and in
    the Attack Signatures section (Click the triangle to expand) uncheck
@@ -83,7 +80,7 @@ What is the purpose of the “-k” option?
 
     |image18|
 
-1. Return to your command prompt and execute the command using the ip
+2. Return to your command prompt and execute the command using the ip
    address instead: **curl -k** **https://10.128.10.200** **\| more**
 
    **Question:** What is different about this request from the previous?
@@ -92,10 +89,10 @@ What is the purpose of the “-k” option?
 
     |image19|
 
-1. Make a note of the last four digits of the Support ID returned to
+3. Make a note of the last four digits of the Support ID returned to
    cURL in the blocking response page.
 
-2. Go to **Security** **>** **Event Logs** **>** **Application** **>**
+4. Go to **Security** **>** **Event Logs** **>** **Application** **>**
    **Requests. You should now see an Illegal Request. **
 
     |image20|
@@ -104,13 +101,15 @@ NOTE: In a production environment you may have thousands of blocked
 events and you will need to respond to issues quickly. Searching via the
 support ID is the fastest way to achieve this.
 
+** Find a blocked request in the event logs using the Support ID **
+
 1. Click the magnifying glass. In the pop out box enter the last four
    digits of the Support ID you noted previously and click “Apply
    Filter.”
 
     |image21|
 
-1. Review the log entry after clicking “All Details.”
+2. Review the log entry after clicking “All Details.”
 
    |image22|
 
