@@ -50,7 +50,7 @@ You may need to scroll back/forward to see all the output.
 
 What is the purpose of the “-k” option?
 
-** Examine Event Logs **
+**Examine Event Logs**
 
 1. Review the log at **Security** **>** **Event Logs** **>**
    **Application** **>** **Requests** and find the “Attack Signature
