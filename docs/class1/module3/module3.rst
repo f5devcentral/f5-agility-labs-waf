@@ -28,39 +28,38 @@ Parameter Enforcement
 
    |image29|
 
-1. Open a new private browsing window in Firefox and go to
+3. Open a new private browsing window in Firefox and go to
    https://hackazon.f5demo.com Click **Sign-In** on the top right and
    use the same information from step 15 in Lab 2 to login. You should
    receive the block page at this point. Close the Firefox window and
    return to the BIG-IP Administrative Interface.
 
-2. Go to **Local Traffic** **>** **Profiles** **> Services** **>**
+4. Go to **Local Traffic** **>** **Profiles** **> Services** **>**
    **HTTP** and click **Create**.
 
 |image30|
 
-1. In the new profile complete the following:
+5. In the new profile complete the following:
 
 -  Name: hackazon\_http\_profile
 
 -  Check **Accept XFF**
 
-    Click **Finished**.
+Click **Finished**.
 
-1. Go to **Local Traffic** **>** **Virtual Servers** and click on
+6. Go to **Local Traffic** **>** **Virtual Servers** and click on
    **hackazon.f5demo.com\_https\_vs** and change the HTTP Profile to
    **hackazon\_http\_profile** and click Update.
 
 |image31|
 
-1. In your Security Policy, **“Security** **>** **Application Security >
+7. In your Security Policy, **“Security** **>** **Application Security >
    Policy > PolicyProperties“** adjust the view from **Basic to
    Advanced**
 
-2. check the box next to **Trust XFF Header** (Navigate to Security ->
+8. Check the box next to **Trust XFF Header** (Navigate to Security ->
    Application Security -> Policy -> Policy Properties.
 
-3. 
 
 |image32|
 
@@ -92,10 +91,8 @@ Geolocation
 
 |image34|
 
-1. Open **Local Traffic** **>** **iRules** and open the iRule titled
+3. Open **Local Traffic** **>** **iRules** and open the iRule titled
    hackazon\_irule and review the code.
-
-2. 
 
 NOTE: The above iRule is essentially scanning the HTTP headers and when
 it finds the X-Forwarded-For header it will replace the original source
@@ -107,23 +104,23 @@ addresses.
 
 |image35|
 
-1. Open **Local Traffic** **>** **Virtual Servers** and click on
+4. Open **Local Traffic** **>** **Virtual Servers** and click on
    **hackazon.f5demo.com\_https\_vs**. Go to the **Resources**
    horizontal tab and click on **Manage** in the iRules section.
 
 |image36|
 
-1. Select the hackazon\_irule, move it to the **Enabled** assignment and
+5. Select the hackazon\_irule, move it to the **Enabled** assignment and
    click **Finished**.
 
 |image37|
 
-1. In a **new Firefox Private Browsing window** connect to
+6. In a **new Firefox Private Browsing window** connect to
    **https://hackazon.f5demo.com.** You may need to connect more than
    once to receive the block page, make a note of the last four digits
    of the Support ID. Why did you receive the block page?
 
-2. In the BIG-IP Administrative Interface go to **Security** **>**
+7. In the BIG-IP Administrative Interface go to **Security** **>**
    **Event Logs** **>** **Application** **>** **Requests** and click on
    the magnifying glass to expand the search filter. Enter the Support
    ID and click **Apply Filter**.
@@ -159,8 +156,8 @@ IP Reputation
 
 |image40|
 
-NOTE: In order to create traffic with malicious sources for purposes of
-this lab we have created some additional configuration for you.
+NOTE: In order to create traffic with malicious sources for the purposes of
+this lab we have created added additional configuration items for you.
 
 There is a Virtual Server (VS) called ip\_rep\_target\_https\_vs which
 has a SNAT pool predefined with 5 known malicious IP addresses.
@@ -170,20 +167,17 @@ the VS you have been working on hackazon.f5demo.com\_https\_vs which has
 your ASM policy applied. This configuration will cause ASM to see the
 inbound traffic as having the malicious sources.
 
-+----+
-+----+
-
-1. Please review the Virtual Server configuration for
+2. Please review the Virtual Server configuration for
    ip\_rep\_target\_https\_vs. No changes are needed. Also, please
    review the iRule assigned under the VS Resource tab.
 
-2. Open a new private browsing window in Firefox and use the bookmark
+3. Open a new private browsing window in Firefox and use the bookmark
    for **IP Rep Lab** to browse the site. Click on one or two items
    until you get the block page.
 
    |image41|
 
-3. Navigate to **Security > Event Logs > Application > Requests** and
+4. Navigate to **Security > Event Logs > Application > Requests** and
    review the log entries. Since you configured IP Intelligence
    violations to alarm you will not need change the filter. Select the
    most recent entry and examine why the request is illegal. What IP
@@ -210,7 +204,7 @@ inbound traffic as having the malicious sources.
 +===================================================================================================================================================================================================================================+
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-1. Close the Firefox Private Browsing window.
+5. Close the Firefox Private Browsing window.
 
 .. |image28| image:: ../../_static/class1/image51.png
    :width: 6.50000in
