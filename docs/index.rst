@@ -16,5 +16,4 @@ Welcome to the |classbold| lab at F5 Agility |year|
 
    intro*
    class*/class*
-   examples
    markdown
