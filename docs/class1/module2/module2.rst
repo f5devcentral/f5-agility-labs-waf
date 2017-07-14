@@ -13,7 +13,7 @@ Objective:
    test
 
 
-**Estimated time for completion: 30 minutes **
+**Estimated time for completion: 30 minutes**
 
 Demonstrate a False Positive
 ----------------------------
