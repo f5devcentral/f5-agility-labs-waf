@@ -67,7 +67,8 @@ Configure Policy
 Accept Remaining Default Policy Settings
 ----------------------------------------
 
-**Your settings should reflect this figure:**\ |image4|
+**Your settings should reflect this figure:**\ 
+|image4|
 
 1. Click \ **Create Policy** to complete the policy creation process.
 
@@ -99,10 +100,7 @@ Verify ASM Profile is Applied
    Application Security Policy is **Enabled...** and the **Policy:**
    drop-down selection shows the hackazon\_asm policy.
 
-4. 
 5. Notice Log Profile is set to **Disabled**
-
-6. 
 
 Create Application Security Logging Profile
 -------------------------------------------
@@ -159,11 +157,10 @@ Test ASM Policy
    front page. **Please** refrain from experimenting with the site using
    any "exploit" techniques that you might be familiar with.
 
-4. 
-5. On the BIG-IP, navigate to **Security > Event Logs > Application >
+4. On the BIG-IP, navigate to **Security > Event Logs > Application >
    Requests** and verify that requests are being observed.
 
-6. **Tip:** You will need to clear the “Illegal Requests” only filter:
+5. **Tip:** You will need to clear the “Illegal Requests” only filter:
 
    |image9|
 
