@@ -1,8 +1,6 @@
 Class - |classname|
 ===================
 
-.. TODO:: Need class description
-
 This class covers the following topics:
 
 - Base Policy Creation
