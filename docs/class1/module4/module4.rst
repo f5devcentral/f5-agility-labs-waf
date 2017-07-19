@@ -256,7 +256,7 @@ Selectively Blocking BOT Categories
 
 |image62|
 
-4. Change Operation Mode to: **Normal**
+4. Change Operation Mode to: **Always**
 
 |image63|
 
