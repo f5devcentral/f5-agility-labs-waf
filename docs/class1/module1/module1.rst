@@ -68,6 +68,7 @@ Accept Remaining Default Policy Settings
 ----------------------------------------
 
 **Your settings should reflect this figure:** 
+
 |image4|
 
 1. Click \ **Create Policy** to complete the policy creation process.
