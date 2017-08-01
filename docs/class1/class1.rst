@@ -1,5 +1,5 @@
-Class - |classname|
-===================
+Class 1: F5 WAF: Practical Intro to L7 Security
+===============================================
 
 This class covers the following topics:
 
