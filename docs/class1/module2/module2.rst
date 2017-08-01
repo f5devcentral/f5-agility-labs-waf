@@ -58,9 +58,11 @@ What is the purpose of the “-k” option?
 
 2. Don’t forget to **remove** the **“illegal requests filter”** to view “all requests”.
 
+3. Click the request entry at the top of the list of requests
+
    |image16|
 
-3. In the log click the “down arrow” next to the “Attack Signature
+4. In the request details view click the “down arrow” next to the “Attack Signature
    Detected” title:
 
    |image17|
@@ -116,7 +118,7 @@ support ID is the fastest way to achieve this.
    **SQL Injection**
 
 1. From your Firefox window, open a New Private Window as shown in the
-   screenshot and then open URL: **https://hackazon.f5.demo.com** using
+   screenshot and then open URL: **https://hackazon.f5demo.com** using
    the Hackazon shortcut in the toolbar.
 
    |image23|
@@ -144,6 +146,9 @@ traffic to be blocked. This will be clarified later in the lab*)
 
     Select the request and then click the down arrow to the right of the
     “Attack Signature Detected”
+
+    Then click on the request that shows up as a "sample" that prompted 
+    the suggestion
 
     |image26|
 
