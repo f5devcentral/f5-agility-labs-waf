@@ -197,7 +197,11 @@ Review Server Technologies
    Signatures?
 
 .. |image0| image:: ../../_static/class1/image1.png
+    :width: 1.93667in
+    :height: 0.61667in
 .. |image1| image:: ../../_static/class1/image4.png
+    :width: 6.40625in
+    :height: 1.60156in
 .. |image2| image:: ../../_static/class1/image5.png
    :width: 5.81875in
    :height: 1.52742in
