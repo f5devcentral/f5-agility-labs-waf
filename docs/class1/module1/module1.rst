@@ -198,8 +198,6 @@ Review Server Technologies
 
 .. |image0| image:: ../../_static/class1/image1.png
 .. |image1| image:: ../../_static/class1/image4.png
-   :width: 6.40625in
-   :height: 1.60156in
 .. |image2| image:: ../../_static/class1/image5.png
    :width: 5.81875in
    :height: 1.52742in
