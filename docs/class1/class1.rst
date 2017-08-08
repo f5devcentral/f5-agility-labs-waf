@@ -5,7 +5,7 @@ This class covers the following topics:
 
 - Base Policy Creation
 - False Positive Scenarios
-- Adding Context
+- Adding Context to ASM
 - Proactive Bot Defense
 
 
