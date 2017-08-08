@@ -56,7 +56,7 @@ Configure Policy
 4. Assign this policy to the “\ **hackazon.f5demo.com\_https\_vs**\ ”
    from the \ **Virtual Server** drop down.
 
-5. Set the Application Langugage to UTF-8 (This is required to set the Learning Mode, why might this be
+5. Set the Application Language to UTF-8 (This is required to set the Learning Mode, why might this be
    necessary?)
 
 6. Go back up two settings to \ **Learning Mode** and set it
