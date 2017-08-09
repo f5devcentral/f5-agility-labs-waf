@@ -1,9 +1,8 @@
-Module – False Positive Scenarios
-=================================
+Module 2: False Positive Scenarios
+==================================
 
-
-Objective:
-----------
+Objective
+---------
 
 -  Demonstrate False Positive (FP) meta violation
 
@@ -20,69 +19,67 @@ Demonstrate a False Positive
 
 **Transition to Blocking**
 
-1. Navigate to **Security** **>** **Application Security** **>**
-   **Policy Building** **>** **Learning and Blocking Settings**
+#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings**
 
-2. Under General Settings change the Enforcement Mode to Blocking.
+#. Under General Settings change the Enforcement Mode to Blocking.
 
    |image13|
 
-3. Click **Save**
+#. Click **Save**
 
-4. and then click **Apply** **Policy**
+#. and then click **Apply Policy**
 
    **Use cURL to retrieve the web content**
 
-5. On the jump host, you'll find a toolbar shortcut as shown for the
+#. On the jump host, you'll find a toolbar shortcut as shown for the
    Windows Command Prompt. Please click that shortcut to open a Windows
    Command Shell:\ |image14|
 
    From the command line execute the command:
 
-   **curl** **-k** **https://hackazon.f5demo.com** **\| more**
+   ``curl -k https://hackazon.f5demo.com | more``
 
    |image15|
 
 You may need to scroll back/forward to see all the output.
 
-**Question**: cURL is an awesome tool with dozens of options. Try: curl
---help for a full listing.
+**Question**: cURL is an awesome tool with dozens of options. Try:
+``curl --help`` for a full listing.
 
-What is the purpose of the “-k” option?
+What is the purpose of the ``-k`` option?
 
 **Examine Event Logs**
 
-1. Review the log at **Security** **>** **Event Logs** **>**
-   **Application** **>** **Requests** and find the “Attack Signature
-   Detected” event for your request.
+#. Review the log at **Security > Event Logs > Application > Requests**
+   and find the “Attack Signature Detected” event for your request.
 
-2. Don’t forget to **remove** the **“illegal requests filter”** to view “all requests”.
+#. Don’t forget to **remove** the **“illegal requests filter”** to view “all requests”.
 
-3. Click the request entry at the top of the list of requests
+#. Click the request entry at the top of the list of requests
 
    |image16|
 
-4. In the request details view click the “down arrow” next to the “Attack Signature
+#. In the request details view click the “down arrow” next to the “Attack Signature
    Detected” title:
 
    |image17|
 
    **Questions:** Based on the output answer the following:
 
-    What aspect of the request triggered ASM?
+   What aspect of the request triggered ASM?
 
-    Why did you not receive the block page?
+   Why did you not receive the block page?
 
-**Disable Signature Staging and Attempt an Illegal Request**
+   **Disable Signature Staging and Attempt an Illegal Request**
 
-1. Navigate to **Security** **>** **Application Security** **>**
-   **Policy Building** **>** **Learning and Blocking Settings** and in
-   the Attack Signatures section (Click the triangle to expand) uncheck
-   “Signature Staging.” Be certain to click both save and apply policy.
+#. Navigate to **Security > Application Security > Policy Building >
+   Learning and Blocking Settings** and in the Attack Signatures
+   section (Click the triangle to expand) uncheck “Signature Staging.”
+   Be certain to click both save and apply policy.
 
-    |image18|
+  |image18|
 
-2. Return to your command prompt and execute the command using the ip
+#. Return to your command prompt and execute the command using the ip
    address instead: **curl -k** **https://10.128.10.200** **\| more**
 
    **Question:** What is different about this request from the previous?
@@ -91,129 +88,118 @@ What is the purpose of the “-k” option?
 
     |image19|
 
-3. Make a note of the last four digits of the Support ID returned to
+#. Make a note of the last four digits of the Support ID returned to
    cURL in the blocking response page.
 
-4. Go to **Security** **>** **Event Logs** **>** **Application** **>**
-   **Requests. You should now see an Illegal Request. **
+#. Go to **Security > Event Logs > Application > Requests**. You should
+   now see an Illegal Request.
 
-    |image20|
+  |image20|
 
-NOTE: In a production environment you may have thousands of blocked
-events and you will need to respond to issues quickly. Searching via the
-support ID is the fastest way to achieve this.
+.. NOTE:: In a production environment you may have thousands of blocked
+   events and you will need to respond to issues quickly. Searching via the
+   support ID is the fastest way to achieve this.
 
-**Find a blocked request in the event logs using the Support ID**
+   **Find a blocked request in the event logs using the Support ID**
 
-1. Click the magnifying glass. In the pop out box enter the last four
+#. Click the magnifying glass. In the pop out box enter the last four
    digits of the Support ID you noted previously and click “Apply
    Filter.”
 
-    |image21|
+   |image21|
 
-2. Review the log entry after clicking “All Details.”
+#. Review the log entry after clicking “All Details.”
 
    |image22|
 
    **SQL Injection**
 
-1. From your Firefox window, open a New Private Window as shown in the
+#. From your Firefox window, open a New Private Window as shown in the
    screenshot and then open URL: **https://hackazon.f5demo.com** using
    the Hackazon shortcut in the toolbar.
 
    |image23|
 
-2. In the top right click “Sign In” and type in the following string in
-   the username field: “\ **or 1=1#**\ ” Enter “a” in the password
+#. In the top right click “Sign In” and type in the following string in
+   the username field: ``or 1=1#`` Enter ``a`` in the password
    field, and click Sign In. (Without quotes)
 
-|image24|
+   |image24|
 
 **Question:** Did you receive the block page? If not, why do you think
 you were not blocked? (*Answer: At this point, we do not expect the
 traffic to be blocked. This will be clarified later in the lab*)
 
-1. In the Configuration Utility, open the **Security** **>**
-   **Application Security** **>** **Policy Building** **>** **Traffic
-   Learning.**
+#. In the Configuration Utility, open the **Security > Application Security
+   > Policy Building > Traffic Learning.**
 
    There may be several Suggestions listed. The Username field in the
    login pop up, uses the parameter name “username”. Please review the
    related suggestions, there are two related to the SQL injection, and
    note the signature ID’s.
 
-    |image25|
+   |image25|
 
-    Select the request and then click the down arrow to the right of the
-    “Attack Signature Detected”
+   Select the request and then click the down arrow to the right of the
+   “Attack Signature Detected”
 
-    Then click on the request that shows up as a "sample" that prompted 
-    the suggestion
+   Then click on the request that shows up as a "sample" that prompted
+   the suggestion
 
-    |image26|
+   |image26|
 
-    This will expand the view to include information about why the
-    signature triggered. You can see the Applied Blocking Setting is
-    “Staged.”
+   This will expand the view to include information about why the
+   signature triggered. You can see the Applied Blocking Setting is
+   “Staged.”
 
-    |image27|
+   |image27|
 
-+----+
-+----+
+   **Question:** This alert is triggered by the signature but in what
+   context per the above screen shot? How is a parameter treated
+   differently from a signature?
 
-    **Question:** This alert is triggered by the signature but in what
-    context per the above screen shot? How is a parameter treated
-    differently from a signature?
-
-
-.. |image13| image:: ../../_static/class1/image24.png
+.. |image13| image:: /_static/class1/image24.png
    :width: 4.61111in
    :height: 0.72222in
-.. |image14| image:: ../../_static/class1/image28.png
+.. |image14| image:: /_static/class1/image28.png
    :width: 5.00000in
    :height: 0.44792in
-.. |image15| image:: ../../_static/class1/image29.png
+.. |image15| image:: /_static/class1/image29.png
    :width: 6.50000in
    :height: 2.07569in
-.. |image16| image:: ../../_static/class1/image30.png
+.. |image16| image:: /_static/class1/image30.png
    :width: 6.50000in
    :height: 2.59236in
-.. |image17| image:: ../../_static/class1/image35.png
+.. |image17| image:: /_static/class1/image35.png
    :width: 6.43056in
    :height: 4.00000in
-.. |image18| image:: ../../_static/class1/image36.png
+.. |image18| image:: /_static/class1/image36.png
    :width: 5.19375in
    :height: 1.61139in
-.. |image19| image:: ../../_static/class1/image38.png
+.. |image19| image:: /_static/class1/image38.png
    :width: 6.50000in
    :height: 1.29792in
-.. |image20| image:: ../../_static/class1/image41.png
+.. |image20| image:: /_static/class1/image41.png
    :width: 6.50000in
    :height: 2.56319in
-.. |image21| image:: ../../_static/class1/image43.png
+.. |image21| image:: /_static/class1/image43.png
    :width: 6.50000in
    :height: 3.81458in
-.. |image22| image:: ../../_static/class1/image44.png
+.. |image22| image:: /_static/class1/image44.png
    :width: 6.50000in
    :height: 2.30625in
-.. |image23| image:: ../../_static/class1/image46.png
+.. |image23| image:: /_static/class1/image46.png
    :width: 2.93750in
    :height: 2.33164in
-.. |image24| image:: ../../_static/class1/image47.png
+.. |image24| image:: /_static/class1/image47.png
    :width: 2.71905in
    :height: 2.02593in
-.. |image25| image:: ../../_static/class1/image48.png
+.. |image25| image:: /_static/class1/image48.png
    :width: 6.19106in
    :height: 1.49419in
-.. |image26| image:: ../../_static/class1/image49.png
+.. |image26| image:: /_static/class1/image49.png
    :width: 6.50000in
    :height: 3.16667in
-.. |image27| image:: ../../_static/class1/image50.png
+.. |image27| image:: /_static/class1/image50.png
    :width: 5.61643in
    :height: 3.71882in
-
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
