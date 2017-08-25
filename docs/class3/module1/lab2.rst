@@ -1,43 +1,36 @@
-Wget
+wget
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Open a Putty session to the Kali host
+#. Open a Putty session to the Kali host
 
-   a. username / password
+#. Open a Putty session to the Hackazon host
 
-      i. root / 401elliottW!
+#. On the Hackazon host, tail the web server error log
 
-2. Open a Putty session to the Hackazon host
+   * tail -f /var/log/apache2/error.log
 
-   a. username / password
+#. On the Kali host, use wget to inspect the web server information
 
-      i. root / default
+   * wget - - saveheaders http://hackazon.f5agility.com
 
-3. On the Hackazon host, tail the web server error log
+   .. image:: /_static/class3/image5.png
 
-   a. tail -f /var/log/apache2/error.log
+   * head -15 index.html
 
-4. On the Kali host, use wget to inspect the web server information
+   .. image:: /_static/class3/image4.png
 
-   a. |image3|\ wget - - saveheaders http://hackazon.f5agility.com
+   * What do you see at the beginning of the index.html file? Is this the same information as you got from nc?
 
-   b. |image4|\ head -15 index.html
+   * cat -100 index.html
 
-   c. What do you see at the beginning of the index.html file? Is this
-      the same information as you got from nc?
+   * What more information can you glean from viewing the source code of the page?
 
-   d. cat -100 index.html
+#. On the Hackazon host, observe the error.log.
 
-   e. What more information can you glean from viewing the source code
-      of the page?
+   * Did it log an error? Why or why not?
 
-5. On the Hackazon host, observe the error.log.
+   * Press CTRL-C
 
-   a. Did it log an error? Why or why not?
+   * tail access.log
 
-   b. Press CTRL-C
-
-   c. tail access.log
-
-   d. Do you see the Kali host IP? Do you see the HTTP method? Do you
-      see a User Agent?
+   * Do you see the Kali host IP? Do you see the HTTP method? Do you see a User Agent?

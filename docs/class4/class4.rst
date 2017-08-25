@@ -1,4 +1,4 @@
-Class 4: Advanced
+Class 4: Hack and Defend
 ===============================================
 
 .. toctree::

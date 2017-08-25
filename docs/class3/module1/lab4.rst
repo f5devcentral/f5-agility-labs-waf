@@ -1,36 +1,28 @@
-Nikto
+nikto
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Open a Putty session to the Kali host
+#. Open a Putty session to the Kali host
 
-   a. username / password
+#. Open a Putty session to the Hackazon host
 
-      i. root / 401elliottW!
+#. On the Hackazon host, tail the web server error log
 
-2. Open a Putty session to the Hackazon host
+   * tail -f /var/log/apache2/error.log
 
-   a. username / password
+#. On the Kali host, use nikto to scan the web host
 
-      i. root / default
+   * nikto -h http://hackazon.f5agility.com
 
-3. On the Hackazon host, tail the web server error log
+   * Review the results provided by the tool.
 
-   a. tail -f /var/log/apache2/error.log
+#. On the Hackazon host, observe the error.log.
 
-4. On the Kali host, use nikto to scan the web host
+   * Did it log an error? Why or why not?
 
-   a. nikto -h http://hackazon.f5agility.com
+   * Press CTRL-C
 
-   b. Review the results provided by the tool.
+   * tail access.log
 
-1. On the Hackazon host, observe the error.log.
+   * Can you see the Kali host IP? User Agent?
 
-   a. Did it log an error? Why or why not?
-
-   b. Press CTRL-C
-
-   c. tail access.log
-
-   d. Can you see the Kali host IP? User Agent?
-
-|image5|
+.. image:: /_static/class3/image7.png

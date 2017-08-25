@@ -1,4 +1,4 @@
-Lab 4: Adding LTM + Transparent WAF
+Transparent Policy
 ===================================
 
 .. toctree::
@@ -8,7 +8,7 @@ Lab 4: Adding LTM + Transparent WAF
 
    lab*
 
-*Objectives
+* Objectives
 
 -  Test attacks with BIG-IP LTM
 

@@ -1,39 +1,32 @@
 Netcat
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Open a Putty session to the Kali host
+#. Open a Putty session to the Kali host
 
-   a. username / password
+#. Open a Putty session to the Hackazon host
 
-      i. root / 401elliottW!
+#. On the Hackazon host, tail the web server error log
 
-2. Open a Putty session to the Hackazon host
+   * tail -f /var/log/apache2/error.log
 
-   a. username / password
+#. On the Kali host, use netcat to inspect the web server information
 
-      i. root / default
+   * nc hackazon.f5agility.com 80
 
-3. On the Hackazon host, tail the web server error log
+   * HEAD / HTTP/1.0 //r/n
 
-   a. tail -f /var/log/apache2/error.log
+   * [Press ENTER twice]
 
-4. On the Kali host, use netcat to inspect the web server information
+   * What information is returned ?
 
-   a. nc hackazon.f5agility.com 80
+   .. image:: /_static/class3/image4.png
 
-   b. HEAD / HTTP/1.0 //r/n
+#. On the Hackazon host, observe the error.log.
 
-   c. [Press ENTER twice]
+   * Did it log an error? Why or why not?
 
-   d. |image2|\ What information is returned?
+   * Press CTRL-C
 
-5. On the Hackazon host, observe the error.log.
+   * tail access.log
 
-   a. Did it log an error? Why or why not?
-
-   b. Press CTRL-C
-
-   c. tail access.log
-
-   d. Do you see the Kali host IP? Do you see the HTTP method? Do you
-      see a User Agent?
+   * Do you see the Kali host IP? Do you see the HTTP method? Do you see a User Agent?

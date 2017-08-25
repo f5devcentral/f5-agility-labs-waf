@@ -1,49 +1,41 @@
 netcat again
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Open a Putty session to the Kali host
+#. Open a Putty session to the Kali host
 
-   a. username / password
+#. Open a Putty session to the Hackazon host
 
-      i. root / 401elliottW!
+#. On the Hackazon host, tail the web server error log
 
-2. Open a Putty session to the Hackazon host
+   * tail -f /var/log/apache2/error.log
 
-   a. username / password
+#. On the Kali host, use netcat to probe for HTTP methods
 
-      i. root / default
+   * nc hackazon.f5agility.com 80
 
-3. On the Hackazon host, tail the web server error log
+   * OPTIONS /robots.txt HTTP/1.0 //r/n
 
-   a. tail -f /var/log/apache2/error.log
+   * [Press ENTER twice]
 
-4. On the Kali host, use netcat to probe for HTTP methods
+   * What methods are allowed?
 
-   a. nc hackazon.f5agility.com 80
+#. On the Kali host, use netcat to verify that HTTP methods are enforced
 
-   b. OPTIONS /robots.txt HTTP/1.0 //r/n
+   * nc hackazon.f5agility.com 80
 
-   c. [Press ENTER twice]
+   * DELETE /robots.txt HTTP/1.0 //r/n
 
-   d. What methods are allowed?
+   * [Press ENTER twice]
 
-5. On the Kali host, use netcat to verify that HTTP methods are enforced
+   * Were you able to use the DELETE method?
 
-   a. nc hackazon.f5agility.com 80
+#. On the Hackazon host, observe the error.log.
 
-   b. DELETE /robots.txt HTTP/1.0 //r/n
+   * Did it log an error? Why or why not?
 
-   c. [Press ENTER twice]
+   * Press CTRL-C
 
-   d. Were you able to use the DELETE method?
+   * tail access.log
 
-1. On the Hackazon host, observe the error.log.
-
-   a. Did it log an error? Why or why not?
-
-   b. Press CTRL-C
-
-   c. tail access.log
-
-   d. Do you see the Kali host IP? Do you see the HTTP method? Do you
+   * Do you see the Kali host IP? Do you see the HTTP method? Do you
       see a User Agent?

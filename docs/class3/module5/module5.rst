@@ -1,5 +1,5 @@
-Adding LTM + Transparent WAF
-===================================
+Mitigation
+=====================
 
 .. toctree::
    :maxdepth: 2
@@ -10,8 +10,6 @@ Adding LTM + Transparent WAF
 
 * Objectives
 
--  Test attacks with BIG-IP LTM
+-  Stop. The. Attacks.
 
--  Estimated time to complete: 30 minutes
-
--  (Optional) Extended Attack Types
+-  Estimated time for completion: 60 minutes

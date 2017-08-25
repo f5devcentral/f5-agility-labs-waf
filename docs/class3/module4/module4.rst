@@ -1,5 +1,5 @@
-Adding LTM + Transparent WAF
-===================================
+Lessons Learned
+=============================
 
 .. toctree::
    :maxdepth: 2
@@ -8,10 +8,8 @@ Adding LTM + Transparent WAF
 
    lab*
 
-*Objectives
+* Objectives
 
--  Test attacks with BIG-IP LTM
+-  Review ASM reports
 
--  Estimated time to complete: 30 minutes
-
--  (Optional) Extended Attack Types
+-  Estimated time for completion: 30 minutes
