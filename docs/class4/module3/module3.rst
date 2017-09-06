@@ -265,7 +265,9 @@ attack against the website and is copying all the product images.
 It was discovered that an attacker is using a popular scraping tool
 OutWit Hub:
 
-|image8|
+.. image:: /_static/class4/image10.png
+   :width: 5.00000in
+   :height: 1.85417in
 
 The setup
 ~~~~~~~~~
@@ -280,7 +282,9 @@ images
 
 **Select Images on the left-hand panel in the GUI:**
 
-|image9|
+.. image:: /_static/class4/image11.png
+   :width: 1.87500in
+   :height: 1.37500in
 
 Note: The OutWit application is written in Java so it sometimes has a
 challenge with resizing on the RDP session. If you cannot see all the
@@ -288,7 +292,9 @@ panels well (as in the screenshot below), please resize it and move the
 sections around in OutWit until it resembles what you see in the
 screenshot below):
 
-|image10|
+.. image:: /_static/class4/image12.png
+   :width: 4.56250in
+   :height: 3.31528in
 
 The highlighted sections in the mage above show the settings that need
 to be set in order to continue with the exercise.
@@ -296,21 +302,29 @@ to be set in order to continue with the exercise.
 Tell the scraping tool to look for a file called *flag-hacked.jpg*.
 Finding this file will earn you a point:
 
-|image11|
+.. image:: /_static/class4/image13.png
+   :width: 4.54167in
+   :height: 2.93750in
 
 Change the scraping settings in the tool’s GUI to Auto-Catch and
 Auto-Empty:
 
-|image12|
+.. image:: /_static/class4/image14.png
+   :width: 2.66667in
+   :height: 0.81250in
 
 Make sure you tell the tool to Save the images which it finds:
 
-|image13|
+.. image:: /_static/class4/image15.png
+   :width: 4.83333in
+   :height: 1.26597in
 
 train the tool on
 `https://webstore.f5lab.biz <https://webstore.f5lab.biz/>`__:
 
-|image14|
+.. image:: /_static/class4/image16.png
+   :width: 5.00000in
+   :height: 0.36458in
 
 Hit enter
 
@@ -320,7 +334,9 @@ Important: Make the scraper scrape the entire site by following all the
 site’s links. To do this, push the “Autoexplore the links on the page”
 button:
 
-|image15|
+.. image:: /_static/class4/image17.png
+   :width: 5.30972in
+   :height: 0.91250in
 
 Challenge: BlindSQL Injection
 -----------------------------
@@ -408,7 +424,9 @@ and the URL to test. The Chrome developer tools can help with this.
 Clicking on the Application tab of the developer tools will provide
 details on the cookies as well as other information,
 
-|image16|
+.. image:: /_static/class4/image18.png
+   :width: 4.40625in
+   :height: 5.14236in
 
 Browse to the DVWA website via the bookmark
 

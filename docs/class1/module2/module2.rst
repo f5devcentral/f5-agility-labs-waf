@@ -1,4 +1,4 @@
-False Positive Scenarios
+False Positives
 ==================================
 
 .. toctree::

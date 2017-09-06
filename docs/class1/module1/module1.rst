@@ -32,5 +32,6 @@ Policies
 
    Screenshot below:
 
-   |image1|
-
+.. image:: /_static/class1/image4.png
+   :width: 6.40625in
+   :height: 1.60156in

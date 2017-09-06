@@ -1,13 +1,16 @@
-Place ASM in Blocking Mode
+Blocking Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Navigate to Security>>Application Security>>Policy Building>>Learning
-   and Blocking Settings
+#. Navigate to Security>>Application Security>>Policy Building>>Learning and Blocking Settings
 
-|image18|
+   .. image:: /_static/class3/image20.png
+     :width: 5.34167in
+     :height: 3.23542in
 
-1. Change Enforcement mode to “Blocking”
+#. Change Enforcement mode to "Blocking"
 
-2. Click “Apply Policy”
+#. Click "Apply Policy"
 
-|image19|
+   .. image:: /_static/class3/image21.png
+     :width: 6.37222in
+     :height: 3.59097in

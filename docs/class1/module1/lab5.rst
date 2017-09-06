@@ -14,7 +14,9 @@ Logging
 #. Change the **Request Type** under **Storage Filter** to 
    ``All Requests``. Click **Finished**.
 
-   |image6|
+.. image:: /_static/class1/image14.png
+   :width: 6.50000in
+   :height: 5.44653in
 
 **Question:** Would logging all requests and responses in a production
 environment be a best practice?
@@ -35,4 +37,6 @@ environment be a best practice?
 
 #. Click on the **Update** button to apply the policy.
 
-   |image7|
+.. image:: /_static/class1/image17.png
+   :width: 6.50000in
+   :height: 5.24444in

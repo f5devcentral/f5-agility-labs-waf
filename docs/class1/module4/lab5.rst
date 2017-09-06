@@ -1,25 +1,33 @@
-Apply Bot Defense Logging Profile
----------------------------------
+Results
+-------------------------------------
 
-#. Under **Local Traffic > Virtual Servers**, click
-   on ``hackazon.f5demo.com_https_vs``.
+#. From the command line execute the following command several times:
 
-#. Click on **Policies** under the **Security** tab at the top
+   ``curl –k https://hackazon.f5demo.com``
 
-#. Within the Available logging profiles menu,
-   select ``bot-defense_allrequests`` and then click
-   the ``<<`` arrows to move the logging policy to
-   the ``Selected`` profile.
+   .. NOTE:: This can take a few minutes and you may get several empty
+      responses as shown.
 
-#. Click on the **Update** button to apply the policy.
+   After a few moments the PBD will initialize and you will Because
+   Proactive BOT Defense is always on, this tool will always be
+   blocked.
 
-   .. NOTE:: You can associate multiple logging profiles with a given
-      virtual server. F5 allows for an incredible amount of logging
-      flexibility. Most commonly you would have DoS, Bot Defense and ASM
-      Security Policy events logged to a centralized SIEM platform, but
-      there may be additional logging requirements such as a web team that
-      would be interested in Bot Defense logs solely, while the SIEM
-      continues to receive the union of DoS, Bot Defense and ASM Security
-      Policy events.
+   .. image:: /_static/class1/image80.png
+      :width: 6.49444in
+      :height: 3.24722in
 
-   |image51|
+#. Navigate to **Security > Event Logs > Bot Defense > Requests**.
+
+   .. image:: /_static/class1/image82.png
+      :width: 5.00000in
+      :height: 3.12500in
+
+#. Notice that the detected bot activity has been logged and is now
+   being displayed for review.
+
+   .. image:: /_static/class1/image83.png
+      :width: 6.49444in
+      :height: 1.69861in
+
+#. Note the stated reason for the request being blocked. You may have to
+   scroll to the right to see this reason. What was the stated reason?

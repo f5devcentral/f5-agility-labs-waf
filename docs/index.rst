@@ -8,5 +8,4 @@
 
    intro.rst
    class*/class*
-   credits.rst
 

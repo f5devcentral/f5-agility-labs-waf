@@ -1,16 +1,25 @@
 Examine ASM Event Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. |image13|\ Let’s first review any illegal violations in ASM Event
+
+#. Review any illegal violations in ASM Event
    logs. These requests would have been blocked **if** ASM was in
    blocking mode:
 
-2. Examine several of the illegal violations. View the attack signatures
+   .. image:: /_static/class3/image15.png
+     :width: 5.80208in
+     :height: 3.05208in
+
+#. Examine several of the illegal violations. View the attack signatures
    being alerted.
 
-3. Now let’s review the L7 DoS Alerts:
+#. Now let’s review the L7 DoS Alerts:
 
-4. .. rubric:: |image14|\ Examine several of the violations.
+#. .. rubric:: Examine several of the violations.
       :name: examine-several-of-the-violations.
+
+   .. image:: /_static/class3/image16.png
+     :width: 6.23681in
+     :height: 3.04097in
 
    i. Note Detection mode being triggered.

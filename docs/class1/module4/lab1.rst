@@ -12,16 +12,22 @@ Create Policy
 
    ``curl –k https://hackazon.f5demo.com | more``
 
-   |image43|
+.. image:: /_static/class1/image69.png
+   :width: 6.50000in
+   :height: 5.44375in
 
 #. On the Main tab, click **Security > DoS Protection > DoS Profiles**.
    The DoS Profiles screen opens.
 
-   |image44|
+.. image:: /_static/class1/image70.png
+   :width: 4.30087in
+   :height: 2.39266in
 
 #. Click on the **Create** button.
 
 #. Name the policy ``hackazon_DoS`` and click **Finished** to
    complete the creation of this DoS profile.
 
-   |image45|
+.. image:: /_static/class1/image71.png
+   :width: 5.55894in
+   :height: 1.41598in

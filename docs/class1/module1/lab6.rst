@@ -6,7 +6,9 @@ Results
 #. *(You'll find a toolbar shortcut for the Hackazon link and this can
    be used.)*
 
-   |image8|
+   .. image:: /_static/class1/image19.png
+     :width: 5.00000in
+     :height: 2.53125in
 
 #. Interact with the application by clicking the Hackazon logo and any
    of the items under the Special Selection title that appear on the
@@ -18,11 +20,14 @@ Results
 
 #. **Tip:** You will need to clear the “Illegal Requests” only filter:
 
-   |image9|
+   .. image:: /_static/class1/image20.png
+     :width: 6.50000in
+     :height: 3.10278in
 
-   You should be able to see both the raw client request and server
-   response for the event that you selected.
+   You should be able to see both the raw client request and server response for the event that you selected.
 
    **For example:**
-
-   |image10|
+ 
+   .. image:: /_static/class1/image21.png
+     :width: 6.50000in
+     :height: 2.88681in

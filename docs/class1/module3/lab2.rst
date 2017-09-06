@@ -10,7 +10,9 @@ Geolocation
       at your border router (layer 3), you may decide to geo-enforce at
       ASM (Layer 7) if no private IP’s will be accessing the site.
 
-   |image34|
+   .. image:: /_static/class1/image58.png
+     :width: 6.50000in
+     :height: 2.20208in
 
 #. Open **Local Traffic > iRules** and open the iRule titled
    ``hackazon_irule`` and review the code.
@@ -30,18 +32,24 @@ Geolocation
       this "trick" to work to demonstrate a global range of source IP
       addresses.
 
-   |image35|
+   .. image:: /_static/class1/image59.png
+     :width: 6.50000in
+     :height: 3.81250in
 
 #. Open **Local Traffic > Virtual Servers** and click on
    ``hackazon.f5demo.com_https_vs``. Go to the **Resources**
    horizontal tab and click on **Manage** in the iRules section.
 
-   |image36|
+   .. image:: /_static/class1/image60.png
+     :width: 6.50000in
+     :height: 1.80833in
 
 #. Select the ``hackazon_irule``, move it to the **Enabled** assignment and
    click **Finished**.
 
-   |image37|
+   .. image:: /_static/class1/image61.png
+     :width: 6.50000in
+     :height: 2.82014in
 
 #. In a **new Firefox Private Browsing window** connect to
    ``https://hackazon.f5demo.com``. You may need to connect more than
@@ -52,7 +60,9 @@ Geolocation
    > Application > Requests** and click on the magnifying glass to
    expand the search filter. Enter the Support ID and click **Apply Filter**.
 
-   |image38|
+   .. image:: /_static/class1/image62.png
+     :width: 4.30625in
+     :height: 4.36998in
 
    Notice the geolocation detected and the presence of the X-Forwarded-For
    (XFF) in the Request details. Your actual client IP is still
@@ -65,8 +75,8 @@ Geolocation
    XFF you can work around this and get contextual information about the
    client.
 
-   |image39|
+   .. image:: /_static/class1/image64.png
+     :width: 6.50000in
+     :height: 2.98403in
 
-.. IMPORTANT:: Please remove the iRule ``hackazon_irule`` from the
-   Virtual Server before proceeding to the next step. (Virtual Server >
-   Resources)
+.. IMPORTANT:: Please remove the iRule ``hackazon_irule`` from the Virtual Server before proceeding to the next step. (Virtual Server > Resources)

@@ -29,11 +29,10 @@ Background:
    before. These hearings culminated in the Computer Fraud and Abuse Act
    (CFAA)
 
- Current Legal Environment:
+Current Legal Environment:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  The Primary guide in most federal hacking cases in still the Computer
-       Fraud and Abuse Act (CFAA - passed by U.S. Congress in 1986)
+-  The Primary guide in most federal hacking cases in still the Computer Fraud and Abuse Act (CFAA - passed by U.S. Congress in 1986)
 
 -  Other federal statutes used for prosecuting Cybercrime are:
 
@@ -59,7 +58,7 @@ state also has its own prosecutorial system. Some states are much more
 active in the area of cybersecurity enforcement than others, but
 typically the states will cooperate with federal authorities. Some state
 laws are more restrictive than federal, i.e. in areas such as State Laws
-Addressing “Phishing” and State Spyware Laws. The laws are a complex
+Addressing "Phishing" and State Spyware Laws. The laws are a complex
 web. Only skilled lawyers are capable of figuring out the full meaning
 revealed in case law interpretations of the state and federal laws.
 
@@ -91,11 +90,11 @@ Clear Dividing Line
    criminal and civil rules and enforcement, and should tie into privacy
    and security legislation.
 
--  Need a clearer / more dependable way to distinguish between “ethical”
-   and “malicious” hacking
+-  Need a clearer / more dependable way to distinguish between "ethical"
+   and "malicious" hacking
 
 -  Malicious hacking is always negative and destructive. Ethical
-   hacking’s goal is to contribute to the security community and to
+   hacking's goal is to contribute to the security community and to
    improve overall security
 
 White / Grey / Black(cracker) Hat Hacking
@@ -107,7 +106,7 @@ White / Grey / Black(cracker) Hat Hacking
    serve their own ends ranging from financial gain to simply causing
    chaos
 
--  White Hat (“ethical”) Hackers are usually those that carry out their
+-  White Hat ("ethical") Hackers are usually those that carry out their
    craft with no apparent criminal intention in mind
 
 -  Grey Hat Hackers sit in the middle, often hacking into a system just
@@ -119,9 +118,9 @@ White Hat Hacking
 
 -  Usually hired by companies to carry out vulnerability assessments and
    penetration testing, a technique that helps to determine how secure
-   the company’s systems are.
+   the company's systems are.
 
--  It’s a necessary business service that allows businesses identify
+-  It's a necessary business service that allows businesses identify
    their weaknesses and shore up their defences against real criminals
    (Crackers / Black Hats)
 
@@ -129,7 +128,7 @@ Is Ethical Hacking Legal? – It depends!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Companies believe that authorizing an ethical hacker to test a
-   company’s defences is enough legal protection to justify ethical
+   company's defences is enough legal protection to justify ethical
    hacking. Ethical Hackers believe they are justified by the fact that
    they are acting in the best interests of the company who hired them
 
@@ -143,16 +142,15 @@ Ethical hacking pitfalls
 -  Often, Ethical Hackers break laws in order to conduct their
    activities:
 
--  Obtaining a user’s PII (i.e. social engineering)
+-  Obtaining a user's PII (i.e. social engineering)
 
--  Gain access to the system using someone else’s credentials (obtained
-   Illicitly)
+-  Gain access to the system using someone else's credentials (obtained Illicitly)
 
 -  Gain access to confidential information
 
 -  Gain access to customer/employee information
 
--  Probe / “White Hat”-hack other avenues to the company being tested
+-  Probe / "White Hatr"-hack other avenues to the company being tested
    i.e. access via their business partners. Unless the business partner
    has been included in the scope of the penetration test, the ethical
    hacker has strayed outside the boundaries of the law to achieve their
@@ -161,7 +159,7 @@ Ethical hacking pitfalls
 Remarks
 ~~~~~~~
 
--  “Ethical Hackers” aim to test businesses’ security in a constructive
+-  "Ethical Hackers" aim to test businesses' security in a constructive
    way in order to improve it
 
 -  Companies hire ethical hackers because they need to test their
@@ -184,7 +182,7 @@ Worlwide View
 
 -  Budapest Convention on Cybercrime (2001)
 
--  Council of Europe’s effort to harmonize disparate national cybercrime
+-  Council of Europe's effort to harmonize disparate national cybercrime
    laws
 
 -  EU Network and Information Security (NIS) Directive
@@ -195,7 +193,7 @@ Worlwide View
    personal data of Europeans through the offering of goods and services
    – even if company has no physical presence in Europe.
 
--  Fines of up to 4% of company’s annual global revenue or €20 million
+-  Fines of up to 4% of company's annual global revenue or €20 million
    for violations
 
 -  Other countries each have Cybersecurity laws
@@ -273,3 +271,4 @@ Test Format: Multiple Choice
 Test Delivery: ECC EXAM, VUE
 
 Exam Prefix: 312-50 (ECC EXAM), 312-50 (VUE)
+

@@ -1,4 +1,4 @@
-Apply Proactive Bot Defense Policy
+Apply Policy
 ----------------------------------
 
 #. Under **Local Traffic > Virtual Servers**, click
@@ -13,4 +13,6 @@ Apply Proactive Bot Defense Policy
 
 #. Click on the **Update** button to apply the policy.
 
-   |image49|
+.. image:: /_static/class1/image75.png
+   :width: 6.31944in
+   :height: 4.51389in

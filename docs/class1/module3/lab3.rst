@@ -8,7 +8,9 @@ IP Reputation
    .. NOTE:: On the top right you should see that your IP Intelligence
       database has been updated at some point.
 
-   |image40|
+   .. image:: /_static/class1/image65.png
+     :width: 6.50000in
+     :height: 2.94306in
 
    .. NOTE:: In order to create traffic with malicious sources for the purposes of
       this lab we have created added additional configuration items for you.
@@ -29,7 +31,9 @@ IP Reputation
    for **IP Rep Lab** to browse the site. Click on one or two items
    until you get the block page.
 
-   |image41|
+   .. image:: /_static/class1/image66.png
+     :width: 2.77339in
+     :height: 1.28638in
 
 #. Navigate to **Security > Event Logs > Application > Requests** and
    review the log entries. Since you configured IP Intelligence
@@ -37,7 +41,9 @@ IP Reputation
    most recent entry and examine why the request is illegal. What IP
    address did the request come from?
 
-   |image42|
+   .. image:: /_static/class1/image68.png
+     :width: 6.50000in
+     :height: 2.41667in
 
    **Bonus:** You can browse to ``http://www.brightcloud.com/tools/url-ip-lookup.php``
    and look up the IP address in question for further information. There is also

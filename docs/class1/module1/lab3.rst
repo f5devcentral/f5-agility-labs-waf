@@ -1,9 +1,11 @@
-Accept Default Settings
+Accept Defaults
 ----------------------------------------
 
 **Your settings should reflect this figure:**
 
-|image4|
+.. image:: /_static/class1/image11.png
+   :width: 6.50000in
+   :height: 3.54931in
 
 #. Click **Create Policy** to complete the policy creation process.
 
@@ -20,5 +22,6 @@ Accept Default Settings
       BIG-IP ASM. This can be viewed as a "Deferred Commit" behavior. ASM
       allows for rollbacks of configuration.
 
-   |image5|
-
+.. image:: /_static/class1/image12.png
+   :width: 6.50000in
+   :height: 2.35833in

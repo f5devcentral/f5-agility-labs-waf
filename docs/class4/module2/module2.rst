@@ -58,11 +58,15 @@ CD Desktop
 
 Notepad hackdvwa.php
 
-|image3|
+.. image:: /_static/class4/image5.png
+   :width: 4.14931in
+   :height: 1.28102in
 
 In Notepad, paste the copied code and Save and Close the file.
 
-|image4|
+.. image:: /_static/class4/image6.png
+   :width: 5.27007in
+   :height: 2.59514in
 
 Open a Web Browser and go to https://dvwa.vlab.f5demo.com
 
@@ -70,14 +74,20 @@ Log in with admin / password
 
 Choose the Upload menu on the lower left
 
-|image5|
+.. image:: /_static/class4/image7.png
+   :width: 5.30972in
+   :height: 4.49306in
 
 Click ‘Choose File’ and select the hackdvwa.php file you just created on
 the Desktop and click ‘Upload’
 
-|image6|
+.. image:: /_static/class4/image8.png
+   :width: 5.30972in
+   :height: 3.63611in
 
-|image7|
+.. image:: /_static/class4/image9.png
+   :width: 4.77802in
+   :height: 2.15289in
 
 The file is then posted to the server and the location is displayed for
 you as a means of confirmation. You can copy this and paste it at the

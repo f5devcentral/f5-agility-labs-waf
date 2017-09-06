@@ -8,7 +8,9 @@ Configure Policy
    on the **Application Security** tab at the top of this menu to
    begin configuring the policy.
 
-   |image46|
+.. image:: /_static/class1/image72.png
+   :width: 6.33194in
+   :height: 2.42980in
 
 #. Under the **Application Security** tab >> General Settings
    click the **Edit** link on the right-hand side of General Settings
@@ -16,7 +18,9 @@ Configure Policy
    Security** to enable the DoS profile and allow additional settings
    to be configured.
 
-   |image47|
+.. image:: /_static/class1/image73.png
+   :width: 6.41806in
+   :height: 3.30032in
 
 #. Select **Proactive Bot Defense** under the list of **Application
    Security** options for this DoS profile.
@@ -25,7 +29,9 @@ Configure Policy
    Security >> Proactive Bot Defense** menu and select **Always**
    from the drop-down menu for **Operation Mode**.
 
-   |image48|
+.. image:: /_static/class1/image74.png
+   :width: 6.35347in
+   :height: 3.84931in
 
 #. Notice that for **Block requests from suspicious browsers** the
    **Block Suspicious Browsers** setting is enabled by default.

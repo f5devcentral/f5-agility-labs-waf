@@ -1,4 +1,4 @@
-Proactive Bot Defense
+Bot Defense
 ===============================
 
 .. toctree::
@@ -7,9 +7,6 @@ Proactive Bot Defense
    :glob:
 
    lab*
-
-*Objective
----------
 
 -  Create a DoS profile
 

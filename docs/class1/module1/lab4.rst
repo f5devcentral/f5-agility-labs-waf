@@ -1,4 +1,4 @@
-Verify Profile Applied
+Apply Profile
 -----------------------------
 
 #. Under **Local Traffic > Virtual Servers**, click
