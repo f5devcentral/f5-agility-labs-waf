@@ -25,6 +25,8 @@ and then click **Create**.
 +----------------------------------------------------------------------+------------------------+------------------------+
 
 .. image:: /_static/class2/image2.tiff
+   :width: 5.30000in
+   :height: 4.18000in
 
 Navigate to **Local Traffic** >> **Virtual Servers.** Click on
 **dvwa\_vs** >> **Security** >> **Policies**. Change the **Log Profile**
@@ -33,3 +35,5 @@ from **Disabled** to **Enabled.** From the available list, choose
 **Update.**
 
 .. image:: /_static/class2/image3.tiff
+   :width: 5.30000in
+   :height: 3.28000in

@@ -7,7 +7,7 @@ dvwa\_vs**, click on the **security tab**, and select **policies**.
 Select **Enabled** from the dropdown next to **Application Security
 Policy**, and ensure **lab-rapid-deployment** is selected like below:
 
-.. image:: /_static/class2/image77.tiff
+.. image:: /_static/class2/image75.tiff
 
 Click **Update**.
 
@@ -17,12 +17,12 @@ Go to **Security > Application Security > Security Policies** and select
 Scroll down to Enforcement Mode and click “\ **View Learning and
 Blocking Settings**\ ”:
 
-.. image:: /_static/class2/image78.tiff
+.. image:: /_static/class2/image76.tiff
 
 Select “Transparent” from the dropdown list, click **save**, then click
 **Apply Policy**.
 
-.. image:: /_static/class2/image79.tiff
+.. image:: /_static/class2/image77.tiff
 
 This will make it easier for us to generate numerous ASM violations to
 populate the reports.
@@ -32,7 +32,7 @@ same password we’ve used throughout the lab.
 
 Type the command **w3af\_console -s ./dvwa\_script.w3af** and hit enter:
 
-.. image:: /_static/class2/image80.tiff
+.. image:: /_static/class2/image78.tiff
 
 You’ve just used **w3af** (a web app vulnerability scanner) to launch
 multiple preconfigured vulnerability scans against DVWA which will

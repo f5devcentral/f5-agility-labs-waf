@@ -6,7 +6,7 @@ Create a new signature to represent a Zero-Day exploit
 1. On the BIG-IP, navigate to **Security >> Options >> Application
    Security >> Attack Signatures >>Attack Signature List**.
 
-.. image:: /_static/class2/image42.png
+.. image:: /_static/class2/image40.png
 
 1. Click on **Create** to create a new signature
 
@@ -16,7 +16,7 @@ Create a new signature to represent a Zero-Day exploit
 
    b. Rule: content:”zero\_day\_sig”;
 
-.. image:: /_static/class2/image43.png
+.. image:: /_static/class2/image41.png
 
 1. Click on **Create**
 
@@ -33,7 +33,7 @@ Create a new signature to represent a Zero-Day exploit
 
    c. Choose the signature we just created ‘Zero-Day’
 
-.. image:: /_static/class2/image44.png
+.. image:: /_static/class2/image42.png
 
 1. Click on **Create**.
 
@@ -47,18 +47,18 @@ Add the new signature set to the parent policy
 
 3. Expand the Attack Signatures section.
 
-.. image:: /_static/class2/image45.png
+.. image:: /_static/class2/image43.png
 
 1. Click the **Change** button in the attack signatures section.
 
 2. Select the new signature set we created named ‘Zero-Day-Set’ and
    select **Change**.
 
-.. image:: /_static/class2/image46.png
+.. image:: /_static/class2/image44.png
 
 1. Click **Save** and **Apply Policy**.
 
-.. image:: /_static/class2/image47.png
+.. image:: /_static/class2/image45.png
 
 Examine Both *Child* Policies
 
@@ -69,9 +69,9 @@ Examine Both *Child* Policies
    policies ‘dvwa\_child’ or ‘f5demo\_child’.
 
 3. Expand the Attack Signatures section.
-   .. image:: /_static/class2/image48.png
+   .. image:: /_static/class2/image50.png
 
-   .. image:: /_static/class2/image49.png
+   .. image:: /_static/class2/image51.png
 
 1. Do you see the new signature set and signature applied?
 

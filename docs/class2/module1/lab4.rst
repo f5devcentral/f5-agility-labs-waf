@@ -30,13 +30,13 @@ Click **create** to add a rule.
 
 Name the new rule **disable\_asm**
 
-Click the **+** next to “Match all of the following conditions:” and
-select “\ **HTTP URI**\ ” from the first dropdown, “\ **path**\ ” from
-the second, “\ **begins with**\ ” from the third “\ **any of**\ ” from
-the fourth, and add “\ **/vulnerabilities/exec**\ ” to the list.
+Click the **+** next to "Match all of the following conditions:" and
+select "\ **HTTP URI**\ " from the first dropdown, "\ **path**\ " from
+the second, "\ **begins with**\ " from the third "\ **any of**\ " from
+the fourth, and add "\ **/vulnerabilities/exec**\ " to the list.
 
-Click the + next to “Do the following when traffic is matched:” and
-select “\ **Disable**\ ” from the first dropdown, then **asm** from the
+Click the + next to "Do the following when traffic is matched:" and
+select "\ **Disable**\ " from the first dropdown, then **asm** from the
 second.
 
 The result should look like the following:
@@ -47,9 +47,9 @@ Click **save** then click **create**.
 
 Name the new rule **enable\_asm**
 
-Click the plus next to “Do the following when traffic is matched:” and
-select “\ **Enable**\ ” then “\ **ASM”**, then
-“\ **lab-rapid-deployment**\ ”.
+Click the plus next to "Do the following when traffic is matched:" and
+select "\ **Enable**\ " then "\ **ASM"**, then
+"\ **lab-rapid-deployment**\ ".
 
 The result should look like the following:
 
@@ -67,7 +67,7 @@ You should now have 2 published policies like below:
 
 The **asm\_auto\_l7\_policy\_\_dvwa\_vs** policy was built automatically
 by the policy creation dialog when you created the
-“\ **lab-rapid-deployment**\ ” policy. It contains one rule that simply
+"\ **lab-rapid-deployment**\ " policy. It contains one rule that simply
 applies that policy to all traffic. Feel free to examine it in detail if
 you wish.
 
@@ -93,7 +93,7 @@ The request should be allowed:
 .. image:: /_static/class2/image26.tiff
 
 Return to the SQL Injection page in DVWA and ensure that the attack is
-still blocked by typing” **‘ OR 1=1#**
+still blocked by typing" **‘ OR 1=1#**
 
 You should see another block page:
 

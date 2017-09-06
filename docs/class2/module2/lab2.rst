@@ -7,7 +7,7 @@ Create a *Child* Policy for the DVWA site
    Security Policies** and click on the plus sign to create a new
    security policy.
 
-.. image:: /_static/class2/image35.png
+.. image:: /_static/class2/image29.png
 
 1. Click on advanced mode in the upper right corner of the screen.
 
@@ -31,7 +31,7 @@ Create a *Child* Policy for the DVWA site
 
    g. Server Technologies: MySQL and PHP
 
-.. image:: /_static/class2/image36.png
+.. image:: /_static/class2/image35.png
 
 1. Click on **Create Policy**.
 
@@ -74,17 +74,17 @@ Examine Both *Child* Policies
 4. Expand the **HTP protocol compliance failed** section. Are the
    violations related to it enabled or disabled?
 
-.. image:: /_static/class2/image39.png
+.. image:: /_static/class2/image37.png
 
 1. Collapse the **HTTP protocol compliance** failed section.
 
 2. Expand the **Attack Signature** section. Is the generic detection
    signature enabled or disabled?
 
-.. image:: /_static/class2/image40.png
+.. image:: /_static/class2/image38.png
 
 1. Navigate to **Security >> Application Security >> Data Guard**.
 
 2. Can you enable Data Guard?
 
-.. image:: /_static/class2/image41.png
+.. image:: /_static/class2/image39.png

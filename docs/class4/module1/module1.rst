@@ -45,7 +45,7 @@ To access MSFconsole, do the following:
   (10.1.10.240):
 | root / 401elliottW!
 
-.. image:: /_static/class2/image2.png
+.. image:: /_static/class2/image2.tiff
 
 Intelligence Gathering
 ~~~~~~~~~~~~~~~~~~~~~~

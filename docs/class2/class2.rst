@@ -9,4 +9,3 @@ Class 2: Policy Tuning
 
    module*/module*
 
-TODO: describe this class in one paragraph

@@ -11,4 +11,3 @@ Remove all policies from the virtual server like below:
 
 Click **Finished**.
 
-This concludes **Lab 1**.
