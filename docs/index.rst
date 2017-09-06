@@ -1,18 +1,11 @@
-F5 Agility Labs - Index
-=======================
-
-Welcome
--------
-
-Welcome to the |classbold| lab at F5 Agility |year|
-
-|repoinfo|
+.. image:: /_static/html_front_cover.png
 
 .. toctree::
-   :maxdepth: 2
-   :numbered:
+   :hidden:
+   :maxdepth: 4
    :caption: Contents:
    :glob:
 
-   intro*
+   intro.rst
    class*/class*
+

@@ -5,7 +5,7 @@
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "F5 Web Application Firewall Solutions"
+classname = "Web Application Firewall"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
 github_repo = "https://github.com/f5devcentral/f5-agility-labs-waf"
