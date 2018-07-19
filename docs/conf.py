@@ -61,7 +61,7 @@ if 'github_repo' in locals() and len(github_repo) > 0:
     rst_prolog += """
 .. |repoinfo| replace:: The content contained here leverages a full DevOps CI/CD
               pipeline and is sourced from the GitHub repository at %s.
-              Bugs and Requests for enhancements can be made using by
+              Bugs and Requests for enhancements can be made by
               opening an Issue within the repository.
 """ % (github_repo)
 else:
@@ -167,6 +167,7 @@ html_theme_options = {
                         'site_name': 'Community Training Classes & Labs',
                         'next_prev_link': True
                      }
+html_last_updated_fmt = '%Y-%m-%d %I:%M:%S'
 
 def setup(app):
     app.add_stylesheet('css/f5_agility_theme.css')
