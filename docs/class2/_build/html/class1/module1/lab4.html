@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2.1.2.5. Capture The Flag: &#8212; Pwn like a Hacker; Protect like a Pro  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.1.2.6. Appendix A: Cyber Security – A Legal Perspective" href="lab5.html" />
+    <link rel="prev" title="2.1.2.4. Exercise 3: Metasploit Utilities" href="lab3.html" />
+<!--
+# Copyright 2017 F5 Networks
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row corp-header">
+      <div class="container corp-header">
+        <div class="container corp-menu">
+          <ul>
+            <li><a href="https://f5.com" class="internalLink">F5.com</a></li>
+            <li><a href="https://support.f5.com">Support</a></li>
+            <li><a href="https://devcentral.f5.com">Community</a></li>
+            <li><a href="https://github.com/F5Networks">GitHub</a></li>
+            <li><a href="https://f5.com/about-us/careers">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pageHeader">
+      <div class="container stat">
+        <div class="col-xs-12 stat">
+          <a class="internalLink" href="https://f5.com">
+            <img class="logo" src="https://cdn.f5.com/websites/support/assets/images/logo.svg" width="50" height="44" alt="F5 Networks" title="F5 Networks" border="0">
+          </a>
+            <ul id="MainMenu" class="main-menu">
+              <li>
+                <a href="#">Products
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ProductsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Connectors</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-asp-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon ASP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Kubernetes BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/f5-kube-proxy/latest" data-link-type="Nav: Mega">F5 Kubernetes Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/products/connectors">See all </a></--span-->
+                      </li>
+                      <li class="divider"></li>
+                      <li class="third"><span class="a-mm-h">Application Service Proxy</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/asp/latest" data-link-type="Nav: Mega">F5 Application Service Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a href="/products/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Container Integrations
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ContainersSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Container Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/marathon/" data-link-type="Nav: Mega">Mesos Marathon</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/kubernetes/" data-link-type="Nav: Mega">Kubernetes</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/openshift/" data-link-type="Nav: Mega">RedHat OpenShift</a></li>
+                        </ul>
+                        <span class="seemore"><a data-link-type="Nav: Mega" href="http://clouddocs.f5.com/containers/latest">View details </a></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Clouds
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="CloudsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Cloud Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/cloud/openstack/" data-link-type="Nav: Mega">OpenStack</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/cloud/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Resources
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+                <div class="menu-panel soft-hide" id="UPCProgramSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third">
+                        <span class="a-mm-h">Downloads</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://hub.docker.com/r/f5networks/" class="internalLink">Docker Hub</a></li>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://store.docker.com/images/f5networks" class="internalLink">Docker Store</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <span class="a-mm-h">OpenSource</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://github.com/F5Networks" class="internalLink">GitHub</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <a href="//university.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega">F5 University</a>
+                        <ul>
+                          <li>
+                            <p>Get up to speed with free self-paced courses</p>
+                          </li>
+                        </ul>
+                        <a data-ng-href="https://devcentral.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega" href="https://devcentral.f5.com">DevCentral</a>
+                        <ul>
+                          <li>
+                            <p>Join the community of 250,000+ technical peers</p>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container-fluid -->
+</nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 sidebar">
+         <h4><a href="../../">Pwn like a Hacker; Protect like a Pro </a></h4>
+<div id="searchbox" style="display: none" role="search">
+  <form class="search" action="../../search.html" method="get">
+    <div>
+      <input type="text" name="q" placeholder="Search" style="padding-left: 6px;"/>
+      <!-- <input type="submit" value="Go" style="margin-top: 4px;"/> -->
+      <button type="submit" class="btn btn-primary btn-xs">Go</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="caption">
+   <span class="caption-text">Current Page</span>
+  </p>
+  <ul>
+<li><a class="reference internal" href="#">2.1.2.5. Capture The Flag:</a><ul>
+<li><a class="reference internal" href="#hack-and-patch">2.1.2.5.1. Hack and Patch</a><ul>
+<li><a class="reference internal" href="#hacking">2.1.2.5.1.1. Hacking</a></li>
+<li><a class="reference internal" href="#patching">2.1.2.5.1.2. Patching</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#your-first-hack-and-patch">2.1.2.5.2. Your First Hack and Patch</a></li>
+<li><a class="reference internal" href="#useful-tools">2.1.2.5.3. Useful tools</a><ul>
+<li><a class="reference internal" href="#sqlmap">2.1.2.5.3.1. SQLmap</a></li>
+<li><a class="reference internal" href="#burp-suite">2.1.2.5.3.2. Burp Suite</a></li>
+<li><a class="reference internal" href="#outwit-image-scraper">2.1.2.5.3.3. Outwit Image Scraper</a></li>
+<li><a class="reference internal" href="#edit-this-cookie">2.1.2.5.3.4. Edit This Cookie</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#completing-the-ctf">2.1.2.5.4. Completing the CTF</a></li>
+<li><a class="reference internal" href="#challenge-remote-command-execution">2.1.2.5.5. Challenge: Remote Command Execution</a><ul>
+<li><a class="reference internal" href="#level-1">2.1.2.5.5.1. Level 1</a></li>
+<li><a class="reference internal" href="#level-2">2.1.2.5.5.2. Level 2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#challenge-domain-cookie-exploit">2.1.2.5.6. Challenge: Domain Cookie Exploit</a></li>
+<li><a class="reference internal" href="#challenge-webscraping">2.1.2.5.7. Challenge: Webscraping</a><ul>
+<li><a class="reference internal" href="#the-setup">2.1.2.5.7.1. The setup</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#challenge-blindsql-injection">2.1.2.5.8. Challenge: BlindSQL Injection</a><ul>
+<li><a class="reference internal" href="#sql-injection-blindsqli-exploit">2.1.2.5.8.1. SQL injection/BlindSQLI exploit</a></li>
+<li><a class="reference internal" href="#executing-the-exploit">2.1.2.5.8.2. Executing the exploit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - Pwn like a Hacker; Protect like a Pro</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../class1.html#class-environment">2.1. Class Environment:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="lab3.html"
+                        title="previous chapter">2.1.2.4. Exercise 3: Metasploit Utilities</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lab5.html"
+                        title="next chapter">2.1.2.6. Appendix A: Cyber Security – A Legal Perspective</a></p>
+        
+      </div>
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <h4>
+          <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">Pwn like a Hacker; Protect like a Pro</a>
+          <span class="right"><a href="../../genindex.html">Index</a></span>
+        </h4>
+        
+  <div class="section" id="capture-the-flag">
+<h1>2.1.2.5. Capture The Flag:<a class="headerlink" href="#capture-the-flag" title="Permalink to this headline">¶</a></h1>
+<p>It’s time for a game of Capture the flag where you will test your skills
+at both running and patching exploits. The “Capture the Flag” server and
+scoreboard is located at <a class="reference external" href="https://ctf.f5lab.biz">https://ctf.f5lab.biz</a>. Please first visit the
+site to create a team name and have a look around. To complete a
+challenge, enter in the Flag you receive when successfully running or
+patching an exploit.</p>
+<div class="section" id="hack-and-patch">
+<h2>2.1.2.5.1. Hack and Patch<a class="headerlink" href="#hack-and-patch" title="Permalink to this headline">¶</a></h2>
+<p>Note that each Mission is prefaced with [Hack] or [Patch].</p>
+<div class="section" id="hacking">
+<h3>2.1.2.5.1.1. Hacking<a class="headerlink" href="#hacking" title="Permalink to this headline">¶</a></h3>
+<p>For the [Hack] missions, you will be attempting to run some sort of
+exploit. Some will require knowledge of programming or some serious
+Google-foo to make work. You MUST do these first in order to understand
+how the [Hack] works. Also, you need to run the [Hack] missions against
+the “Unprotected” VIPs.</p>
+</div>
+<div class="section" id="patching">
+<h3>2.1.2.5.1.2. Patching<a class="headerlink" href="#patching" title="Permalink to this headline">¶</a></h3>
+<p>For the [Patch] missions, you need to rerun the same Hack you did in the
+corresponding mission but against the “Protected” VIP which has a
+special ASM policy attached.</p>
+<p>***** Do not create your own ASM Policies *****</p>
+<p>The policies which are attached have been customized to integrate with
+our CTF API to show you the flags. Each “Protected” VIP has an existing
+ASM Policy attached to it, please ensure that you modify the proper
+policy for the VIP when you are attempting to get the patch flag.</p>
+</div>
+</div>
+<div class="section" id="your-first-hack-and-patch">
+<h2>2.1.2.5.2. Your First Hack and Patch<a class="headerlink" href="#your-first-hack-and-patch" title="Permalink to this headline">¶</a></h2>
+<p>We will do the first one together… you’ll see how this works and we’re
+sure you will enjoy the rest of the class.</p>
+</div>
+<div class="section" id="useful-tools">
+<h2>2.1.2.5.3. Useful tools<a class="headerlink" href="#useful-tools" title="Permalink to this headline">¶</a></h2>
+<p>In order to complete the Capture the Flag, you will need some tools to
+view the requests/responses and to complete the Hack missions. Many of
+the tools you will need have been loaded onto the VMs you have access
+to. Some of them are explained below:</p>
+<div class="section" id="sqlmap">
+<h3>2.1.2.5.3.1. SQLmap<a class="headerlink" href="#sqlmap" title="Permalink to this headline">¶</a></h3>
+<p><strong>SQLmap</strong> is an open source penetration testing tool that automates the
+process of detecting and exploiting SQL injection flaws and taking over
+of database servers. It comes with a powerful detection engine, many
+niche features for the ultimate penetration tester and a broad range of
+switches lasting from database fingerprinting, over data fetching from
+the database, to accessing the underlying file system and executing
+commands on the operating system via out-of-band connections. Here is a
+link to the sqlmap documentation: <a class="reference external" href="http://sqlmap.org/">Sqlmap
+Website</a></p>
+<p>SQLmap is installed on the Kali Linux server.</p>
+</div>
+<div class="section" id="burp-suite">
+<h3>2.1.2.5.3.2. Burp Suite<a class="headerlink" href="#burp-suite" title="Permalink to this headline">¶</a></h3>
+<p><strong>Burp Suite</strong> let’s you review/edit the data send and received among
+other things. It functions as a proxy, typically configured to listen on
+127.0.01 loopback address. An application such as a web broswer or
+sqlmap is configured to use Burpsuite as a Proxy. This enables the
+review/editing of what is transmitted and received. Here is a link to
+Burpsuite downloads and documentation
+<a class="reference external" href="https://portswigger.net/burp/">BurpSuite</a>.</p>
+<p>Burpsuite is installed on the Windows 7 Jumpbox.</p>
+</div>
+<div class="section" id="outwit-image-scraper">
+<h3>2.1.2.5.3.3. Outwit Image Scraper<a class="headerlink" href="#outwit-image-scraper" title="Permalink to this headline">¶</a></h3>
+<p>Outwit is a simple, straight-to-the-point online image browser. Explore
+the Web for pictures and easily create, save, and share collections.
+With OutWit Images, you can automatically explore Web pages or search
+engine results for pictures and create, save and share your collections
+or view them as full-screen slideshows.</p>
+<p>Outwit is installed on the Windows 7 Jumpbox.</p>
+</div>
+<div class="section" id="edit-this-cookie">
+<h3>2.1.2.5.3.4. Edit This Cookie<a class="headerlink" href="#edit-this-cookie" title="Permalink to this headline">¶</a></h3>
+<p>EditThisCookie is a Google Chrome extension which allows the user to
+easily see and manipulate the cookies on the current page.</p>
+<p>EditThisCookie is installed on the Windows 7 Jumpbox.</p>
+</div>
+</div>
+<div class="section" id="completing-the-ctf">
+<h2>2.1.2.5.4. Completing the CTF<a class="headerlink" href="#completing-the-ctf" title="Permalink to this headline">¶</a></h2>
+<p>You can complete the CTF Contest without referring to the document here,
+however some of the challenges require some extra tools and some
+specific knowledge in how to use those tools. We have added this to the
+document here for you, allowing you to conduct the challenge by
+following the examples here. If you wish, you can do the challenges
+without these steps.</p>
+</div>
+<div class="section" id="challenge-remote-command-execution">
+<h2>2.1.2.5.5. Challenge: Remote Command Execution<a class="headerlink" href="#challenge-remote-command-execution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="level-1">
+<h3>2.1.2.5.5.1. Level 1<a class="headerlink" href="#level-1" title="Permalink to this headline">¶</a></h3>
+<p>Command injection is an attack in which the goal is execution of
+arbitrary commands on the host operating system via a vulnerable
+application. Command injection attacks are possible when an application
+passes unsafe user supplied data (forms, cookies, HTTP headers etc.) to
+a system shell. In this attack, the attacker-supplied operating system
+commands are usually executed with the privileges of the vulnerable
+application. Command injection attacks are possible largely due to
+insufficient input validation.</p>
+<p>In this example, we have an application which uses a vulnerable version
+of the Struts2 library. This library has a vulnerability in the file
+upload component, allowing a properly formatted exploit to execute
+commands on the server. More can be learned about this vulnerability
+here:
+<a class="reference external" href="https://devcentral.f5.com/articles/apache-struts-remote-code-execution-vulnerability-cve-2017-5638-25617">https://devcentral.f5.com/articles/apache-struts-remote-code-execution-vulnerability-cve-2017-5638-25617</a></p>
+<p>Using the supplied exploit read the <em>flag.txt</em> file in the Tomcat7
+folder.</p>
+</div>
+<div class="section" id="level-2">
+<h3>2.1.2.5.5.2. Level 2<a class="headerlink" href="#level-2" title="Permalink to this headline">¶</a></h3>
+<p>When there is a php application on a web server, typically credentials
+are stored within the application config in clear-text. Using this
+knowledge, the Struts2 vulnerability and the DVWA site, access the
+database for DVWA and get the flag from the database.</p>
+</div>
+</div>
+<div class="section" id="challenge-domain-cookie-exploit">
+<h2>2.1.2.5.6. Challenge: Domain Cookie Exploit<a class="headerlink" href="#challenge-domain-cookie-exploit" title="Permalink to this headline">¶</a></h2>
+<p>One of the uses of Cookies is to track sessions and identify users. For
+example, once a user authenticates to a server, the server places a
+cookie on the user computer that identifies the user. The next time the
+user accesses the site, they will not be asked to authenticate – the
+server will check the cookie that identifies the user as authenticated,
+and allow the user in.</p>
+<p>Cookie Hijacking is one of the attacks that can be executed to gain
+access to privileged information. In this exploit, an attacker would
+gain access to a cookie that contains user credential information,
+session information, or other types of information that identify a user
+to a system. Then the attacker would use this cookie (i.e. copy it to
+their computer) to gain access to the server.</p>
+<p>F5LAB.BIZ is a company that offers financial services to customers. They
+have two services: hr.f5lab.biz (human resources services) and
+accounts.f5lab.biz (tax services). Both services use a common backend
+database to authenticate users.</p>
+</div>
+<div class="section" id="challenge-webscraping">
+<h2>2.1.2.5.7. Challenge: Webscraping<a class="headerlink" href="#challenge-webscraping" title="Permalink to this headline">¶</a></h2>
+<p>Webscraping is a popular technique used by both white and black hatters
+to “scrape” a website to harvest information from it. A good example of
+a mischievous webscraping activity would be a competitor scraping a
+website in order to harvest a product catalog or product prices. Once
+they obtain this information, they can gain intelligence about their
+competition and use it for their own ends.</p>
+<p>There are a variety of tools out there to conduct webscraping. Some are
+off-the shelf and some are custom-developed. In either case, these tools
+are smart in that they know how to bypass the webscraping security
+controls – by modifying their traffic patterns (i.e vary the request
+rate and frequency to avoid detection)</p>
+<p>Webstore.f5lab.biz is an online business that offers variety of
+products. It was detected that an attacker has mounted a webscraping
+attack against the website and is copying all the product images.</p>
+<p>It was discovered that an attacker is using a popular scraping tool
+OutWit Hub:</p>
+<img alt="../../_images/outwit1.png" src="../../_images/outwit1.png" />
+<div class="section" id="the-setup">
+<h3>2.1.2.5.7.1. The setup<a class="headerlink" href="#the-setup" title="Permalink to this headline">¶</a></h3>
+<p>Open OutWit Hub from the Start Menu</p>
+<p>In the OutWit Hub GUI, go to <strong>Tools/Preferences/Exports &amp; Downloads</strong>
+and specify a windows folder under “Save files in”</p>
+<p>This folder is where the hacker (web scraper) will save the scraped
+images</p>
+<p><strong>Select Images on the left-hand panel in the GUI:</strong></p>
+<img alt="../../_images/outwit2.png" src="../../_images/outwit2.png" />
+<p>Note: The OutWit application is written in Java so it sometimes has a
+challenge with resizing on the RDP session. If you cannot see all the
+panels well (as in the screenshot below), please resize it and move the
+sections around in OutWit until it resembles what you see in the
+screenshot below):</p>
+<img alt="../../_images/outwit3.png" src="../../_images/outwit3.png" />
+<p>The highlighted sections in the mage above show the settings that need
+to be set in order to continue with the exercise.</p>
+<p>Tell the scraping tool to look for a file called <em>flag-hacked.jpg</em>.
+Finding this file will earn you a point:</p>
+<img alt="../../_images/outwit4.png" src="../../_images/outwit4.png" />
+<p>Change the scraping settings in the tool’s GUI to Auto-Catch and
+Auto-Empty:</p>
+<img alt="../../_images/outwit5.png" src="../../_images/outwit5.png" />
+<p>Make sure you tell the tool to Save the images which it finds:</p>
+<img alt="../../_images/outwit6.png" src="../../_images/outwit6.png" />
+<p>train the tool on
+<a class="reference external" href="https://webstore.f5lab.biz/">https://webstore.f5lab.biz</a>:</p>
+<img alt="../../_images/outwit7.png" src="../../_images/outwit7.png" />
+<p>Hit enter</p>
+<p>First set of images should show in the OutWit Hub GUI.</p>
+<p>Important: Make the scraper scrape the entire site by following all the
+site’s links. To do this, push the “Autoexplore the links on the page”
+button:</p>
+<img alt="../../_images/outwit8.png" src="../../_images/outwit8.png" />
+</div>
+</div>
+<div class="section" id="challenge-blindsql-injection">
+<h2>2.1.2.5.8. Challenge: BlindSQL Injection<a class="headerlink" href="#challenge-blindsql-injection" title="Permalink to this headline">¶</a></h2>
+<p>Blind SQL (Structured Query Language) injection is a type of&nbsp;<a class="reference external" href="https://www.owasp.org/index.php/SQL_Injection">SQL
+Injection</a>&nbsp;attack that
+asks the database true or false questions and determines the answer
+based on the applications response. This attack is often used when the
+web application is configured to show generic error messages, but has
+not mitigated the code that is vulnerable to SQL injection.</p>
+<p>When an attacker exploits SQL injection, sometimes the web application
+displays error messages from the database complaining that the SQL
+Query’s syntax is incorrect. Blind SQL injection is nearly identical to
+normal&nbsp;<a class="reference external" href="https://www.owasp.org/index.php/SQL_Injection">SQL
+Injection</a>, the only
+difference being the way the data is retrieved from the database. When
+the database does not output data to the web page, an attacker is forced
+to steal data by asking the database a series of true or false
+questions. This makes exploiting the SQL Injection vulnerability more
+difficult, but not impossible.</p>
+<p>Putting it together: using SQLMAP with Burp. If dealing with clear-text
+http, you can just configure sqlmap to proxy thru Burp. If the site you
+are working with enforces SSL/TLS, within Burp: Proxy Options Proxy
+Listeners Request handling, select “Force Use of SSL”</p>
+<div class="line-block">
+<div class="line">To force SQLMAP to use burp as a proxy: ./sqlmap.py -u “<a class="reference external" href="http:/">http:/</a>/&lt;target
+URL” –proxy “<a class="reference external" href="http://127.0.0.1:8080">http://127.0.0.1:8080</a>”</div>
+<div class="line">where -u is target URL, –data is POST data and –proxy is burp proxy
+details.</div>
+</div>
+<div class="section" id="sql-injection-blindsqli-exploit">
+<h3>2.1.2.5.8.1. SQL injection/BlindSQLI exploit<a class="headerlink" href="#sql-injection-blindsqli-exploit" title="Permalink to this headline">¶</a></h3>
+<p>Web applications front-end access to back-end databases. Properly built
+applications will validate the input into form fields. A client will
+fill out a web form and the results will be submitted. With SQL
+injection exploits, SQL commands are submitted in via the web
+application forms. If the application is not validating the input
+(blocking actual SQL commands), then those will get submitted to the
+database and results can be returned. When testing a website for SQL
+injection vulnerabilities, errors may be returned from vulnerable
+websites that indicate the site is vulnerable and how to exploit it.
+Some websites may suppresses the error messages however. This makes SQL
+injection harder and what leads to Blind SQL injection.</p>
+<p>SQLi exploits can be performed manually thru a web browser. While this
+can be useful to test a website, it can consume time to manually exploit
+a vulnerable website. This is where SQLmap can be useful as an automated
+method to make SQL injection easier. The SQLmap official website says:</p>
+<blockquote>
+<div>SQLmap is an open source penetration testing tool that automates the
+process of detecting and exploiting SQL injection flaws and taking
+over of database servers. It comes with a powerful detection engine,
+many niche features for the ultimate penetration tester and a broad
+range of switches lasting from database fingerprinting, over data
+fetching from the database, to accessing the underlying file system
+and executing commands on the operating system via out-of-band
+connections.</div></blockquote>
+<p>The focus of this lab will be on the use of SQLmap to “map” the
+database, learning the databases, tables, rows and columns. Successful
+completion of this lab will result in retrieval of the usernames and
+passwords. In the database you will find the CTF token.</p>
+<p>Proxying the requests thru Burp Suite will help to see and work thru the
+exploit. Later in this lab you can use Burp Suite to proxy the SQLmap
+requests to get a better view of what is actually being sent/received.</p>
+<div class="line-block">
+<div class="line">Both Burp Suite and Sqlmap are tools installed on the jump box
+machine.</div>
+<div class="line">Burp Suite is a link on the desktop and SQLmap is located in
+c:\sqlmap (as python sqlmap.py)</div>
+</div>
+</div>
+<div class="section" id="executing-the-exploit">
+<h3>2.1.2.5.8.2. Executing the exploit<a class="headerlink" href="#executing-the-exploit" title="Permalink to this headline">¶</a></h3>
+<p>Connect to the jumpbox</p>
+<p>Open Chrome and enable the developer tools (Control-Shift-I)</p>
+<p>In order to use SQL map, you will need to gather a valid session cookie
+and the URL to test. The Chrome developer tools can help with this.
+Clicking on the Application tab of the developer tools will provide
+details on the cookies as well as other information,</p>
+<img alt="../../_images/dvwa2.png" src="../../_images/dvwa2.png" />
+<p>Browse to the DVWA website via the bookmark</p>
+<div class="line-block">
+<div class="line">Login to the DVWA website and click on the “SQL injection (Blind)”
+panel.</div>
+<div class="line">(User:admin, pass:password)</div>
+</div>
+<p>Click the SQL Injection (Blind) on the left side of the page and enter a
+number (4 for example) into the user id field and click submit.</p>
+<p>With these details, we are able to construct the sqlmap command.</p>
+<div class="line-block">
+<div class="line">Open a command prompt in windows and change to the “c:\sqlmap”
+directory.</div>
+<div class="line">This implementation of sqlmap uses python so you will use the
+“sqlmap.py” script</div>
+</div>
+<p>You can type “sqlmap.py –hh” for an extended list of the options.</p>
+<p>Some of the options that will be of interest to us include:</p>
+<div class="line-block">
+<div class="line">-u (for specifying the URL to test)</div>
+<div class="line">–cookie (for specifcing the session cookie to use)</div>
+<div class="line">–dbs (for enumerating the databases)</div>
+<div class="line">-D &lt;database name&gt; (for specifying a database to work with)</div>
+<div class="line">–tables (to provide a list of the tables in the DB)</div>
+<div class="line">–columns (provides the DB columns)</div>
+<div class="line">-dump (will dump the contents of the columns specified)</div>
+<div class="line">–proxy <a class="reference external" href="http://127.0.0.1:8080">http://127.0.0.1:8080</a> (to use a proxy, in this case Burp suite
+listening on the loopback address of the local machine)</div>
+</div>
+</div>
+</div>
+</div>
+
+
+        
+		     <div class="row next-prev-btn-row">
+           <div class="col-lg-12">
+           
+		        <a href="lab3.html" title="2.1.2.4. Exercise 3: Metasploit Utilities" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+           
+           
+              <a href="lab5.html" title="2.1.2.6. Appendix A: Cyber Security – A Legal Perspective" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+           
+		     </div>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="content-fluid pre-footer">
+            <div class="blocks-container">
+              <div class="block">
+                <h3>Support Programs</h3>
+                <p>Regionally located support centers enable F5 to provide support in a number of languages through native-speaking support engineers.</p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/support/support-offerings" target="_blank" href="https://f5.com/support/support-offerings">See more
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Contact Support</h3>
+                <p>
+                  North America: 1-888-882-7535<br>
+                  Outside North America: 800-11-275-435
+                </p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" href="https://f5.com/about-us/contact#regional-support">Local Support Numbers
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Feedback and Help</h3>
+                <p>Have questions, suggestions, or just want to get something off your chest? Let us know.</p>
+                <a class="btn" data-ui-sref="siteFeedback" target="_blank" href="https://support.f5.com/csp/siteFeedback">Leave feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer">
+            <div class="container">
+              <div class="col-sm-3 col-md-2">
+                <h4>About F5</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/about-us/contact" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact" class="internalLink">Contact F5</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/about-us/careers" target="_blank" data-link-type="footer" href="https://f5.com/about-us/careers" class="internalLink">Careers</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-3 col-md-2">
+                <h4>Education</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/education/training" target="_blank" data-link-type="footer" href="https://f5.com/education/training" class="internalLink">Training</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/certification" target="_blank" data-link-type="footer" href="https://f5.com/education/certification" class="internalLink">Certification</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/training/free-courses" target="_blank" data-link-type="footer" href="https://f5.com/education/training/free-courses" class="internalLink">Free Online Training</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-sm-3 col-md-2">
+                <h4>F5 sites</h4>
+                <ul>
+                <li><a data-ng-href="https://f5.com" target="_blank" data-link-type="footer" href="https://f5.com" class="internalLink">F5.com</a>
+                </li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" data-link-type="footer" href="https://devcentral.f5.com" class="internalLink">Community</a>
+                </li>
+                <li><a data-ng-href="https://partners.f5.com" target="_blank" data-link-type="footer" href="https://partners.f5.com" class="internalLink">Partners</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-3 col-md-2">
+            <h4>Support Tasks</h4>
+            <ul>
+                <li><a data-ui-sref="mySupport.createServiceRequest" data-link-type="footer" href="https://support.f5.com/csp/my-support/service-request">Create Service Request </a>
+                </li>
+                <li><a data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact#regional-support" class="internalLink">Contact Support</a>
+                </li>
+                <li><a data-ui-sref="siteFeedback" target="_blank" data-link-type="footer" href="https://support.f5.com/csp/siteFeedback">Leave feedback [+]</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-md-3 right">
+            <h4>Connect with us</h4>
+            <ul class="social_icons">
+                <li><a href="//twitter.com/f5networks" target="_blank" data-name="twitter" data-type="" data-prefix="social" data-utf="E032" title="Twitter" class="externalLink"><i class="icon-1x icon-twitter icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.linkedin.com/companies/f5-networks" target="_blank" class="linkedin externalLink" title="LinkedIn"><i class="icon-1x icon-linkedin icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.facebook.com/f5networksinc" target="_blank" class="facebook externalLink" title="Facebook"><i class="icon-1x icon-facebook icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.youtube.com/f5networksinc" target="_blank" class="youtube externalLink" title="YouTube"><i class="icon-1x icon-youtube icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" class="devcentral internalLink" title="DevCentral" href="https://devcentral.f5.com"><i class="icon-1x icon-dc-pos icon-inverse-circle" data-link-type="footer"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="content-fluid left">
+            <div class="col-xs-12">
+                <p>
+                    © Copyright <span class="ng-binding">2017</span> by F5 Networks, Inc. |
+                    <a data-ng-href="https://f5.com/about-us/policies" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies" class="internalLink">Policies</a> |
+                    <a data-ng-href="https://f5.com/about-us/policies/trademarks" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies/trademarks" class="internalLink">Trademarks</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</footer>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict(true)
+  </script>
+  </body>
+</html>

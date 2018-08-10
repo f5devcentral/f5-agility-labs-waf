@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2.1.2.1. Exercise 1 : Scanning the Network &#8212; Pwn like a Hacker; Protect like a Pro  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.1.2.2. Exercise 2: Exploiting a Web Server" href="lab2.html" />
+    <link rel="prev" title="2.1.1. Metasploit" href="module1.html" />
+<!--
+# Copyright 2017 F5 Networks
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row corp-header">
+      <div class="container corp-header">
+        <div class="container corp-menu">
+          <ul>
+            <li><a href="https://f5.com" class="internalLink">F5.com</a></li>
+            <li><a href="https://support.f5.com">Support</a></li>
+            <li><a href="https://devcentral.f5.com">Community</a></li>
+            <li><a href="https://github.com/F5Networks">GitHub</a></li>
+            <li><a href="https://f5.com/about-us/careers">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pageHeader">
+      <div class="container stat">
+        <div class="col-xs-12 stat">
+          <a class="internalLink" href="https://f5.com">
+            <img class="logo" src="https://cdn.f5.com/websites/support/assets/images/logo.svg" width="50" height="44" alt="F5 Networks" title="F5 Networks" border="0">
+          </a>
+            <ul id="MainMenu" class="main-menu">
+              <li>
+                <a href="#">Products
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ProductsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Connectors</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-asp-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon ASP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Kubernetes BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/f5-kube-proxy/latest" data-link-type="Nav: Mega">F5 Kubernetes Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/products/connectors">See all </a></--span-->
+                      </li>
+                      <li class="divider"></li>
+                      <li class="third"><span class="a-mm-h">Application Service Proxy</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/asp/latest" data-link-type="Nav: Mega">F5 Application Service Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a href="/products/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Container Integrations
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ContainersSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Container Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/marathon/" data-link-type="Nav: Mega">Mesos Marathon</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/kubernetes/" data-link-type="Nav: Mega">Kubernetes</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/openshift/" data-link-type="Nav: Mega">RedHat OpenShift</a></li>
+                        </ul>
+                        <span class="seemore"><a data-link-type="Nav: Mega" href="http://clouddocs.f5.com/containers/latest">View details </a></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Clouds
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="CloudsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Cloud Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/cloud/openstack/" data-link-type="Nav: Mega">OpenStack</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/cloud/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Resources
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+                <div class="menu-panel soft-hide" id="UPCProgramSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third">
+                        <span class="a-mm-h">Downloads</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://hub.docker.com/r/f5networks/" class="internalLink">Docker Hub</a></li>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://store.docker.com/images/f5networks" class="internalLink">Docker Store</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <span class="a-mm-h">OpenSource</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://github.com/F5Networks" class="internalLink">GitHub</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <a href="//university.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega">F5 University</a>
+                        <ul>
+                          <li>
+                            <p>Get up to speed with free self-paced courses</p>
+                          </li>
+                        </ul>
+                        <a data-ng-href="https://devcentral.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega" href="https://devcentral.f5.com">DevCentral</a>
+                        <ul>
+                          <li>
+                            <p>Join the community of 250,000+ technical peers</p>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container-fluid -->
+</nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 sidebar">
+         <h4><a href="../../">Pwn like a Hacker; Protect like a Pro </a></h4>
+<div id="searchbox" style="display: none" role="search">
+  <form class="search" action="../../search.html" method="get">
+    <div>
+      <input type="text" name="q" placeholder="Search" style="padding-left: 6px;"/>
+      <!-- <input type="submit" value="Go" style="margin-top: 4px;"/> -->
+      <button type="submit" class="btn btn-primary btn-xs">Go</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="caption">
+   <span class="caption-text">Current Page</span>
+  </p>
+  <ul>
+<li><a class="reference internal" href="#">2.1.2.1. Exercise 1 : Scanning the Network</a><ul>
+<li><a class="reference internal" href="#msfconsole">2.1.2.1.1. MSFconsole</a></li>
+<li><a class="reference internal" href="#intelligence-gathering">2.1.2.1.2. Intelligence Gathering</a></li>
+<li><a class="reference internal" href="#nmap">2.1.2.1.3. nmap</a><ul>
+<li><a class="reference internal" href="#options">2.1.2.1.3.1. options</a></li>
+<li><a class="reference internal" href="#advanced">2.1.2.1.3.2. advanced</a></li>
+<li><a class="reference internal" href="#set-or-unset">2.1.2.1.3.3. set or unset</a></li>
+<li><a class="reference internal" href="#info">2.1.2.1.3.4. info</a></li>
+<li><a class="reference internal" href="#workspace">2.1.2.1.3.5. workspace</a></li>
+<li><a class="reference internal" href="#reload-all">2.1.2.1.3.6. reload_all</a></li>
+<li><a class="reference internal" href="#jobs">2.1.2.1.3.7. jobs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#importing-nmap-scan-results">2.1.2.1.4. Importing nmap scan results</a><ul>
+<li><a class="reference internal" href="#db-import">2.1.2.1.4.1. db_import</a></li>
+<li><a class="reference internal" href="#hosts">2.1.2.1.4.2. hosts</a></li>
+<li><a class="reference internal" href="#services">2.1.2.1.4.3. services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - Pwn like a Hacker; Protect like a Pro</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../class1.html#class-environment">2.1. Class Environment:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="module1.html"
+                        title="previous chapter">2.1.1. Metasploit</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lab2.html"
+                        title="next chapter">2.1.2.2. Exercise 2: Exploiting a Web Server</a></p>
+        
+      </div>
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <h4>
+          <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">Pwn like a Hacker; Protect like a Pro</a>
+          <span class="right"><a href="../../genindex.html">Index</a></span>
+        </h4>
+        
+  <div class="section" id="exercise-1-scanning-the-network">
+<h1>2.1.2.1. Exercise 1 : Scanning the Network<a class="headerlink" href="#exercise-1-scanning-the-network" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="msfconsole">
+<h2>2.1.2.1.1. MSFconsole<a class="headerlink" href="#msfconsole" title="Permalink to this headline">¶</a></h2>
+<p>MSFconsole is a command line interface to access the modules of
+Metasploit. It is the most commonly used component of Metasploit and
+quite likely where you’d spend most of your time for testing
+vulnerabilities. The only possible downside is that you need to be ‘on’
+the Metasploit computer itself – either via ssh or logged in locally.</p>
+<p>To access MSFconsole, do the following:</p>
+<div class="line-block">
+<div class="line">Use putty on the Win 7 Client to SSH to the Kali Linux host CLI
+(10.1.10.240):</div>
+<div class="line">root / 401elliottW!</div>
+</div>
+<img alt="../../_images/putty3.png" src="../../_images/putty3.png" />
+<img alt="../../_images/putty4.png" src="../../_images/putty4.png" />
+</div>
+<div class="section" id="intelligence-gathering">
+<h2>2.1.2.1.2. Intelligence Gathering<a class="headerlink" href="#intelligence-gathering" title="Permalink to this headline">¶</a></h2>
+<p>When a hacker wants to infiltrate your network, they start with
+gathering Intel. There are many tools which can search for and identify
+devices and applications on the network. Some are larger tools such as
+nmap (discussed below), Nessus from Tenable
+(<a class="reference external" href="http://www.tenable.com">www.tenable.com</a>), Nexpose from Rapid7
+(<a class="reference external" href="https://www.rapid7.com/free-tools/">https://www.rapid7.com/free-tools/</a>) or even fing (<a class="reference external" href="https://www.fing.io/">https://www.fing.io/</a>)
+which runs on your Smartphone!</p>
+</div>
+<div class="section" id="nmap">
+<h2>2.1.2.1.3. nmap<a class="headerlink" href="#nmap" title="Permalink to this headline">¶</a></h2>
+<p>Before starting an attack, a hacker will probe for applications running
+within the network. nmap is a freeware tool which can be used to probe a
+subnet or a specific IP address to ports as well as attempt to classify
+what the application on the port is.</p>
+<p>Execute nmap against the DMZ network to see if there are any
+‘interesting’ computers we can see.. From the ssh connection to the Kali
+linux server, run the following command:</p>
+<p>nmap -Pn -sS -A -oX /tmp/nmap.xml 10.1.10.0/24</p>
+<p>This will initiate a scan which should take up to 10 minutes to
+complete. The output will be stored in an XML file that we will import
+into Metasploit.</p>
+<p>Sample Output</p>
+<p>Starting Nmap 6.49BETA4 ( <a class="reference external" href="https://nmap.org">https://nmap.org</a> ) at 2017-06-26 14:32 EDT</p>
+<p>Nmap scan report for 10.1.10.1</p>
+<p>Host is up (0.0015s latency).</p>
+<p>All 1000 scanned ports on 10.1.10.1 are filtered</p>
+<p>MAC Address: 2C:C2:60:FF:00:01 (Ravello Systems)</p>
+<p>Too many fingerprints match this host to give specific OS details</p>
+<p>Network Distance: 1 hop</p>
+<p>TRACEROUTE</p>
+<p>HOP RTT ADDRESS</p>
+<p>1 1.47 ms 10.1.10.1</p>
+<p>Nmap scan report for 10.1.10.14</p>
+<p>Host is up (0.0012s latency).</p>
+<p>Not shown: 999 closed ports</p>
+<p>PORT STATE SERVICE VERSION</p>
+<p>80/tcp open http?</p>
+<p>MAC Address: 2C:C2:60:4E:15:D2 (Ravello Systems)</p>
+<p>No exact OS matches for host (If you know what OS is running on it, see
+<a class="reference external" href="https://nmap.org/submit/">https://nmap.org/submit/</a> ).</p>
+<p>TCP/IP fingerprint:</p>
+<p>OS:SCAN(V=6.49BETA4%E=4%D=6/26%OT=80%CT=1%CU=31425%PV=Y%DS=1%DC=D%G=Y%M=2CC</p>
+<p>OS:260%TM=5951553A%P=x86_64-pc-linux-gnu)SEQ(SP=FC%GCD=1%ISR=10D%TI=RD%CI=R</p>
+<p>OS:I%TS=A)OPS(O1=M5B4NNT11SLL%O2=M5B4NNT11SLL%O3=M5B4NNT11%O4=M5B4NNT11SLL%</p>
+<p>OS:O5=M5B4NNT11SLL%O6=M5B4NNT11SLL)WIN(W1=111C%W2=1068%W3=780%W4=648%W5=648</p>
+<p>OS:%W6=31B)ECN(R=Y%DF=Y%T=FF%W=111C%O=M5B4SLL%CC=N%Q=)T1(R=Y%DF=Y%T=FF%S=O%</p>
+<p>OS:A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=FF%W=0%S=A%A=S%F=AR%O=%RD=</p>
+<p>OS:0%Q=)T5(R=Y%DF=Y%T=FF%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=FF%W=0%</p>
+<p>OS:S=A%A=S%F=AR%O=%RD=0%Q=)T7(R=N)U1(R=Y%DF=Y%T=FF%IPL=38%UN=0%RIPL=G%RID=G</p>
+<p>OS:%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=Y%T=FF%CD=S)</p>
+<p><strong>*… snip …*</strong></p>
+<p>OS and Service detection performed. Please report any incorrect results
+at <a class="reference external" href="https://nmap.org/submit/">https://nmap.org/submit/</a> .</p>
+<p>Nmap done: 256 IP addresses (18 hosts up) scanned in 515.89 seconds</p>
+<p>Open a New ssh session to the Kali server while the nmap command runs.</p>
+<p>Metasploit uses a database to store many of the items you’ll be using as
+well as the data from searches such as the one running in your nmap
+session. To ensure that the database is running, run the following from
+the command line:</p>
+<p>service postgresql start</p>
+<p>This will ensure that postgresql is running. You can also check the
+status:</p>
+<p>service postgresql status</p>
+<p>● postgresql.service - PostgreSQL RDBMS</p>
+<p>Loaded: loaded (/lib/systemd/system/postgresql.service; enabled)</p>
+<p>Active: active (exited) since Tue 2017-07-04 10:59:07 EDT; 31min ago</p>
+<p>Process: 779 ExecStart=/bin/true (code=exited, status=0/SUCCESS)</p>
+<p>Main PID: 779 (code=exited, status=0/SUCCESS)</p>
+<p>CGroup: /system.slice/postgresql.service</p>
+<p>Run msfconsole</p>
+<ul class="simple">
+<li>#msfconsole</li>
+</ul>
+<p>The first time you run msfconsole there can be a slight delay as indices
+are updated.</p>
+<p>Your output will vary on each run – since this is the free version – but
+the final lines should look similar to the following:</p>
+<p>=[ metasploit v4.14.5-dev ]</p>
+<ul class="simple">
+<li>– –=[ 1639 exploits - 945 auxiliary - 286 post ]</li>
+<li>– –=[ 473 payloads - 40 encoders - 9 nops ]</li>
+<li>– –=[ Free Metasploit Pro trial: <a class="reference external" href="http://r-7.co/trymsp">http://r-7.co/trymsp</a> ]</li>
+</ul>
+<p>msf &gt;</p>
+<p>You’re now in MSFconsole and you can investigate some of the commands
+available to you.</p>
+<p>msf &gt; help &lt;command&gt;</p>
+<p>For example you can see the possible switches for the connect command:</p>
+<p>msf &gt; help connect</p>
+<p>Usage: connect [options] &lt;host&gt; &lt;port&gt;</p>
+<p>Communicate with a host, similar to interacting via netcat, taking
+advantage of</p>
+<p>any configured session pivoting.</p>
+<p>OPTIONS:</p>
+<p>-C Try to use CRLF for EOL sequence.</p>
+<p>-P &lt;opt&gt; Specify source port.</p>
+<p>-S &lt;opt&gt; Specify source address.</p>
+<p>-c &lt;opt&gt; Specify which Comm to use.</p>
+<p>-h Help banner.</p>
+<p>-i &lt;opt&gt; Send the contents of a file.</p>
+<p>-p &lt;opt&gt; List of proxies to use.</p>
+<p>-s Connect with SSL.</p>
+<p>-u Switch to a UDP socket.</p>
+<p>-w &lt;opt&gt; Specify connect timeout.</p>
+<p>-z Just try to connect, then return.</p>
+<p>msf &gt;</p>
+<p>We will spend time in Metasploit investigating some of the commands
+later but for now, here are some of the interesting commands. You can
+type ‘help &lt;command&gt;’ for some information on each of these.</p>
+<div class="section" id="options">
+<h3>2.1.2.1.3.1. options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>Options are like command line flags for your exploits and modules.
+You’ll use this all the time. Use ‘show options’ to see what has been
+set for your current exploit/module.</p>
+</div>
+<div class="section" id="advanced">
+<h3>2.1.2.1.3.2. advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h3>
+<p>I know you’re reading this and saying, “I’m just starting!” but advanced
+gives you access to debugging and other helpful information while you’re
+testing vulnerabilities and you’ll use this command often.</p>
+<p>For items listed in ‘options’ and ‘advanced’ you can use:</p>
+</div>
+<div class="section" id="set-or-unset">
+<h3>2.1.2.1.3.3. set or unset<a class="headerlink" href="#set-or-unset" title="Permalink to this headline">¶</a></h3>
+<p>These commands operation on the flags shown in options and advanced. You
+can set the flags or if you want to set it back to the default/blank
+value you can unset it.</p>
+</div>
+<div class="section" id="info">
+<h3>2.1.2.1.3.4. info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h3>
+<p>Like options and advanced, this displays all of your current settings.</p>
+</div>
+<div class="section" id="workspace">
+<h3>2.1.2.1.3.5. workspace<a class="headerlink" href="#workspace" title="Permalink to this headline">¶</a></h3>
+<p>You can create different areas to work in, each with their own settings
+and defaults. These are known as workspaces. When you’re testing
+different vulnerabilities setting each in their own workspace can be
+helpful and a real time saver.</p>
+</div>
+<div class="section" id="reload-all">
+<h3>2.1.2.1.3.6. reload_all<a class="headerlink" href="#reload-all" title="Permalink to this headline">¶</a></h3>
+<p>reload_all is useful when you add new modules or exploits to Metasploit
+and want to import them into the database.</p>
+</div>
+<div class="section" id="jobs">
+<h3>2.1.2.1.3.7. jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h3>
+<p>You can push jobs into the background within the msfconsole environment
+and this will show you active running jobs and allow you to push or pull
+them to the foreground or background.</p>
+<p>Exit out of Metasploit after you have spent some time looking around.</p>
+<p>msf &gt; exit</p>
+<p>You’re now a Hacker!</p>
+</div>
+</div>
+<div class="section" id="importing-nmap-scan-results">
+<h2>2.1.2.1.4. Importing nmap scan results<a class="headerlink" href="#importing-nmap-scan-results" title="Permalink to this headline">¶</a></h2>
+<p>Once the nmap process has completed in the first shell, you can return
+to Metasploit and import the data.</p>
+<p>Return to Metasploit</p>
+<p>msfconsole</p>
+<p>db_import /tmp/nmap.xml</p>
+<div class="section" id="db-import">
+<h3>2.1.2.1.4.1. db_import<a class="headerlink" href="#db-import" title="Permalink to this headline">¶</a></h3>
+<p>This command takes an XML file of a scan and will bring it into the
+Metasploit database.</p>
+<p>[*] Importing ‘Nmap XML’ data</p>
+<p>[*] Import: Parsing with ‘Nokogiri v1.7.2’</p>
+<p>[*] Importing host 10.1.10.14</p>
+<p>[*] Importing host 10.1.10.35</p>
+<p>[*] Importing host 10.1.10.50</p>
+<p>[*] Importing host 10.1.10.51</p>
+<p>[*] Importing host 10.1.10.55</p>
+<p>[*] Importing host 10.1.10.59</p>
+<p>[*] Importing host 10.1.10.90</p>
+<p>[*] Importing host 10.1.10.101</p>
+<p>[*] Importing host 10.1.10.102</p>
+<p>[*] Importing host 10.1.10.115</p>
+<p>[*] Importing host 10.1.10.120</p>
+<p>[*] Importing host 10.1.10.125</p>
+<p>[*] Importing host 10.1.10.131</p>
+<p>[*] Importing host 10.1.10.132</p>
+<p>[*] Importing host 10.1.10.195</p>
+<p>[*] Importing host 10.1.10.240</p>
+<p>[*] Successfully imported /tmp/nmap.xml</p>
+<p>Now you can view the hosts where were located by nmap:</p>
+<p>hosts -c address,name,os_name,purpose</p>
+</div>
+<div class="section" id="hosts">
+<h3>2.1.2.1.4.2. hosts<a class="headerlink" href="#hosts" title="Permalink to this headline">¶</a></h3>
+<p>The hosts command will show the list of targets that are available for
+exploiting. The XML file we have imported will also show more than just
+the IP address. nmap is able to determine the kind of host that was
+scanned. Here you can see that it has seen the VIPs as ‘TMOS’ and knows
+that they’re an F5 virtual server based on the signature of the
+connection. Where possible, it has done a reverse DNS lookup and you can
+see what has been found in the local hosts file.</p>
+<p>To see what services are available to connect to:</p>
+<p>services</p>
+</div>
+<div class="section" id="services">
+<h3>2.1.2.1.4.3. services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h3>
+<p>This is where things get very interesting… nmap has determined the ports
+and accessible items for each of the hosts. Now it’s possible to do some
+investigation and access/attach to the ports of interest.</p>
+<p>Services</p>
+<hr class="docutils" />
+<p>host port proto name state info</p>
+<p>—- —- —– —- —– —-</p>
+<p>10.1.10.14 80 tcp http open</p>
+<p>10.1.10.35 80 tcp http-proxy open F5 BIG-IP load balancer http proxy</p>
+<p>10.1.10.35 443 tcp ssl/http open Apache httpd 2.4.7 (Ubuntu)
+PHP/5.5.9-1ubuntu4.21 OpenSSL/1.0.1f</p>
+<p>10.1.10.50 80 tcp http-proxy open F5 BIG-IP load balancer http proxy</p>
+<p>10.1.10.50 443 tcp ssl/http open Apache Tomcat/Coyote JSP engine 1.1</p>
+<p>10.1.10.51 80 tcp http-proxy open F5 BIG-IP load balancer http proxy</p>
+<p>10.1.10.51 443 tcp ssl/https open</p>
+<p>10.1.10.55 80 tcp http-proxy open F5 BIG-IP load balancer http proxy</p>
+<p>10.1.10.55 443 tcp ssl/http open Apache httpd 2.4.7 (Ubuntu)
+PHP/5.5.9-1ubuntu4.21 OpenSSL/1.0.1f</p>
+<p>10.1.10.59 3389 tcp ms-wbt-server open</p>
+<p>10.1.10.90 135 tcp msrpc open Microsoft Windows RPC</p>
+<p>10.1.10.90 139 tcp netbios-ssn open Microsoft Windows 98 netbios-ssn</p>
+<p>10.1.10.90 445 tcp microsoft-ds open primary domain: WORKGROUP</p>
+<p>10.1.10.90 3389 tcp ms-wbt-server open Microsoft Terminal Service</p>
+<p>10.1.10.90 49152 tcp msrpc open Microsoft Windows RPC</p>
+<p>10.1.10.90 49153 tcp msrpc open Microsoft Windows RPC</p>
+<p>10.1.10.90 49154 tcp msrpc open Microsoft Windows RPC</p>
+<p>10.1.10.90 49155 tcp msrpc open Microsoft Windows RPC</p>
+<p>10.1.10.90 49156 tcp msrpc open Microsoft Windows RPC</p>
+<p>10.1.10.90 49157 tcp msrpc open Microsoft Windows RPC</p>
+<p>10.1.10.101 81 tcp http-proxy open F5 BIG-IP load balancer http proxy</p>
+<p>10.1.10.101 443 tcp ssl/https open</p>
+<p>10.1.10.102 80 tcp http-proxy open F5 BIG-IP load balancer http proxy</p>
+<p>10.1.10.102 443 tcp ssl/https open</p>
+<p>10.1.10.115 80 tcp http-proxy open F5 BIG-IP load balancer http proxy</p>
+<p>10.1.10.115 443 tcp ssl/https open</p>
+<p>10.1.10.120 80 tcp http-proxy open F5 BIG-IP load balancer http proxy</p>
+<p>10.1.10.120 443 tcp ssl/http open Apache httpd 2.4.7 (Ubuntu)
+PHP/5.5.9-1ubuntu4.21 OpenSSL/1.0.1f</p>
+<p>10.1.10.125 443 tcp ssl/http open Apache httpd 2.4.7 (Ubuntu)
+PHP/5.5.9-1ubuntu4.21 OpenSSL/1.0.1f</p>
+<p>10.1.10.131 80 tcp http open nginx 1.10.0 Ubuntu</p>
+<p>10.1.10.132 80 tcp http open</p>
+<p>10.1.10.195 3389 tcp ms-wbt-server open Microsoft Terminal Service</p>
+<p>10.1.10.240 22 tcp ssh open OpenSSH 6.7p1 Debian 5 protocol 2.0</p>
+<p>10.1.10.240 111 tcp rpcbind open 2-4 RPC #100000</p>
+</div>
+</div>
+</div>
+
+
+        
+		     <div class="row next-prev-btn-row">
+           <div class="col-lg-12">
+           
+		        <a href="module1.html" title="2.1.1. Metasploit" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+           
+           
+              <a href="lab2.html" title="2.1.2.2. Exercise 2: Exploiting a Web Server" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+           
+		     </div>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="content-fluid pre-footer">
+            <div class="blocks-container">
+              <div class="block">
+                <h3>Support Programs</h3>
+                <p>Regionally located support centers enable F5 to provide support in a number of languages through native-speaking support engineers.</p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/support/support-offerings" target="_blank" href="https://f5.com/support/support-offerings">See more
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Contact Support</h3>
+                <p>
+                  North America: 1-888-882-7535<br>
+                  Outside North America: 800-11-275-435
+                </p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" href="https://f5.com/about-us/contact#regional-support">Local Support Numbers
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Feedback and Help</h3>
+                <p>Have questions, suggestions, or just want to get something off your chest? Let us know.</p>
+                <a class="btn" data-ui-sref="siteFeedback" target="_blank" href="https://support.f5.com/csp/siteFeedback">Leave feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer">
+            <div class="container">
+              <div class="col-sm-3 col-md-2">
+                <h4>About F5</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/about-us/contact" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact" class="internalLink">Contact F5</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/about-us/careers" target="_blank" data-link-type="footer" href="https://f5.com/about-us/careers" class="internalLink">Careers</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-3 col-md-2">
+                <h4>Education</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/education/training" target="_blank" data-link-type="footer" href="https://f5.com/education/training" class="internalLink">Training</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/certification" target="_blank" data-link-type="footer" href="https://f5.com/education/certification" class="internalLink">Certification</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/training/free-courses" target="_blank" data-link-type="footer" href="https://f5.com/education/training/free-courses" class="internalLink">Free Online Training</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-sm-3 col-md-2">
+                <h4>F5 sites</h4>
+                <ul>
+                <li><a data-ng-href="https://f5.com" target="_blank" data-link-type="footer" href="https://f5.com" class="internalLink">F5.com</a>
+                </li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" data-link-type="footer" href="https://devcentral.f5.com" class="internalLink">Community</a>
+                </li>
+                <li><a data-ng-href="https://partners.f5.com" target="_blank" data-link-type="footer" href="https://partners.f5.com" class="internalLink">Partners</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-3 col-md-2">
+            <h4>Support Tasks</h4>
+            <ul>
+                <li><a data-ui-sref="mySupport.createServiceRequest" data-link-type="footer" href="https://support.f5.com/csp/my-support/service-request">Create Service Request </a>
+                </li>
+                <li><a data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact#regional-support" class="internalLink">Contact Support</a>
+                </li>
+                <li><a data-ui-sref="siteFeedback" target="_blank" data-link-type="footer" href="https://support.f5.com/csp/siteFeedback">Leave feedback [+]</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-md-3 right">
+            <h4>Connect with us</h4>
+            <ul class="social_icons">
+                <li><a href="//twitter.com/f5networks" target="_blank" data-name="twitter" data-type="" data-prefix="social" data-utf="E032" title="Twitter" class="externalLink"><i class="icon-1x icon-twitter icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.linkedin.com/companies/f5-networks" target="_blank" class="linkedin externalLink" title="LinkedIn"><i class="icon-1x icon-linkedin icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.facebook.com/f5networksinc" target="_blank" class="facebook externalLink" title="Facebook"><i class="icon-1x icon-facebook icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.youtube.com/f5networksinc" target="_blank" class="youtube externalLink" title="YouTube"><i class="icon-1x icon-youtube icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" class="devcentral internalLink" title="DevCentral" href="https://devcentral.f5.com"><i class="icon-1x icon-dc-pos icon-inverse-circle" data-link-type="footer"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="content-fluid left">
+            <div class="col-xs-12">
+                <p>
+                    © Copyright <span class="ng-binding">2017</span> by F5 Networks, Inc. |
+                    <a data-ng-href="https://f5.com/about-us/policies" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies" class="internalLink">Policies</a> |
+                    <a data-ng-href="https://f5.com/about-us/policies/trademarks" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies/trademarks" class="internalLink">Trademarks</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</footer>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict(true)
+  </script>
+  </body>
+</html>

