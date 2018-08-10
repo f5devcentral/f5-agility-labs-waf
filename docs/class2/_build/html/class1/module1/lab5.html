@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2.1.2.6. Appendix A: Cyber Security – A Legal Perspective &#8212; Pwn like a Hacker; Protect like a Pro  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5_agility_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="2.1.2.5. Capture The Flag:" href="lab4.html" />
+<!--
+# Copyright 2017 F5 Networks
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row corp-header">
+      <div class="container corp-header">
+        <div class="container corp-menu">
+          <ul>
+            <li><a href="https://f5.com" class="internalLink">F5.com</a></li>
+            <li><a href="https://support.f5.com">Support</a></li>
+            <li><a href="https://devcentral.f5.com">Community</a></li>
+            <li><a href="https://github.com/F5Networks">GitHub</a></li>
+            <li><a href="https://f5.com/about-us/careers">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pageHeader">
+      <div class="container stat">
+        <div class="col-xs-12 stat">
+          <a class="internalLink" href="https://f5.com">
+            <img class="logo" src="https://cdn.f5.com/websites/support/assets/images/logo.svg" width="50" height="44" alt="F5 Networks" title="F5 Networks" border="0">
+          </a>
+            <ul id="MainMenu" class="main-menu">
+              <li>
+                <a href="#">Products
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ProductsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Connectors</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/marathon-asp-ctlr/latest" data-link-type="Nav: Mega">F5 Marathon ASP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest" data-link-type="Nav: Mega">F5 Kubernetes BIG-IP Controller</a></li>
+                          <li><a href="http://clouddocs.f5.com/products/connectors/f5-kube-proxy/latest" data-link-type="Nav: Mega">F5 Kubernetes Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/products/connectors">See all </a></--span-->
+                      </li>
+                      <li class="divider"></li>
+                      <li class="third"><span class="a-mm-h">Application Service Proxy</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/products/asp/latest" data-link-type="Nav: Mega">F5 Application Service Proxy</a></li>
+                        </ul>
+                        <!--span class="seemore"><a href="/products/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Container Integrations
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="ContainersSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Container Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/marathon/" data-link-type="Nav: Mega">Mesos Marathon</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/kubernetes/" data-link-type="Nav: Mega">Kubernetes</a></li>
+                          <li><a href="http://clouddocs.f5.com/containers/latest/openshift/" data-link-type="Nav: Mega">RedHat OpenShift</a></li>
+                        </ul>
+                        <span class="seemore"><a data-link-type="Nav: Mega" href="http://clouddocs.f5.com/containers/latest">View details </a></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Clouds
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+
+                <div class="menu-panel soft-hide" id="CloudsSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third"><span class="a-mm-h">Cloud Integrations</span>
+                        <ul>
+                          <li><a href="http://clouddocs.f5.com/cloud/openstack/" data-link-type="Nav: Mega">OpenStack</a></li>
+                        </ul>
+                        <!--span class="seemore"><a data-link-type="Nav: Mega" href="/cloud/">See all </a></span-->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Resources
+                  <span class="indicator"><span class="arrow-up"></span></span>
+                </a>
+                <div class="menu-panel soft-hide" id="UPCProgramSubmenu">
+                  <div class="container">
+                    <ul class="submenu col-sm-11">
+                      <li class="third">
+                        <span class="a-mm-h">Downloads</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://hub.docker.com/r/f5networks/" class="internalLink">Docker Hub</a></li>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://store.docker.com/images/f5networks" class="internalLink">Docker Store</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <span class="a-mm-h">OpenSource</span>
+                        <ul>
+                          <li><a target="_blank" data-link-type="Nav: Mega" href="https://github.com/F5Networks" class="internalLink">GitHub</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+
+                      <li class="third">
+                        <a href="//university.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega">F5 University</a>
+                        <ul>
+                          <li>
+                            <p>Get up to speed with free self-paced courses</p>
+                          </li>
+                        </ul>
+                        <a data-ng-href="https://devcentral.f5.com" class="a-mm-h internalLink" target="_blank" data-link-type="Nav: Mega" href="https://devcentral.f5.com">DevCentral</a>
+                        <ul>
+                          <li>
+                            <p>Join the community of 250,000+ technical peers</p>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container-fluid -->
+</nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 sidebar">
+         <h4><a href="../../">Pwn like a Hacker; Protect like a Pro </a></h4>
+<div id="searchbox" style="display: none" role="search">
+  <form class="search" action="../../search.html" method="get">
+    <div>
+      <input type="text" name="q" placeholder="Search" style="padding-left: 6px;"/>
+      <!-- <input type="submit" value="Go" style="margin-top: 4px;"/> -->
+      <button type="submit" class="btn btn-primary btn-xs">Go</button>
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <p class="caption">
+   <span class="caption-text">Current Page</span>
+  </p>
+  <ul>
+<li><a class="reference internal" href="#">2.1.2.6. Appendix A: Cyber Security – A Legal Perspective</a><ul>
+<li><a class="reference internal" href="#cybercrime-security">2.1.2.6.1. Cybercrime Security:</a></li>
+<li><a class="reference internal" href="#background">2.1.2.6.2. Background:</a></li>
+<li><a class="reference internal" href="#other-considerations">2.1.2.6.3. Other considerations</a></li>
+<li><a class="reference internal" href="#legal-vs-illegal-hacking">2.1.2.6.4. Legal vs. Illegal hacking</a></li>
+<li><a class="reference internal" href="#clear-dividing-line">2.1.2.6.5. Clear Dividing Line</a></li>
+<li><a class="reference internal" href="#white-grey-black-cracker-hat-hacking">2.1.2.6.6. White / Grey / Black(cracker) Hat Hacking</a></li>
+<li><a class="reference internal" href="#white-hat-hacking">2.1.2.6.7. White Hat Hacking</a></li>
+<li><a class="reference internal" href="#is-ethical-hacking-legal-it-depends">2.1.2.6.8. Is Ethical Hacking Legal? – It depends!</a></li>
+<li><a class="reference internal" href="#ethical-hacking-pitfalls">2.1.2.6.9. Ethical hacking pitfalls</a></li>
+<li><a class="reference internal" href="#remarks">2.1.2.6.10. Remarks</a></li>
+<li><a class="reference internal" href="#worlwide-view">2.1.2.6.11. Worlwide View</a></li>
+<li><a class="reference internal" href="#tensions-in-global-cyberspace">2.1.2.6.12. Tensions in Global Cyberspace</a></li>
+<li><a class="reference internal" href="#certified-ethical-hacking-certification">2.1.2.6.13. Certified Ethical Hacking Certification</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#learn-more">2.1.2.7. Learn More</a></li>
+</ul>
+
+
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">1. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">2. Class - Pwn like a Hacker; Protect like a Pro</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../class1.html#class-environment">2.1. Class Environment:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="lab4.html"
+                        title="previous chapter">2.1.2.5. Capture The Flag:</a></p>
+        
+      </div>
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <h4>
+          <a href="/">Community Training Classes &amp; Labs</a> &gt; <a href="../../index.html">Pwn like a Hacker; Protect like a Pro</a>
+          <span class="right"><a href="../../genindex.html">Index</a></span>
+        </h4>
+        
+  <div class="section" id="appendix-a-cyber-security-a-legal-perspective">
+<h1>2.1.2.6. Appendix A: Cyber Security – A Legal Perspective<a class="headerlink" href="#appendix-a-cyber-security-a-legal-perspective" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cybercrime-security">
+<h2>2.1.2.6.1. Cybercrime Security:<a class="headerlink" href="#cybercrime-security" title="Permalink to this headline">¶</a></h2>
+<p>Collective processes and mechanisms by which people, sensitive and
+valuable information, products and services are protected from damage,
+publication, tampering or collapse by unauthorized activities or
+untrustworthy individuals and unplanned events respectively. Computer
+security aims at the protection of persons, information and property
+from theft, misuse, corruption, tampering, unauthorized disclosure, or
+natural disaster, while allowing the information and property to remain
+accessible and productive to its intended users</p>
+</div>
+<div class="section" id="background">
+<h2>2.1.2.6.2. Background:<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>In the early 1980s law enforcement agencies faced the dawn of the
+computer age with growing concern about the lack of criminal laws
+available to fight emerging computer crimes.</li>
+<li>In response, Congress included in the Comprehensive Crime Control Act
+(CCCA) of 1984 provisions to address the unauthorized access and use
+of computers and computer networks</li>
+<li>Throughout 1985, both the House and the Senate held hearings on
+potential computer crime bills, continuing the efforts begun the year
+before. These hearings culminated in the Computer Fraud and Abuse Act
+(CFAA)</li>
+</ul>
+<blockquote>
+<div>Current Legal Environment:</div></blockquote>
+<hr class="docutils" />
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>The Primary guide in most federal hacking cases in still the Computer</dt>
+<dd>Fraud and Abuse Act (CFAA - passed by U.S. Congress in 1986)</dd>
+</dl>
+</li>
+<li>Other federal statutes used for prosecuting Cybercrime are:</li>
+<li>Wiretap Act</li>
+<li>Unlawful Access to Stored Communications Act</li>
+<li>Identity Theft and Aggravated Identity Theft Act</li>
+<li>Access Device Fraud Act</li>
+<li>CAN-SPAM Act</li>
+<li>Wire Fraud</li>
+<li>Communication Interference Act</li>
+</ul>
+</div>
+<div class="section" id="other-considerations">
+<h2>2.1.2.6.3. Other considerations<a class="headerlink" href="#other-considerations" title="Permalink to this headline">¶</a></h2>
+<p>In addition, most every state has its own Computer Crime Statutes. Each
+state also has its own prosecutorial system. Some states are much more
+active in the area of cybersecurity enforcement than others, but
+typically the states will cooperate with federal authorities. Some state
+laws are more restrictive than federal, i.e. in areas such as State Laws
+Addressing “Phishing” and State Spyware Laws. The laws are a complex
+web. Only skilled lawyers are capable of figuring out the full meaning
+revealed in case law interpretations of the state and federal laws.</p>
+</div>
+<div class="section" id="legal-vs-illegal-hacking">
+<h2>2.1.2.6.4. Legal vs. Illegal hacking<a class="headerlink" href="#legal-vs-illegal-hacking" title="Permalink to this headline">¶</a></h2>
+<p>Cracker vs Hacker</p>
+<ul class="simple">
+<li>A hacker is a person intensely interested in the arcane and recondite
+workings of any computer operating system. Hackers are most often
+programmers. As such, hackers obtain advanced knowledge of operating
+systems and programming languages. They might discover holes within
+systems and the reasons for such holes. Hackers constantly seek
+further knowledge, freely share what they have discovered, and never
+intentionally damage data.</li>
+<li>A cracker is one who breaks into or otherwise violates the system
+integrity of remote machines with malicious intent. Having gained
+unauthorized access, crackers destroy vital data, deny legitimate
+users service, or cause problems for their targets. Crackers can
+easily be identified because their actions are malicious.</li>
+</ul>
+</div>
+<div class="section" id="clear-dividing-line">
+<h2>2.1.2.6.5. Clear Dividing Line<a class="headerlink" href="#clear-dividing-line" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Congress needs to enact a clearer, more technologically current law
+to rationally and fairly divide the line between legal and illegal
+hacking. The complete rewrite should include different Acts for
+criminal and civil rules and enforcement, and should tie into privacy
+and security legislation.</li>
+<li>Need a clearer / more dependable way to distinguish between “ethical”
+and “malicious” hacking</li>
+<li>Malicious hacking is always negative and destructive. Ethical
+hacking’s goal is to contribute to the security community and to
+improve overall security</li>
+</ul>
+</div>
+<div class="section" id="white-grey-black-cracker-hat-hacking">
+<h2>2.1.2.6.6. White / Grey / Black(cracker) Hat Hacking<a class="headerlink" href="#white-grey-black-cracker-hat-hacking" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All of them exploit weaknesses in computer systems and networks</li>
+<li>Black Hat Hackers, computer criminals whose malicious activities
+serve their own ends ranging from financial gain to simply causing
+chaos</li>
+<li>White Hat (“ethical”) Hackers are usually those that carry out their
+craft with no apparent criminal intention in mind</li>
+<li>Grey Hat Hackers sit in the middle, often hacking into a system just
+to prove they can, but afterwards usually notifying the vendor or
+owner of the weakness</li>
+</ul>
+</div>
+<div class="section" id="white-hat-hacking">
+<h2>2.1.2.6.7. White Hat Hacking<a class="headerlink" href="#white-hat-hacking" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Usually hired by companies to carry out vulnerability assessments and
+penetration testing, a technique that helps to determine how secure
+the company’s systems are.</li>
+<li>It’s a necessary business service that allows businesses identify
+their weaknesses and shore up their defences against real criminals
+(Crackers / Black Hats)</li>
+</ul>
+</div>
+<div class="section" id="is-ethical-hacking-legal-it-depends">
+<h2>2.1.2.6.8. Is Ethical Hacking Legal? – It depends!<a class="headerlink" href="#is-ethical-hacking-legal-it-depends" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Companies believe that authorizing an ethical hacker to test a
+company’s defences is enough legal protection to justify ethical
+hacking. Ethical Hackers believe they are justified by the fact that
+they are acting in the best interests of the company who hired them</li>
+<li>However, what needs to be considered is how far the hacker is willing
+to go to test the systems. Or worse, to switch into grey hat mode,
+determined to break in just to prove they can</li>
+</ul>
+</div>
+<div class="section" id="ethical-hacking-pitfalls">
+<h2>2.1.2.6.9. Ethical hacking pitfalls<a class="headerlink" href="#ethical-hacking-pitfalls" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Often, Ethical Hackers break laws in order to conduct their
+activities:</li>
+<li>Obtaining a user’s PII (i.e. social engineering)</li>
+<li>Gain access to the system using someone else’s credentials (obtained
+Illicitly)</li>
+<li>Gain access to confidential information</li>
+<li>Gain access to customer/employee information</li>
+<li>Probe / “White Hat”-hack other avenues to the company being tested
+i.e. access via their business partners. Unless the business partner
+has been included in the scope of the penetration test, the ethical
+hacker has strayed outside the boundaries of the law to achieve their
+aims</li>
+</ul>
+</div>
+<div class="section" id="remarks">
+<h2>2.1.2.6.10. Remarks<a class="headerlink" href="#remarks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>“Ethical Hackers” aim to test businesses’ security in a constructive
+way in order to improve it</li>
+<li>Companies hire ethical hackers because they need to test their
+security. By granting their permission to the pentest, they
+effectively cover their corporate eyes and ears while these actions
+are carried out</li>
+<li>However, often neither the company or the hacker know if/what laws
+are being broken</li>
+<li>So it is a Grey Area – Ethical Hackers are not granted immunity –
+they need to ensure that the actions they take do not break the laws
+outlined in the Law Acts and Statuses</li>
+</ul>
+</div>
+<div class="section" id="worlwide-view">
+<h2>2.1.2.6.11. Worlwide View<a class="headerlink" href="#worlwide-view" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>No single international framework for cybersecurity law, but some
+multi‐lateral efforts</li>
+<li>Budapest Convention on Cybercrime (2001)</li>
+<li>Council of Europe’s effort to harmonize disparate national cybercrime
+laws</li>
+<li>EU Network and Information Security (NIS) Directive</li>
+<li>PRIVACY – Proposed EU General Data Protection Regulation</li>
+<li>New law would apply to any company that controls or processes the
+personal data of Europeans through the offering of goods and services
+– even if company has no physical presence in Europe.</li>
+<li>Fines of up to 4% of company’s annual global revenue or €20 million
+for violations</li>
+<li>Other countries each have Cybersecurity laws</li>
+</ul>
+</div>
+<div class="section" id="tensions-in-global-cyberspace">
+<h2>2.1.2.6.12. Tensions in Global Cyberspace<a class="headerlink" href="#tensions-in-global-cyberspace" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The rapid growth of the Internet and sophistication of cybercrime
+continues to outpace the ability of the legal</li>
+<li>system to respond. The attribution problem makes policing and
+accountability particularly difficult.</li>
+<li>Cyber assets are distributed between the public sector and private
+sector, and the private sector is comprised of a</li>
+<li>wide range of disparate entities.</li>
+<li>There is a lack of international coordination on cyber issues. As a
+result, there is no centralized international cyber</li>
+<li>threat information sharing or common computer incident response
+teams.</li>
+<li>Different values among countries; different levels of preparedness;
+different degrees of interest and risks.</li>
+<li>Companies and governments face overlapping and conflicting sets of
+laws:</li>
+<li>Harmonization vs. divergence of regional and national laws</li>
+<li>Personal data laws and system/infrastructure obligations are not
+integrated or reconciled</li>
+<li>Quality of company’s cybersecurity depends in part on visibility into
+traffic on its own network, but such insight can</li>
+<li>be in tension with cultural and sometimes legal barriers to
+electronic monitoring of employees.</li>
+<li>Approach to implementation: market‐driven vs. regulatory</li>
+<li>Governance: government‐centric vs. multi‐stakeholder</li>
+</ul>
+</div>
+<div class="section" id="certified-ethical-hacking-certification">
+<h2>2.1.2.6.13. Certified Ethical Hacking Certification<a class="headerlink" href="#certified-ethical-hacking-certification" title="Permalink to this headline">¶</a></h2>
+<p>A Certified Ethical Hacker is a skilled professional who understands and
+knows how to look for weaknesses and vulnerabilities in target systems
+and uses the same knowledge and tools as a malicious hacker, but in a
+lawful and legitimate manner to assess the security posture of a target
+system(s). The CEH credential certifies individuals in the specific
+network security discipline of Ethical Hacking from a vendor-neutral
+perspective.</p>
+<p>The purpose of the CEH credential is to:</p>
+<ul class="simple">
+<li>Establish and govern minimum standards for credentialing professional
+information security specialists in ethical hacking measures.</li>
+<li>Inform the public that credentialed individuals meet or exceed the
+minimum standards.</li>
+<li>Reinforce ethical hacking as a unique and self-regulating profession.</li>
+</ul>
+<p>About the Exam</p>
+<p>Number of Questions: 125</p>
+<p>Test Duration: 4 Hours</p>
+<p>Test Format: Multiple Choice</p>
+<p>Test Delivery: ECC EXAM, VUE</p>
+<p>Exam Prefix: 312-50 (ECC EXAM), 312-50 (VUE)</p>
+</div>
+</div>
+<div class="section" id="learn-more">
+<h1>2.1.2.7. Learn More<a class="headerlink" href="#learn-more" title="Permalink to this headline">¶</a></h1>
+<p>Sign up for an account on <a class="reference external" href="https://f5.com/labs">https://f5.com/labs</a> to stay up to date</p>
+<p>Notes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">F5 Networks, Inc. | f5.com</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>US Headquarters: 401 Elliott Ave W, Seattle, WA 98119 | 888-882-4447 // Americas: <a class="reference external" href="mailto:info&#37;&#52;&#48;f5&#46;com">info<span>&#64;</span>f5<span>&#46;</span>com</a> // Asia-Pacific: <a class="reference external" href="mailto:apacinfo&#37;&#52;&#48;f5&#46;com">apacinfo<span>&#64;</span>f5<span>&#46;</span>com</a> // Europe/Middle East/Africa: <a class="reference external" href="mailto:emeainfo&#37;&#52;&#48;f5&#46;com">emeainfo<span>&#64;</span>f5<span>&#46;</span>com</a> // Japan: <a class="reference external" href="mailto:f5j-info&#37;&#52;&#48;f5&#46;com">f5j-info<span>&#64;</span>f5<span>&#46;</span>com</a>
+©2017 F5 Networks, Inc. All rights reserved. F5, F5 Networks, and the F5 logo are trademarks of F5 Networks, Inc. in the U.S. and in certain other countries. Other F5 trademarks are identified at f5.com. Any other products, services, or company names referenced herein may be trademarks of their respective owners with no endorsement or affiliation, express or implied, claimed by F5. These training materials and documentation are F5&nbsp;Confidential Information and are subject to the F5 Networks Reseller Agreement. You may not share these training materials and documentation with any third party without the express written permission of F5.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+        
+		     <div class="row next-prev-btn-row">
+           <div class="col-lg-12">
+           
+		        <a href="lab4.html" title="2.1.2.5. Capture The Flag:" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+           
+           
+		     </div>
+         </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="content-fluid pre-footer">
+            <div class="blocks-container">
+              <div class="block">
+                <h3>Support Programs</h3>
+                <p>Regionally located support centers enable F5 to provide support in a number of languages through native-speaking support engineers.</p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/support/support-offerings" target="_blank" href="https://f5.com/support/support-offerings">See more
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Contact Support</h3>
+                <p>
+                  North America: 1-888-882-7535<br>
+                  Outside North America: 800-11-275-435
+                </p>
+                <a class="btn internalLink" data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" href="https://f5.com/about-us/contact#regional-support">Local Support Numbers
+                  <span class="icon-1x-right icon-new-window" data-icon="new-window">​</span>
+                </a>
+              </div>
+              <div class="block">
+                <h3>Feedback and Help</h3>
+                <p>Have questions, suggestions, or just want to get something off your chest? Let us know.</p>
+                <a class="btn" data-ui-sref="siteFeedback" target="_blank" href="https://support.f5.com/csp/siteFeedback">Leave feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="footer">
+            <div class="container">
+              <div class="col-sm-3 col-md-2">
+                <h4>About F5</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/about-us/contact" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact" class="internalLink">Contact F5</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/about-us/careers" target="_blank" data-link-type="footer" href="https://f5.com/about-us/careers" class="internalLink">Careers</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-3 col-md-2">
+                <h4>Education</h4>
+                <ul>
+                  <li><a data-ng-href="https://f5.com/education/training" target="_blank" data-link-type="footer" href="https://f5.com/education/training" class="internalLink">Training</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/certification" target="_blank" data-link-type="footer" href="https://f5.com/education/certification" class="internalLink">Certification</a>
+                  </li>
+                  <li><a data-ng-href="https://f5.com/education/training/free-courses" target="_blank" data-link-type="footer" href="https://f5.com/education/training/free-courses" class="internalLink">Free Online Training</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-sm-3 col-md-2">
+                <h4>F5 sites</h4>
+                <ul>
+                <li><a data-ng-href="https://f5.com" target="_blank" data-link-type="footer" href="https://f5.com" class="internalLink">F5.com</a>
+                </li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" data-link-type="footer" href="https://devcentral.f5.com" class="internalLink">Community</a>
+                </li>
+                <li><a data-ng-href="https://partners.f5.com" target="_blank" data-link-type="footer" href="https://partners.f5.com" class="internalLink">Partners</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-3 col-md-2">
+            <h4>Support Tasks</h4>
+            <ul>
+                <li><a data-ui-sref="mySupport.createServiceRequest" data-link-type="footer" href="https://support.f5.com/csp/my-support/service-request">Create Service Request </a>
+                </li>
+                <li><a data-ng-href="https://f5.com/about-us/contact#regional-support" target="_blank" data-link-type="footer" href="https://f5.com/about-us/contact#regional-support" class="internalLink">Contact Support</a>
+                </li>
+                <li><a data-ui-sref="siteFeedback" target="_blank" data-link-type="footer" href="https://support.f5.com/csp/siteFeedback">Leave feedback [+]</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-md-3 right">
+            <h4>Connect with us</h4>
+            <ul class="social_icons">
+                <li><a href="//twitter.com/f5networks" target="_blank" data-name="twitter" data-type="" data-prefix="social" data-utf="E032" title="Twitter" class="externalLink"><i class="icon-1x icon-twitter icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.linkedin.com/companies/f5-networks" target="_blank" class="linkedin externalLink" title="LinkedIn"><i class="icon-1x icon-linkedin icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.facebook.com/f5networksinc" target="_blank" class="facebook externalLink" title="Facebook"><i class="icon-1x icon-facebook icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a href="//www.youtube.com/f5networksinc" target="_blank" class="youtube externalLink" title="YouTube"><i class="icon-1x icon-youtube icon-inverse-circle" data-link-type="footer"></i></a></li>
+                <li><a data-ng-href="https://devcentral.f5.com" target="_blank" class="devcentral internalLink" title="DevCentral" href="https://devcentral.f5.com"><i class="icon-1x icon-dc-pos icon-inverse-circle" data-link-type="footer"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="content-fluid left">
+            <div class="col-xs-12">
+                <p>
+                    © Copyright <span class="ng-binding">2017</span> by F5 Networks, Inc. |
+                    <a data-ng-href="https://f5.com/about-us/policies" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies" class="internalLink">Policies</a> |
+                    <a data-ng-href="https://f5.com/about-us/policies/trademarks" target="_blank" data-link-type="footer" href="https://f5.com/about-us/policies/trademarks" class="internalLink">Trademarks</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</footer>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict(true)
+  </script>
+  </body>
+</html>
