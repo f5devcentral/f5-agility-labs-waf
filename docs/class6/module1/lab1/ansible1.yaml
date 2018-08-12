@@ -1,0 +1,26 @@
+---
+
+#### This playbook creates a ASM policy named ansible1
+
+- name: create ansible1 policy
+  hosts: bigips
+  connection: local
+  gather_facts: False
+  environment:
+      F5_SERVER: "{{ ansible_ssh_host }}"
+      F5_USER: "{{ bigip_user }}"
+      F5_PASSWORD: "{{ bigip_password }}" 
+      F5_SERVER_PORT: "{{ bigip_port }}"
+      F5_VALIDATE_CERTS: "{{ validate_certs }}"
+ 
+  tasks:
+    - name: Create ASM policy, compact XML file
+      bigip_asm_policy:
+        name: ansible1
+        template: SharePoint 2007 (http)
+
+  post_tasks:
+    - name: Save the running BIG-IP configuration to disk
+      bigip_config:
+        save: True
+      register: result
