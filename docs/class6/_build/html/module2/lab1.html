@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab A.1: create_pool.py &mdash; ASM 341 Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ASM 341 Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Welcome to Agility Labs 2018!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labinfo/labinfo.html">Lab Topology &amp; Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module1/module1.html">Module 1: Positive Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module2.html">Module 1: Positive Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/howtos.html">HOWTOs: Index</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ASM 341 Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Lab A.1: create_pool.py</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/module2/lab1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lab-labmodule-labnum-create-pool-py">
+<h1>Lab A.1: create_pool.py<a class="headerlink" href="#lab-labmodule-labnum-create-pool-py" title="Permalink to this headline">¶</a></h1>
+<p>In this lab we will review, line-by-line an example script that has been
+created to allow creation of a BIG-IP Pool with Pool Members directly
+from the command line.</p>
+<div class="section" id="task-1-review-create-pool-py">
+<h2>Task 1 - Review create_pool.py<a class="headerlink" href="#task-1-review-create-pool-py" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Open Notepad++ using the <a class="reference internal" href="../_images/lab-1-12.png"><img alt="lab-1-1" src="../_images/lab-1-12.png" style="width: 0.28045in; height: 0.24306in;" /></a> located in the Windows Taskbar.</li>
+<li>Double click the file <code class="docutils literal notranslate"><span class="pre">create_pool.py</span></code> in the menu on the left side
+of the Notepad++ screen</li>
+<li>We will now review the code line-by-line:</li>
+</ol>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">f5.bigip</span> <span class="k">import</span> <span class="n">ManagementRoot</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These lines import in various Python libraries. The first line
+imports the F5 Python SDK. The pprint and argparse libraries are
+standard Python libraries that aid in print data to the console and
+parsing command line arguments.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Script to create a pool on a BIG-IP device&#39;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The IP/Hostname of the BIG-IP device&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;pool_name&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The name of the pool&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;pool_members&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;A comma seperated string in the format &lt;IP&gt;:&lt;port&gt;[,&lt;IP&gt;:&lt;port&gt;]&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-P&quot;</span><span class="p">,</span> <span class="s2">&quot;--partition&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The partition name&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;Common&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-u&quot;</span><span class="p">,</span> <span class="s2">&quot;--username&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The BIG-IP username&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;--password&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The BIG-IP password&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>These lines setup the command line arguments for the script and store
+those arguments in a python dictionary names ‘args’. The argparse
+library automatically generates help text, checks for required
+arguments, sets defaults, etc.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mgmt</span> <span class="o">=</span> <span class="n">ManagementRoot</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This line creates a new Python object that refers to the BIG-IP
+device. We are calling the ManagementRoot method with 3 arguments:</p>
+<ul class="simple">
+<li>The value of the <code class="docutils literal notranslate"><span class="pre">host</span></code> argument</li>
+<li>The value of the <code class="docutils literal notranslate"><span class="pre">username</span></code> argument</li>
+<li>The value of the <code class="docutils literal notranslate"><span class="pre">password</span></code> argument</li>
+</ul>
+<p>This method automatically performs a test to ensure that we are able
+to reach the device and authenticate successfully.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pool_path</span> <span class="o">=</span> <span class="s2">&quot;/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">partition</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">pool_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This line just stores the human-readable path to the pool name for later
+use</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">mgmt</span><span class="o">.</span><span class="n">tm</span><span class="o">.</span><span class="n">ltm</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">partition</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">partition</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">pool_name</span><span class="p">):</span>
+<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Pool &#39;</span><span class="si">%s</span><span class="s2">&#39; already exists&quot;</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">pool_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This if statement checks to see if a pool with the same name already
+exists on the specified partition on the device. The return value of the
+exists() method is a Boolean value of True or False. In this case we
+want the Exception to execute if a pool DOES exist and stop execution of
+the script.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pool</span> <span class="o">=</span> <span class="n">mgmt</span><span class="o">.</span><span class="n">tm</span><span class="o">.</span><span class="n">ltm</span><span class="o">.</span><span class="n">pools</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">partition</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">partition</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">pool_name</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s2">&quot;Created pool </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pool_path</span>
+</pre></div>
+</div>
+<p>The first line in this block actually creates the new pool. The
+partition and name of the pool are specified as arguments to the
+create() method and the ‘pool’ variable represents an object that holds
+the created pool’s properties. The second line simply prints a message
+that the pool has been created.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">member_list</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">pool_members</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This line uses a built-in python method called split() to separate the
+value of the command line argument into discrete strings using a ‘,’ as
+a separator. The return type of the split() is a python list (lists =
+arrays)</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">member_list</span><span class="p">:</span>
+<span class="n">pool_member</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">members_s</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">partition</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">partition</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">member</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s2">&quot; Added member </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">member</span>
+</pre></div>
+</div>
+<p>This for loop iterates over the elements in the list generated above and
+creates a new member in the pool.</p>
+</div>
+<div class="section" id="task-2-run-create-pool-py">
+<h2>Task 2 - Run create_pool.py<a class="headerlink" href="#task-2-run-create-pool-py" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Open Console2 using the <a class="reference internal" href="../_images/lab-1-22.png"><img alt="lab-1-2" src="../_images/lab-1-22.png" style="width: 0.35694in; height: 0.30286in;" /></a> icon on the Windows Taskbar</p>
+</li>
+<li><p class="first">The console window automatically opens in the Desktop\Module 5 -
+Python SDK directory</p>
+</li>
+<li><p class="first">Type <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">PYTHONWARNINGS=ignore</span></code> to disable the printing of SSL/TLS
+warnings about self-signed certificates.</p>
+</li>
+<li><p class="first">Type <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">create_pool.py</span></code> and examine the help output:</p>
+<p><a class="reference internal" href="../_images/lab-1-32.png"><img alt="lab-1-3" src="../_images/lab-1-32.png" style="width: 6.33450in; height: 0.81372in;" /></a></p>
+</li>
+<li><p class="first">Type <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">create_pool.py</span> <span class="pre">10.1.1.4</span> <span class="pre">test_pool</span> <span class="pre">10.1.10.10:80,10.1.10.11:80</span></code>
+to create a new pool:</p>
+<p><a class="reference internal" href="../_images/lab-1-42.png"><img alt="lab-1-4" src="../_images/lab-1-42.png" style="width: 6.25116in; height: 0.51099in;" /></a></p>
+</li>
+<li><p class="first">Using Chrome open a tab to BIGIP-A (<a class="reference external" href="https://10.1.1.4">https://10.1.1.4</a>). Examine the
+pool that was created.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Chad Fazio.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

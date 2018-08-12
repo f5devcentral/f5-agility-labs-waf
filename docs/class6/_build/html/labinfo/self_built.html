@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Self-Built Environment &mdash; ASM 341 Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module 1: Introduction to ASM341 Lab Environment" href="../module1/module1.html" />
+    <link rel="prev" title="F5 Unified Demo Framework (UDF)" href="udf.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ASM 341 Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Welcome to Agility Labs 2018!</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="labinfo.html">Lab Topology &amp; Environments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="labinfo.html#lab-topology">Lab Topology</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="labinfo.html#lab-environments">Lab Environments</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aws.html">Amazon AWS Lab Environment Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ravello.html">Ravello</a></li>
+<li class="toctree-l3"><a class="reference internal" href="udf.html">F5 Unified Demo Framework (UDF)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Self-Built Environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../module1/module1.html">Module 1: Introduction to ASM341 Lab Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howtos/howtos.html">HOWTOs: Index</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ASM 341 Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="labinfo.html">Lab Topology &amp; Environments</a> &raquo;</li>
+        
+      <li>Self-Built Environment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/labinfo/self_built.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="self-built-environment">
+<span id="lab-self-built"></span><h1>Self-Built Environment<a class="headerlink" href="#self-built-environment" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Due to the variability of self-built environments we cannot guarantee
+that you will be able to complete the class successfully.</p>
+</div>
+<p>If you are building your own lab environment please complete the following
+steps and pre-requisites first:</p>
+<ol class="arabic">
+<li><p class="first">Your network configuration matches the topology in the <a class="reference internal" href="labinfo.html#lab-topology"><span class="std std-ref">Lab Topology</span></a></p>
+</li>
+<li><p class="first">Ensure your BIG-IP devices are licensed and have the following modules
+provisioned:</p>
+<ul class="simple">
+<li>LTM</li>
+<li>ASM</li>
+</ul>
+</li>
+<li><p class="first">Your server instance can be built two ways:</p>
+<ol class="arabic">
+<li><p class="first">Build or reuse your own instance.  If should have the following services
+installed and running:</p>
+<ul class="simple">
+<li>HTTP Server - TCP/80</li>
+<li>DNS Server - UDP/53</li>
+</ul>
+</li>
+<li><p class="first">Use our server image build script located at the url below to configure
+an Ubuntu 16.04 base installation automatically.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Please ensure that HTTP &amp; DNS services are not installed on the
+base image</p>
+<blockquote class="last">
+<div><p><a href="#id1"><span class="problematic" id="id2">:raw_github_url:`/lab_environments/AWS/snops_server_setup.sh`</span></a></p>
+</div></blockquote>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Your host should have the following applications installed:</p>
+<ul class="simple">
+<li>Postman v5.3.0 - <a class="reference external" href="https://getpostman.com">https://getpostman.com</a></li>
+<li>Google Chrome - <a class="reference external" href="https://google.com/chrome">https://google.com/chrome</a></li>
+</ul>
+</li>
+<li><p class="first">You will need to install the <code class="docutils literal notranslate"><span class="pre">f5-postman-workflows</span></code> framework into
+Postman:</p>
+<ol class="arabic simple">
+<li>Open Postman</li>
+<li>Click the ‘Import’ button</li>
+<li>Select ‘Import from Link’</li>
+<li>Enter <code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/F5_Postman_Workflows.postman_collection.json</span></code>
+in the field</li>
+<li>Click the ‘Import’ button</li>
+<li>Navigate to your Postman Collections</li>
+<li>Expand the ‘F5_Postman_Workflows’ collection</li>
+<li>Expand the ‘Install’ folder</li>
+<li>Click the ‘Install/Upgrade f5-postman-workflows’ items</li>
+<li>Click the ‘Send’ button</li>
+<li>Verify the installation was successful by:<ol class="arabic">
+<li>Examine the response tests and ensure the ‘Install Successful’ test passed</li>
+<li>Examine your Postman Global Environment and look for a _f5_workflow_functions item populated with JavaScript code</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p class="first">Select how you would like to continue:</p>
+<ul class="simple">
+<li>Review: <a class="reference internal" href="../module1/bigipbasics.html#bigipbasics"><span class="std std-ref">BIG-IP Basics (optional)</span></a></li>
+<li>Start: <span class="xref std std-ref">module1</span></li>
+</ul>
+</li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../module1/module1.html" class="btn btn-neutral float-right" title="Module 1: Introduction to ASM341 Lab Environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="udf.html" class="btn btn-neutral" title="F5 Unified Demo Framework (UDF)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Chad Fazio.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
