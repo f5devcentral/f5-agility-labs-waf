@@ -1,5 +1,5 @@
-Class 2: F5 WAF: Capture the Flag
-=================================
+Class 2: ASM 280: Pwn like a Hacker; Protect like a Pro
+=======================================================
 
 This class covers the following topics:
 

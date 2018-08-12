@@ -1,18 +1,8 @@
-Class 7: ASM 280: Pwn like a Hacker; Protect like a Pro
-=======================================================
-
-This class covers the following topics:
-
-- Metaploit Overview
-- Useful tools
-- Capture the Flag Challenge
-
-Expected time to complete: **3 hours**
-
+Class 7: API Protection with ASM
+================================
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
-   intro*
    module*/module*
