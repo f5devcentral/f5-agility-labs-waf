@@ -1,5 +1,5 @@
 Exercise 3: Metasploit Utilities
---------------------------------
+================================
 
 Update Metasploit application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

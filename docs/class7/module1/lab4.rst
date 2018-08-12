@@ -1,5 +1,5 @@
-Capture The Flag:
-=================
+Exercise 4: Capture The Flag
+============================
 
 It’s time for a game of Capture the flag where you will test your skills
 at both running and patching exploits. The “Capture the Flag” server and

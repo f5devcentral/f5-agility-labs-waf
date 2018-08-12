@@ -47,16 +47,6 @@ In this lab we'll work with a feature called Proactive Bot Defense that uses adv
         :width: 800px
 .. |lab3-20| image:: images/lab3-20.png
         :width: 800px
-.. |lab3-21| image:: images/lab3-21.png
-        :width: 800px
-.. |lab3-22| image:: images/lab3-22.png
-        :width: 800px
-.. |lab3-23| image:: images/lab3-23.png
-        :width: 800px
-.. |lab3-24| image:: images/lab3-24.png
-        :width: 800px
-.. |lab3-25| image:: images/lab3-25.png
-        :width: 800px
 
 Task 1 - Configuring Bot Defense
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

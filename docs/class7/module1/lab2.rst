@@ -1,5 +1,5 @@
 Exercise 2: Exploiting a Web Server
------------------------------------
+===================================
 
 This exploit uses some of the basic functions of the DVWA web site to
 demonstrate how to hack through the site itself. A hacker would use this

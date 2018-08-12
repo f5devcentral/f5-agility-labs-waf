@@ -11,8 +11,6 @@ Lab 1.3: Blocking Mode Override
         :width: 800px
 .. |lab33-5| image:: images/lab33-5.png
         :width: 800px
-.. |lab33-6| image:: images/lab33-6.png
-        :width: 800px
 
 Blocking mode override is a capability that allows you to bypass your ASM policy in certain use cases.  We do this by whitelisting specific host header values. Since these hostnames will be able to completely bypass the security policy it's important to protect them like you would a password.  We'll experiment with this in the following lab.  You might be thinking to yourself...if we're going to all this trouble to build a tight WAF policy, why do we now want to override it?  There can be several reasons an organization wants to enforce security policy except for specific users (IPs).  
 

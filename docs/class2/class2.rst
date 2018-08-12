@@ -1,5 +1,5 @@
-Class 2: Capture the Flag
-=========================
+Class 2: F5 WAF: Capture the Flag
+=================================
 
 This class covers the following topics:
 

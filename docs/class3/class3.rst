@@ -1,5 +1,5 @@
-Class 3: Getting started with ASM
-=================================
+Class 3: ASM 141 - Getting started with ASM
+============================================
 
 This class will focus on a best practice approach to getting started with ASM and application security.
 

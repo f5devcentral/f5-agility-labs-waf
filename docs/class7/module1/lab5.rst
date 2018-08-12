@@ -29,8 +29,8 @@ Background:
    before. These hearings culminated in the Computer Fraud and Abuse Act
    (CFAA)
 
- Current Legal Environment:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Current Legal Environment:
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  The Primary guide in most federal hacking cases in still the Computer
        Fraud and Abuse Act (CFAA - passed by U.S. Congress in 1986)
@@ -275,7 +275,7 @@ Test Delivery: ECC EXAM, VUE
 Exam Prefix: 312-50 (ECC EXAM), 312-50 (VUE)
 
 Learn More
-==========
+----------
 
 Sign up for an account on https://f5.com/labs to stay up to date
 

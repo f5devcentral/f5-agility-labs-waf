@@ -1,26 +1,14 @@
 Getting Started
----------------
+===============
 
+Please follow the instructions provided by the instructor to start your lab and access your jump host.
 
-Please follow the instructions provided by the instructor to start your
-lab and access your jump host.
-
-.. NOTE::
-	 All work for this lab will be performed exclusively from the Windows
-	 jumphost. No installation or interaction with your local system is
-	 required.
-
+.. note:: All work for this lab will be performed exclusively from the Windows jumphost. No installation or interaction with your local system is required.
 
 Accessing the Class Resources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The class is running in a self-contained virtual/cloud environment. To
-access the resources a Windows 7 Jumpbox has been provided for the
-Student to RDP to and then access the required devices. You will be
-provided with an IP address of the Windows 7 Jumpbox when needed.
-(Username: external\_user / Password: 401elliottW! ) You will also be
-provided the external IP address of the Kali Linux server which you will
-need for one of the labs.
+The class is running in a self-contained virtual/cloud environment. To access the resources a Windows 7 Jumpbox has been provided for the Student to RDP to and then access the required devices. You will be provided with an IP address of the Windows 7 Jumpbox when needed. (Username: external\_user / Password: 401elliottW! ) You will also be provided the external IP address of the Kali Linux server which you will need for one of the labs.
 
 Network Resources
 
@@ -65,4 +53,4 @@ Network Resources
 Class Environment:
 ------------------
 
-..  image:: media/lab_environment.png
+..  image:: module1/media/lab_environment.png

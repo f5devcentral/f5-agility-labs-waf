@@ -1,5 +1,5 @@
 Lab Network Overview
-~~~~~~~~~~~~~~~~~~~~
+====================
 
 Each student will have access to a Windows 7 “Jumpbox”. Information
 required to gain RDP access to the Jumpbox will be provided in each

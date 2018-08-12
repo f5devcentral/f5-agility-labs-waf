@@ -1,5 +1,5 @@
-Introduction to ASM 341 - High and Maximum Security
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Class 5: ASM 341 - High and Maximum Security
+============================================
 
 Welcome to F5's Agility Labs, 2018 edition! This lab will focus on how to progress your application security to the limits of what F5's WAF, ASM, can offer.  We'll be using tools spanning both positive and negative security to show you how to best protect your application from today's threats.
 
