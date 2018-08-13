@@ -34,7 +34,7 @@ ASM's DAST (Dynamic Application Security Testing) integration allows you to take
 Task 1 - Create a Security Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open your browser of choice and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.1.245/`` or by clicking on the **bigip** shortcut in Firefox.
+#.  Open Firefox and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.1.245/`` or by clicking on the **bigip** shortcut in Firefox.
 
 #.  Login to the BIG-IP.
 
@@ -50,8 +50,7 @@ Task 1 - Create a Security Policy
 
         |lab25-2|
 
-    .. NOTE:: It's worth mentioning that ASM and Sentinel have more advanced integrations that we will not explore here.  This is mostly due to the logistics of procuring Sentinel accounts for all students attending this lab.  It's worth mentioning however, that providing an API key will allow you to pull in scan data directly from Sentinel into ASM as well as share ASM site mapping data back to Sentinel in order to improve scanning capabilities.
-
+    .. NOTE:: It's worth mentioning that ASM and Sentinel have more advanced integrations that we will not explore here, for this reason the Site Name and API Key are not used. This is mostly due to the logistics of procuring Sentinel accounts for all students attending this lab. This additional functionality provides an API key will allow you to pull in scan data directly from Sentinel into ASM as well as share ASM site mapping data back to Sentinel in order to improve scanning capabilities.
 
 Task 2 - Import the Scan Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -25,9 +25,9 @@ These reasons include:
 Task 1 - Create a Clean Secuirty Policy and Verify Blocking Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Navigate to **Security -> Application Security -> Security policies**.
+#.  Navigate to **Security -> Application Security -> Security Policies**.
     
-#.  Click **Create** and create a new policy called lab3 with the following settings:
+#.  Click **Create** and create a new policy called lab3 with the following settings, using the **Advanced** view. Click **Create Policy** when done changing the settings:
 
         |lab33-2|
     

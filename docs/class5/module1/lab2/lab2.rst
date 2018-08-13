@@ -10,7 +10,7 @@ Lab 1.2: Allowed (and disallowed...) HTTP Request Methods
 Task 1 - Allowed Methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to **Security -> Application Security -> Security Policies -> Policies List** and click **Create**. 
+#. Navigate to **Security -> Application Security -> Security Policies -> Policies List** and click **Create Policy**. 
 
 	|lab2-1|
 

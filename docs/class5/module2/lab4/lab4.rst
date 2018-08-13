@@ -24,7 +24,7 @@ DataGuard is a DLP-like feature of ASM that can prevent harmful data leakage fro
 Task 1 - Configure DataGuard
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  From within your existing ASM policy, navigate to **Security -> Application Security -> Data Guard**.
+#.  From within your existing ASM policy (Lab2), navigate to **Security -> Application Security -> Data Guard**.
 
 #.  Click the **checkbox** to enable DataGuard, then click **Save**.
 

@@ -51,6 +51,7 @@ components have been included in your lab environment:
 
 .. nwdiag:: labtopology.diag
    :width: 800
+   :caption: Lab Topology
    :name: lab-topology-diagram
    :scale: 110%
 

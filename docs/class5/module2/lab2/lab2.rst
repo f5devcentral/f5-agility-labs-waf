@@ -19,7 +19,11 @@ Lab 2.2: Session Hijacking Protection
         :width: 800px
 ..  |lab22-9| image:: images/lab22-9.png
         :width: 800px
+.. |proxyoff| image:: images/proxyoff.png
+        :width: 800px
 
+
+Session hijacking is a class of attacks that allow an illegitimate user to take control of a legitimate session that was initiated by a legitimate user.  Initially this class of attacks was first observed against simple unencrypted protocols like telnet, though this typically required the attacker to have control of a system in the same network segment as the target and strike while the TCP connection was still active.  For the purposes of this lab, we’re actually referring to HTTP session hijacking which is similar in concept but completely different in its execution.  HTTP applications typically use cookies to store session information, so when we say “HTTP Session Hijacking”, we’re *usually* referring to cookie hijacking which actually involves the theft of the cookie and thus the user’s session key.  HTTP based applications often tend to maintain session state long after the TCP connection has been shut down, which actually makes the attack more practical than our telnet example.  In most cases web applications will implicitly trust a session cookie, even a stolen one…which is clearly a problem.  ASM has a number of capabilities that can address these issues and you’ll explore one of the more interesting approaches in this lab.
 
 .. note:: Items in this section depend on steps in prior sections, please ensure you've completed all sections in lab 2 up to this point before beginning this lab.
 
@@ -51,9 +55,18 @@ Task 1 - Configure Session Hijacking Protection
 Task 2 - Test Session Hijacking Protection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open a Linux terminal and run ``BurpSuiteCommunity &``.  Accept the defaults and click through to the main window.
 
-#.  Go to the proxy tab and disable intercept so background requests from Chrome don't get hung up.
+#.  From the jumphost desktop, launch Burp Suite using the icon on the desktop. If you are prompted to update Burp, ignore this pop-up by clicking "Close". 
+
+#.  Select Temporary Projects and click Next.
+
+#.  Leave Defaults checked and click "Start Burp"
+
+#.  Select the "Proxy" tab and then turn intercept off.
+
+	|proxyoff|
+
+#. Close all running instances of Chrome.
 
 #.  Run ``google-chrome-stable --incognito --proxy-server="http://127.0.0.1:8080"`` in the same or a different terminal.
 
@@ -110,6 +123,8 @@ Task 2 - Test Session Hijacking Protection
 #.  If this were a production configuration, we would likely enable the blocking settings back on the **Session Tracking** page so that these attacks would not be allowed to continue, but for the purposes of maintaining access to the lab environment we've elected not to do so.  Feel free to circle back and explore these options at the end of the lab:
 
     |lab22-5|
+
+#. Please close any instances of Burp and Chrome before continuing.
 
 |
 |

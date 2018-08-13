@@ -47,6 +47,8 @@ In this lab we'll work with a feature called Proactive Bot Defense that uses adv
         :width: 800px
 .. |lab3-20| image:: images/lab3-20.png
         :width: 800px
+.. |gracePeriod| image:: images/gracePeriod.png
+	:width: 800px
 
 Task 1 - Configuring Bot Defense
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,6 +107,10 @@ Task 1 - Configuring Bot Defense
 #. Change the dropdown to **Always**.
 
 	|lab3-9|
+
+#. Change the **Grace Period** to **20 seconds**.
+
+	|gracePeriod|
 
 #. Click **Update** to save changes.
 

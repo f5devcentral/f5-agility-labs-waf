@@ -26,7 +26,7 @@ Task 1 - Configure Credential Stuffing Detection
 
 #.  Open the BIG-IP interface in Firefox. 
     
-#.  Navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force** and click **Create**.
+#.  Navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force Attack Prevention** and click **Create**.
 
     .. note:: ASM has a number of brute force attack detection capabilities that are beyond the scope of this exercise.  Take some time to examine some of the other options as you work through this lab.  For more information see:  ``https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-13-1-0/6.html`` .
 
@@ -34,7 +34,7 @@ Task 1 - Configure Credential Stuffing Detection
 
     |lab23-1|
 
-#.  Configure **Credential Stuffing** detection within the **Distributed Brute Force** Section as follows:
+#.  Configure **Credential Stuffing** detection within the **Distributed Brute Force Protection** Section as follows:
 
     |lab23-3|
 
@@ -79,7 +79,7 @@ Task 2 - Test Credential Stuffing Detection
 
     .. note:: The credential stuffing feature is considered Early Access in version 13.1 and the database is not yet being updated regularly.  You are advised to seek guidance from your F5 SE before deploying this capability.
 
-#.  In order to release any blocking that's currently in place, navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force** and **delete** the Brute Force configuration we created previously.
+#.  In order to release any blocking that's currently in place, navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force Attack Prevention** and **Delete** the Brute Force configuration we created previously.
 
 #. Click **Apply Policy** then click **OK**.
 
