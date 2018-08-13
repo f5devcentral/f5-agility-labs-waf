@@ -1,4 +1,4 @@
-Class 2: ASM 280: Pwn like a Hacker; Protect like a Pro
+Class 2: ASM 280 - Pwn like a Hacker; Protect like a Pro
 =======================================================
 
 This class covers the following topics:
