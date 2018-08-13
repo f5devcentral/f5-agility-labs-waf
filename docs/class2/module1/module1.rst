@@ -1,10 +1,7 @@
-Metasploit
-==========
+Metasploit Overview
+===================
 
-Metasploit Overview:
-====================
-
-Metasploit is more than just a ‘tool’, it was envisioned as a Framework
+Metasploit is more than just a 'tool', it was envisioned as a Framework
 where tools, exploits, payloads and other hacker-related things would be
 able to exist, allowing a penetration tester/hacker/researcher to focus
 on what they wanted to do instead of having to cobble together many
