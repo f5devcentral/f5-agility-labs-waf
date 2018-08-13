@@ -49,19 +49,12 @@ components have been included in your lab environment:
 -  1 x F5 BIG-IP VE (v13.1.0.5) running ASM and LTM - aptly named: bigip01
 -  1 x Ubuntu Linux 18.04 server, with webgoat 8 installed - aptly named: server01 
 
-.. nwdiag:: labtopology.diag
-   :width: 800
-   :caption: Lab Topology
-   :name: lab-topology-diagram
-   :scale: 110%
-
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
 
 .. list-table::
    :widths: 15 15 15 15 15 
    :header-rows: 1
-   :stub-columns: 1
 
 
    * - **Component**

@@ -9,7 +9,6 @@ These are languages that Postman supports:
 .. list-table::
   :widths: 15 15 
   :header-rows: 1
-  :stub-columns: 1
 
 
 

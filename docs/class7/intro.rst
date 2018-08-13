@@ -15,14 +15,13 @@ You should be able to see Virtual Machines as shown below. Click on **RDP** for 
 	 required.
 
 Lab Credentials
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 The following table lists access credential for all required components:
 
 .. list-table::
     :widths: 20 20
     :header-rows: 1
-    :stub-columns: 1
 
     * - **Component**
       - **Credentials**
