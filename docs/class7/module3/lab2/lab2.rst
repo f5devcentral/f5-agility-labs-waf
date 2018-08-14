@@ -16,6 +16,6 @@ Examine protected API environment
 
  .. image:: images/image420.png
 
-3. Open the browser and access **https://anonymous_api.vlab.f5demo.com/department** - quickly update the page a few times to get the blocking response
+3. Open the browser and access https://aapi.vlab.f5demo.com/department - quickly update the page a few times to get the blocking response
 
 4. In the BIG-IP GUI navigate to Security -> Event Logs -> Application - Requests and examine the last log message; Note the difference between TLS fingerprint from Postman and web browser
