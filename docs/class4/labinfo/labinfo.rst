@@ -61,17 +61,17 @@ components:
      - 10.1.1.51
      - 10.1.10.51
      - N/A
-     - https-``f5student:password``
+     - https-``f5student:f5DEMOs4u!``
    * - Bigip (bigip01)
      - 10.1.1.245
      - 10.1.10.245
      - 10.1.20.245
-     - https - ``admin:password`` ssh - ``f5student:password``
+     - https - ``admin:password`` ssh - ``f5student:f5DEMOs4u!``
    * - Linux Server (server01)
      - 10.1.1.252
      - N/A
      - 10.1.20.252
-     - ssh - ``f5student:password``
+     - ssh - ``f5student:f5DEMOs4u!``
    * - Kali (Kali-BaDOS)
      - 10.1.1.245
      - 10.1.10.100 / 10.1.10.200
