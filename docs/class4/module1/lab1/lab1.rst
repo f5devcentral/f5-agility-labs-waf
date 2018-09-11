@@ -6,7 +6,7 @@ This lab will simulate botnet activity against the Webgoat virtual server and sh
 Connect to the lab environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the jumphost (client01), launch Chrome or firefox, click the BIG-IP bookmark and login to TMUI. admin/password
+#. From the jumphost (client01), launch Chrome or firefox, click the BIG-IP bookmark and login to TMUI. admin/f5DEMOs4u!
 
 
 Configure a DOS Profile
