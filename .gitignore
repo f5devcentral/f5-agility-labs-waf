@@ -3,3 +3,4 @@ media/
 *.docx
 .DS_Store
 pdf/
+.vscode*
