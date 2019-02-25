@@ -4,7 +4,7 @@ Configuring Bot Defense Profiles
 General Settings Page
 ^^^^^^^^^^^^^^^^^^^^^
 
-  In the BIGIP, browse to **Security >> Bot Defense >> Bot Defense Profiles**.
+  In the BIG-IP, browse to **Security >> Bot Defense >> Bot Defense Profiles**.
 
   Select the **Hackazon-bots** profile.  This brings you to the **General Settings** screen.
 

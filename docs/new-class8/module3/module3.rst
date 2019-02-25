@@ -8,6 +8,10 @@ when a user is logging in to a website.  This is called "man-in-the-browser" (MI
 
 In this lab we will look at methods used by MITB malware to steal users' credentials and other information.
 
+.. WARNING::
+	To ensure consistent behavior with the lab guide, **all lab exercises should be through the Chrome browser** on the
+	Windows Jumphost.
+
 
 .. toctree::
    :maxdepth: 1

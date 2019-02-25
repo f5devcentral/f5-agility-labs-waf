@@ -6,7 +6,14 @@ Detection Per Username
 Attempt invalid logins
 ~~~~~~~~~~~~~~~~~~~~~~
 
-  Return to the browser with the Hackazon webpage.
+  .. IMPORTANT::
+   In order for F5 Advanced WAF to inject or respond with CAPTCHA or JavaScript responses, it must first determine if it
+   is appropriate to respond to the requested URL with HTML content.  F5 AWAF does this by watching requests and the associated
+   responses from the server.  This process is called qualifying a URL.  This takes at least 10 requests/responses for a URL
+   to be qualified for AWAF-initiated injection/response.
+   In each of the following exercises, **pre-qualify the /user/login URL by refreshing the page at least 10 times** before attempting to login.
+
+  Return to the Chrome browser with the Hackazon webpage.
 
   If you are still logged in, select **Logout** in the top right corner.
 
@@ -25,7 +32,7 @@ Attempt invalid logins
 Review ASM Request log
 ~~~~~~~~~~~~~~~~~~~~~~
 
-  In the BIGIP browse to the ASM Request log at **Security >> Event Logs >> Application >> Requests**.
+  In the BIG-IP browse to the ASM Request log at **Security >> Event Logs >> Application >> Requests**.
 
   Look through the request log for the illegal request to /user/login.
 
@@ -40,14 +47,7 @@ Review ASM Request log
 
 
 
-.. |image4| image:: /_static/class8/credstuff/image5.png
-.. |image5| image:: /_static/class8/credstuff/image6.png
-.. |image6| image:: /_static/class8/credstuff/image7.png
-.. |image7| image:: /_static/class8/credstuff/image8.png
-.. |image8| image:: /_static/class8/credstuff/image9.png
-.. |image9| image:: /_static/class8/credstuff/image10.png
-.. |image10| image:: /_static/class8/credstuff/image7.png
-.. |image11| image:: /_static/class8/credstuff/image11.png
+
 .. |image12| image:: /_static/class8/credstuff/image12.png
 .. |image13| image:: /_static/class8/credstuff/image13.png
 .. |image14| image:: /_static/class8/credstuff/image14.png

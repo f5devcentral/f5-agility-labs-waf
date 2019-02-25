@@ -6,7 +6,7 @@ In this exercise we will review the various components of configuring and mainta
 Reviewing Threat Campaign Details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  In the BIGIP browse to the Threat Campaigns screen at **Security >> Application Security >> Threat Campaigns**.
+  In the BIG-IP browse to the Threat Campaigns screen at **Security >> Application Security >> Threat Campaigns**.
 
   From the list of threat campaigns, select **Apache Struts2 Jakarta Multipart Parser - crontab**.
 
@@ -33,7 +33,7 @@ Threat Campaign Updates
 
   This is done via the **Live Update** feature.
 
-  In the BIGIP, browse to **System >> Software Management >> Live Update**.  Select **Threat Campaigns**.
+  In the BIG-IP, browse to **System >> Software Management >> Live Update**.  Select **Threat Campaigns**.
 
   |image3|
 
@@ -42,10 +42,11 @@ Threat Campaign Updates
 
   The default is to automatically install updates in **Real Time**.  In which case, updates are downloaded and installed as they become available.
 
-  Also, update files can be manually downloaded from **https://downloads.f5.com** and uploaded to the BIGIP.  Manually uploaded files are NOT automatically installed.
+  Also, update files can be manually downloaded from **https://downloads.f5.com** and uploaded to the BIG-IP.  Manually uploaded files are NOT automatically installed.
 
   .. NOTE::
     Because of connectivity limitations between this lab environment and the F5 Update Servers, the Live Update feature will not work in this lab.
+    In order for Live Update to work in a production environment the BIG-IP must have outbound access to https://downlods.f5.com.
 
 
 Threat Campaign Blocking
@@ -58,19 +59,19 @@ Threat Campaign Blocking
 
   |image4|
 
-  In the BIGIP browse to  **Security >> Application Security >> Policy Building >> Learning and Blocking Settings**.
+  In the BIG-IP browse to  **Security >> Application Security >> Policy Building >> Learning and Blocking Settings**.
 
   Expand the **Threat Campaigns** section.
 
   |image5|
 
-  Here you can control blocking and staging of Threat Campaigns for each WAF policy.
+  Here you can control blocking and staging of Threat Campaigns for this WAF policy.
 
   If **Threat Campaign Staging** is enabled, new and updated threat campaign signatures will not block during the enforcement readiness period (one day, by default).
 
   .. IMPORTANT::
     It is best practice and highly recommended that you leave Threat Campaign blocking enabled.  Because threat campaign signatures are very specific to current,
-    in-the-wild attacks there is no chance for false positives.  Requests that match Threat Campaign signatures are inherently malicious.
+    in-the-wild attacks there is minimal chance for false positives.  Requests that match Threat Campaign signatures are inherently malicious.
 
 
 .. |image1| image:: /_static/class8/threatcampaigns/image1.png

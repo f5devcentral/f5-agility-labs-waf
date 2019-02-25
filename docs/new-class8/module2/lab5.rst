@@ -10,7 +10,7 @@ In order to do this we will use an iRule to inject an X-Forwarded-For (XFF) head
 and we will configure ASM to trust XFF headers. This will effectively "hide" the real IP address of the client
 from ASM and force it to detect the failed logins by some other method (DeviceID in this case).**
 
-  In the BIGIP browse to **Local Traffic >> Virtual Servers**. Click **Edit...** in the Resources column for the Hackazon_protected_virtual
+  In the BIG-IP browse to **Local Traffic >> Virtual Servers**. Click **Edit...** in the Resources column for the Hackazon_protected_virtual
   virtual server.
 
   |image17|
@@ -31,7 +31,7 @@ from ASM and force it to detect the failed logins by some other method (DeviceID
   .. NOTE::
     This iRule will now insert into every request XFF headers with random IP addresses.
 
-  In the BIGIP browse to **Security >> Application Security >> Security Policies >> Policies List**
+  In the BIG-IP browse to **Security >> Application Security >> Security Policies >> Policies List**
 
   Set the policy details to see **Advanced** settings.  Then set **Trust XFF Header** to **Enabled**
 
@@ -61,7 +61,7 @@ from ASM and force it to detect the failed logins by some other method (DeviceID
 Configure Brute Force DeviceID Detection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  In the BIGIP browse to **Security >> Application Security >> Brute Force Attack Prevention** and select the **/user/login** page.
+  In the BIG-IP browse to **Security >> Application Security >> Brute Force Attack Prevention** and select the **/user/login** page.
 
   Configure the DeviceID detection to trigger after 3 failed logins and change the Action to **Alarm and Blocking Page**.
 
@@ -94,7 +94,7 @@ Attempt invalid logins
 Review ASM Request log
 ~~~~~~~~~~~~~~~~~~~~~~
 
-  In the BIGIP browse to the ASM Request log at **Security >> Event Logs >> Application >> Requests**.
+  In the BIG-IP browse to the ASM Request log at **Security >> Event Logs >> Application >> Requests**.
 
   Look through the request log for the **most recent** illegal request to /user/login.
 
@@ -109,14 +109,7 @@ Review ASM Request log
 
 
 
-.. |image4| image:: /_static/class8/credstuff/image5.png
-.. |image5| image:: /_static/class8/credstuff/image6.png
-.. |image6| image:: /_static/class8/credstuff/image7.png
-.. |image7| image:: /_static/class8/credstuff/image8.png
-.. |image8| image:: /_static/class8/credstuff/image9.png
-.. |image9| image:: /_static/class8/credstuff/image10.png
-.. |image10| image:: /_static/class8/credstuff/image7.png
-.. |image11| image:: /_static/class8/credstuff/image11.png
+
 .. |image12| image:: /_static/class8/credstuff/image12.png
 .. |image13| image:: /_static/class8/credstuff/image13.png
 .. |image14| image:: /_static/class8/credstuff/image14.png

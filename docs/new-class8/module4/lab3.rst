@@ -12,7 +12,7 @@ Create Exceptions
   Perhaps we consider automated requests from curl to be malicious and we do not want to allow these requests, even for initial access.
   We can create an exception to block curl requests while still allowing other requests that are in the HTTPLibrary category.
 
-  In the BIGIP, return to **Security >> Bot Defense >> Bot Defense Profiles** and select the **Hackazon-bots** profile.
+  In the BIG-IP, return to **Security >> Bot Defense >> Bot Defense Profiles** and select the **Hackazon-bots** profile.
 
   |image16|
 

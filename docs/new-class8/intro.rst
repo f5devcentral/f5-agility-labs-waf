@@ -1,8 +1,6 @@
 Getting Started
 ---------------
 
-.. TODO:: Complete getting started instructions
-
 Please follow the instructions provided by the instructor to start your
 lab and access your jump host.
 
@@ -11,9 +9,8 @@ lab and access your jump host.
 	 jumphost. No installation or interaction with your local system is
 	 required.
 
-.. NOTE::
-	To ensure consistent behavior with the lab guide, all interactions with the F5
-	BIGIP WebUI and the Hackazon web page should be through the Chrome browser on the
+.. WARNING::
+	To ensure consistent behavior with the lab guide, **all lab exercises should be through the Chrome browser** on the
 	Windows Jumphost.
 
 Lab Topology
@@ -43,12 +40,12 @@ components:
       - - **Management:** 10.1.1.6
         - **External:** 10.1.10.4
         - **Internal:** 10.1.20.4
-      - ``admin``/``admin``
-    * - F5 BIGIP
+      - ``admin``/``F5LabDays!``
+    * - F5 BIG-IP
       - - **Management:** 10.1.1.8
         - **External:** 10.1.10.7
         - **Internal:** 10.1.20.7
-      - ``admin``/``admin``
+      - ``admin``/``F5LabDays!``
     * - LAMP Server
       - - **Management:** 10.1.1.4
         - **External:** N/A

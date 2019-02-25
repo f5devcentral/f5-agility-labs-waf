@@ -7,11 +7,11 @@ as a login page in the ASM policy.  We will then configure **Brute Force Protect
 Review login page parameters and responses.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  Browse to the Hackazon home page. **http://hackazon.f5demo.com/**
+  In Chrome, browse to the Hackazon home page. **http://hackazon.f5demo.com/**
 
   In the top right corner of the web page, select **Sign In**.
 
-  Right click on the **Username** field and select **Inspect Element**.
+  Right click on the **Username** field and select **Inspect**.
 
   |image4|
 
@@ -34,7 +34,7 @@ Review login page parameters and responses.
   .. IMPORTANT::
     **Record** the **name** attribute of this field.
 
-  In the dev tools pane, switch to the **Network** tab. Click the trashcan |image6| icon to clear any requests. Ensure the **Preserve Log** check box is checked.
+  In the dev tools pane, switch to the **Network** tab. Click the |image6| icon to clear any requests. Ensure the **Preserve Log** check box is checked.
 
   |image7|
 
@@ -43,18 +43,18 @@ Review login page parameters and responses.
   .. NOTE::
     These are invalid credentials, but we want to look at the response for a failed login.
 
-  In the dev tools pane scroll to the top of the list and select the **POST** request to **login**.
+  In the dev tools pane scroll to the top of the list and select the top request to **login**.
 
   |image8|
 
-  In the Request Details pane look at the response headers.
+  In the Request Details pane look at the headers.
 
   |image9|
 
   .. IMPORTANT::
     **Record** the status code for a failed login.
 
-  Click the trashcan |image10| icon to clear these requests.
+  Click the |image10| icon to clear these requests.
 
   In the web page pane enter **"bob"** for the username and **"bob"** for the password. Click **Sign In**.
 
@@ -72,13 +72,13 @@ Review login page parameters and responses.
 
 
 
-.. |image4| image:: /_static/class8/credstuff/image5.png
-.. |image5| image:: /_static/class8/credstuff/image6.png
-.. |image6| image:: /_static/class8/credstuff/image7.png
-.. |image7| image:: /_static/class8/credstuff/image8.png
-.. |image8| image:: /_static/class8/credstuff/image9.png
-.. |image9| image:: /_static/class8/credstuff/image10.png
-.. |image10| image:: /_static/class8/credstuff/image7.png
+.. |image4| image:: /_static/class8/credstuff/image4.png
+.. |image5| image:: /_static/class8/credstuff/image5.png
+.. |image6| image:: /_static/class8/credstuff/image6.png
+.. |image7| image:: /_static/class8/credstuff/image7.png
+.. |image8| image:: /_static/class8/credstuff/image8.png
+.. |image9| image:: /_static/class8/credstuff/image9.png
+.. |image10| image:: /_static/class8/credstuff/image6.png
 .. |image11| image:: /_static/class8/credstuff/image11.png
 .. |image12| image:: /_static/class8/credstuff/image12.png
 .. |image13| image:: /_static/class8/credstuff/image13.png
