@@ -7,7 +7,7 @@ In this exercise you will configure DataSafe to protect the Hackazon login page 
 Create DataSafe Profile
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-  In the BIGIP. browse to **Security >> Data Protection >> DataSafe Profiles**.
+  In the BIG-IP. browse to **Security >> Data Protection >> DataSafe Profiles**.
 
   Click **Create** to create a new DataSafe profile.
 
@@ -66,7 +66,7 @@ Configure ALE Options
 Associate DataSafe Profile with Virtual Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  IN the BIGIP, browse to **Local Traffic >> Virtual Servers >> Virtual Server List**.
+  IN the BIG-IP, browse to **Local Traffic >> Virtual Servers >> Virtual Server List**.
 
   Click on the **Hackazon_protected_virtual** .  Then, from the **Security** tab, choose **Policies**.
 

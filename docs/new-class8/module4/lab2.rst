@@ -39,7 +39,7 @@ Basic Bot and Vulnerability Scanners
 Review Bot Defense Logs
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-  In the BIGIP, browse to **Security >> Event Logs >> Bot Defense >> Bot Requests**.
+  In the BIG-IP, browse to **Security >> Event Logs >> Bot Defense >> Bot Requests**.
 
 
   First cURL Request

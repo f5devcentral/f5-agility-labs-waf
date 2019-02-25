@@ -13,6 +13,10 @@ In this lab we will configure and review the new **Unified Bot Defense** in 14.1
 and enhancement of bot protections from disparate places in the configuration.  Bot Signatures and Proactive Bot Defense were taken from the
 Layer7 DoS Profiles and Web Scraping was taken from the WAF profiles and combined with significant enhancements to create **Unified Bot Defense**.
 
+.. WARNING::
+	To ensure consistent behavior with the lab guide, **all lab exercises should be through the Chrome browser** on the
+	Windows Jumphost.
+
 .. toctree::
    :maxdepth: 1
    :glob:

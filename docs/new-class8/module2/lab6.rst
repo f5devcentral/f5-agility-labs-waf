@@ -13,7 +13,7 @@ F5 Advanced WAF is also capable of detecting the use of known stolen credentials
 
 Enable Distributed Brute Force Detection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  In the BIGIP browse to **Security >> Application Security >> Brute Force Attack Prevention** and select the **/user/login** page.
+  In the BIG-IP browse to **Security >> Application Security >> Brute Force Attack Prevention** and select the **/user/login** page.
 
   Disable each of the Source-based detection methods by setting the **Trigger** to **Never**.
 
@@ -43,6 +43,7 @@ Run Credential Stuffing Attack with SentryMBA
     For the purposes of this lab, SentryMBA is configured to use a proxy.
 
     On the Windows Desktop, open |image33| and turn off **Intercept**.
+    Do not update Burp Suite, choose Temporary Project, and use Burp defaults.
 
     |image34|
 
@@ -63,7 +64,7 @@ Run Credential Stuffing Attack with SentryMBA
 Review Credential Stuffing Log
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  In the BIGIP browse to the ASM Request log at **Security >> Event Logs >> Application >> Brute Force Attacks**.
+  In the BIG-IP browse to the ASM Request log at **Security >> Event Logs >> Application >> Brute Force Attacks**.
 
   You should see an **Ongoing Attack**.  Review the **Attack Summary** tab.
 
@@ -87,14 +88,7 @@ Review Credential Stuffing Log
 
 
 
-.. |image4| image:: /_static/class8/credstuff/image5.png
-.. |image5| image:: /_static/class8/credstuff/image6.png
-.. |image6| image:: /_static/class8/credstuff/image7.png
-.. |image7| image:: /_static/class8/credstuff/image8.png
-.. |image8| image:: /_static/class8/credstuff/image9.png
-.. |image9| image:: /_static/class8/credstuff/image10.png
-.. |image10| image:: /_static/class8/credstuff/image7.png
-.. |image11| image:: /_static/class8/credstuff/image11.png
+
 .. |image12| image:: /_static/class8/credstuff/image12.png
 .. |image13| image:: /_static/class8/credstuff/image13.png
 .. |image14| image:: /_static/class8/credstuff/image14.png

@@ -12,6 +12,10 @@ This class covers the following F5 Advanced WAF 14.1 topics:
 
 Expected time to complete: **3 hours**
 
+.. WARNING::
+	To ensure consistent behavior with the lab guide, **all lab exercises should be through the Chrome browser** on the
+	Windows Jumphost.
+
 .. toctree::
    :maxdepth: 1
    :glob:

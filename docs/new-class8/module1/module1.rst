@@ -10,6 +10,11 @@ As an example, a normal WAF signature might tell you that SQL injection was atte
 A Threat Campaign signature will tell you that a known threat actor used a specific exploit of the latest Apache Struts vulnerability in an attempt
 to deploy ransomware for cryptomining software.
 
+.. WARNING::
+	To ensure consistent behavior with the lab guide, **all lab exercises should be through the Chrome browser** on the
+	Windows Jumphost.
+  
+
 .. toctree::
    :maxdepth: 1
    :glob:

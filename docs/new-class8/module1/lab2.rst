@@ -35,7 +35,7 @@ Threat Campaign Attack
   .. NOTE::
     This attack attempts to exploit an Apache Struts2 vulnerability to deliver malware.
 
-  You should see a blocking response from the BIGIP similar to this:
+  You should see a blocking response from the BIG-IP similar to this:
 
   |image6|
 
@@ -43,7 +43,7 @@ Threat Campaign Attack
 Review ASM Request Logs
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-  In the BIGIP browse to the ASM Request log at **Security >> Event Logs >> Application >> Requests**.
+  In the BIG-IP browse to the ASM Request log at **Security >> Event Logs >> Application >> Requests**.
 
   The top two requests should be blocked.
 
