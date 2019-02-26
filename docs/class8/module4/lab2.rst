@@ -60,7 +60,7 @@ Review Bot Defense Logs
   We can also see that this is classified as an **Untrusted Bot** and in the **HTTP Library** category.
 
   Second cURL Request
-  ^^^^^^^^^^^^^^^^^^
+  ^^^^^^^^^^^^^^^^^^^
   Select the second request down (this should be the second cURL request you sent to /user/login).
 
   In the top right corner, select to display **All Details**.
