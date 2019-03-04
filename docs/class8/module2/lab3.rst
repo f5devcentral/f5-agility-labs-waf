@@ -19,7 +19,7 @@ Attempt invalid logins
 
   Close the dev tools pane if it is still open.
 
-  In the browser address bar change to the login page URL at **http://hackzazon.f5demo.com/user/login**.
+  In the browser address bar change to the login page URL at **http://hackazon.f5demo.com/user/login**.
 
   Try to login with the same username and various incorrect passwords.
 
