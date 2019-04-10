@@ -33,8 +33,6 @@ Linux server (server01): (Only used in 141,241,341 classes)
 
 * `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - deliberately insecure web application
 
-.. _lab-topology:
-
 Lab Topology
 ------------
 

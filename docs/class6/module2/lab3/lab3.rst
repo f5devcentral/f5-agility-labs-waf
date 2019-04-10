@@ -51,10 +51,11 @@ expandSubcollections - allows you to get the subcollection data in the initial r
 
 .. code-block:: json
 
-    "whitelistIpReference": {
+    {"whitelistIpReference": {
         "link":"https://localhost/mgmt/tm/asm/policies/ouO97l-EOX-zt3sDWA7Dag/whitelist-ips?ver=13.1.0",
         "isSubCollection": true
         },
+    }
 
 options - allows you to add arguments to the tmsh equivalent command. An example will be shown below.
 

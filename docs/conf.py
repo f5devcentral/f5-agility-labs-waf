@@ -106,14 +106,14 @@ if git_branch_name in branch_map:
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+
 extensions = [
-  'sphinxjp.themes.basicstrap',
   'sphinx.ext.todo',
   'sphinx.ext.extlinks',
   'sphinx.ext.graphviz',
   'sphinxcontrib.nwdiag',
   'sphinxcontrib.blockdiag'
-#  'sphinx.ext.autosectionlabel'
+  #'sphinx.ext.autosectionlabel'
 ]
 
 if 'googleanalytics_id' in locals() and len(googleanalytics_id) > 0:
@@ -175,7 +175,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = classname
-copyright = u'2017, F5 Networks, Inc.'
+copyright = u'2019, F5 Networks, Inc.'
 author = u'F5 Networks, Inc.'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -225,6 +225,10 @@ def setup(app):
 
 if on_rtd:
     templates_path = ['_templates']
+
+extlinks = {
+    'issues':( ("%s/issues/%%s" % github_repo), 'issue ' )
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

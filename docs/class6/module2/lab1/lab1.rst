@@ -23,7 +23,7 @@ specifying “key2” will yield “value2”. To retrieve “value2”, “key3
 
 Here is a real world ASM output example, truncated with a “…” to show the relevant parts:
 
-.. code-block:: json
+.. code-block:: console
 
         "name": "asm1",
         "caseInsensitive": true,

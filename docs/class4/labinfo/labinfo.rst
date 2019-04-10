@@ -37,8 +37,6 @@ BIG-IP (bigip01):
  * Local Traffic Manager
  * Application Security Manager / Advanced WAF
 
-
-
 Lab Topology
 ~~~~~~~~~~~~
 

@@ -26,8 +26,6 @@ Environment
 
 Why the name "WebGoat"? Developers should not feel bad about not knowing security. Even the best programmers make security errors. What they need is a scapegoat, right? Just blame it on the **Goat!**
 
-.. _lab-topology:
-
 Lab Topology
 ---------------
 
