@@ -4,7 +4,7 @@ Exercise 4.0: HTTPS iApp with Policy
 Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-F5 offers a number of templated installations for various applications.  For generic web based applications you can find the https iapp template.  As an update to this template we have added security functions such as firewall and web application firewall policies that can be deployed with the application.  In this lab we will focus on using the basic http iApp template.  If you are interested in integrating similiar templates in to your automation and orchestration strategies please follow this training with the Application Services Lab located here:
+F5 offers a number of templated installations for various applications.  For generic web based applications you can find the https iapp template.  As an update to this template we have added security functions such as firewall and web application firewall policies that can be deployed with the application.  In this lab we will focus on using the basic http iApp template.  If you are interested in integrating similar templates in to your automation and orchestration strategies please follow this training with the Application Services Lab located here:
 
 ::
 
@@ -53,7 +53,7 @@ Task 1 - Deploy iApp with Security
 .. image:: images/image8_4_4.png
     :width: 600 px
 
-9.  Open a new icognito window in Chrome and click the app1 bookmark in the browser bar.  When you get the SSL warning click Advanced and Proceed
+9.  Open a new incognito window in Chrome and click the app1 bookmark in the browser bar.  When you get the SSL warning click Advanced and Proceed
 
 .. image:: images/image9_4_4.png
     :width: 600 px

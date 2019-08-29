@@ -131,7 +131,7 @@ Create Baseline traffic for the BIG-IP
 
 6. Go back to your BIG-IP terminal window and take a look at the results of your earlier script.
 
-The "show_BaDOS_learning.sh" uses the admd daemon for stress-based DoS detection and mitigation. An example of the admd command is below and does not need to tbe executed.
+The "show_BaDOS_learning.sh" uses the admd daemon for stress-based DoS detection and mitigation. An example of the admd command is below and does not need to be executed.
 
 |
 

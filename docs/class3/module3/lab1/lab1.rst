@@ -71,7 +71,7 @@ Fill out the following -
 .. image:: images/image10_3_1.png
     :width: 600 px
 
-.. NOTE:: For this lab Signature Staging has been disbaled.  In a production environment you should consider using staging to allow yourself mitigation time before new signatures are implemented.
+.. NOTE:: For this lab Signature Staging has been disabled.  In a production environment you should consider using staging to allow yourself mitigation time before new signatures are implemented.
 
 11.  Ensure that the blocking checkbox has been unchecked for all signatures.
 
@@ -106,7 +106,7 @@ Task 2 - Tuning policy
 
 3.  Under Policy Building Process you will find there are settings for Loosen Policy and Tighten Policy.
 
-Loosen Policy would be used when there have been changes to the application.  Policy Builder will identify legitmate traffic based on repeated behavior from a sufficient number of sources that you set.
+Loosen Policy would be used when there have been changes to the application.  Policy Builder will identify legitimate traffic based on repeated behavior from a sufficient number of sources that you set.
 Tighten Policy only applies when you are using automatic learning.  The policy builder will refine the policy until the number of security policy changes has been reached.
 Track Site Changes only applies to automatic learning.  If enabled this setting allows Policy Builder to discover changes to a web application.  Policy builder logs the changes and temporarily loosens the policy to make suggestions and adjustments.
 

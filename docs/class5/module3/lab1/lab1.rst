@@ -69,7 +69,7 @@ Task 1 - Configuring Bot Defense
 
    |lab3-2a|
 
-#. Create a DoS profile by by navigating to **Security -> DoS Protection -> Dos Profiles** then clicking the **Create** button.
+#. Create a DoS profile by navigating to **Security -> DoS Protection -> Dos Profiles** then clicking the **Create** button.
 
    |lab3-2|
 

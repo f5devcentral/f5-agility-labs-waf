@@ -16,9 +16,9 @@ Remove any existing security policy from the Webgoat Virtual Server
 
 #. On the BIG-IP TMUI, Go to Local Traffic > Virtual Servers > asm_vs
 
-#. Click the Security > Policies tab at the top 
+#. Click the Security > Policies tab at the top
 
-#. Change the Application Security Policy to “Disabled” 
+#. Change the Application Security Policy to “Disabled”
 
 #. The Logging Profile should be set to “Log Illegal Requests” and click update
 
@@ -31,7 +31,7 @@ Connect to the Webgoat Application
    ``http://10.1.10.145/WebGoat/login``
 
 .. note::
-        Note that you may use Chrome for BIG-IP access but you must use Firefox for the macro creation. 
+        Note that you may use Chrome for BIG-IP access but you must use Firefox for the macro creation.
 
 
 
@@ -57,7 +57,7 @@ Create a web scraping macro
 
 5. Click the Play menu and set the Max to 12 and click Play Loop
 
-6. Did the pages load successfully?  
+6. Did the pages load successfully?
 
 
 Create a security policy to prevent webscraping
@@ -65,11 +65,11 @@ Create a security policy to prevent webscraping
 
 #. Log into the BigIP through the browser
 
-#. Click on Security > Application Security > Security Policies and Create 
+#. Click on Security > Application Security > Security Policies and Create
 
 #. Select the Advanced view instead of Basic (default)
 
-#. Name the policy “webscraping” 
+#. Name the policy “webscraping”
 
 #. Select “Rapid Deployment Policy” for the "Policy Template", this will bring up a prompt asking if you want to continue, click "Ok"
 
@@ -90,7 +90,7 @@ Create a security policy to prevent webscraping
 
 |
 
-Create a DNS Resolver 
+Create a DNS Resolver
 ~~~~~~~~~~~~~~~~~~~~~
 
 |
@@ -112,7 +112,7 @@ Attempt to scrape the Webgoat Login Page
 #. Did the page hits load successfully?
 
 
-Review the Security Event Logs 
+Review the Security Event Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Go to Security > Event Logs > Application > Requests
@@ -131,7 +131,7 @@ Review the Security Event Logs
 
 4. Now go to Security > Event Logs > Application > Web Scraping Statistics
 
-5. Do you see any events?  
+5. Do you see any events?
 
 
 Reset the Virtual Server config for the next lab
