@@ -79,7 +79,7 @@ Configure Brute Force DeviceID Detection
 Attempt invalid logins
 ~~~~~~~~~~~~~~~~~~~~~~
 
-  In the browser, return to the login page URL at **http://hackzazon.f5demo.com/user/login**.
+  In the browser, return to the login page URL at **http://hackazon.f5demo.com/user/login**.
 
   Try to login with various usernames and passwords.
 
