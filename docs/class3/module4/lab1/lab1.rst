@@ -21,9 +21,9 @@ Task 1 - Deploy iApp with Security
 
 2.  Give the application a name
 
-3.  In the drop down box for template choose f5.http.v1.3.Orc3 (also choose Advanced just above)
+3.  In the drop down box for template choose f5.http (also choose Advanced just above)
 
-.. image:: images/image2_4_4.png
+.. image:: images/module4Lab1Excercise1-image2.png
     :width: 600 px
 
 .. NOTE::  This template has been imported for this lab.  You will find this template at F5 Downloads.  Follow this article on how to download: https://support.f5.com/csp/article/K98001873  The deployment guide can be found here:  https://www.f5.com/pdf/deployment-guides/iapp-http-dg.pdf
@@ -43,9 +43,10 @@ Task 1 - Deploy iApp with Security
 .. image:: images/image1.png
     :width: 600 px
 
-7.  In the Virtual Server and Pool section give the IP Address, an FQDN and select the webgoat_pool
+7.  In the Virtual Server and Pool section give the IP Address, an FQDN and select the webgoat_pool, as shown in the example.
 
-.. image:: images/image2.png
+
+.. image:: images/module4Lab1Excercise1-image6.png
     :width: 600 px
 
 8.  Click finished and have patience while the application objects are built
@@ -53,12 +54,9 @@ Task 1 - Deploy iApp with Security
 .. image:: images/image8_4_4.png
     :width: 600 px
 
-9.  Open a new icognito window in Chrome and click the app1 bookmark in the browser bar.  When you get the SSL warning click Advanced and Proceed
+9.  Open a New Private Window in Firefox and enter **https://10.1.10.147/WebGoat/login** in url box. When you get the SSL warning click Advanced and Add Exception
 
-.. image:: images/image9_4_4.png
-    :width: 600 px
-
-10.  Login with f5student and f5DEMOs4u!
+10.  Login with f5student and password 
 
 11.  You can try surfing around the application.  Try an injection attack.
 
@@ -82,14 +80,9 @@ Do you see learning suggestions? (Hint - there are none yet)
 Task 2 - Attack Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1.  Within Chrome choose New Incognito window
+1.  Open a New Private Window in Firefox and enter **https://10.1.10.147/WebGoat/login** in url box.
 
-.. image:: images/image4_3_2.png
-    :width: 600 px
-
-2.  Click on the App1 bookmark to get to the WebGoat application
-
-3.  At the username prompt try entering a sequel query for the username and the letter a for the password
+2.  At the username prompt try entering a sequel query for the username and the letter a for the password
 
 ::
 
@@ -101,10 +94,10 @@ Task 2 - Attack Application
 
 5.  You will find an level 3 alert there for the login page.
 
-.. image:: images/image3.png
+.. image:: images/module4Lab1Excercise1-image2.png
     :width: 600 px
 
-6.  Return to the WebGoat application and login with credentials f5student and f5DEMOs4u!
+6.  Return to the WebGoat application and login with credentials f5student and password 
 
 7.  From the left menu go to Injection Flaws --> SQL Injection and select exercise 7
 

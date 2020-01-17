@@ -26,15 +26,17 @@ Environment
 
 Why the name "WebGoat"? Developers should not feel bad about not knowing security. Even the best programmers make security errors. What they need is a scapegoat, right? Just blame it on the **Goat!**
 
+.. _lab-topology:
+
 Lab Topology
 ---------------
 
 The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
--  1 x Ubuntu Linux 16.04 client
--  1 x F5 BIG-IP VE (v13.1.0.2) running ASM and LTM
--  1 x Ubuntu Linux 16.04 server
+-  1 x Ubuntu Linux 18.04 client
+-  1 x F5 BIG-IP VE (v14.1.0.2) running WAF and LTM
+-  1 x Ubuntu Linux 18.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
@@ -42,6 +44,7 @@ components:
 .. list-table::
    :widths: 15 15 15 15 15
    :header-rows: 1
+   :stub-columns: 1
 
 
    * - **Component**
@@ -53,21 +56,21 @@ components:
      - 10.1.1.51
      - 10.1.10.51
      - N/A
-     - https-``ubuntu:ubuntu``
+     - rdp-``f5student:password``
    * - Bigip (bigip01)
      - 10.1.1.245
      - 10.1.10.245
      - 10.1.20.245
-     - https - ``admin:f5DEMOs4u!`` ssh - ``f5student:f5DEMOs4u!``
+     - https - ``admin:password``  ssh - ``f5student:password``
    * - Linux Server & WebGOAT app (server01)
      - 10.1.1.252
      - N/A
      - 10.1.20.252
-     - ssh - ``f5student:f5DEMOs4u!``
+     - ssh - ``f5student:password``
 
 
 A graphical representation of the lab:
 
 |labDiagram|
 
-.. |labDiagram| image:: images/Agility2018LabDiagram.png
+.. |labDiagram| image:: images/LabDiagram.PNG

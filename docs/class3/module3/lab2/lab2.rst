@@ -13,13 +13,10 @@ Task 1 - Exploring an attack
 
 1.  Before we begin clear all previous logs by going to **Security > Event Logs > Application > Requests**.  Click the checkbox to select all.  From the drop down that appears to the right click the down arrow and select Delete all requests.
 
-.. image:: images/image18_3_2.png
+.. image:: images/module3Lab2Excercise1-image1.png
     :width: 600 px
 
-2.  Within Chrome click on the three dots in the upper right and choose New Incognito window
-
-.. image:: images/image4_3_2.png
-    :width: 600 px
+2.  Launch Firefox and navigate to **https://webgoat.f5.demo/WebGoat/login** 
 
 3.  Click on the Webgoat bookmark from the bookmark bar to get to the WebGoat application
 
@@ -29,24 +26,39 @@ Task 1 - Exploring an attack
 
     or 1='1
 
+|
+
+
+.. image:: images/module3Lab2Excercise1-image2.png
+        :width: 600 px
+
+|
 .. NOTE:: Did you see anything?  Why do you think you were not blocked?
 
 
 5.  Return to the BIG-IP Go to **Security > Event Logs > Application > Requests**.
 
-
+|
 
 6.  You will find an entry there for the login page login attempt.
 
-.. image:: images/image19_3_2.PNG
-    :width: 600 px
+|
 
-7.  Return to the WebGoat application and login with credentials f5student and f5DEMOs4u!
+.. image:: images/module3Lab2Excercise1-image3.png
+        :width: 600 px
+
+|
+
+7.  Return to the WebGoat application and login with credentials f5student and password 
 
 8.  From the left menu go to Injection Flaws --> SQL Injection and select exercise 7
 
-.. image:: images/image5_3_2.png
+|
+
+.. image:: images/module3Lab2Excercise1-image4.png
     :width: 600 px
+
+|
 
 9.  In the account name field try an injection attack
 
@@ -56,21 +68,28 @@ Task 1 - Exploring an attack
 
 10.  You will be able to see a wealth of information
 
-.. image:: images/image6_3_2.png
+.. image:: images/module3Lab2Excercise1-image5.png
     :width: 600 px
 
-11. Return to the BIG-IP Go to **Security > Event Logs > Application > Requests**, clear the illegal filter and review the alert.
+11. Return to the BIG-IP Go to **Security > Event Logs > Application > Requests**, click on the filter icon and change the **Request Status** to **Illegal** in order to find the sql injection alert easier. Click **Apply Filter**.
 
 
-.. image:: images/image2.PNG
+.. image:: images/module3Lab2Excercise1-image6.png
     :width: 600 px
+
+|
+
+.. image:: images/module3Lab2Excercise1-image7.png
+        :width: 600 px
+
+|
 
 12.  Time to Block! Go to **Security > Application Security > Policy Building > Learning and Blocking settings**
 
 13.  Click on the carrot next to Attack Signatures and click on the Block check box at the top (this will turn on blocking for all the signatures).  Make sure signature staging is still set to diabled then click Save and Apply Policy.
 Your policy should now look like this.
 
-.. image:: images/image3.PNG
+.. image:: images/module3Lab2Excercise1-image8.png
     :width: 600 px
 
 14.  Make sure to save and apply policy.
@@ -81,9 +100,13 @@ Your policy should now look like this.
 15.  On the BIG-IP navigate to **Security > Event Logs > Application > Requests**
 
 
-16.  Open a New Incognito Window in Chrome
+16.  Go back to Firefox and logout of WebGoat (upper right-hand corner). 
 
-17.  Click the bookmark for Login page
+.. image:: images/module3Lab2Excercise1-image9.png
+        :width: 600 px
+
+|
+
 
 18.  At the username prompt try entering a SQL query for the username and the letter a for the password
 
@@ -104,45 +127,46 @@ Your policy should now look like this.
 
 .. NOTE:: You may need to refresh the screen by clicking on the refresh icon top left of the event screen.
 
-.. image:: images/image4.PNG
+.. image:: images/module3Lab2Excercise1-image10.png
     :width: 600 px
 
 20.  Click on the log entry for ``/webgoat/login`` and examine the request.
 
 21.  Change from Basic to All Details and will see more details regarding the request
 
-.. image:: images/image10_3_2.png
-    :width: 600 px
+    
+.. image:: images/module3Lab2Excercise1-image11.png
+     :width: 600 px
 
-22.  Click on Attack signature detected
+22.  Click on the occurences for Attack signature detected
 
-.. image:: images/image11_3_2.png
+.. image:: images/module3Lab2Excercise1-image12.png
     :width: 600 px
 
 Task 2 - ZAP THE APP!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1.  Open ZAP Proxy by locating the icon on the top bar - |zap_proxy|
+1. Launch ZAP Proxy by running /opt/zaproxy/zap.sh 
 This will take several seconds to launch so please do not multi-click.
 
 .. NOTE:: If burp is still running ZAP will throw a warning stating that it can't start on port 8080. This a non-issue since we are not operating ZAP in proxy mode for this lab.
 
-2.  Select No, I do not want to persist this session at this moment in time.
+2.  Select No, I do not want to persist this session at this moment in time. Click **Start**.
 
 3.  In the upper left corner of ZAP, change the mode to ATTACK and accept the popup.
 Enter the following URL in to the URL to Attack field and click **Attack**:
 ::
 
-    https://webgoat.f5demo.com/WebGoat/login
+    https://webgoat.f5.demo/WebGoat/login
 
-.. image:: images/image7.PNG
+.. image:: images/module3Lab2Excercise2-image1.png
     :width: 600 px
 
 4.  Return to the BIG-IP and examine the Event Logs.
 
-5.  Take a look at the various attacks conducted by ZAP and blocked by ASM.  Examine the log entries and what signature prevented the attack from occurring.  You can explore the documentation on the signature as well.
+5.  Take a look at the various attacks conducted by ZAP and blocked by ASM.  Examine the log entries and what signature prevented the attack from occurring. The more interesting attackes will be the illegal requests, filter on just the illegal requests.  You can explore the documentation on the signature as well.
 
-.. image:: images/image5.PNG
+.. image:: images/module3Lab2Excercise2-image2.png
     :width: 600 px
 
 What additional functions can you turn on to prevent some of the other attacks?  How would you turn these on?
@@ -157,7 +181,7 @@ Explore the Learning suggestions and Traffic Summary page.
 
 Locate the Enforcement Readiness section.
 
-.. image:: images/image14_3_2.png
+.. image:: images/module3Lab2Excercise2-image3.png
     :width: 600 px
 
 .. |zap_proxy| image:: images/zap_proxy.png

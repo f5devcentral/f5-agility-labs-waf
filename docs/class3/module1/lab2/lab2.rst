@@ -1,26 +1,26 @@
-Exercise 1.3: Proactive Bot Defense
+Exercise 1.3: Bot Defense
 ----------------------------------------
 
 Objective
 
 
--  Create a DoS profile
+-  Create a Bot Defense profile
 
--  Enable proactive bot defense
+-  Test different mechanisms to detect and mitigate suspicious and untrusted clients
 
--  Apply the policy to the appropriate virtual server
+-  Apply the profile to the appropriate virtual server
 
--  Validate that the policy is working as expected
+-  Validate that the profile is working as expected
 
 -  Estimated time for completion: **20** **minutes**
 
-Create Policy
-~~~~~~~~~~~~~
+Create Profile 
+~~~~~~~~~~~~~~~~~~
 
 
 .. IMPORTANT:: To clearly demonstrate just the Bot Defense profile,
    please **disable the Application Security Policy and iRule from the prior lab** from the
-   ``webgoat.f5demo.com_https_vs`` virtual server!
+   ``webgoat.f5.demo_https_vs`` virtual server!
 
 .. image:: images/image1.PNG
   :width: 600 px
@@ -31,17 +31,19 @@ Create Policy
 
 #. Run the following curl command to verify the site is loading without issue from this command line http utility. If the curl command is not successful (you are getting a “request rejected” error page), please let an instructor know.
 
-   ``curl https://webgoat.f5demo.com/WebGoat/login -k -v | more``
+.. code-block:: bash
 
-Input
-   .. image:: images/image36.PNG
-    :width: 600 px
+        curl https://webgoat.f5.demo/WebGoat/login -k -v | less 
+
+|
 
 Output
   .. image:: images/image30.PNG
     :width: 600 px
 
-#. On the Main tab, click **Security > DoS Protection > DoS Profiles**.
+|
+
+#. On the Main tab, click **Security > Bot Defense > Bot Defense Profiles**.
    The DoS Profiles screen opens.
 
    .. image:: images/image1_3_2.PNG
@@ -49,8 +51,8 @@ Output
 
 #. Click on the **Create** button.
 
-#. Name the policy ``webgoat_DoS`` and click **Finished** to
-   complete the creation of this DoS profile.
+#. Name the policy ``webgoat_bot``, leaving the defaults and click **Save** to
+   complete the creation of this Bot profile.
 
    .. image:: images/image1_3_3.PNG
     :width: 600 px
@@ -59,61 +61,34 @@ Configure Policy
 ~~~~~~~~~~~~~~~~
 
 
-#. **Click** the newly created ``webgoat_DoS`` profile listed under the
-   **Security > Dos Protection > DoS Profiles** list.
+#. **Click** the newly created ``webgoat_bot`` profile listed under the
+   **Security > Bot Defense > Bot Defense Profiles** list.
 
 #. The profile’s properties menu will be displayed initially. **Click**
-   on the **Application Security** tab at the top of this menu to
-   begin configuring the policy.
+   on the **Enforcement Mode** and select **Blocking**. 
 
    .. image:: images/image1_3_4.PNG
     :width: 600 px
 
-#. Under the **Application Security** tab > General Settings
-   click the **Edit** link on the right-hand side of General Settings
-   box and then check the ``Enabled`` check box for **Application
-   Security** to enable the DoS profile and allow additional settings
-   to be configured.
+#. Notice that for **Untrusted Bot**  the default setting is **Alarm**, change this to **CAPTCHA**.
 
-   .. image:: images/image1_3_5.PNG
+   .. image:: images/untrustedBot.png
     :width: 600 px
 
-#. Select **Proactive Bot Defense** under the list of **Application
-   Security** options for this DoS profile.
-
-#. Click the **Edit** link on the right for the **Application
-   Security > Proactive Bot Defense** menu and select **Always**
-   from the drop-down menu for **Operation Mode**.
-
-#. Set the Grace Period to 20 seconds. We will observe this in action shortly.
-
-   .. image:: images/image37.PNG
-    :width: 600 px
-
-#. Notice that for **Block requests from suspicious browsers** the
-   **Block Suspicious Browsers** setting is enabled by default.
-
-
-#. At this point, you may want to take a moment and explore the other defaults that were turned on such as TPS based detection and BOT Signatures. Please don't modify the defaults.
-
-#. Click the **Update** button to complete the Proactive Bot
-   Defense ``webgoat_DoS`` profile.
-
-   .. image:: images/image1_3_7.PNG
-    :width: 600 px
+#. Click the **Save** button to complete the Bot
+   Defense ``webgoat_bot`` profile.
 
 Apply Proactive Bot Defense Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 #. Under **Local Traffic > Virtual Servers**, click
-   on ``webgoat.f5demo.com_https_vs``.
+   on ``webgoat.f5.demo_https_vs``.
 
 #. Click on **Policies** under the **Security** tab at the top of
-   the ``webgoat.f5demo.com_https_vs`` details menu.
+   the ``webgoat.f5.demo_https_vs`` details menu.
 
-#. In the **DoS Protection Profile** drop down menu,
-   select ``Enabled...`` and then select the ``webgoat_DoS`` for
+#. In the **Bot Defense Profile** drop down menu,
+   select ``Enabled...`` and then select the ``webgoat_bot`` for
    the profile.
 
 #. Click on the **Update** button to apply the policy.
@@ -133,23 +108,20 @@ Create Bot Defense Logging Profile
    checkbox for ``Bot Defense``.
 
 #. Under the **Bot Defense** logging section, select the checkboxes
-   for the following: ``Local Publisher``, ``Log Illegal Requests``, ``Log Bot Signature Matched Requests`` and
-   ``Log Challenged Requests``.
+   for the following: ``Local Publisher``, all checkboxes in the ``Log Requests by Classification`` section, all checkboxes in the ``Log Requests by Mitigation Action`` section, ``Log Requests by Browser Verification Action`` and ``Log Device ID Collection Request``.
 
-#. Click **Finished**.
-
-   .. NOTE:: You could have also modified the existing ``waf_allrequests``
-      logging profile and added BOT logging definitions.
+#. Click **Create**.
 
    .. image:: images/image33.PNG
     :width: 600 px
+    :height: 700 px
 
 Apply Bot Defense Logging Profile
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #. Under **Local Traffic > Virtual Servers**, click
-   on ``webgoat.f5demo.com_https_vs``.
+   on ``webgoat.f5.demo_https_vs``.
 
 #. Click on **Policies** under the **Security** tab at the top
 
@@ -172,32 +144,25 @@ Apply Bot Defense Logging Profile
    .. image:: images/image34.PNG
     :width: 600 px
 
-Test the Proactive Bot Defense Policy
+Test the Bot Defense Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #. From the command line execute the following command several times:
 
-   ``curl https://webgoat.f5demo.com/WebGoat/login -k -v | more``
+   ``curl https://webgoat.f5.demo/WebGoat/login -k -v | less``
 
-.. NOTE:: This can take a few seconds to kick in and then you will see ASM start issuing a redirect challenge and try to set a TS cookie. **307 Temporary Redirect**
-
-.. image:: images/image38.PNG
+.. image:: images/image38.png
   :width: 600 px
 
-
-2. Once the Grace Period of 20 seconds has expired you will see ASM start escalating the defense and start to return a javascript challenge.
-
-.. image::  images/image39.PNG
-  :width: 600 px
 
 This bot is getting shot down in flames!
 
-Validate that the Proactive Bot Defense Policy is Working
+Validate that the Bot Defense Policy is Working
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#. Navigate to **Security > Event Logs > Bot Defense > Requests**.
+#. Navigate to **Security > Event Logs > Bot Defense > Bot Requests**.
 
 
 #. Notice that the detected bot activity has been logged and is now
@@ -208,36 +173,14 @@ Validate that the Proactive Bot Defense Policy is Working
 .. image:: images/image1_3_11.PNG
   :width: 600 px
 
-#. Note the stated reason for the request being blocked. You may have to
-   scroll to the right to see this reason. What was the stated reason?
+Note the stated reason for the request being blocked.
+   What was the stated reason?
 
 
-BOT Signatures
-~~~~~~~~~~~~~~
+Selectively Blocking BOT Categories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-#. Navigate to **Security > DoS Protection > DoS Profiles**
-
-
-#. **Click** on the ``webgoat_DoS`` profile and then the
-   **Application Security** tab to configure the policy.
-
-#. Select **Proactive Bot Defense** under the list of **Application
-   Security** options.
-
-#. In the **Application Security > Proactive Bot Defense**
-   section, click the **Edit** link for **Operation Mode** and
-   then change the setting from **Always** to **During Attack** and
-   click **Update** to complete the policy change.
-
-   .. image:: images/image1_3_12.PNG
-    :width: 600 px
-
-#. Run cURL again: ``curl https://webgoat.f5demo.com/WebGoat/login -k -v | more``
-
-.. NOTE:: The site should respond normally now every time because we are not "under attack" ASM uses TPS based detection (client-side) and Behavioral Stress detection (server-side) to determine when the system is under attack. Without the Advanced WAF license, Behavioral DoS Detection is limited to two virtual servers.
-
-cURL is considered an **HTTP Library tool** and falls in **the Benign Category**.
+cURL is considered an **HTTP Library tool**.
 
 
 .. IMPORTANT:: Just how benign are HTTP library tools? cURL can easily be
@@ -246,27 +189,32 @@ cURL is considered an **HTTP Library tool** and falls in **the Benign Category**
    used? wget? There are many use-cases where you simply do not want a tool
    interacting with your site.
 
-Selectively Blocking BOT Categories
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Navigate to **Security > Bot Defense > Bot Defense Profiles**
 
-#. Under your ``webgoat_DoS`` profile in **Application Security > Bot
-   Signatures** click on the **Edit** link for the **Bot Signature
-   Categories** section.
+#. **Click** on the ``webgoat_bot`` profile and then **Mitigation Settings**. 
 
-   .. image:: images/image1_3_13.PNG
+#. Click on **Add Exceptions**, then navigate to **Untrusted Bot - CAPTCHA > HTTP Library** and select **curl - CAPTCHA** 
+
+   .. image:: images/image1_3_13.png
     :width: 600 px
 
-#. Change the HTTP Library action from **None** to **Block** under
-   the **Benign Categories** section and click **Update** to apply
-   the policy changes.
+#. Click **Add**
 
-   .. image:: images/image1_3_14.PNG
+#. Change the curl HTTP Library action from **CAPTCHA** to **TCP Reset** under
+
+|
+
+   .. image:: images/image1_3_14.png
     :width: 600 px
 
-#. Run cURL again: ``curl  https://webgoat.f5demo.com/WebGoat/login -k -v | more``
+|
 
-   .. image:: images/image35.PNG
+#. Click **Save**.
+
+#. Run cURL again: ``curl  https://webgoat.f5.demo/WebGoat/login -k -v | less``
+
+   .. image:: images/image35.png
     :width: 600 px
 
    Whammo!!!... as soon as the BOT is revealed... the connection is dropped.
@@ -276,77 +224,74 @@ Selectively Blocking BOT Categories
    tool. We may have developers that rely on curl so let’s whitelist
    just that.
 
-**To Whitelist cURL:**
+#. Navigate back **Bot Requests** and view the log entries. 
 
-#. Edit the **Bot Signatures** list and find **curl**. Move it to disabled signatures and click **Update**.
+**Whitelist and Report on cURL:**
 
-.. image:: images/image1_3_16.PNG
+1. Edit the **Mitigation Settings Exceptions** once again under the **webgoat_bot** profile and change **curl** to **None**  and click **Save**.
+
+
+.. image:: images/image1_3_16.png
   :width: 600 px
 
+|
 
-#. Run cURL again: ``curl https://webgoat.f5demo.com/WebGoat/login -k -v | more`` and you should be back in business. By now you should know the expected output.
+2. Run cURL again: ``curl https://webgoat.f5.demo/WebGoat/login -k -v | less`` and you should be back in business. By now you should know the expected output.
 
-#. Change HTTP Library to: **Report** and remove **CURL** from the whitelist.
+3. Edit the **Mitigation Settings Exceptions** once again and change **curl** to **Report**  and click **Save**.
 
-.. image:: images/image1_3_17.PNG
+
+.. image:: images/image1_3_17.png
   :width: 600 px
 
-#. Modify the ``webgoat_DOS`` Dos Profile operation Operation Mode to: ``Always`` and click **Update**.
-
-.. image:: images/image1_3_18.PNG
-  :width: 600 px
 
 cURL from Different Geolocations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE:: We are going to leverage an overlay virtual server to randomize source IP addresses similar to the earlier lab concept of randomizing XFF.
 
-1. Open **Local Traffic > Virtual Servers** and click on ``webgoat.f5demo.com_https_overlay_vs``.
-Go to the **Resources** horizontal tab and verify that the iRule **webgoat_overlay** is applied. Freel free to check out the code in the iRule. This code and BIG-IP flexibility makes lab testing and simulations a breeze.
+1. Go back to the Geolocation Enforcement settings and move all countries back to allowed and click **Save**.
+
+.. image:: images/module1Lab2Excercise1-image16.png
+        :width: 600 px
+   
+   
+2.   Open **Local Traffic > Virtual Servers** and click on ``webgoat.f5.demo_https_overlay_vs``.
+Go to the **Resources** horizontal tab and verify that the iRule **webgoat_overlay** is applied. Freel free to check out the code in the iRule. This iRule radomizes source ip to cause traffic to appear as if it has originated from another country.
 
 .. image:: images/image1_3_19.PNG
   :width: 600 px
 
-2. Modify the cURL command to point at the overlay virtual server and run several times: ``curl https://10.1.10.146/WebGoat/login -k -v | more``
+|
 
-3. Review the event logs at **Event Logs > Bot Defense** You will
+3. Modify the cURL command to point at the overlay virtual server and run several times: ``curl https://10.1.10.146/WebGoat/login -k -v | less``
+
+4. Review the event logs at **Event Logs > Bot Defense > Bot Requests** You will
    now see geo-data for the BOT connection attempts.
 
-.. image:: images/image1_3_20.PNG
+.. image:: images/image1_3_20.png
   :width: 600 px
 
-4. Navigate to **Security > Overview > Application > Traffic** and review the default
+|
+
+5. Navigate to **Security > Reporting > Application** and review the default
    report elements. You can change the widget time frames to see more historical data.
 
-5. Click **Overview > Application > Traffic** and override the timeframe to **past year**:
+6. Click **Overview > Application > Charts** and override the time period to **Last Year**:
 
-.. image:: images/image1_3_21.PNG
+.. note:: Not all charts will have data. Here some that will, change the View By to the following, **Client Countries**, **Requests per Virtual Server**, **Violation Ratings**, **URLs**. Feel free to click around the charts and/or use curl to generate more traffic in them. 
+
+|
+
+.. image:: images/image1_3_21.png
   :width: 600 px
 
-6. Take some time reviewing this screen and practice adding a new widget
+|
+
+.. note:: AVR (Application Visibility Reporting) must be provisioned for these charts to work.
+
+7. Take some time reviewing this screen and practice adding a new widget
    to see additional reporting elements:
 
-
-7. Click the **DoS tab** at the top. In some time...The DOS Visibility Screen loads.
-
-.. image:: images/image1_3_22.PNG
-  :width: 600 px
-
-.. NOTE:: You may need to change your time in the system tray for accurate results.
-
-Although there have not been any L7 DoS attacks some of the widgets along the right contain statistics from the BOT mitigations.
-Change the time window (top left) from 5 minutes to **"All Time"** so see more data.
-
-.. image:: images/image4.PNG
-  :width: 600 px
-
-8. Click the **Analysis** tab at the top and review the graphs available to you.
-
-.. image:: images/image1_3_23.PNG
-  :width: 600 px
-
-9. Click the **Custom Page** tab at the top and review the graphs available to you.
-
-Please feel free to add widgets and/or explore the ASM interface further.
 
 **This concludes the BOT Protection section of this lab guide!**
