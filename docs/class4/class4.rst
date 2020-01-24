@@ -1,7 +1,7 @@
 Class 4: ASM 241 - Elevating ASM Protection
 ===========================================
 
-Welcome to F5's Agility Labs, 2018 edition! This class will focus on how to interact with ASM using the REST API, demonstrating  how the API can be used to help with daily tasks and improve security.
+Welcome to F5's Agility Labs, 2020 edition! 
 
 This is the 2nd class in a four part series based on
 

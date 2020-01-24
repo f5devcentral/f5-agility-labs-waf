@@ -1,5 +1,5 @@
 Lab 1: Bot Protection
-------------------------------
+---------------------
 
 This lab will simulate botnet activity against the Webgoat virtual server and show how to protect yourself from these types of threats.
 
