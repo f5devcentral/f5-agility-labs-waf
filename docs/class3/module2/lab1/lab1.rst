@@ -19,7 +19,7 @@ Objective
 Apply Security Policy
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. IMPORTANT:: To clearly demonstrate just the protocol compliance protection, on the ``webgoat.f5.demo_https_vs`` virtual server; PLEASE PERFORM THE FOLLOWING TWO STEPS:
+.. IMPORTANT:: To clearly demonstrate just the protocol compliance , on the ``webgoat.f5.demo_https_vs`` virtual server; PLEASE PERFORM THE FOLLOWING TWO STEPS:
 
 #. Navigate to the **webgoat.f5.demo_https_vs** virtual, then its **Security** tab.
 #. **Remove** the previously created Bot Defense **(webgoat_bot)** profile and bot logging profile **(bot-defense)**.
@@ -77,7 +77,7 @@ Request and Response should look like this
 .. image:: images/image5.png
     :width: 600 px
 
-6. Navigate to **Security > Event Logs > Application > Requests** (the illegal request filter should be cleared). You should see these requests being logged as legal but you may want to implement policy per the "Good WAF Protection recommendations", to not allow this since it is not RFC compliant HTTP/1.1
+6. Navigate to **Security > Event Logs > Application > Requests** (the illegal request filter should be cleared). You should see these requests being logged as legal but you may want to implement policy per the "Good WAF  recommendations", to not allow this since it is not RFC compliant HTTP/1.1
 
 .. image:: images/image20.png
     :width: 600 px
@@ -119,7 +119,7 @@ Learning and Blocking
 
 |
 
-8. Click **Accept Suggestion** and then browse back to **Security > Application Security > Policy Building > Learning and Blocking Settings > HTTP Protocol Compliance failed** and notice that by accepting the learning suggestion ASM has now enabled the protection but it is still in learning mode so **uncheck** that manually.
+8. Click **Accept Suggestion** and then browse back to **Security > Application Security > Policy Building > Learning and Blocking Settings > HTTP Protocol Compliance failed** and notice that by accepting the learning suggestion ASM has now enabled the  but it is still in learning mode so **uncheck** that manually.
 
 .. image:: images/module2Lab1Excercise3-image5.png
     :width: 600 px
