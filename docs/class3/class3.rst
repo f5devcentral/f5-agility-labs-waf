@@ -7,7 +7,7 @@ This is the 1st class in a four part series based on: `Succeeding with Applicati
 
 Here is a complete listing of all ASM classes offered at this years Agility.
 
-* Good WAF Security - Getting started with ASM
+* Good WAF Security - Getting started with AS 123M
 
 * Elevated WAF Security - Elevating ASM Protection
 
