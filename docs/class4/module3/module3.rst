@@ -1,5 +1,5 @@
-Module 3: WebScraping
-===================================================
+Module 3: DAST Integration
+==========================
 Expected time to complete: **15 min**
 
 
