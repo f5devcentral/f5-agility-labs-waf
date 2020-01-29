@@ -1,4 +1,4 @@
-Module 1: Base Policy Creation
+Module 1: IPI & Geolocation
 ===================================================
 Estimated time for completion: **45 minutes.**
 

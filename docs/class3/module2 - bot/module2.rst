@@ -1,6 +1,6 @@
-Module 3: Blocking, Tuning and Attacking the Policy
+Module 2: Bot Detection
 ===================================================
-Expected time to complete: **45 minutes**
+Expected time to complete: **30 minutes**
 
 .. toctree::
    :maxdepth: 1

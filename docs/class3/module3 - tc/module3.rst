@@ -1,7 +1,6 @@
-Module 4: Working with iApps
+Module 3: Threat Campaigns
 ===================================================
-
-Expected time to complete: 20 minutes
+Expected time to complete: **45 minutes**
 
 .. toctree::
    :maxdepth: 1

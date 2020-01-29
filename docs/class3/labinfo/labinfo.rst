@@ -22,9 +22,8 @@ Environment
 
 **Linux server (server01):**
 
-* `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. You can install and practice with WebGoat. There are other 'goats' such as WebGoat for .Net. In each lesson, users must demonstrate their understanding of a security issue by exploiting a real vulnerability in the WebGoat applications. For example, in one of the lessons the user must use SQL injection to steal fake credit card numbers. The application aims to provide a realistic teaching environment, providing users with hints and code to further explain the lesson.
-
-Why the name "WebGoat"? Developers should not feel bad about not knowing security. Even the best programmers make security errors. What they need is a scapegoat, right? Just blame it on the **Goat!**
+* `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. Why the name "WebGoat"? 
+Developers should not feel bad about not knowing security. Even the best programmers make security errors. What they need is a scapegoat, right? Just blame it on the **Goat!**
 
 .. _lab-topology:
 
@@ -68,9 +67,3 @@ components:
      - 10.1.20.252
      - ssh - ``f5student:password``
 
-
-A graphical representation of the lab:
-
-|labDiagram|
-
-.. |labDiagram| image:: images/LabDiagram.PNG

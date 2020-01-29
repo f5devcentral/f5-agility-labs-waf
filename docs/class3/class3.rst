@@ -1,4 +1,4 @@
-ASM 141 - Getting started with WAF, Bot Detection and Threat Campaigns
+Class 3: ASM 141 - Getting started with WAF, Bot Detection and Threat Campaigns
 ==============================================================
 
 This class will focus on a best practice approach to getting started with F5 WAF and application security.
