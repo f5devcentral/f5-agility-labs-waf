@@ -33,7 +33,6 @@ Task 1 - Exploring an attack
         :width: 600 px
 
 |
-.. NOTE:: Did you see anything?  Why do you think you were not blocked?
 
 
 5.  Return to the BIG-IP Go to **Security > Event Logs > Application > Requests**.

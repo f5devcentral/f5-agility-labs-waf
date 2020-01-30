@@ -174,6 +174,4 @@ Observe the detected attack, the expected parameter, and what the applied blocki
 
 12.  Do you see the setting that would prevent this attack?  How would you enable blocking for HTTP protocol compliance?
 
-.. HINT::
-        .. image:: images/module3Lab4Excercise2-image11.png
-        :width: 600 px
+

@@ -1,11 +1,11 @@
-Class 3: ASM 141 - Getting started with WAF, Bot Detection and Threat Campaigns
-==============================================================
+Class 3: WAF 141 - Getting started with WAF, Bot Detection and Threat Campaigns
+=================================================================================
 
 This class will focus on a best practice approach to getting started with F5 WAF and application security.
 
 This is the 1st class in a three part lab series based on: `Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_
 
-Here is a complete listing of all ASM classes offered at this years Agility.
+Here is a complete listing of all F5 WAF classes offered at this years Agility.
 
 * WAF 141 - Getting started with WAF, Bot Defense and Threat Campaigns
 
@@ -19,7 +19,7 @@ Here is a complete listing of all ASM classes offered at this years Agility.
 
 * WAF/APM API Security and Management
 
-Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education.
+Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education and create your own test lab environment.
 
 .. toctree::
    :maxdepth: 1

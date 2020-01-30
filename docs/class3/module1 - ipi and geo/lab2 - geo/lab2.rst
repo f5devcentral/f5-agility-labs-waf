@@ -12,8 +12,7 @@ Geolocation
       at your border router (layer 3), you may decide to geo-enforce at
       ASM (Layer 7) if no private IP’s will be accessing the site.
 
-   .. image:: images/module1Lab1Excercise2-image1.png
-    :width: 600 px
+IMAGE
 
    .. IMPORTANT:: Remember to click on the **Apply Policy** button (top right) to commit security policy changes.
 
@@ -38,14 +37,12 @@ Geolocation
 #. Open **Local Traffic > Virtual Servers** and click on ``webgoat.f5.demo_https_vs``. Go to the **Resources**
    horizontal tab and click on **Manage** in the **iRules** section.
 
-   .. image:: images/image11.PNG
-    :width: 600 px
+IMAGE
 
 #. Select the ``webgoat_irule``, move it to the **Enabled** assignment and
    click **Finished**.
 
-   .. image:: images/image12.PNG
-       :width: 600 px
+IMAGE
 
 6. We now need to tell ASM to trust the XFF header by turning on the **Trust XFF Header** feature in the policy.
 Navigate to **Application Security > Policy**. Select the lab1_webgoat_waf policy and hit the dropdown for **Advanced View**.
@@ -53,8 +50,7 @@ You can now set **Trust XFF Header** to **Enabled** and click **Save Changes** t
 
 |
 
-.. image:: images/image15.PNG
-    :width: 600 px
+IMAGE
 
 |
 
@@ -69,8 +65,7 @@ You can now set **Trust XFF Header** to **Enabled** and click **Save Changes** t
 
 #. Navigate to **Security > Event Logs > Application > Requests**.
 
-.. image:: images/image13.PNG
-    :width: 600 px
+IMAGE
 
 Notice the geolocation detected and the presence of the X-Forwarded-For (XFF) in the Request details. Your actual client IP is still 10.1.10.28 however, because we trusted the XFF header and the iRule is randomizing the IP address placed in that header so ASM believes the request is from an external location. Depending on your network you may be leveraging a technology that creates a source NAT ahead of ASM. So by leveraging the XFF header, you can work around this and get contextual information about the client.
 
@@ -85,8 +80,7 @@ For all categories **select Alarm**. Click on **Save** and then on **Apply Polic
 
 .. NOTE:: On the top right you should see that your IP Intelligence database has been updated at some point.
 
-.. image:: images/image14.PNG
-    :width: 600 px
+IMAGE
 
 .. NOTE:: In order to create traffic with malicious sources for the purposes of this lab we have created another special configuration item for you.
 
@@ -100,22 +94,18 @@ This iRule will insert an X-Forward-For header with the value of a malicious Uni
 
 3. Move the **ip_rep_irule** irule to the **Enabled** pane of the **Resource Management** configuration and Click **Finished**.
 
-        .. image:: images/module1Lab1Excercise2-image6.png
-            :width: 600 px
+IMAGE
 
 4. Open a new Private Browsing window in Firefox and enter https://webgoat.f5.demo/WebGoat/login to browse the site. Login using the f5student:<password provided by instructor> and Click on one or two items. You may need to click Add Exception to bypass an untrusted certificate in Firefox.
 
 5. Navigate to **Security > Event Logs > Application > Requests** and review the log entries. Since you configured IP Intelligence violations to alarm you will not need to change the filter. Select the most recent entry and examine why the request is illegal. What IP address did the request come from?
 
-        .. image:: images/module1Lab1Excercise2-image8.png
-            :width: 600 px
+IMAGE
 
 
         .. NOTE:: For more information click on the violation hyperlink to see the IPI category that this IP belongs to. You can also click "All Details" at the top right.
 
-
-        .. image:: images/image24.PNG
-            :width: 600 px
+IMAGE
 
 **Bonus:** You can browse to ``http://www.brightcloud.com/tools/url-ip-lookup.php``
 and look up the IP address in question for further information. There is also

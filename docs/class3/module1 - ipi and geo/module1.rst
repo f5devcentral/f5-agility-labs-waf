@@ -1,4 +1,4 @@
-Module 1: IPI & Geolocation Labs1
+Module 1: IPI & Geolocation Labs
 ===================================================
 Estimated time for completion: **35 minutes.**
 

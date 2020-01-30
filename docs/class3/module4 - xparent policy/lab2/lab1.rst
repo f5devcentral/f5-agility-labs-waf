@@ -239,9 +239,4 @@ Evasion Techniques
 
 4. If you don't, what do you think needs to be done? This excercise if left up to the student. 
 
-|
-
-.. hint:: The answer is very similar to something you have done before.
-
-|   
 **This concludes module 2**
