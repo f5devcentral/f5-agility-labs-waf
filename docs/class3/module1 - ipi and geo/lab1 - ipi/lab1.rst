@@ -3,7 +3,14 @@ Exercise 1.1: IP Intelligence Policy
 Objective
 ~~~~~~~~~
 
-- Create an IPI policy.
+- Configure Global IPI Profile and enable logging in global network log profile
+- Review logging
+- Create & apply IPI Logging Profile 
+- Configure VS Specific IPI Profile 
+- Configure Custom Category and add an IP 
+- Create your first WAF Policy and review IPI options 
+
+Create an IPI policy.
 
 - Enable application security logging profile.
 
@@ -40,9 +47,19 @@ In this lab we will configure and test the policy at the VS level and just explo
 .. image:: images/ipi.png
   :width: 600 px
 
-#. Click on the **Create New Policy** button. The policy creation wizard opens.
+#. Click on the **Create** button. 
 
-#. Click on the **Advanced** button (Top-Right) to ensure that all the available policy creation options are displayed.
+#. For the name:  **webgoat_ipi** 
+
+#. Under IP Intelligence Policy Properties: For the Default Log Action choose: **yes** to Log Category Matches
+
+#. Browse to  the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Note that haardware acceleration  
+is not available when logging all matches. 
+
+#. Click **Add** under the categories section. 
+
+
+
 
 #. Name the security policy ``lab1_webgoat_waf`` and notice that the **Policy Type** is security.
 

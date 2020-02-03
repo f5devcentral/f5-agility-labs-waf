@@ -1,0 +1,41 @@
+IPI Overlay Virtual Server (10.1.10.146) - update UDF interface for .146
+
+
+On BIG-IP
+ipi_tester iRule
+
+when CLIENT_ACCEPTED {
+# Pulls a SNAT from a Data Group of pre-defined data group "dg_malicious_ips”
+set badip_index [expr int(rand()*6)]
+set badip [class element -name $badip_index malicious_ips_dg]
+
+  snat $badip
+
+  virtual  insecureApp1_vs
+
+}
+
+
+IPI Data Group
+create /ltm data-group internal malicious_ips_dg type string records add { 134.119.218.243 { data SpamSource } 42.231.162.22 { data BotNet } 42.231.162.217  { data SpamSource } 177.101.224.90 { data Scanners } 218.17.228.102 { data SpamSource } 220.169.127.172 { data Scanner } 216.152.109.81 { data static }}
+
+
+On Client
+curl_args.txt 
+/home/f5student/waf141/agility2020wafTools
+-m 2 https://10.1.10.146/WebGoat/login
+-m 2 https://10.1.10.146/WebGoat/login
+-m 2 https://10.1.10.146/WebGoat/login
+-m 2 https://10.1.10.146/WebGoat/login
+-m 2 https://10.1.10.146/WebGoat/login
+-m 2 https://10.1.10.146/WebGoat/login
+
+
+curl script
+/home/f5student/waf141/agility2020wafTools
+ipi_tester
+while sleep 1; do xargs curl -k -l < curl_args.txt; done > /dev/null
+
+
+chmod +x ipi_tester 
+./ipi_tester
