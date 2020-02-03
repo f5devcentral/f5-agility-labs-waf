@@ -22,31 +22,15 @@ Objective
 .. image:: images/keychain.png
   :width: 600 px
 
-. Chrome can take a few seconds to launch), click the BIG-IP bookmark and login to TMUI. admin/<password>. You may have to click Proceed to bypass a untrusted certicate.
+Chrome can take a few seconds to launch), click the BIG-IP bookmark and login to TMUI. admin/<password>. You may have to click Proceed to bypass a untrusted certicate.
 
-#. Open a terminal, cd to the waf141 folder
-
-#. Then run the below to create the 4 virtuals used in this lab. Ignore any warnings about certificates.
-
-
-.. code-block:: bash
-
-        python3 prepare141Lab.py
-
-
-
-.. image:: images/prepare141.png
-  :width: 600 px
-
-Please ensure that four virtual servers are configured before you begin:
-
-- ``webgoat.f5.demo_https_vs``
-- ``webgoat.f5.demo_https_overlay_vs``
-- ``webgoat.f5.demo_http_vs``
-- ``automation_vs``
-
-Create Your 1st WAF Policy
+Create Your 1st IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
+Often questions arise around what is the best way to implement. As always the answer is; it depends. Implementing globally or at the VS level will provide the best 
+performance and will use a seperate log file for violations but your security admins may not have this level of access. 
+Often, a WAF admin can only modify WAF policies and not make changes to the VS and therefor would need to manage IPI inside of the WAF policy. 
+When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. 
 
 #. On the Main tab, click **Security > Application Security > Security Policies**. The Active Policies screen opens.
 #. Click on the **Polices List**
