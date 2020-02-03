@@ -21,7 +21,7 @@ Here is a complete listing of all F5 WAF classes offered at this years Agility.
 
 Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education and create your own test lab environment.
 
-Today's labs will feature:
+WAF 141 Table  of Contents:
 
 .. toctree::
    :maxdepth: 1
