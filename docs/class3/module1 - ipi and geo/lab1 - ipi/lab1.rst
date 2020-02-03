@@ -37,7 +37,7 @@ In this lab we will configure and test the policy at the VS level and just explo
 #. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
 
 
-.. image:: images/ipi.PNG
+.. image:: images/ipi.png
   :width: 600 px
 
 #. Click on the **Create New Policy** button. The policy creation wizard opens.
