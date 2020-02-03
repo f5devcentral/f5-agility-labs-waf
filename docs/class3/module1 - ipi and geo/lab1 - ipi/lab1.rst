@@ -27,10 +27,12 @@ Chrome can take a few seconds to launch), click the BIG-IP bookmark and login to
 Create Your 1st IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
-Often questions arise around what is the best way to implement. As always the answer is; it depends. Implementing globally or at the VS level will provide the best 
-performance and will use a seperate log file for violations but your security admins may not have this level of access. 
+Often questions arise around what is the best way to implement. As always, the answer is; it depends. Implementing globally or at the VS level will provide the best 
+performance and will use a seperate log file for violations but your security admins may not have this level of access to the BIG-IP. 
 Often, a WAF admin can only modify WAF policies and not make changes to the VS and therefor would need to manage IPI inside of the WAF policy. 
 When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. 
+
+In this lab we will configure and test the policy at the VS level and just explore the configuration options within the WAF policy. 
 
 #. On the Main tab, click **Security > Application Security > Security Policies**. The Active Policies screen opens.
 #. Click on the **Polices List**
