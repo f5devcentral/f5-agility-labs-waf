@@ -56,12 +56,12 @@ components:
      - N/A
      - rdp-``f5student:password``
    * - Bigip (bigip01)
-     - 10.1.1.245
+     - 10.1.1.8
      - 10.1.10.245
      - 10.1.20.245
      - https - ``admin:password``  ssh - ``f5student:password``
    * - Linux Server & WebGOAT app (server01)
-     - 10.1.1.252
+     - 10.1.1.6
      - N/A
      - 10.1.20.252
      - ssh - ``f5student:password``
