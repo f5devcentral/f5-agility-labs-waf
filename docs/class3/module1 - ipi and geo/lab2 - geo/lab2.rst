@@ -1,4 +1,4 @@
-Exercise 1.2: Geolocation and IP Intelligence
+Exercise 1.2: Geolocation Policy
 -------------------------------------------------
 Geolocation
 ~~~~~~~~~~~

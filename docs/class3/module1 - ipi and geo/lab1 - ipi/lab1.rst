@@ -15,10 +15,14 @@ Objective
 
 - Estimated time for completion: **30** **minutes**.
 
-.. NOTE:: If the Operating system prompts you to update system software, please decline
+#. RDP to client01, launch Chrome (please be patient and don't click the icon multiple times)
 
+.. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the "f5student" password provided by your lab instructor. 
 
-#. RDP to client01, launch Chrome (please be patient and don't click the icon multiple times. Chrome can take a few seconds to launch), click the BIG-IP bookmark and login to TMUI. admin/<password>. You may have to click Proceed to bypass a untrusted certicate.
+.. image:: images/keychain.png
+  :width: 600 px
+
+. Chrome can take a few seconds to launch), click the BIG-IP bookmark and login to TMUI. admin/<password>. You may have to click Proceed to bypass a untrusted certicate.
 
 #. Open a terminal, cd to the waf141 folder
 
