@@ -22,7 +22,7 @@ Objective
 .. image:: images/keychain.png
   :width: 600 px
 
-Chrome can take a few seconds to launch), click the BIG-IP bookmark and login to TMUI. admin/<password>. You may have to click Proceed to bypass a untrusted certicate.
+Chrome can take a few seconds to launch), click the BIG-IP bookmark and login to TMUI. admin/<password>. 
 
 Create Your 1st IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,10 +34,10 @@ When implementing within the WAF policy the blocking happens at layer 7 rather t
 
 In this lab we will configure and test the policy at the VS level and just explore the configuration options within the WAF policy. 
 
-#. On the Main tab, click **Security > Application Security > Security Policies**. The Active Policies screen opens.
-#. Click on the **Polices List**
+#. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
 
-.. image:: images/image1.PNG
+
+.. image:: images/ipi.PNG
   :width: 600 px
 
 #. Click on the **Create New Policy** button. The policy creation wizard opens.
