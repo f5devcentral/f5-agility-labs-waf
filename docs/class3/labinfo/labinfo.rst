@@ -33,7 +33,7 @@ The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
 -  1 x Ubuntu Linux 18.04 client
--  1 x F5 BIG-IP VE (v14.1.0.2) running WAF and LTM
+-  1 x F5 BIG-IP VE (v15.1.0.1) running Advanced WAF, Ip Intelligence & Threat Campaigns 
 -  1 x Ubuntu Linux 18.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
@@ -51,7 +51,7 @@ components:
      - **servernet IP**
      - **Credentials**
    * - Linux Client (client01)
-     - 10.1.1.51
+     - 10.1.1.5
      - 10.1.10.51
      - N/A
      - rdp-``f5student:password``
