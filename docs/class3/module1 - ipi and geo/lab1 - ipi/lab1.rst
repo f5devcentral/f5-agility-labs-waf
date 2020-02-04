@@ -172,7 +172,15 @@ Create your first WAF Policy & Configure IPI
 .. image:: images/disable_global.png
   :width: 600 px
 
-#. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox you should see good traffic as well in the event logs since we are logging all requests. 
+#. Navigate to **Security > Application Security > IP Addresses > IP Intelligence** and enable IP Intelligence. 
+#. Notice at the top left that you are working within the insecureApp1_asmpolicy policy context. Enable **Alarm** and **Block** for each category. 
+#. Click **Save** and **Apply Policy**
+
+.. image:: images/waf_ipi.png
+  :width: 600 px
+
+
+#. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox you should see good traffic as well in the event logs since we are logging all requests and not all IP's are malicious. 
 
 .. image:: images/events.png
   :width: 600 px

@@ -12,7 +12,9 @@ Geolocation
       at your border router (layer 3), you may decide to geo-enforce at
       ASM (Layer 7) if no private IP’s will be accessing the site.
 
-IMAGE
+.. image:: images/geo_violation.png
+  :width: 600 px
+
 
    .. IMPORTANT:: Remember to click on the **Apply Policy** button (top right) to commit security policy changes.
 
