@@ -10,16 +10,6 @@ Objective
 - Configure Custom Category and add an IP 
 - Create your first WAF Policy and review IPI options 
 
-Create an IPI policy.
-
-- Enable application security logging profile.
-
-- Validate that both the policy and logging profile are working.
-
-- Configure Geolocation and review logs
-
-- Configure IP Intelligence and review logs
-
 - Estimated time for completion: **30** **minutes**.
 
 #. RDP to client01, launch Chrome (please be patient and don't click the icon multiple times)
@@ -29,17 +19,21 @@ Create an IPI policy.
 .. image:: images/keychain.png
   :width: 600 px
 
-Chrome can take a few seconds to launch), click the BIG-IP bookmark and login to TMUI. admin/<password>. 
+#. Click the BIG-IP bookmark and login to TMUI. admin/<password>. 
 
 Create Your 1st IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
-Often questions arise around what is the best way to implement. As always, the answer is; it depends. Implementing globally or at the VS level will provide the best 
-performance and will use a seperate log file for violations but your security admins may not have this level of access to the BIG-IP. 
-Often, a WAF admin can only modify WAF policies and not make changes to the VS and therefor would need to manage IPI inside of the WAF policy. 
+Often, questions arise around what is the best way to implement. As always, the answer is; it depends. Implementing globally or at the VS level will provide the best 
+performance and will use a seperate log file for violations to keep your actual WAF logs clean, but your security admins may not have this level of access to the BIG-IP. 
+A WAF admin assigned Application Security Administrator rights on a BIG-IP can only modify WAF policies and can not make changes to the VS. This means the IPI policy would need to be managed inside of the WAF policy. 
 When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. 
 
-In this lab we will configure and test the policy at the VS level and just explore the configuration options within the WAF policy. 
+.. image:: images/ipi_options.png
+  :width: 600 px
+
+In this lab we will start by enabling a Global IPI Policy, then configure a VS specifc profile with a custom category. 
+We will also explore the configuration options within the WAF policy itself. 
 
 #. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
 
@@ -49,110 +43,143 @@ In this lab we will configure and test the policy at the VS level and just explo
 
 #. Click on the **Create** button. 
 
-#. For the name:  **webgoat_ipi** 
+#. For the name:  **global_ipi** 
 
-#. Under IP Intelligence Policy Properties: For the Default Log Action choose: **yes** to Log Category Matches
+#. Under **IP Intelligence Policy Properties**: For the Default Log Action choose: **yes** to Log Category Matches
 
-#. Browse to  the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Note that haardware acceleration  
-is not available when logging all matches. 
+#. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Note that hardware acceleration is not available when logging all matches. 
 
 #. Click **Add** under the categories section. 
 
+#. From the category section choose **botnets** and click **Done editing**.
 
+#. Repeat this process and add the following additional categories: **infected_sources**, **scaners**, **spam_sources**, & **denial_of_service**.
 
-
-#. Name the security policy ``lab1_webgoat_waf`` and notice that the **Policy Type** is security.
-
-#. Verify the **Policy Template** is set to ``Rapid Deployment Policy`` and notice it is a transparent security policy by default
-
-#. Assign this policy to the ``webgoat.f5.demo_https_vs`` from the Virtual Server drop down.
-
-#. Confirm that the Application Language is set to **UTF-8**.
-
-#. Accept the remaining default policy settings and click **Create Policy** to complete the policy creation process.
-
-.. Note:: After policy creation is complete, the properties will be displayed for review within the Policies List menu.
-
-**Your settings should reflect the figures below:**
-
-.. image:: images/module1Lab1Excercise1-image1.png
+.. image:: images/ipi_global.png
   :width: 600 px
 
-|
-|
+#. Commit the Changes to the System.
 
-The resulting policy
+Setup Logging for Global IPI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to **Security > Event Logs > Logging Profiles** and click on **global-network**
+#. Under the Network Firewall section configure the IP Intelligence publisher to use **local-db-publisher**
+#. Check **Log GEO Events**
+#. Click **Update**
 
-|
-
-.. image:: images/imagefix.PNG
+.. image:: images/ipi_global_log.png
   :width: 600 px
 
-Verify WAF Profile is Applied to Virtual Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. In the configuration utility navigate to **Local Traffic > Virtual Servers**, click on ``webgoat.f5.demo_https_vs``.
+Apply Global IPI & Test
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to: **Security > Network Firewall > IP Intelligence > Policies**.
+#. Apply the **global_ipi** policy and click **Update**.
 
-#. Click on **Policies** under the **Security** tab at the top of the ``webgoat.f5.demo_https_vs`` details menu.
+.. image:: images/global_policy.png
+  :width: 600 px
 
-#. In the **Application Security Policy** drop down menu, ensure **Application Security Policy** is ``Enabled...`` and the **Policy:** drop-down selection shows the ``lab1_webgoat_waf`` policy.
+#. Open a terminal and navigate to **/home/f5student/waf141/agility2020wafTools**
+#. Run the following command to send some traffic to the site: **./ipi_tester**.
 
-#. Notice Log Profile is set to ``Disabled``.
+.. NOTE:: The script should continue to run for the remainder of Lab 1. Do NOT stop the script. 
 
-.. image:: images/image4.PNG
-    :width: 600 px
+#. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. Notice the Geolocation Data as well as the malicious categorization to the far left of the log screen. 
 
-Create Application Security Logging Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. In the configuration utility navigate to **Security > Event Logs > Logging Profiles** then click on the **plus** icon.
+.. image:: images/global_event.png
+  :width: 600 px
 
-#. Under the **Logging Profile Properties** section enter a **Profile Name** ``waf_allrequests``, select the checkbox for ``Application Security``.
+Create Custom Category 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to: **Security > Network Firewall > IP Intelligence > Blacklist Categories** and click **create**.
+#. Name: **my_bad_ips** with a match type of **Source**
+#. Click **Finished**
+#. Select the category name **my_bad_ips** and click **Add To Category**
 
-#. Change the **Configuration** dropdown to ``Advanced`` under the **Application Security** section.
+.. image:: images/add_to_cat.png
+  :width: 600 px
 
-#. Select the ``Local Storage`` value for the **Storage Destination** configuration option.
+#. Enter the ip address: **218.26.54.33** and set the seconds to **3600** (1 hour)
+#. Click **Insert Entry**
 
-#. Select the ``For all Requests`` value for the **Response Logging** configuration option.
+.. image:: images/add_ip.png
+  :width: 600 px
 
-#. Select the ``All requests`` value for the **Request Type** configuration option.
+Create VS Specific IPI Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to  **Security > Network Firewall > IP Intelligence > Policies** and click **create**. 
+#. Name: **webgoat_ipi**
+#. Under Categories click **Add** and choose the **my_bad_ips** custom category. 
+#. Click **Done Editing** and **Commit the Changes To System**.
 
-#. Click **Create.**
+.. image:: images/webgoat_ipi.png
+  :width: 600 px
 
-  .. image:: images/module1Lab1Excercise1-image7.png
-      :width: 600 px
+Create IPI Logging Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to **Security > Event Logs > Logging Profiles** and click **Create**.
+#. Name: **IPI_Log**
+#. Select **Network Firewall** and **local-db-publisher** under IP Intelligence.
 
-**Question:** Would logging all requests and responses in a production environment be a best practice?
+.. image:: images/ipi_log.png
+  :width: 600 px
 
-**Answer:** This adds 50% or more to the overhead on the log engine and would not typically be used outside of troubleshooting or high security environments that are appropriately sized.
+Apply IPI Policy and Logging Profile to VS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to **Local Traffic > Virtual Servers** and click on **insecureApp1_vs**
+#. Under the Security tab in the top middle of the GUI, enable the webgoat IPI profile and associated logging profile.
+#. Click Update.
 
+.. image:: images/vs_sec.png
+  :width: 600 px
 
-Apply WAF Logging Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Under **Local Traffic > Virtual Servers**, click on ``webgoat.f5.demo_https_vs``.
-#. Click on **Policies** under the **Security** tab at the top of the ``webgoat.f5.demo_https_vs`` details menu.
-#. In the **Log Profile** drop down menu, select ``Enabled...``
-#. Within the **Available** logging profiles menu, select ``waf_allrequests`` and then click the **<<** arrows to move the logging policy to the **Selected** profile.
-#. Click on the Update button to apply the policy.
+Verifying the Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. You should now see Global and VS Specific Violations.
 
-.. image:: images/image6.PNG
-    :width: 600 px
+.. image:: images/vs_spec.png
+  :width: 600 px
 
-Test WAF Policy
-~~~~~~~~~~~~~~~~~~~~~
-#. Open the Google Chrome browser and navigate to ``https://webgoat.f5.demo/WebGoat/login`` You'll find a toolbar shortcut for the webgoat link.
+Create your first WAF Policy & Configure IPI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to **Security > Application Security > Security Policies** and click the Plus (+) button. 
+#. Name the policy: **insecureApp1_asmpolicy**
+#. Select Policy Template: **Rapid Deployment Policy**
+#. Select Virtual Server: **insecureApp1_vs**
+#. Notice that the enforement mode is already in **Transparent Mode** and Signature Staging is **Enabled**
+#. Click **Save**.
 
-.. image:: images/image7.PNG
-    :width: 600 px
+.. image:: images/waf_policy.png
+  :width: 600 px
 
-2. Login using **f5student/password** credentials and interact with the webgoat application by browsing. Please refrain from experimenting with the site using any familiar "exploit" techniques.
+#. Navigate to **Security > Application Securityv > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. Notice that **Access from malicious IP address** is set to **Learn** and **Block**. We will cover these concepts later in the lab but for now the policy is still transpaarent so the blocking setting has no effect. 
 
-#. On the BIG-IP, navigate to **Security > Event Logs > Application > Requests**.
+.. image:: images/ipi_asm.png
+  :width: 600 px
 
-#. Verify that requests are being logged by the WAF. You should be able to see both the raw client requests and server responses.
+#. Navigate to **Local Traffic > Virtual Servers** and click on **insecureApp1_vs**.
+#. Under the Security tab in the top middle of the GUI click on **Policies** and your policy settings should look like this. 
 
-|
+.. image:: images/policy_setting.png
+  :width: 600 px
 
-        .. image:: images/image9.PNG
-          :width: 600 px
+#. Disable the IP Intelligence Profile and enable the **Log all requests** logging profile as shown below, then click **update**. 
 
-|
+.. image:: images/policy_mod.png
+  :width: 600 px
 
+#. Navigate to **Security > Network Firewall > IP Intelligence > Policies** and disable the Global IPI profile and click **update**. 
+
+.. image:: images/disable_global.png
+  :width: 600 px
+
+#. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox you should see good traffic as well in the event logs since we are logging all requests. 
+
+.. image:: images/events.png
+  :width: 600 px
+
+.. NOTE:: It is best practice to enable Trust XFF in the poliy when configuring IPI via WAF policy. Although it is not needed to demonstrate this lab, it is strongly recommended to have it enabled. 
+
+.. image:: images/trust_xff.png
+  :width: 600 px
+
+**This completes Lab 1**
