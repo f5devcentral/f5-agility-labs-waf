@@ -190,4 +190,4 @@ Create your first WAF Policy & Configure IPI
 .. image:: images/trust_xff.png
   :width: 600 px
 
-**This completes Lab 1**
+**This completes Lab 1.1**
