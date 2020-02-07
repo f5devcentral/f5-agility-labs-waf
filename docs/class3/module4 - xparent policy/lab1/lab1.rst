@@ -2,12 +2,16 @@ Exercise 4.1: Transparent Policy
 ----------------------------------------
 
 Objective
-~~~~~~~~~
+~~~~~~~~~~
+We created a transparent policy way back in Lab 1 to configure IPI and Geolocation. We then tested out the Threat Campaign signatures in Lab 3. Now we will explore and test some of the first things you should get amiliar with when developing a WAF policy. 
+
 
 - Review Learning & Blocking & Policy Building Process settings
 Review Trusted IP and IP address exception properties. 
 
-- Enable Server Technologies
+The Dangers of learning from Internet IP's 
+
+- Enable Server Technologies https://clouddocs.f5.com/training/community/waf/html/class3/module3/lab3/lab3.html
 
 - Review Default Attack Signature Configuration. 
 
@@ -15,11 +19,13 @@ Review Trusted IP and IP address exception properties.
 
 - Implement HTTP Protocol Compliancy checks
 
-- Test with HTTP attack
+- Test with HTTP attack HTTP Compliancy Check - Bad Host Header Value - triggers both attack signature and protocol check
 
 - Implement Evasion Techniques
 
 - Test Evasion Techniques
+
+- Review Event Correlation
 
 Bonus- Review Login Page Protection and Brute Force Configuration protection. 
  

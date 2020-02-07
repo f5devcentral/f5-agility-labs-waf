@@ -21,7 +21,7 @@ Objective
 
 #. Click the BIG-IP bookmark and login to TMUI. admin/<password>. 
 
-Create Your 1st IPI Policy
+Create Your 1st L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
 Often, questions arise around what is the best way to implement. As always, the answer is; it depends. Implementing globally or at the VS level will provide the best 
@@ -104,7 +104,7 @@ Create Custom Category
 .. image:: images/add_ip.png
   :width: 600 px
 
-Create VS Specific IPI Policy
+Create VS Specific L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Navigate to  **Security > Network Firewall > IP Intelligence > Policies** and click **create**. 
 #. Name: **webgoat_ipi**
@@ -139,7 +139,7 @@ Verifying the Configuration
 .. image:: images/vs_spec.png
   :width: 600 px
 
-Create your first WAF Policy & Configure IPI
+Create your first WAF Policy & Configure L7 IPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Navigate to **Security > Application Security > Security Policies** and click the Plus (+) button. 
 #. Name the policy: **insecureApp1_asmpolicy**
