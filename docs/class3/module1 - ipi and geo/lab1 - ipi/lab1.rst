@@ -25,15 +25,15 @@ Create Your 1st IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
 Often, questions arise around what is the best way to implement. As always, the answer is; it depends. Implementing globally or at the VS level will provide the best 
-performance and will use a seperate log file for violations to keep your actual WAF logs clean, but your security admins may not have this level of access to the BIG-IP. 
-A WAF admin assigned Application Security Administrator rights on a BIG-IP can only modify WAF policies and can not make changes to the VS. This means the IPI policy would need to be managed inside of the WAF policy. 
+performance and uses a separate log file for violations. This also keeps the actual WAF logs clean. When managing global or VS specific policy your security admins may not have this level of access to the BIG-IP. 
+A WAF admin assigned Application Security Administrator rights on a BIG-IP can only modify WAF policies and can not see or make changes to the VS itself or the global IPI settings. This means the IPI policy would need to be managed inside of the WAF policy. 
 When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. 
 
 .. image:: images/ipi_options.png
   :width: 600 px
 
-In this lab we will start by enabling a Global IPI Policy, then configure a VS specifc profile with a custom category. 
-We will also explore the configuration options within the WAF policy itself. 
+In this lab we will start by enabling a Global IPI Policy, then configure a VS specific profile with a custom category. 
+We will also explore the configuration of IPI within the WAF policy itself. 
 
 #. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
 
@@ -53,7 +53,7 @@ We will also explore the configuration options within the WAF policy itself.
 
 #. From the category section choose **botnets** and click **Done editing**.
 
-#. Repeat this process and add the following additional categories: **infected_sources**, **scaners**, **spam_sources**, & **denial_of_service**.
+#. Repeat this process and add the following additional categories: **infected_sources**, **scanners**, **spam_sources**, & **denial_of_service**.
 
 .. image:: images/ipi_global.png
   :width: 600 px
@@ -81,7 +81,7 @@ Apply Global IPI & Test
 #. Open a terminal and navigate to **/home/f5student/waf141/agility2020wafTools**
 #. Run the following command to send some traffic to the site: **./ipi_tester**.
 
-.. NOTE:: The script should continue to run for the remainder of Lab 1. Do NOT stop the script. 
+.. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
 
 #. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. Notice the Geolocation Data as well as the malicious categorization to the far left of the log screen. 
 
@@ -185,7 +185,7 @@ Create your first WAF Policy & Configure IPI
 .. image:: images/events.png
   :width: 600 px
 
-.. NOTE:: It is best practice to enable Trust XFF in the poliy when configuring IPI via WAF policy. Although it is not needed to demonstrate this lab, it is strongly recommended to have it enabled. 
+.. NOTE:: It is best practice to enable Trust XFF in the policy when configuring IPI via WAF policy. XFF inspection is one of the advantages to consider when deploying IPI and can only be done via WAF policy. Although this setting is not needed to demonstrate this lab, it is strongly recommended to have it enabled. 
 
 .. image:: images/trust_xff.png
   :width: 600 px

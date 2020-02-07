@@ -27,6 +27,7 @@ Create Loging Profile
 #. Navigate to **Security > Bot Defense > Bot Defense Profiles** and click **Create**.
 #. Name: **insecureApp1_botprofile**
 #. Profile Template: **Relaxed**
+#. Click the **Learn more** link to see an explanation of he options. These will be explored further in the 241 lab. 
 
 .. image:: images/bot_profile.png
   :width: 600 px
@@ -45,3 +46,41 @@ Create Loging Profile
 
 .. image:: images/bot_log.png
   :width: 600 px
+
+
+Whitelisting a Bot 
+~~~~~~~~~~~~~~~~~~~~~~
+
+#. Navigate to **Security > Bot Defense > Bot Defense Profiles > insecureApp1_botprofile > Bot Mitigation Settings**
+#. Under **Mitigation Settings** change Unknown Bots to **Rate Limit** with a setting of **1** TPS. 
+#. Under **Mitigation Settings Exceptions** click **Add Exceptions** and search for **curl** and click **Add**.
+#. Change the Mitigation Setting to **None** and then **Save** the profile. 
+
+.. image:: images/rate-limit.png
+  :width: 600 px
+
+#. Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. 
+#. Notice the whitelisted bot's class was changed to **unknown** but the reuests are still being alarmed. 
+
+.. image:: images/bot-whitelist.png
+  :width: 600 px
+
+#. Click the down arrow under **Mitigation Action** and note the reason for the alarm. Even though we have whitelisted this bot we can still ensure that it is rate-limited to prevent stress on the application. 
+
+.. image:: images/bot-rate-limit.png
+  :width: 600 px
+
+
+Testing additional User Agents
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to **Local Traffic  > Virtual Servers > Virtual Server List > security-testing-overlay-vs > Resources** and add the **ua_tester** iRule and click **Finished**. 
+
+.. image:: images/ua-irule.png
+  :width: 600 px
+
+#. These are all poorly spoofed User-Agents. Some will get detected as anomolies such as the spoofed Safari UA. Since we are not blocking the **unknown** category, we can at least rate limit them. Consider blocking or rate-limiting **unknowns** in production. 
+
+.. image:: images/ua-spoof-log.png
+  :width: 600 px
+
+**This completes Lab 2**

