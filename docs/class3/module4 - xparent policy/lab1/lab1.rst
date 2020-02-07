@@ -1,18 +1,28 @@
-Exercise 2.1: Protocol Compliance
+Exercise 4.1: Transparent Policy 
 ----------------------------------------
 
 Objective
 ~~~~~~~~~
 
-- Attach the security policy to the appropriate virtual server.
+- Review Learning & Blocking & Policy Building Process settings
+Review Trusted IP and IP address exception properties. 
 
-- Validate that the security policy is working correctly.
+- Enable Server Technologies
+
+- Review Default Attack Signature Configuration. 
+
+- Test with a XSS attack
 
 - Implement HTTP Protocol Compliancy checks
 
-- Explore Learning and Blocking
+- Test with HTTP attack
 
-- Get familiar with ASM Event Logs
+- Implement Evasion Techniques
+
+- Test Evasion Techniques
+
+Bonus- Review Login Page Protetion and Brute Force COniguration protection. 
+ 
 
 - Estimated time for completion **45** **minutes**.
 
