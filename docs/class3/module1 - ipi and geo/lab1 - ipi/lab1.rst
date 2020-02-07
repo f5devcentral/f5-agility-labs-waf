@@ -27,7 +27,7 @@ An IPI policy can be created and applied globally, at the virtual server (VS) le
 Often, questions arise around what is the best way to implement. As always, the answer is; it depends. Implementing globally or at the VS level will provide the best 
 performance and uses a separate log file for violations. This also keeps the actual WAF logs clean. When managing global or VS specific policy your security admins may not have this level of access to the BIG-IP. 
 A WAF admin assigned Application Security Administrator rights on a BIG-IP can only modify WAF policies and can not see or make changes to the VS itself or the global IPI settings. This means the IPI policy would need to be managed inside of the WAF policy. 
-When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. 
+When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. By inspecting at Layer 7 we have the additional capability to scrutinize the XFF header.  
 
 .. image:: images/ipi_options.png
   :width: 600 px
@@ -151,7 +151,7 @@ Create your first WAF Policy & Configure IPI
 .. image:: images/waf_policy.png
   :width: 600 px
 
-#. Navigate to **Security > Application Securityv > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. Notice that **Access from malicious IP address** is set to **Learn** and **Block**. We will cover these concepts later in the lab but for now the policy is still transpaarent so the blocking setting has no effect. 
+#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. Notice that **Access from malicious IP address** is set to **Learn** and **Block**. We will cover these concepts later in the lab but for now the policy is still transparent so the blocking setting has no effect. 
 
 .. image:: images/ipi_asm.png
   :width: 600 px
@@ -189,5 +189,7 @@ Create your first WAF Policy & Configure IPI
 
 .. image:: images/trust_xff.png
   :width: 600 px
+
+As you can see, there are several methods of configuring IP Intelligence on the BIG-IP and each has it's own pro's and con's. It will be up to you to decide which method works best for your organization but at least now you know and knowing is most of the battle in IT. 
 
 **This completes Lab 1.1**

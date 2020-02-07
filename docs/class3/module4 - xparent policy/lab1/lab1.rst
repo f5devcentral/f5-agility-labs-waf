@@ -21,7 +21,7 @@ Review Trusted IP and IP address exception properties.
 
 - Test Evasion Techniques
 
-Bonus- Review Login Page Protetion and Brute Force COniguration protection. 
+Bonus- Review Login Page Protection and Brute Force Configuration protection. 
  
 
 - Estimated time for completion **45** **minutes**.
