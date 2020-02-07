@@ -78,7 +78,7 @@ Testing additional User Agents
 .. image:: images/ua-irule.png
   :width: 600 px
 
-#. These are all poorly spoofed User-Agents and implementing just bot signatures is the bare minimum for bot mitigation and not a comprehensive security strategy. Some requests will get detected as anomolies such as the spoofed Safari UA but others will still cruise right through if they don't match an exxisting signature.s Since we are not blocking the **unknown** category, we can at least rate limit them. Consider blocking or rate-limiting **unknowns** in production. A balanced Bot profile will also include active challenges which will greatly enahince bot mitigation caabilities. Check out ASM241 for more information. ] 
+#. These are all poorly spoofed User-Agents and implementing just bot signatures is the bare minimum for bot mitigation and not a comprehensive security strategy. Some requests will get detected as anomolies such as the spoofed Safari UA but others will still cruise right through if they don't match an existing signatures. Since we are not blocking the **unknown** category, we can at least rate limit them. Consider blocking or rate-limiting **unknowns** in production. A balanced Bot profile will also include active challenges which will greatly enhance bot mitigation capabilities. Check out ASM241 for more information. ] 
 
 .. image:: images/ua-spoof-log.png
   :width: 600 px
