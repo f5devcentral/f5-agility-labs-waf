@@ -78,6 +78,7 @@ Apply Global IPI & Test
 .. image:: images/global_policy.png
   :width: 600 px
 
+#. RDP to the client01 jumphost
 #. Open a terminal and navigate to **/home/f5student/waf141/agility2020wafTools**
 #. Run the following command to send some traffic to the site: **./ipi_tester**.
 
@@ -140,7 +141,7 @@ Verifying the Configuration
   :width: 600 px
 
 Create your first WAF Policy & Configure L7 IPI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Navigate to **Security > Application Security > Security Policies** and click the Plus (+) button. 
 #. Name the policy: **insecureApp1_asmpolicy**
 #. Select Policy Template: **Rapid Deployment Policy**

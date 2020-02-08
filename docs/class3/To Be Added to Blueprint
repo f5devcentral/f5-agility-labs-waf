@@ -1,7 +1,20 @@
+
+New:
+
+
+
+
+
+
+
+
+Everything below was added on 2/7
+###################
+
 IPI Overlay Virtual Server (10.1.10.146) 
 name: security-testing-overlay-vs
 (http profile, client/server ssl profile, no snat, malicious_ips_dg
-- update UDF interface for .146
+###- update UDF interface for .146
 
 
 On BIG-IP
@@ -20,11 +33,11 @@ set badip [class element -name $badip_index malicious_ips_dg]
 }
 
 
-IPI Data Group
-create /ltm data-group internal malicious_ips_dg type string records add { 134.119.218.243 { data SpamSource } 42.231.162.22 { data BotNet } 42.231.162.217  { data SpamSource } 177.101.224.90 { data Scanners } 218.17.228.102 { data SpamSource } 220.169.127.172 { data Scanner } 218.26.54.33 { data static }}
+###IPI Data Group
+###create /ltm data-group internal malicious_ips_dg type string records add { 134.119.218.243 { data SpamSource } 42.231.162.22 { data BotNet } 42.231.162.217  { data SpamSource } 177.101.224.90 { data Scanners } 218.17.228.102 { data SpamSource } 220.169.127.172 { data Scanner } 218.26.54.33 { data static }}
 
-UA Data Group
-create /ltm data-group internal malicious_ua_dg type string records add { agent0 { data minibot } agent1 { data IE8 } agent2 { data IE9 } agent3 { data IE10 } agent4 { data Chrome } agent5 { data Firefox } agent6 { data Safari } agent7 { data iPhone4 } agent8 { data iPhone5 } agent9 { data Android } }
+###UA Data Group
+###create /ltm data-group internal malicious_ua_dg type string records add { agent0 { data minibot } agent1 { data IE8 } agent2 { data IE9 } agent3 { data IE10 } agent4 { data Chrome } agent5 { data Firefox } agent6 { data Safari } agent7 { data iPhone4 } agent8 { data iPhone5 } agent9 { data Android } }
 
 UA iRule:
 #ua_tester

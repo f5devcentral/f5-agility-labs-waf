@@ -52,7 +52,7 @@ Whitelisting a Bot
 ~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to **Security > Bot Defense > Bot Defense Profiles > insecureApp1_botprofile > Bot Mitigation Settings**
-#. Under **Mitigation Settings** change Unknown Bots to **Rate Limit** with a setting of **1** TPS. 
+#. Under **Mitigation Settings** change Unknown Bots to **Rate Limit** with a setting of **1** TPS. **1** is a very agressive rate-limit and used for demo purposes in this lab. You will need to set this to a value that makes sense for your environment to ensure the logs do not become overwhelming.
 #. Under **Mitigation Settings Exceptions** click **Add Exceptions** and search for **curl** and click **Add**.
 #. Change the Mitigation Setting to **None** and then **Save** the profile. 
 
@@ -65,7 +65,7 @@ Whitelisting a Bot
 .. image:: images/bot-whitelist.png
   :width: 600 px
 
-#. Click the down arrow under **Mitigation Action** and note the reason for the alarm. Even though we have whitelisted this bot we can still ensure that it is rate-limited to prevent stress on the application and this bot is currently violating the rate-limit. 
+#. Click the down arrow under **Mitigation Action** and note the reason for the alarm. Even though we have whitelisted this bot we can still ensure that it is rate-limited to prevent stress on the application. This bot is currently violating the rate-limit of 1 TPS. 
 
 .. image:: images/bot-rate-limit.png
   :width: 600 px
@@ -78,7 +78,7 @@ Testing additional User Agents
 .. image:: images/ua-irule.png
   :width: 600 px
 
-#. These are all poorly spoofed User-Agents and implementing just bot signatures is the bare minimum for bot mitigation and not a comprehensive security strategy. Some requests will get detected as anomolies such as the spoofed Safari UA but others will still cruise right through if they don't match an existing signatures. Since we are not blocking the **unknown** category, we can at least rate limit them. Consider blocking or rate-limiting **unknowns** in production. A **Balanced** Bot profile will also include active challenges which will greatly enhance bot mitigation capabilities. Check out ASM241 for more information.  
+#. These are all intentionally poorly spoofed User-Agents and implementing just bot signatures is the bare minimum for bot mitigation and not a comprehensive security strategy. Some requests will get detected as anomolies such as the spoofed Safari UA but others will still cruise right through if they don't match an existing signatures but since we are not blocking the **unknown** category, we can at least rate limit them. Consider blocking or rate-limiting **unknowns** in production. A **Balanced** Bot profile will also include active JS challenges which will greatly enhance bot mitigation capabilities. Check out ASM241 for more information.  
 
 .. image:: images/ua-spoof-log.png
   :width: 600 px
