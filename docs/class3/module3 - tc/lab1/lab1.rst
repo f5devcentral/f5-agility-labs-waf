@@ -13,7 +13,7 @@ Objective
 
 
 
-Threat Campaigns are only available with Advanced WAF and are context based very high accuracy signatures. Threat Campaign signatures are subscription based and sourced from a variety of threat intel sources based on real world campaigns to attack and/or take over resources. 
+Threat Campaigns are only available with Advanced WAF and are context based, very high accuracy signatures. Threat Campaign signatures are subscription based and sourced from a variety of threat intel sources based on real world campaigns to attack and/or take over resources. 
 
 Configure the Virtual Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,11 +30,11 @@ Review TC Signatures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Navigate to **System > Software Management > Live Update > Threat Campaigns** DO NOT update the system but note the Installation History. You can also view the Bot Signatures and other signature packages that are currently installed or pending. 
 
-..Note:: Without an Advanced WAF license and Threat Campaign Subscription you will NOT get Live Updates for Bot Signatures. 
+.. NOTE:: Without an Advanced WAF license and Threat Campaign Subscription you will NOT get Live Updates for Bot Signatures. 
 
 #. Navigate to **Security > Options > Application Security > Threat Campaigns** and review some of the signatures and information about them. 
 #. Click on the **Apache Struts2 devmode RCE - HatBoy** signature and note the attack type as well as the CVE reference: **CVE-2012-0394**. You can click the CVE reference link for more information. 
-#. Click on the filter button and under the Reference field type: **2019** and **Apply Filter** to search for all CVE's related to 2019. 
+#. Click on the filter button and under the Reference field, type: **2019** and **Apply Filter** to search for all CVE's related to 2019. 
 
 .. image:: images/tc_sig.png
   :width: 600 px
@@ -56,7 +56,7 @@ Review TC Learning and Blocking Settings
 Test TC Signatures and Review Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-..Important:: Please ensure the ipi_tester script is not running in the terminal on the client01 jumphost. 
+.. Important:: Please ensure the ipi_tester script is not running in the terminal on the client01 jumphost. 
 
 #. From the client01 jumphost, launch **Postman** from the dock. 
 
@@ -84,6 +84,8 @@ If this policy was in blocking mode would this signature have blocked the attack
 .. image:: images/attack_sig.png
   :width: 600 px
 
+If you guessed no, you are correct. This signature is still in staging and therefor would not be blocked.  
+
 #. Under the **Violations** section click the **1** under **Occurrences** for **Threat Campaign detected** and review the signature that was triggered and the Applied Blocking Settings. 
 #. Review the other two alerts that we generated and notice different Attack Signatures and Threat Campaign Signatures were triggered in each. The Atlassian attack actually generated three Violations. 
 
@@ -96,7 +98,7 @@ If this policy was in blocking mode would this signature have blocked the attack
 .. image:: images/eventc.png
   :width: 600 px
 
-**This completes Lab 2**
+**This completes Lab 3**
 
 
 

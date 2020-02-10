@@ -21,7 +21,7 @@ Bonus- Review Login Page Protection and Brute Force Configuration protection.
 
 Learning & Blocking & Policy Building
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Recall from Lab 1, that we used the Rapid Deployment Policy template to create our policy and we deployed it in manual learning mode. This means as violations and/or false positives occur, the system will make recommendations to modify the policy.  
+Recall from Lab 1, that we used the Rapid Deployment Policy template to create our policy and we deployed it in manual learning mode. This means as violations and/or false positives occur, the system will make recommendations to modify the policy and the admin will manually evaluate the changes.  
 
 #. Navigate to **Security > Application Security >  Policy Building > Traffic Learning** and explore each of the sections under **Traffic Learning Summary**. 
 #. You will see many Suggestions and a learning score that the system assigns based on how many times it has seen an occurence and from what source. You can **Accept**, **Delete**, **Ignore** or **Export**  the suggestion. Look very carefully at the suggested action before deciding on which action to take.  
@@ -29,7 +29,7 @@ Recall from Lab 1, that we used the Rapid Deployment Policy template to create o
 .. image:: images/learning.png
   :width: 600 px
 
-#. Click the **Learning and Blocking Settings** tab at the top of the GUI and expand the **HTTP protocol compliance failed** section. Enforcing HTTP protocol compliance is a good practice and should not cause administrative burden. Notice we are already set to learn for most of the violations in case a webapp is poorly written or configured. By learning we will have the opportunity to weed out any false positives prior to enabling blocking. 
+#. Click the **Learning and Blocking Settings** tab at the top of the GUI and expand the **HTTP protocol compliance failed** section. Enforcing HTTP protocol compliance is a good practice and should not cause administrative burden. Notice we are already set to learn for most of the violations in case a webapp is poorly written or configured. By learning we will have the opportunity to weed out any false positives caused by HTTP Protocol Compliance violations prior to enabling blocking. 
 #. Uncheck the box for learning under **Bad Host header Value** and check the **Enable** box. 
 #. Check the box to enable learning for **Host header contains IP address**.
 #. Hit **Save** at the bottom of the screen and then **Apply Policy** at the top of the screen. 
@@ -40,7 +40,7 @@ Recall from Lab 1, that we used the Rapid Deployment Policy template to create o
 #. From Firefox on client01, load the insecureApp1 bookmark and refresh several times. 
 #. Navigate to **Security > Application Security >  Policy Building > Traffic Learning** then scroll down to the bottom under **Suggestions** and notice the new learning suggestion for **Host header contains IP address** since we are browsing the site by IP and not hostname. 
 #. If we accept this suggestion it will actually enable the HTTP Check for **Host header contains IP address**. Click **Accept** and **Apply Policy**
-#. Return to the **Learning and Blocking Settings** tab at the top of the GUI to review the affect of your action. 
+#. Return to the **Learning and Blocking Settings** tab at the top of the GUI to review the effect of your action. 
 #. Notice that the **Enable** box is now checked for **Host header contains IP address**.
 
 .. image:: images/enabled.png
@@ -99,29 +99,3 @@ XSS in HOST Header
 
 #. Browse to **Security > Event Logs > Application > Requests** and review the alert for this Sev5 attack. Note the alert severity is much higher (5) for this attack type due to several violations occuring.
 #. Review all the details and then click the **3** under the **Attack Signature Detected** violation to see all of the XSS Attack Signatures that were triggered. 
-
-.. image:: images/module2Lab1Excercise4-image3.png
-        :width: 600 px
-
-5. Click **Export Request** and review the detailed report. Notice the XSS alerts and how they are currently still in staging. We will cover this in the next module.
-
-
-Server Technologies
-~~~~~~~~~~~~~~~~~~~~~
-
-1.  Open a new Private Window in Firefox and navigate to the WebGoat login page (https://webgoat.f5.demo/WebGoat/login).
-
-2. Enter **%253Cscript%253E** in Username field and **a** for the Password field. Click **Sign-in**. Of course this user does not exist in the WebGoat database and will not be logged in. What would expect in the ASM events? 
-
-|
-
-.. image:: images/module1Lab1Excercise1-image18.png
-        :width: 600px
-
-|
-
-3. Go to **Security > Event Logs > Application > Requests**. Do you see anything? 
-
-4. If you don't, what do you think needs to be done? This excercise if left up to the student. 
-
-**This concludes module 2**
