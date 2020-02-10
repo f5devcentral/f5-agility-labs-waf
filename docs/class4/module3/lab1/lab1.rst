@@ -27,7 +27,9 @@ Lab 3.1: DAST Integration
         :width: 800px
 ..  |lab31-13| image:: images/lab31-13.png
         :width: 800px
-..  |lab31-14| image:: images/lab31-13.png
+..  |lab31-14| image:: images/lab31-14.png
+        :width: 800px
+..  |lab31-15| image:: images/lab31-15.png
         :width: 800px
 
 ASM's DAST (Dynamic Application Security Testing) integration allows you to take the programmatic output from a vulnerability scan and use it to seed a security policy.  For this lab, we'll use output from WhiteHat's Sentinel(TM) product to create a security policy based on Sentinel's findings.
@@ -46,6 +48,7 @@ Task 1 - Create a Security Policy
 #.  Click **Create**, fill in the page as follows, and then click **save** as shown below.
 
         |lab31-01|
+        |lab31-15|
 
 #.  Once the policy is created, go to **Security -> Application Security -> Vulnerability Assessments -> Settings**.
 
