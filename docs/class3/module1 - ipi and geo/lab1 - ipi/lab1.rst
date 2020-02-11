@@ -24,7 +24,7 @@ Objective
 Create Your 1st L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
-Often, questions arise around what is the best way to implement. As always, the answer is; it depends. Implementing globally or at the VS level will provide the best 
+Often, questions arise around what is the best way to implement. As always, the answer is; **it depends**. Implementing globally or at the VS level will provide the best 
 performance and uses a separate log file for violations. This also keeps the actual WAF logs clean. When managing global or VS specific policy your security admins may not have this level of access to the BIG-IP. 
 A WAF admin assigned Application Security Administrator rights on a BIG-IP can only modify WAF policies and can not see or make changes to the VS itself or the global IPI settings. This means the IPI policy would need to be managed inside of the WAF policy. 
 When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. By inspecting at Layer 7 we have the additional capability to scrutinize the XFF header.  
@@ -84,7 +84,7 @@ Apply Global IPI & Test
 
 .. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
 
-#. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. Notice the Geolocation Data as well as the malicious categorization to the far left of the log screen. 
+#. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. Notice the Geolocation Data as well as the Black List Class to the right of the log screen. 
 
 .. image:: images/global_event.png
   :width: 600 px
@@ -109,6 +109,7 @@ Create VS Specific L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Navigate to  **Security > Network Firewall > IP Intelligence > Policies** and click **create**. 
 #. Name: **webgoat_ipi**
+#. For Default Log Action choose **yes** to log category matches. 
 #. Under Categories click **Add** and choose the **my_bad_ips** custom category. 
 #. Click **Done Editing** and **Commit the Changes To System**.
 
@@ -181,7 +182,7 @@ Create your first WAF Policy & Configure L7 IPI
   :width: 600 px
 
 
-#. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox you should see good traffic as well in the event logs since we are logging all requests and not all IP's are malicious. 
+#. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox on CLient01 you should see good traffic as well in the event logs since we are logging all requests and not all IP's are malicious. 
 
 .. image:: images/events.png
   :width: 600 px
