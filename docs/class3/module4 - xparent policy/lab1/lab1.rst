@@ -164,7 +164,7 @@ Clear the False positives
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the Sev3 Alert for the **/Webgoat/service/lessonoverview.mvc** and **Accept** the alert. These alerts are due to the fact that we are still using an IP address for a hostname and we have enabled the HTTP Protocol Compliance check for this. Accessing a site by IP is sometimes a reality in app development although not best practice. 
-#. Browse to **Security > Event Logs > Application > Requests** and notice now the requests are no longer triggering the alert. 
+#. Browse to **Security > Event Logs > Application > Requests** and notice now the requests to this URI are no longer triggering the alert. 
 
 .. image:: images/cleared.png
   :width: 600 px
