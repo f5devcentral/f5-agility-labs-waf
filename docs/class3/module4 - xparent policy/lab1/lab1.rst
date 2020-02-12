@@ -11,7 +11,6 @@ We created a transparent policy way back in Lab 1 to configure IPI and Geolocati
 - Test with a HTTP Protocol violation plus XSS attack
 - Enable Server Technologies & Attack Signatures
 - Review Reporting
-- Review Policy Building Process Settings and Whitelist
 
 **Bonus** - Review Login Page Protection and Brute Force Configuration protection. 
  
