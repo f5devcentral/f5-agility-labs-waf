@@ -28,7 +28,8 @@ Configure the Virtual Server
 
 Review TC Signatures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **System > Software Management > Live Update > Threat Campaigns** DO NOT update the system but note the Installation History. You can also view the Bot Signatures and other signature packages that are currently installed or pending. 
+
+#. Navigate to **System > Software Management > Live Update > Threat Campaigns**. DO NOT update the system but note the Installation History. You can also view the Bot Signatures and other signature packages that are currently installed or pending. 
 
 .. NOTE:: Without an Advanced WAF license and Threat Campaign Subscription you will NOT get Live Updates for Bot Signatures. 
 

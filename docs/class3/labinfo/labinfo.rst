@@ -11,7 +11,7 @@ Environment
 **Web Attack Tools used in this lab:**
 
  * `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
- * `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and Request Crafting
+ * `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
 
 **Linux server (server01):**
 

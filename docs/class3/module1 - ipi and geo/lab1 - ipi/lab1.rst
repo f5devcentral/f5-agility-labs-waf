@@ -128,7 +128,7 @@ Create IPI Logging Profile
 Apply IPI Policy and Logging Profile to VS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Navigate to **Local Traffic > Virtual Servers** and click on **insecureApp1_vs**
-#. Under the Security tab in the top middle of the GUI, enable the webgoat IPI profile and associated logging profile.
+#. Under the **Security tab > Policies** in the top middle of the GUI, enable the webgoat IPI profile and associated logging profile.
 #. Click Update.
 
 .. image:: images/vs_sec.png
@@ -153,7 +153,7 @@ Create your first WAF Policy & Configure L7 IPI
 .. image:: images/waf_policy.png
   :width: 600 px
 
-#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. Notice that **Access from malicious IP address** is set to **Learn** and **Block**. We will cover these concepts later in the lab but for now the policy is still transparent so the blocking setting has no effect. 
+#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. Notice that **Access from malicious IP address** is set to **Alarm** and **Block**. We will cover these concepts later in the lab but for now the policy is still transparent so the blocking setting has no effect. 
 
 .. image:: images/ipi_asm.png
   :width: 600 px
@@ -185,6 +185,11 @@ Create your first WAF Policy & Configure L7 IPI
 #. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox on CLient01 you should see good traffic as well in the event logs since we are logging all requests and not all IP's are malicious. 
 
 .. image:: images/events.png
+  :width: 600 px
+
+#. Click on one of the alerts and review the violation details. Note that you can see the entire request details even though this site was using strong TLS for encyrption. 
+
+.. image:: images/alert.png
   :width: 600 px
 
 .. NOTE:: It is best practice to enable Trust XFF in the policy when configuring IPI via WAF policy. XFF inspection is one of the advantages to consider when deploying IPI and can only be done via WAF policy. Although this setting is not needed to demonstrate this lab, it is strongly recommended to have it enabled. 
