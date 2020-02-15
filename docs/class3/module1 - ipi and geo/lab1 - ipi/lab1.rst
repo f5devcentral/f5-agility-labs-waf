@@ -12,7 +12,14 @@ Objective
 
 - Estimated time for completion: **30** **minutes**.
 
-#. RDP to client01, launch Chrome (please be patient and don't click the icon multiple times)
+#. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this. 
+
+.. image:: images/xrdp.png
+  :width: 600 px
+
+Simply click in the username field and backspace. Enter the name: **f5student** and in the password firld use the **password** provided by the instructor. 
+
+#. Launch Chrome browser (please be patient and don't click the icon multiple times)
 
 .. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the "f5student" password provided by your lab instructor. 
 
@@ -120,7 +127,7 @@ Create IPI Logging Profile
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Navigate to **Security > Event Logs > Logging Profiles** and click **Create**.
 #. Name: **IPI_Log**
-#. Select **Network Firewall** and **local-db-publisher** under IP Intelligence.
+#. Select **Network Firewall** and **local-db-publisher** under IP Intelligence and then click **Create**.
 
 .. image:: images/ipi_log.png
   :width: 600 px
