@@ -57,7 +57,7 @@ Enforcing HTTP Protocol Conpliance
 .. image:: images/http.png
   :width: 600 px
 
-We have now told the system to not making any learning sugestions on bad host header values and we enabled the default action as definied for **HTTP protocol compliance failed**. If we receive a match we will **Alarm** and **Block** if the policy was in Blocking Mode. 
+We have now told the system to not making any learning suggestions on bad host header values. We then enabled the default action as defined for **HTTP protocol compliance failed**. If we receive a match we will **Alarm** in Transparent Mode and **Block** if the policy was in Blocking Mode. 
 We also told the sytem to start generating learning suggestions if we see any attempts to access the site via IP address instead of hostname.  
 
 #. From Firefox on client01, load the insecureApp1 bookmark and refresh several times. 
@@ -140,20 +140,18 @@ In this exercise we will examine server technologies which allow you to automati
 .. image:: images/st.png
   :width: 600 px
 
-#. Scroll down to **Advanced Settings > Server Technologies** and click in the box. Search for Linux since we know the server is running Linux. The system will dispaly a box describing which new signature sets will be applied. Click **Confirm**. 
+#. Scroll down to **Advanced Settings > Server Technologies** and click in the box. Search for Linux since we know the server is running Linux. The system will display a box describing which new signature sets will be applied. Click **Confirm**. 
 
 .. image:: images/ast.png
   :width: 600 px
 
 **Make sure to Save and Apply Policy.**
 
-#. On Client01 load the bookmark for **Webgoat** and Login.
-#. On BIG-IP  Go to **Security > Application Security > Policy Building > Traffic Learning** and notice the three new 100% alerts for Server Technologies. 
-#. Select all three suggestions and click **Accept**. 
-
-**Make sure to Apply Policy**
-
 #. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures** and notice the new Unix/Linux Server Technology signature sets that were added to the policy. 
+
+.. image:: images/unix.png
+  :width: 600 px
+
 #. Click **Change** and review all of the additional Signature Sets that you can add manually add to a policy. Click **Cancel**
 
 Framework Attacks
@@ -209,7 +207,7 @@ Review Reporting
 
 Bonus
 ~~~~~~~~~~
-Protecting a login page is a very important role for a WAF. While Brute Force attacks are on the decline, Credential Stuffing attacks have increased several times over in the past 5 years. In this lab we wil lgo through the exercise of defining login page parameters and observe the configuration options. 
+Protecting a login page is a very important role for a WAF. While Brute Force attacks are on the decline, Credential Stuffing attacks have increased several times over in the past 5 years. In this lab we will go through the exercise of defining login page parameters and observe the configuration options. 
 #. Navigate to **Security > Application Security > Sessions and Logins > Login Pages List**.
 #. Configure the Login Page as show below and click **Create** and **Apply Policy**.
 #. You would normally get these settings by interating with the application while using the Browser Developer tools to observe the various status codes and headers present in a valid vs invalid login. 
@@ -218,12 +216,15 @@ Protecting a login page is a very important role for a WAF. While Brute Force at
   :width: 600 px
 
 #. Navigate to **Security > Application Security > Brute Force Attack Prevention** and click **Create**. 
+#. Select the Login Page that you just created. 
 #. Review all of the configuration options available for protecting a Login Page from Brute Force and Credential Stuffing Attacks. 
 
 .. image:: images/bf.png
   :width: 600 px
 
 .. NOTE:: The security policy's enforcement mode is Transparent. Requests will not be blocked unless the enforcement mode is changed to Blocking on the Learning and Blocking Settings screen
+
+This final lab was for demonstration purposes and no further action is necessary. You can just hit **Cancel** once you have reviewed all of the settings. 
 
 **This completes Lab 4**
 
