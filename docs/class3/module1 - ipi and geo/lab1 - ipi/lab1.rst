@@ -189,12 +189,12 @@ Create your first WAF Policy & Configure L7 IPI
   :width: 600 px
 
 
-#. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox on CLient01 you should see good traffic as well in the event logs since we are logging all requests and not all IP's are malicious. 
+#. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox on Client01 you should see good traffic as well in the event logs since we are logging all requests and not all IP's are malicious. 
 
 .. image:: images/events.png
   :width: 600 px
 
-#. Click on one of the alerts and review the violation details. Note that you can see the entire request details even though this site was using strong TLS for encyrption. 
+#. Click on one of the alerts and review the violation details. Note that you can see the entire request details even though this site was using strong TLS for encryption. 
 
 .. image:: images/alert.png
   :width: 600 px

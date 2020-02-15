@@ -19,7 +19,7 @@ We created a transparent policy way back in Lab 1 to configure IPI and Geolocati
 
 Learning & Blocking & Policy Building
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Recall from Lab 1, that we used the Rapid Deployment Policy template to create our policy and we deployed it in manual learning mode. This means as violations and/or false positives occur, the system will make suggeestions to modify the policy. The admin will manually evaluate the suggestions and Approve, Ignore or Delete them.  
+Recall from Lab 1, that we used the Rapid Deployment Policy template to create our policy and we deployed it in manual learning mode. This means as violations and/or false positives occur, the system will make suggestions to modify the policy. The admin will manually evaluate the suggestions and Approve, Ignore or Delete them.  
 
 #. Navigate to **Security > Application Security >  Policy Building > Traffic Learning** and explore each of the sections under **Traffic Learning Summary**. 
 #. You will see many Suggestions and a **learning score** that the system assigns based on how many times it has seen an occurence and from what source. You can **Accept**, **Delete**, **Ignore** or **Export**  the suggestion. Always look very carefully at the suggested action before deciding on which action to take. It is also helpful to define a whitelist so that the policy can learn quicker and from known trusted sources. You generally do not want the system learning from random and/or hostile Internet traffic and making suggestions to relax the policy.   
@@ -30,7 +30,7 @@ Recall from Lab 1, that we used the Rapid Deployment Policy template to create o
 Policy Building Process
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click on the **Learning and Blocking Settings** tab at the top os the screen and expand the **Policy Building Process** section. Here you can see settings that this particular policy is using for is learning processes. Notice that **Trusted IP Addresses List** is empty. 
+#. Click on the **Learning and Blocking Settings** tab at the top of the screen and expand the **Policy Building Process** section. Here you can see settings that this particular policy is using for is learning processes. Notice that **Trusted IP Addresses List** is empty. 
 #. Click the little window icon next to **Trusted IP Addresses List** is empty.
 #. This takes you to: **Security > Application Security > IP Addresses > IP Address Exceptions** Click **Create**. 
 #. For IP Address: **10.10.10.0** and for Netmask: **255.255.255.0**. Check the box for **Policy Builder trusted IP** and click **Create** and **Apply Policy**.
@@ -131,7 +131,7 @@ XSS in HOST Header
 Server Technologies & Attack Signatures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this exercise we will examine server technologies which allow you to automatically discover server-side frameworks, web servers and operating systems. This feature helps when the backend technologies are not well known. The feature can be enabled to auto detect. You can also add the technologies that you know. Creating custom signature sets allows you to define what signature groupings work best for your needs. In this exercise we will explore both.
+In this exercise we will examine server technologies which allow you to automatically discover server-side frameworks, web servers and operating systems. This feature helps when the backend technologies are not well known. The feature can be enabled to auto detect. You can also add the technologies that you know. Creating custom signature sets allows you to define what signature groupings work best for your needs.
 
 #. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures**
 #. Review the Attack Signatures that were applied during policy creation from back in Lab 1. Notice that they are set to **Learn/Alarm/Block and Staging is enabled**. 
@@ -208,6 +208,7 @@ Review Reporting
 Bonus
 ~~~~~~~~~~
 Protecting a login page is a very important role for a WAF. While Brute Force attacks are on the decline, Credential Stuffing attacks have increased several times over in the past 5 years. In this lab we will go through the exercise of defining login page parameters and observe the configuration options. 
+
 #. Navigate to **Security > Application Security > Sessions and Logins > Login Pages List**.
 #. Configure the Login Page as show below and click **Create** and **Apply Policy**.
 #. You would normally get these settings by interating with the application while using the Browser Developer tools to observe the various status codes and headers present in a valid vs invalid login. 
