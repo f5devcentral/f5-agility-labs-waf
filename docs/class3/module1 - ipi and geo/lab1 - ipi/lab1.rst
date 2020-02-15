@@ -33,8 +33,8 @@ Create Your 1st L3 IPI Policy
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
 Often, questions arise around what is the best way to implement. As always, the answer is; **it depends**. Implementing globally or at the VS level will provide the best 
 performance and uses a separate log file for violations. This also keeps the actual WAF logs clean. When managing global or VS specific policy your security admins may not have this level of access to the BIG-IP. 
-A WAF admin assigned Application Security Administrator rights on a BIG-IP can only modify WAF policies and can not see or make changes to the VS itself or the global IPI settings. This means the IPI policy would need to be managed inside of the WAF policy. 
-When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. By inspecting at Layer 7 we have the additional capability to scrutinize the XFF header.  
+A WAF admin assigned **Application Security Administrator** rights on a BIG-IP can only modify WAF policies and can not see or make changes to the VS itself or the global IPI settings. This means the IPI policy would need to be managed inside of the WAF policy. 
+When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. By inspecting at Layer 7 we have the additional capability to scrutinize the XFF header. Another benefit of Layer 7 IPI is that the violations are fed into our event correlation reporting capabilties.  
 
 .. image:: images/ipi_options.png
   :width: 600 px
