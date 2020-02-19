@@ -39,7 +39,7 @@ ASM's DAST (Dynamic Application Security Testing) integration allows you to take
 Task 1 - Create a Security Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.1.245/`` or by clicking on the **bigip01** shortcut in Chrome.
+#.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut in Chrome.
 
 #.  Login to the BIG-IP.
 
