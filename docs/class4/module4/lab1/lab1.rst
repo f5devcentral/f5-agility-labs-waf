@@ -1,5 +1,5 @@
-Lab 4.1: Login Pages
---------------------
+Lab 4.1: Login Page Protection
+------------------------------
 
 ..  |lab41-01| image:: images/lab41-01.png
         :width: 800px
