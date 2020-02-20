@@ -1,6 +1,10 @@
 Lab 1: Bot Defense
 -------------------------------------------
 
+..  |log_profile| image:: images/log_profile.png
+        :width: 800px
+
+
 Objective
 ~~~~~~~~
 
@@ -20,8 +24,7 @@ Enabling Bot Defense
 
 #.  Navigate to **Security > Event Logs > Logging Profiles** and check to see if the Bot_Log Profile is created.  If not, create a new Logging Profile with the settings shown in the screenshot below and click **create**. 
 
-.. image:: images/log_profile.png
-  :width: 600 px
+        |log_profile|
 
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and check to see if insecureApp1_botprofile has been created.  If not, click **Create**.
 #.  Name: **insecureApp1_botprofile**
@@ -48,7 +51,8 @@ A Balanced Approach
 In WAF141 we viewed logs showing that bots were indeed connecting to our app.  In your environment, there may be some bots that are welcome, while others are unknown or malicious.  Please note that these next steps are to give you an idea on how some bots can be mitigated, but every envrionment is different.
 
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and click on **insecureApp1_botprofile**
-.. NOTE:: The profile we are using was created with a "Relaxed" template.  In order to start with a Balanced Approach, you would need to create a new Profile.  Instead, here we will change individual settings.  Click on **Learn More** if you are interested in the other default options.
+    
+    .. NOTE:: The profile we are using was created with a "Relaxed" template.  In order to start with a Balanced Approach, you would need to create a new Profile.  Instead, here we will change individual settings.  Click on **Learn More** if you are interested in the other default options.
 
 #.  Under General Settings, change the Enforcement Mode to Blocking and click Save.
 
