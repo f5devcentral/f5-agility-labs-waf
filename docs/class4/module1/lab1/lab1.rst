@@ -3,6 +3,20 @@ Lab 1: Bot Defense
 
 ..  |log_profile| image:: images/log_profile.png
         :width: 800px
+..  |blank_vs| image:: images/blank_vs.png
+        :width: 800px
+..  |bot_profile| image:: images/bot_profile.png
+        :width: 800px
+..  |bot_vs| image:: images/bot_vs.png
+        :width: 800px
+..  |setblock| image:: images/setblock.png
+        :width: 800px
+..  |pbd| image:: images/pbd.png
+        :width: 800px
+..  |block_req| image:: images/block_req.png
+        :width: 800px
+
+
 
 
 Objective
@@ -16,8 +30,7 @@ Objective
 
 .. IMPORTANT:: To clearly demonstrate just the Bot Defense profile, please **disable all security policy on the virtual server**.
 
-.. image:: images/blank_vs.png
-  :width: 600 px
+        |blank_vs|
 
 Enabling Bot Defense 
 ~~~~~~~~~~~~~~~~~~~
@@ -31,8 +44,7 @@ Enabling Bot Defense
 #.  Profile Template: **Relaxed**
 #.  Click the **Learn more** link to see an explanation of the options. 
 
-.. image:: images/bot_profile.png
-  :width: 600 px
+        |bot_profile|
 
 #.  Click on the **Bot Mitigation Settings** tab and review the default configuration.
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
@@ -41,8 +53,7 @@ Enabling Bot Defense
 #.  Check to make sure that Bot Defense is enabled and select the  **insecureApp1_botprofile** and the **Bot_Log** profiles. 
 #.  Click **Update**
 
-.. image:: images/bot_vs.png
-  :width: 600 px
+        |bot_vs|
 
 
 A Balanced Approach 
@@ -56,13 +67,11 @@ In WAF141 we viewed logs showing that bots were indeed connecting to our app.  I
 
 #.  Under General Settings, change the Enforcement Mode to Blocking and click Save.
 
-.. image:: images/setblock.png
-  :width: 600 px
+        |setblock|
 
 #.  Click on the Browsers tab on the left and Change the Browser Verification setting to **Verify Before Access**
 
-.. image:: images/pbd.png
-  :width: 600 px
+        |pbd|
 
 Before The Unified Bot Defense Profile was introduced in 14.1, this was the default and only setting if ProActive Bot Defense was enabled.
 
@@ -94,7 +103,6 @@ Was the Request blocked?
 
 #.  Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs again.  You should now see a blocked request.
 
-.. image:: images/block_req.png
-  :width: 600 px
+        |block_req|
 
 **This completes Lab 1**
