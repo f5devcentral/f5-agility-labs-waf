@@ -90,7 +90,7 @@ Train the DoS Profile
             ./agility2020wafTools/baseline_menu.sh
     ..
 
-#.  Select either **option 1** or **option 2**, but notice that option 4 quits the script.  You will use this later.
+#.  Select either **option 1** or **option 2**, but notice that option 3 stops the attack.  You will use this later.
 
     |lab21-06|
 
@@ -168,7 +168,7 @@ Visibility & Reporting
 
     |lab21-17|
 
-#. In each of your terminal windows type **Ctrl+C** to terminate the scripts. The **AB_SSL_DOS.sh** script will require you to enter **4** to quit after pressing **Ctrl+C**.
+#. In each of your terminal windows type **Ctrl+C** to terminate the scripts. The **AB_SSL_DOS.sh** script will require you to enter **3** stop the attacks, then **4** to quit after pressing **Ctrl+C**.
 
 |
 
