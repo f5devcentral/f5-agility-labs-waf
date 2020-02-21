@@ -16,6 +16,14 @@ Lab 1: Bot Defense
 ..  |block_req| image:: images/block_req.png
         :width: 800px
 
+..  |curl| code-block:: bash
+
+        curl https://10.1.10.145/WebGoat/login -k -v
+
+..  |Nikto| code-block:: bash
+
+        curl https://10.1.10.145/WebGoat/login -k -H "User-Agent: Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:Port Check)"
+
 
 
 
@@ -85,9 +93,7 @@ Block a Bot Request
 #.  Open Terminal on the Client Workstation
 #.  Run the same Curl command we have previously used in WAF141
 
-.. code-block:: bash
-        
-	curl https://10.1.10.145/WebGoat/login -k -v
+	|curl|
 
 #.  Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. Was the Request blocked?
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and select **insecureApp1_botprofile**
@@ -95,10 +101,7 @@ Block a Bot Request
 #.  Make sure the Mitigation Setting for Malicious Bots is set to **Block**
 #.  Open Terminal on the Client Workstation and run the following curl command
 
-.. code-block:: bash
-
-        curl https://10.1.10.145/WebGoat/login -k -H "User-Agent: Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:Port Check)"
-
+	|Nikto|
 
 #.  Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs again.  You should now see a blocked request.
 
