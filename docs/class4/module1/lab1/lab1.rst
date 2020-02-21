@@ -15,17 +15,10 @@ Lab 1: Bot Defense
         :width: 800px
 ..  |block_req| image:: images/block_req.png
         :width: 800px
-
 ..  |curl| code-block:: bash
-
         curl https://10.1.10.145/WebGoat/login -k -v
-
 ..  |Nikto| code-block:: bash
-
         curl https://10.1.10.145/WebGoat/login -k -H "User-Agent: Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:Port Check)"
-
-
-
 
 Objective
 ~~~~~~~~
@@ -81,27 +74,29 @@ In WAF141 we viewed logs showing that bots were indeed connecting to our app.  I
 
         |pbd|
 
-	Before The Unified Bot Defense Profile was introduced in 14.1, this was the default and only setting if ProActive Bot Defense was enabled.
+Before The Unified Bot Defense Profile was introduced in 14.1, this was the default and only setting if ProActive Bot Defense was enabled.
 
 #.  Save the changes to your Bot Defense profile.
  
 
 
 Block a Bot Request
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 #.  Open Terminal on the Client Workstation
 #.  Run the same Curl command we have previously used in WAF141
 
-	|curl|
+        |curl|
 
-#.  Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. Was the Request blocked?
+#.  Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs.
+Was the Request blocked?
+
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and select **insecureApp1_botprofile**
 #.  Look at your Mitigation Settings.  Curl is listed as an Untrusted Bot, and the action is **Alarm**
 #.  Make sure the Mitigation Setting for Malicious Bots is set to **Block**
 #.  Open Terminal on the Client Workstation and run the following curl command
 
-	|Nikto|
+        |Nikto|
 
 #.  Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs again.  You should now see a blocked request.
 
