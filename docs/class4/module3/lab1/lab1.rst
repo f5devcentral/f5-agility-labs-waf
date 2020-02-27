@@ -52,7 +52,7 @@ Task 1 - Create a Security Policy
 
 #.  Once the policy is created, go to **Security -> Application Security -> Vulnerability Assessments -> Settings**.
 
-#.  Select **WhiteHat Sentinel (US server)** from the dropdown list, then click ok.  Do not click save.
+#.  Select **WhiteHat Sentinel (US server)** from the dropdown list, then click **ok**.  **Do not** click save.
 
         |lab31-02|
 
@@ -93,7 +93,7 @@ Task 2 - Import the Scan Data
 
         |lab31-14|
 
-#. Select **SQL Injection** from the bottom then click on the first **Vulnerability ID**. You'll be shown more details about the specific vulnerability such as the relevanit URL and Parameter where the vulnerability is present (as in this case).
+#. Select **SQL Injection** from the bottom then click on the first **Vulnerability ID**. You'll be shown more details about the specific vulnerability such as the relevant URL and Parameter where the vulnerability is present (as in this case).
 
         |lab31-08|
 

@@ -35,7 +35,7 @@ Lab 4.1: Login Page Protection
         :width: 800px
 
 
-In this exercise we'll explore the session tracking capabilities present in BIG-IP ASM.  BIG-IP ASM not only has the capability to gather user identity details from login pages and APM, but can also generate a unique device-id for each connected client.  We'll explore both below.
+In this exercise we'll explore some of the login protection and session tracking capabilities present in BIG-IP ASM.  BIG-IP ASM not only has the capability to gather user identity details from login pages and APM, but can also generate a unique device-id for each connected client.  You'll explore this more in WAF341.
 
 Task 1: Verify ASM configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -52,11 +52,11 @@ Create the DoS Profile
 
     |lab21-01|
 
-#.  Configure the **Behavioral & Stress-based Detection** settings like below:
+#.  Configure the **Behavioral & Stress-based Detection** settings like below and click **Finished**.
 
     |lab21-02|
 
-#.  Navigate to **Local Traffic -> Virtual Servers -> insecureApp1_vs** then clicking  **Security Tab -> Policies**
+#.  Navigate to **Local Traffic -> Virtual Servers -> insecureApp1_vs** then click **Security Tab -> Policies**
 
 #.  Attach the DoS Protection Profile to the virtual server we just created by selecting **Enabled** next to **DoS Protection Profile** and selecting **insecureapp1_dosprofile** from the dropdown.
 
@@ -83,11 +83,12 @@ Train the DoS Profile
 
     |lab21-05|
 
-#.  Open another terminal window on your jumphost, examine your home directory and run the **baseline_menu.sh** script.
+#.  Open another terminal window on your jumphost / client01, examine your home directory and run the **baseline_menu_SSL.sh** script.
 
     .. code-block:: bash
 
-            ./agility2020wafTools/baseline_menu.sh
+        cd agility2020wafTools/
+        ./baseline_menu_SSL.sh
     ..
 
 #.  Select either **option 1** or **option 2**, but notice that option 3 stops the attack.  You will use this later.
@@ -116,7 +117,8 @@ Launch an Attack
 
     .. code-block:: bash
 
-            ./agility2020wafTools/AB_SSL_DOS.sh
+            cd agility2020wafTools/
+            ./AB_SSL_DOS.sh
     ..
     
     |lab21-09|
