@@ -96,9 +96,7 @@ Block a Bot Request
 
         ``curl https://10.1.10.145/WebGoat/login -k -v``
 
-#.  Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs.
-Was the Request blocked?
-
+#.  Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. Was the Request blocked?
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and select **insecureApp1_botprofile**
 #.  Look at your Mitigation Settings.  Curl is listed as an Untrusted Bot, and the action is **Alarm**
 #.  Make sure the Mitigation Setting for Malicious Bots is set to **Block**
@@ -118,7 +116,7 @@ Mitigations by Category
 
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and select **insecureApp1_botprofile**
 #.  Click on the tab for **Bot Mitigation Settings**
-#.  Select CAPTCHA for Malicious Bot and click **Save*
+#.  Select CAPTCHA for Malicious Bot and click **Save**
 
 	|captcha|
 
@@ -138,7 +136,7 @@ Mitigations by Category
 	|honey|
 
 #.  Run the curl command again from above and take a look at the results.
-#.  Navigate to **Security > Event Logs > Bot Defense > Bot Traffic** and take a look at the dashboard.
+#.  Navigate to **Security > Event Logs > Bot Defense > Bot Traffic** and take a look at the dashboard. This dashboard will show all of your mitigations for each Virtual Server that has a Bot Profile
 
 	|dashboard|
 
