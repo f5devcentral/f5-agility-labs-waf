@@ -37,7 +37,7 @@ Objective
 
 -  Estimated time for completion: **20** **minutes**
 
-.. IMPORTANT:: To clearly demonstrate just the Bot Defense profile, please **disable all security policy on the virtual server**.
+.. IMPORTANT:: To clearly demonstrate just the Bot Defense profile, please **disable all security policies on the virtual server**.
 
         |blank_vs|
 

@@ -33,9 +33,48 @@ Lab 4.1: Login Page Protection
         :width: 800px
 ..  |lab41-16| image:: images/lab41-16.png
         :width: 800px
+..  |lab41-17| image:: images/lab41-17.png
+        :width: 800px
+..  |lab41-18| image:: images/lab41-18.png
+        :width: 800px
+..  |lab41-19| image:: images/lab41-19.png
+        :width: 800px
+..  |lab41-20| image:: images/lab41-20.png
+        :width: 600px
 
 
 In this exercise we'll explore some of the login protection and session tracking capabilities present in BIG-IP ASM.  BIG-IP ASM not only has the capability to gather user identity details from login pages and APM, but can also generate a unique device-id for each connected client.  You'll explore this more in WAF341.
+
+
+Task 0: Level Set
+~~~~~~~~~~~~~~~~~
+
+This lab depends on components built in WAF141.  If you're continuing on from WAF141 using the same lab environment, proceed to Task1.  If this is a new environment, follow the directions below to restore a completed policy from WAF141.
+
+#.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut.
+
+#.  Login to the BIG-IP.
+
+#.  Navigate to **Security -> Application Security -> Security Policies**.
+
+#.  Click the **...** button next to create, then click **import policy**.
+
+    |lab41-17|
+
+#.  Naviagte to the waf241 folder and open the **waf141_complete.xml** file.
+
+    |lab41-18|
+
+#.  Ensure that **New Policy** is selected and click **Import**.
+
+    |lab41-19|
+
+#.  You now have a policy like the one below:
+
+    |lab41-20|
+
+#.  If everything looks correct, continue to **Task 1**.
+
 
 Task 1: Verify ASM configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,6 +86,7 @@ Task 1: Verify ASM configuration
 #.  Ensure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below.
 
         |lab41-01|
+
 
 Task 2: Define Login & Logout Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -132,7 +172,7 @@ Task 5: Test Session Tracking
         |lab41-15|
 
         .. NOTE::  Since we are already logging all requests, this will not affect the logging per say, but will allow us to demonstrate the associated reporting features in ASM without blocking access to our lab client.
-        
+
 
 #.  Navigate to **Reporting -> Application -> Session Tracking Status**.  You should now see that the user f5student appears in the tracking list.  If you were to click "View Requests" you would be taken to only the requests made by that user.  You may also use this page to release the user from Session Tracking.  These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
 
