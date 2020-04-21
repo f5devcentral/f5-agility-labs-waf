@@ -87,6 +87,8 @@ Task 1: Verify ASM configuration
 
         |lab41-01|
 
+#.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode.
+
 
 Task 2: Define Login & Logout Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -122,13 +124,13 @@ Task 2: Define Login & Logout Pages
 Task 3: Test Login Enforcement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  In Firefox, browse to **https://insecureapp1.f5.demo/WebGoat/welcome.mvc**
+#.  In Firefox, browse to **https://insecureapp1.f5.demo/WebGoat/start.mvc**
 
 #.  Your attempt should be blocked:
 
         |lab41-08|
 
-#.  Now, navigate to **Security -> Event Logs -> Application -> Requests** and locate the **welcome.mvc** request.  It should be near the top.
+#.  Now, navigate to **Security -> Event Logs -> Application -> Requests** and locate the **start.mvc** request.  It should be near the top.
 
         |lab41-09|
 
@@ -157,7 +159,7 @@ Task 4: Enable Session Tracking
 Task 5: Test Session Tracking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  In Firefox open a private browsing window and navigate to webgoat using the **insecureApp1** bookmark, then login.
+#.  In Firefox open a private browsing window and browse to **https://insecureapp1.f5.demo/WebGoat/login** then login.
 
 #.  Return to the BIG-IP interface and navigate to **Security -> Event Logs -> Application -> Requests**
 
