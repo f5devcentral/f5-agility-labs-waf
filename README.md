@@ -1,4 +1,4 @@
-# F5 Agility 2018 WAF docs
+# F5 Agility 2020 WAF docs
 
 https://github.com/f5devcentral/f5-agility-labs-waf
 
