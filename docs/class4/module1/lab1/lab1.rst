@@ -37,7 +37,7 @@ Objective
 
 -  Estimated time for completion: **20** **minutes**
 
-.. IMPORTANT:: To clearly demonstrate just the Bot Defense profile, please **disable all security policies on the virtual server**.
+        .. IMPORTANT:: To clearly demonstrate the Bot Defense profile, please disable any previously configured security profiles on the virtual server.”
 
         |blank_vs|
 
@@ -71,21 +71,19 @@ A Balanced Approach
 In WAF141 we viewed logs showing that bots were indeed connecting to our app.  In your environment, there may be some bots that are welcome, while others are unknown or malicious.  Please note that these next steps are to give you an idea on how some bots can be mitigated, but every envrionment is different.
 
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and click on **insecureApp1_botprofile**
-    
+
     .. NOTE:: The profile we are using was created with a "Relaxed" template.  In order to start with a Balanced Approach, you would need to create a new Profile.  Instead, here we will change individual settings.  Click on **Learn More** if you are interested in the other default options.
 
-#.  Under General Settings, change the Enforcement Mode to Blocking and click Save.
+
+#.  Under General Settings, change the Enforcement Mode to Blocking
 
         |setblock|
 
-#.  Click on the Browsers tab on the left and Change the Browser Verification setting to **Verify Before Access**
+#.  Click on the Browsers tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
 
         |pbd|
 
-Before The Unified Bot Defense Profile was introduced in 14.1, this was the default and only setting if ProActive Bot Defense was enabled.
-
 #.  Save the changes to your Bot Defense profile.
- 
 
 
 Block a Bot Request
@@ -116,7 +114,7 @@ Mitigations by Category
 
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and select **insecureApp1_botprofile**
 #.  Click on the tab for **Bot Mitigation Settings**
-#.  Select CAPTCHA for Malicious Bot and click **Save**
+#.  Select **CAPTCHA** for **Malicious Bot** and click **Save**
 
 	|captcha|
 
@@ -131,10 +129,11 @@ Mitigations by Category
 
 	|except_search|
 
-#.  Click Add and change the Mitigation to Honeypot Page
+#.  Click **Add** and change the Mitigation to **Honeypot Page**
 
 	|honey|
 
+#.  Click **Save**.
 #.  Run the curl command again from above and take a look at the results.
 #.  Navigate to **Security > Event Logs > Bot Defense > Bot Traffic** and take a look at the dashboard. This dashboard will show all of your mitigations for each Virtual Server that has a Bot Profile
 

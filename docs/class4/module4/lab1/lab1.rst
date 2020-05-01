@@ -93,7 +93,7 @@ Task 1: Verify ASM configuration
 Task 2: Define Login & Logout Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List** and click **Create**.
+#.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List**.  Ensure the **insecureApp1_asmpolicy** is selected at the top of the screen and click **Create**.
 
 #.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
 
@@ -107,19 +107,23 @@ Task 2: Define Login & Logout Pages
 
 #.  Populate the form as shown below and click **Create**.
 
-        |lab41-05|
+         |lab41-05|
 
-#.  Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**, populate the list shown below then click **save**.
+#.  Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**, populate the list shown
 
-        |lab41-06|
+
+         |lab41-06|
+
 
 #.  Now, head over to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings**
 
 #.  Expand **Sessions and Logins**
 
-#.  Ensure that the **Login URL bypassed** violation is configured as follows:
+#.  Ensure that the **Login URL bypassed** violation is configured as follows and click **save**:
 
         |lab41-07|
+
+#.  Click **Apply Policy**
 
 Task 3: Test Login Enforcement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -70,7 +70,7 @@ Create the DoS Profile
 Train the DoS Profile
 ~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open a Terminal Session on the BIG-IP and type **bash** followed by **enter**.
+#.  SSH into the BIG-IP as the **admin** user and type **bash** followed by **enter**.
 
 #.  Type the following command:
 
@@ -83,7 +83,7 @@ Train the DoS Profile
 
     |lab21-05|
 
-#.  Open another terminal window on your jumphost / client01, examine your home directory and run the **baseline_menu_SSL.sh** script.
+#.  Open a local terminal window on your jumphost / client01, examine your home directory, and run the **baseline_menu_SSL.sh** script.
 
     .. code-block:: bash
 

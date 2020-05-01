@@ -131,4 +131,4 @@ Task 4 - Review the Output
 |
 |
 
-**This concludes section 5.**
+**This concludes module 3.**
