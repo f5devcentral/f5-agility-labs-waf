@@ -1,143 +1,134 @@
-Lab 3: Web Scraping Protection
---------------------------------------
+Lab 3.1: DAST Integration
+-------------------------
 
-This lab will show you how to configure protection against webscraping activity using a Firefox loop macro.
+..  |lab31-01| image:: images/lab31-01.png
+        :width: 800px
+..  |lab31-02| image:: images/lab31-02.png
+        :width: 800px
+..  |lab31-03| image:: images/lab31-03.png
+        :width: 800px
+..  |lab31-04| image:: images/lab31-04.png
+        :width: 800px
+..  |lab31-05| image:: images/lab31-05.png
+        :width: 800px
+..  |lab31-06| image:: images/lab31-06.png
+        :width: 800px
+..  |lab31-07| image:: images/lab31-07.png
+        :width: 800px
+..  |lab31-08| image:: images/lab31-08.png
+        :width: 800px
+..  |lab31-09| image:: images/lab31-09.png
+        :width: 800px
+..  |lab31-10| image:: images/lab31-10.png
+        :width: 800px
+..  |lab31-11| image:: images/lab31-11.png
+        :width: 800px
+..  |lab31-12| image:: images/lab31-12.png
+        :width: 800px
+..  |lab31-13| image:: images/lab31-13.png
+        :width: 800px
+..  |lab31-14| image:: images/lab31-14.png
+        :width: 800px
+..  |lab31-15| image:: images/lab31-15.png
+        :width: 800px
 
-Connect to the lab environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. From the jumphost, launch chrome, click the BIG-IP bookmark and login to TMUI. admin/password
-
-#. From the jumphost, launch firefox, which we will use to create the macro.
-
-
-Remove any existing security policy from the Webgoat Virtual Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. On the BIG-IP TMUI, Go to Local Traffic > Virtual Servers > asm_vs
-
-#. Click the Security > Policies tab at the top 
-
-#. Change the Application Security Policy to “Disabled” 
-
-#. The Logging Profile should be set to “Log Illegal Requests” and click update
-
-
-Connect to the Webgoat Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Using Firefox, click on the shortcut for WEBGOAT login
-
-   ``http://10.1.10.145/WebGoat/login``
-
-.. note::
-        Note that you may use Chrome for BIG-IP access but you must use Firefox for the macro creation. 
-
-
-
-
-Create a web scraping macro
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Launch the iMacros sidebar by clicking on the icon at the top-right of Firefox
-
-|
-
-.. image:: images/iMacro.png
-        :width: 100px
-
-|
+ASM's DAST (Dynamic Application Security Testing) integration allows you to take the programmatic output from a vulnerability scan and use it to seed a security policy.  For this lab, we'll use output from WhiteHat's Sentinel(TM) product to create a security policy based on Sentinel's findings.
 
 
-2. Click the iMacro Rec menu, then click the Record button
 
-3. On the pop-up that asks to close all tabs, select No
+Task 1 - Create a Security Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4. Click Stop to save the current macro (URI should be /Webgoat/login )
+#.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut in Chrome.
 
-5. Click the Play menu and set the Max to 12 and click Play Loop
+#.  Login to the BIG-IP.
 
-6. Did the pages load successfully?  
+#.  Create a new ASM policy by navigating to **Security -> Application Security -> Security policies**.
 
+#.  Click **Create**, fill in the page as follows, and then click **save** as shown below.
 
-Create a security policy to prevent webscraping
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        |lab31-01|
+        |lab31-15|
 
-#. Log into the BigIP through the browser
+#.  Once the policy is created, go to **Security -> Application Security -> Vulnerability Assessments -> Settings**.
 
-#. Click on Security > Application Security > Security Policies and Create 
+#.  Select **WhiteHat Sentinel (US server)** from the dropdown list, then click **ok**.  **Do not** click save.
 
-#. Select the Advanced view instead of Basic (default)
+        |lab31-02|
 
-#. Name the policy “webscraping” 
+    .. NOTE:: It's worth mentioning that ASM and Sentinel have more advanced integrations that we will not explore here, for this reason the Site Name and API Key are not used. This is mostly due to the logistics of procuring Sentinel accounts for all students attending this lab. This additional functionality provides an API key will allow you to pull in scan data directly from Sentinel into ASM as well as share ASM site mapping data back to Sentinel in order to improve scanning capabilities.
 
-#. Select “Rapid Deployment Policy” for the "Policy Template", this will bring up a prompt asking if you want to continue, click "Ok"
+Task 2 - Import the Scan Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select “asm_vs” for Virtual Server and click Create Policy (upper left)
+#.  Select the **Vulnerabilities** tab at the top:
 
-#. Change Enforcement Mode to “Blocking”
+        |lab31-03|
 
-#. Once created, go to Application Security > Anomaly Detection > Web Scraping
+#.  **Click** the **import** button:
 
-#. Click Bot Detection and select “Alarm and Block”.  This will bring up a "Bot Detection" menu below
+        |lab31-04|
 
-#. Edit the settings per the screenshot, click Save and then Apply Policy
+#.  Import the **webgoat.xml** file from **/home/f5student/ASM241** .
 
-|
+        |lab31-05|
 
-.. image:: images/bot_detection_settings.png
-        :width: 600px
+#.  Ensure that the webgoat.f5 domain is selected and click **import** once more.
 
-|
+        |lab31-06|
 
-Create a DNS Resolver 
-~~~~~~~~~~~~~~~~~~~~~
+#.  You should see a confirmation like the one below.  Click **close**.
+
+        |lab31-13|
+
+#.  You'll then be greeted by a list of vulnerability types and an indication of whether or not they are automatically resolvable by ASM:
+
+        |lab31-07|
+
+    .. NOTE:: Many of the vulnerabilities marked as not resolvable may yet be reslovable by ASM, but not automatically.
 
 |
 
-.. note:: A DNS Resolver (allows the Bigip to do DNS lookups) is required for effective anomaly detection
+#. Under the view option, select Resolvable to hide vulnerabilities beyond the scope of this lab.
+
+        |lab31-14|
+
+#. Select **SQL Injection** from the bottom then click on the first **Vulnerability ID**. You'll be shown more details about the specific vulnerability such as the relevant URL and Parameter where the vulnerability is present (as in this case).
+
+        |lab31-08|
+
+
+
+Task 3 - Remediate some Vulnerabilities
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#.  Select the checkbox at the top to select all of the SQL injection vulnerabilities and click **resolve**.  Note that there are a number of other options including "Resolve and Stage" which would put the changes into staging for further evaluation.
+
+        |lab31-09|
+
+#.  ASM then provides a list of the changes it's about to make.  Review the changes and click **resolve**.
+
+        |lab31-10|
+
+#.  You'll notice that the vulnerabilities you selected are now marked mitigated.
+
+        |lab31-11|
+
+
+Task 4 - Review the Output
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#.  Now navigate to **Security -> Application Security -> URLs -> Allowed URLs -> Allowed HTTP URLs** and you'll see that the ASM policy has been populated for you.
+
+        |lab31-12|
+
+
+#.  Now return to the Vulnerabilities dialog and explore some of the other items if you wish.  **Hint:** You can utilize **Tree View** under **Security -> Application Security -> Policy -> Tree View** to get a summary of what's in the policy.  Be sure you've selected the correct security policy in the dropdown.
+
+
+    .. NOTE::  Data from a vulnerability scan can be a great way to get an ASM policy up and running quickly but you should consider that there may be vulnerabilities in the application beyond the reach of the scanner.  It is therefore a good idea in many instances to enable the Automatic Policy Builder after policy creation to help refine the policy and tighten security over time.
 
 |
-
-#. You can either follow the link in the warning as you enable Web Scraping, or go to Network > DNS Resolvers > DNS Resolver List and Create
-
-#. Assign a name to the Resolver profile and click Finished
-
-
-Attempt to scrape the Webgoat Login Page
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Go back to your Webgoat tab in Firefox and re-run the macro you created
-
-#. Did the page hits load successfully?
-
-
-Review the Security Event Logs 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Go to Security > Event Logs > Application > Requests
-
-2. You should see some current illegal requests, as in the example below, click on one and examine the details
-
 |
 
-.. image:: images/webScrapingLog.png
-        :width: 600px
-
-|
-
-
-3. What caused ASM to block the request?
-
-4. Now go to Security > Event Logs > Application > Web Scraping Statistics
-
-5. Do you see any events?  
-
-
-Reset the Virtual Server config for the next lab
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Clear the app security event log by going to Secuirty > Application Security -> Event Logs > Requests and clicking the check box to select all "Illegal Requests". Then click "Delete Requests".
-
-#. Remove the webscraping security profile from the asm_vs virtual server by going to Local Traffic > Virtual Servers > asm_vs, then click Security > Policies tab. Then set "Application Security Policy" to Disabled and click Update.
-
+**This concludes module 3.**

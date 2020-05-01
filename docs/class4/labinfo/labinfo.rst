@@ -1,53 +1,42 @@
-Lab Environment & Tools
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lab Environment & Topology
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. WARNING:: All work for this lab will be performed exclusively from the Linux
-   Jumphost/Client (client01). The client is accessed via RDP (Windows Remote Desktop) or ssh. No installation or interaction with your local system is
-   required.
+.. NOTE:: All work is done from the Linux client/jumphost (client01), which can be accessed via RDP (Windows Remote Desktop) or ssh. No installation or interaction with your local system is required.
 
-All pre-built environments implement the Lab Topology shown below.  Please
-review the topology first, then find the section matching the lab environment
-you are using for connection instructions.
+Environment
+-----------
 
-Components and Tools
-~~~~~~~~~~~~~~~~~~~~
+**Linux client (client01):**
 
-Linux Client (Client01):
+**Web Attack Tools used in this lab:**
 
-* Web Attack Tools:
-
- * `Burp Suite Community Edition <https://portswigger.net/burp>`_ - HTTP Request Manipulation
- * `iMacros <https://imacros.net/>`_ - Web Scraping
+ * `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
+ * `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
  * `ab (Apache Bench) <https://httpd.apache.org/docs/2.4/programs/ab.html>`_ - HTTP Load Testing
+ 
+**Linux server (server01):**
 
-Kali Client (Kali-BaDOS):
+* `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. The primary goal of the WebGoat project is simple: create a de-facto interactive teaching environment for web application security.
 
- * `ab (Apache Bench) <https://httpd.apache.org/docs/2.4/programs/ab.html>`_ - HTTP Load Testing
-
-Linux Server (Server01):
-
- * `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - deliberately insecure application
-
-LAMP Server (LAMPv4):
-
- * `Hackazon <https://github.com/rapid7/hackazon>`_ - deliberately insecure application
-
-BIG-IP (bigip01):
-
- * Local Traffic Manager
- * Application Security Manager / Advanced WAF
+.. _lab-topology:
 
 Lab Topology
-~~~~~~~~~~~~
+---------------
 
-#####Need topology description#####
+The network topology implemented for this lab is very simple. The following
+components have been included in your lab environment:
+
+-  1 x Ubuntu Linux 18.04 client
+-  1 x F5 BIG-IP VE (v15.1.0.1) running Advanced WAF with Ip Intelligence & Threat Campaigns Subscription Services.  
+-  1 x Ubuntu Linux 18.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
 
 .. list-table::
-   :widths: 15 15 15 15 20 
+   :widths: 15 15 15 15 15
    :header-rows: 1
+   :stub-columns: 1
 
 
    * - **Component**
@@ -56,40 +45,17 @@ components:
      - **servernet IP**
      - **Credentials**
    * - Linux Client (client01)
-     - 10.1.1.51
+     - 10.1.1.5
      - 10.1.10.51
      - N/A
-     - https-``f5student:f5DEMOs4u!``
+     - rdp-``f5student:password``
    * - Bigip (bigip01)
-     - 10.1.1.245
+     - 10.1.1.8
      - 10.1.10.245
      - 10.1.20.245
-     - https - ``admin:password`` ssh - ``f5student:f5DEMOs4u!``
-   * - Linux Server (server01)
-     - 10.1.1.252
+     - https - ``admin:password``  ssh - ``f5student:password``
+   * - Linux Server & WebGOAT app (server01)
+     - 10.1.1.6
      - N/A
      - 10.1.20.252
-     - ssh - ``f5student:f5DEMOs4u!``
-   * - Kali (Kali-BaDOS)
-     - 10.1.1.245
-     - 10.1.10.100 / 10.1.10.200
-     - N/A
      - ssh - ``f5student:password``
-   * - Linux Server (LAMPv4)
-     - 10.1.1.250
-     - N/A
-     - 10.1.20.250
-     - N/A
-
-
-
-A graphical representation of the lab:
-
-.. image:: images/ASM241_2018LabDiagram.png
-
-|
-
-.. note:: 
-        
-        External links are not required reading for the lab, rather supplemental if you you would like to get a different take or additional info.
-
