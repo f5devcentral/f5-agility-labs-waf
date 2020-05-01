@@ -150,4 +150,4 @@ Remove the Bot Profile
 	|clean_prof|
 
 
-**This completes Lab 1**
+**This concludes Lab 1**

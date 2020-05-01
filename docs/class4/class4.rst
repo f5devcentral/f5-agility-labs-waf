@@ -24,4 +24,3 @@ ASM342 - WAF Programmability - Enhancing ASM Security and Manageability
 
    labinfo/lab*
    module*/module*
-   howtos/howtos

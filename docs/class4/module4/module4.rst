@@ -7,5 +7,4 @@ Expected time to complete: **TBD**
    :glob:
 
    lab*/lab*
-   review
 

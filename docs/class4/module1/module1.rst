@@ -9,5 +9,4 @@ Expected time to complete: **20 min**
    :glob:
 
    lab*/lab*
-   review
 
