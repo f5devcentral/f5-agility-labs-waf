@@ -1,5 +1,5 @@
 Module 1: Bot Defense
-===================================================
+=====================
 Expected time to complete: **20 min**
 
 
@@ -9,5 +9,4 @@ Expected time to complete: **20 min**
    :glob:
 
    lab*/lab*
-   review
 
