@@ -1,4 +1,4 @@
-ab 1: Brute Force Attack Prevention
+Lab 1: Brute Force Attack Prevention
 ----------------------------
 
 ..  |lab1-1| image:: images/lab1-1.png
