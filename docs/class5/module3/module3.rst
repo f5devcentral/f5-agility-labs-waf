@@ -1,4 +1,4 @@
-Module 3: Advanced WAF
+Module 3: DataSafe
 ===================================================
 Expected time to complete: **30 minutes**
 
