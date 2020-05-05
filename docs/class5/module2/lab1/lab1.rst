@@ -1,111 +1,85 @@
-Lab 2.1: User Session Tracking
-------------------------------
+Lab 2: Credential Stuffing
+----------------------------
 
-..  |lab21-1| image:: images/lab21-1.png
+..  |lab2-11| image:: images/lab2-11.png
         :width: 800px
-..  |lab21-2| image:: images/lab21-2.png
+..  |lab2-1| image:: images/lab2-1.png
         :width: 800px
-..  |lab21-3| image:: images/lab21-3.png
+..  |lab2-2| image:: images/lab2-2.png
         :width: 800px
-..  |lab21-4| image:: images/lab21-4.png
+..  |lab2-3| image:: images/lab2-3.png
         :width: 800px
-..  |lab21-5| image:: images/lab21-5.png
+..  |lab23-5| image:: images/lab23-5.png
         :width: 800px
-..  |lab21-ffprivate| image:: images/lab21-ffprivate.png
-        :width: 600px
-..  |lab21-6| image:: images/lab21-6.png
+..  |lab23-6| image:: images/lab23-6.png
         :width: 800px
-..  |lab21-7| image:: images/lab21-7.png
+..  |lab23-7| image:: images/lab23-7.png
         :width: 800px
 
-In this exercise we'll explore the session tracking capabilities present in BIG-IP ASM.  BIG-IP ASM not only has the capability to gather user identity details from login pages and APM, but can also generate a unique device-id for each connected client.  We'll explore both below.
+Credential stuffing is a type of brute force attack that leverages stolen credentials from another source. This source is most commonly the breach of a widley used online service.  These leaked credentials are then levered in an attempt to compromise higher value targets in instances where users used the same credentials across multiple services. BIG-IP now has the capability to detect these types of attacks by employing a database of credentials that are known to have been compromised in a previous breach. The credentials are stored as one-way hashed usernames and passwords to protect them from further disclosure. Also note that we've chosen CAPTCHA as mitigation for this lab because it provides immediate feedback to the student.  In a production environment, Client Side Integrity Defense (or both), may be a more effective form of mitigation during an actual attack.  Feel free to experiment with this in the lab.
 
-Task 1: Create a Security Policy and Enable Logging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. note:: Items in this section depend on steps in prior sections, please ensure you've completed all sections in this lab  up to this point before beginning this lab.
 
-#.  Open your browser of choice and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.1.245/`` or by clicking on the **bigip** shortcut in Firefox.
 
-#.  Login to the BIG-IP with the username: **f5student** and the password **password**
+Task 1 - Configure Credential Stuffing Detection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Create a new ASM policy by navigating to **Security -> Application Security -> Security Policies**.
-
-#.  Click **Create New Policy**, fill in the page as follows, and then click **Create Policy** as shown below.
+#.  Open the BIG-IP interface in Firefox. 
     
-        |lab21-1|
-        
-        .. NOTE:: If the virtual server doesn't appear in the dropdown list, ensure that it has an HTTP profile assigned.
+#.  Navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force Attack Prevention**.
 
-#.  Navigate to **Local Traffic -> Virtual Servers -> asm_vs -> Security -> Policies**.
+#.  Configure **Credential Stuffing** detection within the **Distributed Brute Force Protection** Section as follows:
 
-#.  Ensure the Log Profile is set to  **"Log All Requests"** profile as shown below.
+    |lab2-11|
 
-        |lab21-2|
+#.  Click **Create** .
 
-        .. note:: While you're here it's a good idea to confirm that the Lab2 security policy is also enabled.
-
-
-Task 2: Define Login & Logout Pages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List** and click **Create**.
-
-#.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
-
-        |lab21-3|
-
-#.  Populate the form as shown below and click **Create**:
-
-        |lab21-4|
-
-#.  From the tab bar select **Logout Pages List** or navigate to **Security -> Application Security -> Sessions and Logins -> Logout Pages List**
-
-#.  Populate the form as shown below and click **Create**.
-
-        |lab21-5| 
-
-
-Task 3: Enable Session Tracking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#.  Navigate to **Security -> Application Security -> Sessions and Logins -> Session Tracking**
-
-#.  Check **Session Awareness** and ensure **Use All Login Pages** is selected in the drop-down below it.
     
-#.  Ensure **Track Violations and perform Actions** is also enabled, then click **Save**.
-
-#.  Click **Apply Policy** in the upper right hand corner of the inner frame, then click **OK**.
+#.  Click **Apply Policy**, then click **OK** .
 
 
-Task 4: Test Session Tracking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 2 - Test Credential Stuffing Detection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+#.  Open a new Private Browsing window in **Firefox** .
 
-#.  Navigate to **Security -> Event Logs -> Application -> Requests** and click the **X** in the filter bar to clear the **Illegal Requests** filter.
+#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
-#.  Click on the select all **checkbox** to the far left of the filter bar then **Delete Requests** or if given the option **Delete all Requests**.  This will make it easier to review the logs from the next step.
+#.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``.  On the second attempt, you should immediately be challenged via CAPTCHA because this username/password combination is present in the credential stuffing database.
 
-#.  In Firefox open a private browsing window and navigate to ``http://10.1.10.145/WebGoat/login``, then login to the WebGoat app with the credentials **f5student** / **password** .
+#.  **Solve** the CAPTCHA(s) and continue.
 
-        |lab21-ffprivate|
+#.  Examine the most recent **illegal** request in the event log:
+
+    |lab2-1|
+
+    Take note of the username field.  The request was blocked as a brute force attack.
+
+#.  Click the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window:
+
+    |lab2-2|
+
+    The message indicates the number of login attempts that matched the internal database.
+
+#.  Now check out the reporting under **Event Logs -> Application -> Brute Force Attacks**:
+
+    |lab2-3|
+
+#.  Click on one of the attack entries to get some more detail about the attack:
+
+    |lab23-7|
+
+#.  For fun, head over to ``https://haveibeenpwned.com/`` and put in the email address of the account we used in the lab to get some details.  It may also be interesting to put in your own account(s) to see if any of your credentials have been breached.  You could also try some of your old username/password combinations against the credential stuffing database on the F5.  While on the main page explore some of the breach data on the bottom to get a sense of how big this problem is.
+
+   
+
+#.  In order to release any blocking that's currently in place, navigate to **Security -> Application Security -> Brute Force Attack Prevention** and **Delete** the Brute Force configuration we created previously.
+
+#. Click **Apply Policy** then click **OK**.
+
+|
+|
 
 
-#.  Return to the BIG-IP interface.
-
-#.  Deselect the **checkbox** and click the **refresh** button.
-
-#.  Click on the most recent log entry.  You should now see that the username that submitted the request is clearly identified in the log.
-
-        |lab21-6|
-
-#.  Click the drop-down next to the username field and you should be given 3 options.  **Enable** "Log All Requests" and click **change**.
-
-        |lab21-7|
-
-        .. NOTE::  Since we are already logging all requests, this will not affect the logging per say, but will allow us to demonstrate the associated reporting features in ASM without blocking access to our lab client.
-
-#.  Navigate to **Reporting -> Application -> Session Tracking Status**.  You should now see that the user f5student appears in the tracking list.  If you were to click "View Requests" you would be taken to only the requests made by that user.  You may also use this page to release the user from Session Tracking.  These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
-
-#.  Finally, **select** the f5student entry in the list and click **release**, then close the private browsing window.
-
-
-    **This concludes Section 2.1**
+**This concludes Lab 2.**
 

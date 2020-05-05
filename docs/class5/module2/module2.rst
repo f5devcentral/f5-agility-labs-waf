@@ -1,12 +1,11 @@
-Module 2: Beyond Signatures and Positive Security
+Module 2: Credential Stuffing Protection
 ===================================================
-Expected time to complete: **1 hours**
+Expected time to complete: **1.5 hours**
 
-This introductory class covers the following topics:
+This first module covers the following topics:
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
    lab*/lab*
-
