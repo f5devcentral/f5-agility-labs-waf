@@ -1,5 +1,5 @@
 Lab 1: Brute Force Attack Prevention
-----------------------------
+####################################
 
 ..  |lab1-1| image:: images/lab1-1.png
         :width: 800px
@@ -47,7 +47,7 @@ Task 1 - Configure Brute Force Attack Prevention
 
 
 Task 2 - Test username based Brute Force Protection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
 #.  Open a new Private Browsing window in **Firefox** .
 
@@ -69,7 +69,7 @@ Task 2 - Test username based Brute Force Protection
     The message indicates the number of login attempts by a user exceeded the threshold.
 
 Task 3 - Enable Device ID
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.  The Device ID is a unique identifier that F5 WAF creates by sending JavaScript to get information about the client device
 
@@ -79,7 +79,7 @@ Task 3 - Enable Device ID
 
 
 Task 4 - Test Device ID based Brute Force Protection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #.  Open a new Private Browsing window in **Firefox** .
 

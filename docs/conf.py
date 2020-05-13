@@ -69,34 +69,6 @@ if 'github_repo' in locals() and len(github_repo) > 0:
 else:
     rst_prolog += ".. |repoinfo| replace:: \ \n"
 
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-on_snops = os.environ.get('SNOPS_ISALIVE', None) == 'True'
-
-print "on_rtd = %s" % on_rtd
-print "on_snops = %s" % on_snops
-
-branch_map = {
-    "stable":"master",
-    "latest":"master"
-}
-
-try:
-    if not on_rtd:
-        from git import Repo
-        repo = Repo("%s/../" % os.getcwd())
-        git_branch = repo.active_branch
-        git_branch_name = git_branch.name
-    else:
-        git_branch_name = os.environ.get('READTHEDOCS_VERSION', None)
-except:
-    git_branch_name = 'master'
-
-print "guessed git branch: %s" % git_branch_name
-
-if git_branch_name in branch_map:
-    git_branch_name = branch_map[git_branch_name]
-    print " remapped to git branch: %s" % git_branch_name
-
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -128,11 +100,6 @@ graphviz_dot_args = [
      "-Efontname='%s'" % graphviz_font
 ]
 
-html_context = {
-  "github_url":github_repo,
-  "github_branch":git_branch_name
-}
-
 diag_fontpath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 diag_html_image_format = 'SVG'
 diag_latex_image_format = 'PNG'
@@ -157,10 +124,6 @@ if found:
   spelling_ignore_python_builtins=True
   spelling_ignore_importable_modules=True
   spelling_filters=[]
-
-source_parsers = {
-   '.md': 'recommonmark.parser.CommonMarkParser',
-}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -222,9 +185,6 @@ html_last_updated_fmt = '%Y-%m-%d %I:%M:%S'
 
 def setup(app):
     app.add_stylesheet('css/f5_agility_theme.css')
-
-if on_rtd:
-    templates_path = ['_templates']
 
 extlinks = {
     'issues':( ("%s/issues/%%s" % github_repo), 'issue ' )
