@@ -69,4 +69,4 @@ Task 2 - Test DataGuard
 |
 |
 
-**This concludes section 2.**
+**This concludes section 2.2**
