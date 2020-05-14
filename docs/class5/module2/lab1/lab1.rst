@@ -33,4 +33,4 @@ Task 2 - Restricting Method on per URL basis
 
 #. What is the result, and why?  The result should be the request getting block because a method (POST) has been enforced on the URL /WebGoat/login
 
-**This concludes section 2.**
+**This concludes section 2.1**
