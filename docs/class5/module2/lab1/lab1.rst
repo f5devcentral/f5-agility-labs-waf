@@ -1,8 +1,8 @@
 Lab 2.1: Allowed HTTP Request Methods
 ----------------------------------------------------------
-.. |lab2.1-1| image:: /images/2.1-1.png
+.. |lab2.1-1| image:: images/2.1-1.png
         :width: 800px
-.. |lab2.1-2| image:: 2.1-2.png
+.. |lab2.1-2| image:: images/2.1-2.png
         :width: 800px
 .. |lab2.1-3| image:: images/2.1-3.png
         :width: 800px
