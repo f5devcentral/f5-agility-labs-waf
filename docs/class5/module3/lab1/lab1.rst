@@ -1,4 +1,4 @@
-Lab 3: DataSafe
+Lab 3.1: DataSafe
 -----------------------
 
 F5 Advanced WAF includes DataSafe which can protect your web applications from credential theft by MITB malware. In this exercise you will configure DataSafe to protect the Webgoat login page from credential theft.
@@ -32,7 +32,7 @@ F5 Advanced WAF includes DataSafe which can protect your web applications from c
 Task 1 - Login Observation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` 
+#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
 
 #. Right click in the username field and choose 'inspect element' (or use CTRL + SHIFT + N). Notice the form field is visible and is named 'username'
 
@@ -80,7 +80,7 @@ Task 2 - Configuring DataSafe
 Task 3 - Test Data Safe Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` 
+#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
 
 #. Right click in the username field and choose 'inspect element'. Notice the field name is obfuscated and rotates every few seconds.
 
@@ -97,5 +97,3 @@ Task 3 - Test Data Safe Configuration
     |Lab3-08|
 
 This concludes Lab 3.
-
-      
