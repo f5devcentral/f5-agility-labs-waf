@@ -24,9 +24,9 @@ Credential stuffing is a type of brute force attack that leverages stolen creden
 Task 1 - Configure Credential Stuffing Detection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open the BIG-IP interface in Firefox. 
+#.  Open the BIG-IP GUI interface. 
     
-#.  Navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force Attack Prevention**.
+#.  Navigate to **Security -> Application Security  -> Brute Force Attack Prevention**.
 
 #.  Configure **Credential Stuffing** detection within the **Distributed Brute Force Protection** Section as follows:
 

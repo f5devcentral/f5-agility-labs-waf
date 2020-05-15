@@ -51,7 +51,7 @@ Task 2 - Test DataGuard
 
     |lab2.2-3|
 
-#.  Type in something that looks like a social security number in the first field  like ``123-45-6789`` for example.
+#.  Type in something that looks like a social security number in the first field  like ``135-79-0246`` for example.
 
     |lab2.2-4|
 

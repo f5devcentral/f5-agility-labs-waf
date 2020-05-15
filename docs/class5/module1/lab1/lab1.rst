@@ -1,4 +1,4 @@
-Lab 1: Brute Force Attack Prevention
+Lab 1.1: Brute Force Attack Prevention
 ####################################
 
 ..  |lab1-1| image:: images/lab1-1.png
@@ -16,23 +16,44 @@ Lab 1: Brute Force Attack Prevention
 ..  |lab1-7| image:: images/lab1-7.png
         :width: 800px
 
+#. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this. 
+
+.. image:: images/xrdp.png
+  :width: 600 px
+
+Simply click in the username field and backspace. Enter the name: **f5student** and in the password firld use the **password** provided by the instructor. 
+
+#. Launch Chrome browser (please be patient and don't click the icon multiple times)
+
+.. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the "f5student" password provided by your lab instructor. 
+
+.. image:: images/keychain.png
+  :width: 600 px
+
+  
+
+
+
+
+
+.. note:: If you are continuing on from 141 Lab please do X. 
+            If you are continuing on from 241 lab please do y. 
+            
+        
+
 There is more than one kind of brute force attack. In the classic version, hackers attempt to log in to an application by repeatedly guessing users’ account credentials. Because of these attacks, most applications now lock an account when it encounters multiple unsuccessful authentication attempts, at least temporarily. However, this strategy only protects against attack on a single account.
-
 In another version of this attack, commonly called “credential stuffing,” hackers make only one attempt to log in to users’ accounts. They obtain a collection of user name and password combinations from a compromised application and programmatically evaluate them against their target application, looking for accounts where users reused their compromised credentials. When they finish, the hackers know those accounts for which they have valid credentials on the target application.
-
-.. note:: If you are continuing on from 141 Lab please do X. If you are continuing on from 241 lab please do y. Else :
-
 
 Task 1 - Configure Brute Force Attack Prevention
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open the BIG-IP interface in Firefox. 
+#.  Open the BIG-IP GUI interface . 
     
-#.  Navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force Attack Prevention** and click **Create**.
+#.  Navigate to **Security -> Application Security -> Brute Force Attack Prevention** and click **Create**.
 
     .. note:: F5 WAF has a number of brute force attack detection capabilities that are beyond the scope of this exercise.  Take some time to examine some of the other options as you work through this lab.  For more information see:  ``https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-asm-implementations/mitigating-brute-force-attacks.html`` .
 
-#.  Select the login page you created earlier.
+#.  Select the login page you created earlier or imported as part of lab setup.
 
     |lab1-1|
 
@@ -44,6 +65,10 @@ Task 1 - Configure Brute Force Attack Prevention
 
     
 #.  Click **Apply Policy**, then click **OK** .
+
+#. Ensure WAF and Bot policy are both applied to the Virtual as seen.
+
+    |lab1-2.1|
 
 
 Task 2 - Test username based Brute Force Protection
