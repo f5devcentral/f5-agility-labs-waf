@@ -15,6 +15,8 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |lab1-7| image:: images/lab1-7.png
         :width: 800px
+..  |lab1-2.1| image:: images/lab1-2.1.png
+        :width: 800px
 
 #. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this. 
 
