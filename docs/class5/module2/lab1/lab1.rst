@@ -6,9 +6,9 @@ Lab 2.1: Allowed HTTP Request Methods
         :width: 800px
 .. |lab2.1-3| image:: images/2.1-3.png
         :width: 800px
-.. |lab2.1-4| image:: images/2.1-4.png
+.. |lab2.1-4| image:: images/lab2.1-4.png
         :width: 800px
-.. |lab2.1-5| image:: images/2.1-5.png
+.. |lab2.1-5| image:: images/lab2.1-5.png
         :width: 800px
  
 Task 1 - Allowed Methods
