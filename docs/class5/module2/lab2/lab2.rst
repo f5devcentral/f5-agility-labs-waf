@@ -40,7 +40,7 @@ Task 1 - Configure DataGuard
 
 #.  Click **Apply Policy** then click **OK**.
 
-..  note:: Deploying DataGard too pervasively can have a negative performance impact on your system. In a production environment we typically recommend deploying DataGard against specific URLs where possible.
+..  note:: Deploying DataGuard too pervasively can have a negative performance impact on your system. In a production environment we typically recommend deploying DataGard against specific URLs where possible.
 
 Task 2 - Test DataGuard
 ~~~~~~~~~~~~~~~~~~~~~~~
