@@ -81,5 +81,5 @@ Task 2 - Test Credential Stuffing Detection
 |
 
 
-**This concludes Lab 1.**
+**This concludes Lab 1.2**
 

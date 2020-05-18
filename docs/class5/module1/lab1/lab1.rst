@@ -58,7 +58,7 @@ Lab 1.1: Brute Force Attack Prevention
 .. image:: images/xrdp.png
   :width: 600 px
 
-Simply click in the username field and backspace. Enter the name: **f5student** and in the password firld use the **password** provided by the instructor.
+Simply click in the username field and backspace. Enter the name: **f5student** and in the password field use the **password** provided by the instructor.
 
 #. Launch Chrome browser (please be patient and don't click the icon multiple times)
 
@@ -72,7 +72,7 @@ Simply click in the username field and backspace. Enter the name: **f5student** 
 Task 0: Level Set
 ~~~~~~~~~~~~~~~~~
 
-This lab depends on components built in earlier labs.  If you're continuing on from WAF241 using the same lab environment, proceed to Task1.
+This lab depends on components built in earlier labs.  If you're continuing on from WAF241 using the same lab environment, proceed to Task 1.
 
 If this is a new environment follow the directions below starting at step 1 to restore a completed policy.
 
@@ -117,14 +117,14 @@ Enabling Bot Defense
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and check to see if insecureApp1_botprofile has been created.  If not, click **Create**.
 #.  Name: **insecureApp1_botprofile**
 #.  Profile Template: **Relaxed**
-#.  change the Enforcement Mode to Blocking
+#.  Change the Enforcement Mode to Blocking
 #.  Click the **Learn more** link to see an explanation of the options.
 
         |bot_profile|
 
 #.  Click on the **Bot Mitigation Settings** tab and review the default configuration.
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
-#.  Click on the Browsers tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
+#.  Click on the **Browsers** tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
 
         |pbd|
 
@@ -155,10 +155,7 @@ Define Login & Logout Pages
 
                  |lab41-05|
 
-        #.  Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**, populate the list shown
-
-
-                 |lab41-06|
+        #. Please proceed to Task 1.
 
 
 
@@ -252,4 +249,4 @@ Task 4 - Test Device ID based Brute Force Protection
 |
 
 
-**This concludes Lab 1.**
+**This concludes Lab 1.1**
