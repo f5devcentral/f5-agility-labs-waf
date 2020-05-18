@@ -5,6 +5,9 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |lab1-2| image:: images/lab1-2.png
         :width: 800px
+..  |lab1-2.1| image:: images/lab1-2.1.png
+                :width: 800px
+
 ..  |lab1-3| image:: images/lab1-3.png
         :width: 800px
 ..  |lab1-4| image:: images/lab1-4.png
