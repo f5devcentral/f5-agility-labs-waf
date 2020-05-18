@@ -29,9 +29,9 @@ https://support.f5.com/csp/article/K52154401
 Host: Example.com
 Connection: Keep-alive
 Authorization: ******
-**Cookie: TS-Cookie**
+Cookie: TS-Cookie
 
-Cookies	Masks the values for allowed and enforced cookies types. The setting does not mask the cookie name and does not apply to BIG-IP ASM cookies.	GET / HTTP/1.1
+**Cookies**	Masks the values for allowed and enforced cookies types. The setting does not mask the cookie name and does not apply to BIG-IP ASM cookies.	GET / HTTP/1.1
 Host: Example.com
 Connection: Keep-alive
 Cookie: ******
@@ -77,4 +77,4 @@ Task 1 - Login Page
 
 
 
-:**This concludes section 2.3**
+**This concludes section 2.3**
