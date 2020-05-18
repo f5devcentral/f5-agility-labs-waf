@@ -46,7 +46,8 @@ Task 1 - Login Page
 #.  Open a new Private Browsing window in **Firefox** .
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``  and login
 
-#. Examine the most recent  request in the event log for /WebGoat/login. Notice that you can see the password for f5student in the request.
+#. Examine the most recent  request in the event log for /WebGoat/login. Notice that you cannot see the password for f5student in the request.
+   The password is masked in the logs due to a sensitive parameter setting.
 
         |lab2.3-0|
 
@@ -56,11 +57,13 @@ Task 1 - Login Page
 
 #. Next we will obfuscate cookies as they could contain sensitive information we would not want an administrator to have access to.
 
-#. Navigate to **Security -> Application Security -> Headers -> Cookies List
+#. Navigate to **Security -> Application Security -> Headers -> Cookies List.**
 
 #. Click Create and create the JSESSIONID cookie as seen below
 
         |lab2.3-2|
+
+#. Click **Save and Apply Policy**
 
 #. The cookie content is now obfuscated in the Logs when they were visible before.
 
@@ -70,7 +73,7 @@ Task 1 - Login Page
 
         |lab2.3-5|
 
-#. Click **Save and Apply Policy**
+
 
 
 
