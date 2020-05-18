@@ -232,13 +232,13 @@ Task 3 - Enable Device ID
 Task 4 - Test Device ID based Brute Force Protection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open a new Private Browsing window in **Chrome** .
+#.  Open a new **incognito window** window in **Chrome** .
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
-#.  Attempt to login using any username and password at least 4 times.
+#.  Attempt to login using **different** usernames and password each time.
 
-#. Once Blocked close the browser and re-open a new Private Browsing window in **Chrome**
+#. Once Blocked close the browser and re-open a new **incognito window** in **Chrome**
 
 #. Attempt to login using a different username as in step 3, your first login request should be blocked.
 
