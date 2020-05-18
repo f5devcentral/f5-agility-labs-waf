@@ -51,7 +51,7 @@ Task 1 - Login Page
 
         |lab2.3-0|
 
-#.  Open the BIG-IP interface in Firefox.
+#.  Open the BIG-IP interface.
 
 #.  Navigate to **Security -> Application Security -> Parameters List** and select the Sensitive Parameters tab and view the configuration.
 
@@ -63,9 +63,10 @@ Task 1 - Login Page
 
         |lab2.3-2|
 
-#. Click **Save and Apply Policy**
+#. Click **Create and Apply Policy**
 
 #.  Open a new Private Browsing window in **Firefox** .
+
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``  and login
 
 #. The cookie content is now obfuscated in the Logs when they were visible before.

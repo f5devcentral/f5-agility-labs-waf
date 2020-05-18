@@ -44,18 +44,18 @@ Task 1 - Login Observation
 
     |Lab3-02|
 
-#. Click in the **Network** tab in the Firefox Inspector
+#. Click in the **Network** tab in the Firefox Inspector and click **Persist logs**
 
 #. Login to the WebGoat application as f5student:password
 
-#. In the Firefox Inspector Network tab find the POST request to /login. Notice the password is in clear text!
+#. In the Firefox Inspector Network tab find the POST request to /login. Notice the password is in clear text in the request.
 
     |Lab3-03|
 
 Task 2 - Configuring DataSafe
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Browse to the BIGIP management console.
+#. Browse to the BIGIP GUI.
 
 #. Navigate to **Security -> Data Protection -> BIG-IP Data Safe** and click + to create a new profile.
 
