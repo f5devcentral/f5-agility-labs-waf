@@ -5,6 +5,12 @@ Lab 2.3: Sensitive Data
         :width: 800px
 ..  |lab2.3-1| image:: images/lab2.3-1.png
         :width: 800px
+..  |lab2.3-2| image:: images/lab2.3-2.png
+        :width: 800px
+..  |lab2.3-5| image:: images/lab2.3-5.png
+        :width: 800px
+..  |lab2.3-3| image:: images/lab2.3-3.png
+        :width: 800px
 
 
 
@@ -15,18 +21,23 @@ By default, the BIG-IP ASM system logs information about incoming requests to th
 
 You can mask data in the logs for the following policy elements.
 
+https://support.f5.com/csp/article/K52154401
 
 **Parameters**	Masks the parameter value, including the value for positional parameters. The setting does not mask the parameter name.	GET /profiles/****
+
 **HTTP headers**	Masks the header value. The setting does not mask the header name.	GET / HTTP/1.1
 Host: Example.com
 Connection: Keep-alive
 Authorization: ******
 **Cookie: TS-Cookie**
+
 Cookies	Masks the values for allowed and enforced cookies types. The setting does not mask the cookie name and does not apply to BIG-IP ASM cookies.	GET / HTTP/1.1
 Host: Example.com
 Connection: Keep-alive
 Cookie: ******
+
 **JSON Profiles**	Masks elements within the JSON data whose values are should considered sensitive.	secID: ******
+
 **XML Profiles**	Masks sensitive data in an XML document. You can specify the element or attribute whose value contains sensitive data and should be masked by the policy.	<secID>******</secID>
 
 
@@ -39,11 +50,28 @@ Task 1 - Login Page
 
         |lab2.3-0|
 
-#.  Open the BIG-IP interface in Firefox. 
+#.  Open the BIG-IP interface in Firefox.
 
-#.  Navigate to **Security -> Application Security -> Parameters List -> Brute Force Attack Prevention** and click **Create**.
+#.  Navigate to **Security -> Application Security -> Parameters List** and select the Sensitive Parameters tab and view the configuration.
 
-#. Configure the parameter as seen below. 
+#. Next we will obfuscate cookies as they could contain sensitive information we would not want an administrator to have access to.
 
-        |lab2.3-1|
+#. Navigate to **Security -> Application Security -> Headers -> Cookies List
+
+#. Click Create and create the JSESSIONID cookie as seen below
+
+        |lab2.3-2|
+
+#. The cookie content is now obfuscated in the Logs when they were visible before.
+
+        |lab2.3-3|
+
+        After applying mask.
+
+        |lab2.3-5|
+
+#. Click **Save and Apply Policy**
+
+
+
 :**This concludes section 2.3**
