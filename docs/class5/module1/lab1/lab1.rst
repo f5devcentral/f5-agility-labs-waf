@@ -104,7 +104,7 @@ If you are continuing from WAF 141 please start at step 9 below (setting policy 
 
     |lab41-01|
 
-#.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode.
+#.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode and click **Save and Apply Policy**.
 
     |lab41-007|
 
@@ -146,6 +146,9 @@ Define Login & Logout Pages
                 |lab41-03|
 
         #.  Populate the form as shown below and click **Create**:
+            ``Location: https://insecureapp1.f5.demo.com/WebGoat/welcome.mvc``
+            ``/WebGoat/login``
+            ``302``
 
                 |lab41-04|
 
@@ -155,7 +158,7 @@ Define Login & Logout Pages
 
                  |lab41-05|
 
-        #. Please proceed to Task 1.
+        Please proceed to Task 1.
 
 
 
@@ -198,7 +201,7 @@ Task 2 - Test username based Brute Force Protection
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
-#.  Attempt to login using any username (not f5student) and password at least 4 times.
+#.  Attempt to login using the same username (not f5student) and password at least 4 times.
 
 
 #.  Examine the most recent **illegal** request in the event log:
@@ -216,7 +219,7 @@ Task 2 - Test username based Brute Force Protection
 Task 3 - Enable Device ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.  The Device ID is a unique identifier that F5 WAF creates by sending JavaScript to get information about the client device
+#. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and under the **Browsers** tab edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.  The Device ID is a unique identifier that F5 WAF creates by sending JavaScript to get information about the client device
 
 #. Click **SAVE**
 

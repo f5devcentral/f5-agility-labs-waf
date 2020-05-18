@@ -45,9 +45,8 @@ Task 2 - Test Credential Stuffing Detection
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
-#.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``.  On the second attempt, you should immediately be challenged via CAPTCHA because this username/password combination is present in the credential stuffing database.
+#.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``.  On the second attempt, you should immediately be blocked because this username/password combination is present in the credential stuffing database.
 
-#.  **Solve** the CAPTCHA(s) and continue.
 
 #.  Examine the most recent **illegal** request in the event log:
 
