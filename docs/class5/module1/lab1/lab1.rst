@@ -23,8 +23,10 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |lab41-20| image:: images/lab41-20.png
         :width: 800px
-..  |pbd| image:: images/pbs.png
+..  |pbd| image:: images/pbd.png
         :width: 800px
+..  |lab41-01| image:: images/lab41-01.png
+                :width: 800px
 
 ..  |log_profile| image:: images/log_profile.png
         :width: 800px
@@ -32,6 +34,8 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |setblock| image:: images/setblock.png
         :width: 800px
+..  |bot_vs| image:: images/bot_vs.png
+                :width: 800px
 
 
 #. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this.
@@ -55,9 +59,9 @@ Task 0: Level Set
 
 This lab depends on components built in earlier labs.  If you're continuing on from WAF241 using the same lab environment, proceed to Task1.
 
-If this is a new environment follow the directions below to restore a completed policy.
+If this is a new environment follow the directions below starting at step 1 to restore a completed policy.
 
-If you are continuing from WAF 141 please start at step 9
+If you are continuing from WAF 141 please start at step 9 below (setting policy to blocking)
 
 #.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut.
 
@@ -133,15 +137,6 @@ In WAF141 we viewed logs showing that bots were indeed connecting to our app.  I
         |pbd|
 
 #.  Save the changes to your Bot Defense profile.
-
-
- https://github.com/f5devcentral/f5-agility-labs-waf/blob/master/docs/class4/module4/lab1/lab1.rst
-    https://github.com/f5devcentral/f5-agility-labs-waf/blob/master/docs/class4/module1/lab1/lab1.rst
-
-
-
-
-
 
 
 
