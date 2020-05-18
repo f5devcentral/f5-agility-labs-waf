@@ -34,26 +34,26 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 
 
-#. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this. 
+#. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this.
 
 .. image:: images/xrdp.png
   :width: 600 px
 
-Simply click in the username field and backspace. Enter the name: **f5student** and in the password firld use the **password** provided by the instructor. 
+Simply click in the username field and backspace. Enter the name: **f5student** and in the password firld use the **password** provided by the instructor.
 
 #. Launch Chrome browser (please be patient and don't click the icon multiple times)
 
-.. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the "f5student" password provided by your lab instructor. 
+.. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the "f5student" password provided by your lab instructor.
 
 .. image:: images/keychain.png
   :width: 600 px
 
-  
+
 
 Task 0: Level Set
 ~~~~~~~~~~~~~~~~~
 
-This lab depends on components built in earlier labs.  If you're continuing on from WAF241 using the same lab environment, proceed to Task1.  
+This lab depends on components built in earlier labs.  If you're continuing on from WAF241 using the same lab environment, proceed to Task1.
 
 If this is a new environment follow the directions below to restore a completed policy.
 
@@ -90,17 +90,17 @@ If you are continuing from WAF 141 please start at step 9
     |lab41-007|
 
 
-Enabling Bot Defense 
+Enabling Bot Defense
 ~~~~~~~~~~~~~~~~~~~~
 
-#.  Navigate to **Security > Event Logs > Logging Profiles** and check to see if the Bot_Log Profile is created.  If not, create a new Logging Profile with the settings shown in the screenshot below and click **create**. 
+#.  Navigate to **Security > Event Logs > Logging Profiles** and check to see if the Bot_Log Profile is created.  If not, create a new Logging Profile with the settings shown in the screenshot below and click **create**.
 
         |log_profile|
 
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and check to see if insecureApp1_botprofile has been created.  If not, click **Create**.
 #.  Name: **insecureApp1_botprofile**
 #.  Profile Template: **Relaxed**
-#.  Click the **Learn more** link to see an explanation of the options. 
+#.  Click the **Learn more** link to see an explanation of the options.
 
         |bot_profile|
 
@@ -108,13 +108,13 @@ Enabling Bot Defense
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
 #.  Click **Save**.
 #.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies**
-#.  Check to make sure that Bot Defense is enabled and select the  **insecureApp1_botprofile** and the **Bot_Log** profiles. 
+#.  Check to make sure that Bot Defense is enabled and select the  **insecureApp1_botprofile** and the **Bot_Log** profiles.
 #.  Click **Update**
 
         |bot_vs|
 
 
-A Balanced Approach 
+A Balanced Approach
 ~~~~~~~~~~~~~~~~~~~
 
 In WAF141 we viewed logs showing that bots were indeed connecting to our app.  In your environment, there may be some bots that are welcome, while others are unknown or malicious.  Please note that these next steps are to give you an idea on how some bots can be mitigated, but every envrionment is different.
@@ -141,9 +141,9 @@ In WAF141 we viewed logs showing that bots were indeed connecting to our app.  I
 
 
 
-          
-            
-        
+
+
+
 
 There is more than one kind of brute force attack. In the classic version, hackers attempt to log in to an application by repeatedly guessing users’ account credentials. Because of these attacks, most applications now lock an account when it encounters multiple unsuccessful authentication attempts, at least temporarily. However, this strategy only protects against attack on a single account.
 In another version of this attack, commonly called “credential stuffing,” hackers make only one attempt to log in to users’ accounts. They obtain a collection of user name and password combinations from a compromised application and programmatically evaluate them against their target application, looking for accounts where users reused their compromised credentials. When they finish, the hackers know those accounts for which they have valid credentials on the target application.
@@ -151,8 +151,8 @@ In another version of this attack, commonly called “credential stuffing,” ha
 Task 1 - Configure Brute Force Attack Prevention
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open the BIG-IP GUI interface . 
-    
+#.  Open the BIG-IP GUI interface .
+
 #.  Navigate to **Security -> Application Security -> Brute Force Attack Prevention** and click **Create**.
 
     .. note:: F5 WAF has a number of brute force attack detection capabilities that are beyond the scope of this exercise.  Take some time to examine some of the other options as you work through this lab.  For more information see:  ``https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-asm-implementations/mitigating-brute-force-attacks.html`` .
@@ -167,7 +167,7 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #.  Click **Create** .
 
-    
+
 #.  Click **Apply Policy**, then click **OK** .
 
 #. Ensure WAF and Bot policy are both applied to the Virtual as seen.
@@ -177,7 +177,7 @@ Task 1 - Configure Brute Force Attack Prevention
 
 Task 2 - Test username based Brute Force Protection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
 #.  Open a new Private Browsing window in **Firefox** .
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
@@ -224,7 +224,7 @@ Task 4 - Test Device ID based Brute Force Protection
 
     |lab1-6|
 
-#. Click on the Occurrences and notice the Device ID for the request. 
+#. Click on the Occurrences and notice the Device ID for the request.
 
     |lab1-7|
 
@@ -234,4 +234,3 @@ Task 4 - Test Device ID based Brute Force Protection
 
 
 **This concludes Lab 1.**
-
