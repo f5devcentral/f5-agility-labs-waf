@@ -15,6 +15,24 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |lab1-7| image:: images/lab1-7.png
         :width: 800px
+..  |lab41-17| image:: images/lab41-17.png
+        :width: 800px
+..  |lab41-18| image:: images/lab41-18.png
+        :width: 800px
+..  |lab41-19| image:: images/lab41-19.png
+        :width: 800px
+..  |lab41-20| image:: images/lab41-20.png
+        :width: 800px
+..  |pbd| image:: images/pbs.png
+        :width: 800px
+
+..  |log_profile| image:: images/log_profile.png
+        :width: 800px
+..  |bot_profile| image:: images/bot_profile.png
+        :width: 800px
+..  |setblock| image:: images/setblock.png
+        :width: 800px
+
 
 #. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this. 
 
@@ -32,12 +50,98 @@ Simply click in the username field and backspace. Enter the name: **f5student** 
 
   
 
+Task 0: Level Set
+~~~~~~~~~~~~~~~~~
+
+This lab depends on components built in earlier labs.  If you're continuing on from WAF241 using the same lab environment, proceed to Task1.  
+
+If this is a new environment follow the directions below to restore a completed policy.
+
+If you are continuing from WAF 141 please start at step 9
+
+#.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut.
+
+#.  Login to the BIG-IP.
+
+#.  Navigate to **Security -> Application Security -> Security Policies**.
+
+#.  Click the **...** button next to create, then click **import policy**.
+
+    |lab41-17|
+
+#.  Navigate to the waf241 folder and open the **waf141_complete.xml** file.
+
+    |lab41-18|
+
+#.  Ensure that **New Policy** is selected and click **Import**.
+
+    |lab41-19|
+
+#.  You now have a policy like the one below:
+
+    |lab41-20|
+
+#.  Ensure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below.
+
+    |lab41-01|
+
+#.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode.
+
+    |lab41-007|
+
+
+Enabling Bot Defense 
+~~~~~~~~~~~~~~~~~~~~
+
+#.  Navigate to **Security > Event Logs > Logging Profiles** and check to see if the Bot_Log Profile is created.  If not, create a new Logging Profile with the settings shown in the screenshot below and click **create**. 
+
+        |log_profile|
+
+#.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and check to see if insecureApp1_botprofile has been created.  If not, click **Create**.
+#.  Name: **insecureApp1_botprofile**
+#.  Profile Template: **Relaxed**
+#.  Click the **Learn more** link to see an explanation of the options. 
+
+        |bot_profile|
+
+#.  Click on the **Bot Mitigation Settings** tab and review the default configuration.
+#.  Click on the **Signature Enforcement** tab and review the default configuration.
+#.  Click **Save**.
+#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies**
+#.  Check to make sure that Bot Defense is enabled and select the  **insecureApp1_botprofile** and the **Bot_Log** profiles. 
+#.  Click **Update**
+
+        |bot_vs|
+
+
+A Balanced Approach 
+~~~~~~~~~~~~~~~~~~~
+
+In WAF141 we viewed logs showing that bots were indeed connecting to our app.  In your environment, there may be some bots that are welcome, while others are unknown or malicious.  Please note that these next steps are to give you an idea on how some bots can be mitigated, but every envrionment is different.
+
+#.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and click on **insecureApp1_botprofile**
+
+    .. NOTE:: The profile we are using was created with a "Relaxed" template.  In order to start with a Balanced Approach, you would need to create a new Profile.  Instead, here we will change individual settings.  Click on **Learn More** if you are interested in the other default options.
+
+
+#.  Under General Settings, change the Enforcement Mode to Blocking
+
+        |setblock|
+
+#.  Click on the Browsers tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
+
+        |pbd|
+
+#.  Save the changes to your Bot Defense profile.
+
+
+ https://github.com/f5devcentral/f5-agility-labs-waf/blob/master/docs/class4/module4/lab1/lab1.rst
+    https://github.com/f5devcentral/f5-agility-labs-waf/blob/master/docs/class4/module1/lab1/lab1.rst
 
 
 
 
-.. note:: If you are continuing on from 141 Lab please do X. 
-            If you are continuing on from 241 lab please do y. 
+          
             
         
 
