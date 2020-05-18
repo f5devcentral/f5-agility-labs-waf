@@ -31,6 +31,7 @@ Lab 1.1: Brute Force Attack Prevention
 ..  |lab41-01| image:: images/lab41-01.png
                 :width: 800px
 
+
 ..  |log_profile| image:: images/log_profile.png
         :width: 800px
 ..  |bot_profile| image:: images/bot_profile.png
@@ -38,7 +39,17 @@ Lab 1.1: Brute Force Attack Prevention
 ..  |setblock| image:: images/setblock.png
         :width: 800px
 ..  |bot_vs| image:: images/bot_vs.png
-                :width: 800px
+        :width: 800px
+..  |lab41-03| image:: images/lab41-03.png
+        :width: 800px
+..  |lab41-04| image:: images/lab41-04.png
+        :width: 800px
+..  |lab41-05| image:: images/lab41-05.png
+        :width: 800px
+..  |lab41-06| image:: images/lab41-06.png
+        :width: 800px
+..  |lab41-07| image:: images/lab41-07.png
+        :width: 800px
 
 
 #. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this.
@@ -100,47 +111,56 @@ If you are continuing from WAF 141 please start at step 9 below (setting policy 
 Enabling Bot Defense
 ~~~~~~~~~~~~~~~~~~~~
 
-#.  Navigate to **Security > Event Logs > Logging Profiles** and check to see if the Bot_Log Profile is created.  If not, create a new Logging Profile with the settings shown in the screenshot below and click **create**.
 
-        |log_profile|
 
 #.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and check to see if insecureApp1_botprofile has been created.  If not, click **Create**.
 #.  Name: **insecureApp1_botprofile**
 #.  Profile Template: **Relaxed**
+#.  change the Enforcement Mode to Blocking
 #.  Click the **Learn more** link to see an explanation of the options.
 
         |bot_profile|
 
 #.  Click on the **Bot Mitigation Settings** tab and review the default configuration.
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
-#.  Click **Save**.
-#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies**
-#.  Check to make sure that Bot Defense is enabled and select the  **insecureApp1_botprofile** and the **Bot_Log** profiles.
-#.  Click **Update**
-
-        |bot_vs|
-
-
-A Balanced Approach
-~~~~~~~~~~~~~~~~~~~
-
-In WAF141 we viewed logs showing that bots were indeed connecting to our app.  In your environment, there may be some bots that are welcome, while others are unknown or malicious.  Please note that these next steps are to give you an idea on how some bots can be mitigated, but every envrionment is different.
-
-#.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and click on **insecureApp1_botprofile**
-
-    .. NOTE:: The profile we are using was created with a "Relaxed" template.  In order to start with a Balanced Approach, you would need to create a new Profile.  Instead, here we will change individual settings.  Click on **Learn More** if you are interested in the other default options.
-
-
-#.  Under General Settings, change the Enforcement Mode to Blocking
-
-        |setblock|
-
 #.  Click on the Browsers tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
 
         |pbd|
 
-#.  Save the changes to your Bot Defense profile.
+#.  Click **Save**.
+#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies**
+#.  Check to make sure that Bot Defense profile and Application Security profiles are enabled.
+#.  Click **Update**
 
+        |lab1-2.1|
+
+
+Define Login & Logout Pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        #.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List**.  Ensure the **insecureApp1_asmpolicy** is selected at the top of the screen and click **Create**.
+
+        #.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
+
+                |lab41-03|
+
+        #.  Populate the form as shown below and click **Create**:
+
+                |lab41-04|
+
+        #.  From the tab bar select **Logout Pages List** or navigate to **Security -> Application Security -> Sessions and Logins -> Logout Pages List**
+
+        #.  Populate the form as shown below and click **Create**.
+
+                 |lab41-05|
+
+        #.  Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**, populate the list shown
+
+
+                 |lab41-06|
+
+
+        
 
 
 There is more than one kind of brute force attack. In the classic version, hackers attempt to log in to an application by repeatedly guessing users’ account credentials. Because of these attacks, most applications now lock an account when it encounters multiple unsuccessful authentication attempts, at least temporarily. However, this strategy only protects against attack on a single account.
