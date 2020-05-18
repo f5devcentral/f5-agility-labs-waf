@@ -28,13 +28,7 @@ Lab 1.1: Brute Force Attack Prevention
 ..  |pbd| image:: images/pbd.png
         :width: 800px
 ..  |lab41-01| image:: images/lab41-01.png
-<<<<<<< HEAD
-                :width: 800px
-
-
-=======
         :width: 800px
->>>>>>> bdb253c47c83c621e79e5da4b320fc7d4fa4844b
 ..  |log_profile| image:: images/log_profile.png
         :width: 800px
 ..  |bot_profile| image:: images/bot_profile.png
@@ -43,7 +37,6 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |bot_vs| image:: images/bot_vs.png
         :width: 800px
-<<<<<<< HEAD
 ..  |lab41-03| image:: images/lab41-03.png
         :width: 800px
 ..  |lab41-04| image:: images/lab41-04.png
@@ -55,10 +48,10 @@ Lab 1.1: Brute Force Attack Prevention
 ..  |lab41-07| image:: images/lab41-07.png
         :width: 800px
 
-=======
+
 ..  |lab41-007| image:: images/lab41-007.png
         :width: 800px
->>>>>>> bdb253c47c83c621e79e5da4b320fc7d4fa4844b
+
 
 #. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this.
 
@@ -168,7 +161,7 @@ Define Login & Logout Pages
                  |lab41-06|
 
 
-        
+
 
 
 There is more than one kind of brute force attack. In the classic version, hackers attempt to log in to an application by repeatedly guessing users’ account credentials. Because of these attacks, most applications now lock an account when it encounters multiple unsuccessful authentication attempts, at least temporarily. However, this strategy only protects against attack on a single account.
