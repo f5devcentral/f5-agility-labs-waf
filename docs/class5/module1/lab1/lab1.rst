@@ -6,8 +6,7 @@ Lab 1.1: Brute Force Attack Prevention
 ..  |lab1-2| image:: images/lab1-2.png
         :width: 800px
 ..  |lab1-2.1| image:: images/lab1-2.1.png
-                :width: 800px
-
+        :width: 800px
 ..  |lab1-3| image:: images/lab1-3.png
         :width: 800px
 ..  |lab1-4| image:: images/lab1-4.png
@@ -29,9 +28,13 @@ Lab 1.1: Brute Force Attack Prevention
 ..  |pbd| image:: images/pbd.png
         :width: 800px
 ..  |lab41-01| image:: images/lab41-01.png
+<<<<<<< HEAD
                 :width: 800px
 
 
+=======
+        :width: 800px
+>>>>>>> bdb253c47c83c621e79e5da4b320fc7d4fa4844b
 ..  |log_profile| image:: images/log_profile.png
         :width: 800px
 ..  |bot_profile| image:: images/bot_profile.png
@@ -40,6 +43,7 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |bot_vs| image:: images/bot_vs.png
         :width: 800px
+<<<<<<< HEAD
 ..  |lab41-03| image:: images/lab41-03.png
         :width: 800px
 ..  |lab41-04| image:: images/lab41-04.png
@@ -51,6 +55,10 @@ Lab 1.1: Brute Force Attack Prevention
 ..  |lab41-07| image:: images/lab41-07.png
         :width: 800px
 
+=======
+..  |lab41-007| image:: images/lab41-007.png
+        :width: 800px
+>>>>>>> bdb253c47c83c621e79e5da4b320fc7d4fa4844b
 
 #. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this.
 
