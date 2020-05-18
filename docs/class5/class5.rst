@@ -36,7 +36,7 @@ WAF 341 Table of Contents:
 F5 Anti-Bot Mobile SDK extends bot identification in Advanced Web Application Firewall (Advanced WAF) and BIG-IP ASM protection to allow mobile applications to identify as valid applications, which eliminates bot threats.
 To use this enhanced capability, you must integrate the F5 Anti-Bot Mobile SDK with your mobile applications.
 
-image:: antibot-mobile-sdk.png
+.. image:: antibot-mobile-sdk.png
         :width: 800px
 
 F5 Anti-Bot Mobile SDK Integration
