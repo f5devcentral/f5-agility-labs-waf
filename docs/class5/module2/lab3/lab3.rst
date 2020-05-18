@@ -65,6 +65,9 @@ Task 1 - Login Page
 
 #. Click **Save and Apply Policy**
 
+#.  Open a new Private Browsing window in **Firefox** .
+#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``  and login
+
 #. The cookie content is now obfuscated in the Logs when they were visible before.
 
         |lab2.3-3|
