@@ -8,7 +8,7 @@ Lab 2.2: Data Guard
         :width: 800px
 ..  |lab2.2-3| image:: images/lab2.2-3.png
         :width: 800px
-..  |lab24-4| image:: images/lab2.2-4.png
+..  |lab2.2-4| image:: images/lab2.2-4.png
         :width: 800px
 ..  |lab2.2-4a| image:: images/lab2.2-4a.png
         :width: 800px
