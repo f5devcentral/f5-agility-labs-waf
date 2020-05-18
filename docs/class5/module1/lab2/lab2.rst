@@ -32,10 +32,10 @@ Task 1 - Configure Credential Stuffing Detection
 
     |lab2-11|
 
-#.  Click **Create** .
+#.  Click **Save** .
 
     
-#.  Click **Apply Policy**, then click **OK** .
+#.  Click **Apply Policy**.
 
 
 Task 2 - Test Credential Stuffing Detection
@@ -48,7 +48,7 @@ Task 2 - Test Credential Stuffing Detection
 #.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``.  On the second attempt, you should immediately be blocked because this username/password combination is present in the credential stuffing database.
 
 
-#.  Examine the most recent **illegal** request in the event log:
+#.  Examine the most recent **Blocked** request in the event log:
 
     |lab2-1|
 

@@ -88,7 +88,7 @@ If you are continuing from WAF 141 please start at step 9 below (setting policy 
 
     |lab41-17|
 
-#.  Navigate to the waf241 folder and open the **waf141_complete.xml** file.
+#.  Navigate to the **waf241** folder and open the **waf141_complete.xml** file.
 
     |lab41-18|
 
@@ -104,12 +104,12 @@ If you are continuing from WAF 141 please start at step 9 below (setting policy 
 
     |lab41-01|
 
-#.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode and click **Save and Apply Policy**.
+#.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode and click **Save and then Apply Policy**.
 
     |lab41-007|
 
 
-Enabling Bot Defense
+Enabling Bot Profile
 ~~~~~~~~~~~~~~~~~~~~
 
 
@@ -145,16 +145,19 @@ Define Login & Logout Pages
 
                 |lab41-03|
 
-        #.  Populate the form as shown below and click **Create**:
+        #.  Populate the form as shown below and click **Create **:
+
             ``Location: https://insecureapp1.f5.demo.com/WebGoat/welcome.mvc``
+
             ``/WebGoat/login``
+
             ``302``
 
                 |lab41-04|
 
         #.  From the tab bar select **Logout Pages List** or navigate to **Security -> Application Security -> Sessions and Logins -> Logout Pages List**
 
-        #.  Populate the form as shown below and click **Create**.
+        #.  Populate the form as shown below and click **Create and then Apply policy**.
 
                  |lab41-05|
 
@@ -187,7 +190,7 @@ Task 1 - Configure Brute Force Attack Prevention
 #.  Click **Create** .
 
 
-#.  Click **Apply Policy**, then click **OK** .
+#.  Click **Apply Policy**.
 
 #. Ensure WAF and Bot policy are both applied to the Virtual as seen.
 
@@ -221,7 +224,7 @@ Task 3 - Enable Device ID
 
 #. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and under the **Browsers** tab edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.  The Device ID is a unique identifier that F5 WAF creates by sending JavaScript to get information about the client device
 
-#. Click **SAVE**
+#. Click **Save**
 
     |lab1-5|
 
@@ -229,15 +232,15 @@ Task 3 - Enable Device ID
 Task 4 - Test Device ID based Brute Force Protection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open a new Private Browsing window in **Firefox** .
+#.  Open a new Private Browsing window in **Chrome** .
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
 #.  Attempt to login using any username and password at least 4 times.
 
-#. Once Blocked close the browser and re-open a new Private Browsing window in Firefox
+#. Once Blocked close the browser and re-open a new Private Browsing window in **Chrome**
 
-#. Attempt to login using a different username as in step 3, your first request should be blocked.
+#. Attempt to login using a different username as in step 3, your first login request should be blocked.
 
 #. Examine the most recent illegal request in the event log:
 
