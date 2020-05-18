@@ -23,7 +23,7 @@ You can mask data in the logs for the following policy elements.
 
 https://support.f5.com/csp/article/K52154401
 
-**Parameters**	Masks the parameter value, including the value for positional parameters. The setting does not mask the parameter name.	GET /profiles/****
+**Parameters**	Masks the parameter value, including the value for positional parameters. The setting does not mask the parameter name.	GET /profiles/******
 
 **HTTP headers**	Masks the header value. The setting does not mask the header name.	GET / HTTP/1.1
 Host: Example.com
