@@ -38,16 +38,16 @@ Task 1 - Configure DataGuard
 
 #.  Click **Save**.
 
-#.  Click **Apply Policy** then click **OK**.
+#.  Click **Apply Policy** .
 
 ..  note:: Deploying DataGuard too pervasively can have a negative performance impact on your system. In a production environment we typically recommend deploying DataGard against specific URLs where possible.
 
 Task 2 - Test DataGuard
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open a new private browsing window in **Firefox** and login to WebGoat at ``https://insecureapp1.f5.demo/WebGoat/login``.
+#.  Open a new private browsing window in **Firefox** and login as f5student to WebGoat at ``https://insecureapp1.f5.demo/WebGoat/login``.
 
-#.  Click **Request Forgeries / Cross Site Request Forgeries** in the WebGoat menu then click **4**.
+#.  Click **A8:2013 Request Forgeries / Cross Site Request Forgeries** in the WebGoat menu then click **4** on the menu.
 
     |lab2.2-3|
 

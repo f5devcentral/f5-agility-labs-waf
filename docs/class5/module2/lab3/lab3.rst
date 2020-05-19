@@ -21,8 +21,6 @@ By default, the BIG-IP ASM system logs information about incoming requests to th
 
 You can mask data in the logs for the following policy elements.
 
-https://support.f5.com/csp/article/K52154401
-
 **Parameters**	Masks the parameter value, including the value for positional parameters. The setting does not mask the parameter name.	GET /profiles/******
 
 **HTTP headers**	Masks the header value. The setting does not mask the header name.	GET / HTTP/1.1
@@ -40,11 +38,13 @@ Cookie: ******
 
 **XML Profiles**	Masks sensitive data in an XML document. You can specify the element or attribute whose value contains sensitive data and should be masked by the policy.	<secID>******</secID>
 
+More information can be found here :
+https://support.f5.com/csp/article/K52154401
 
 Task 1 - Login Page
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #.  Open a new Private Browsing window in **Firefox** .
-#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``  and login
+#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` and login as f5student
 
 #. Examine the most recent  request in the event log for /WebGoat/login. Notice that you cannot see the password for f5student in the request.
    The password is masked in the logs due to a sensitive parameter setting.
@@ -63,7 +63,7 @@ Task 1 - Login Page
 
         |lab2.3-2|
 
-#. Click **Create and Apply Policy**
+#. Click **Create and then Apply Policy**
 
 #.  Open a new Private Browsing window in **Firefox** .
 

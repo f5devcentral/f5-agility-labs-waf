@@ -46,7 +46,7 @@ Task 1 - Login Observation
 
 #. Click in the **Network** tab in the Firefox Inspector and click **Persist logs**
 
-#. Login to the WebGoat application as f5student:password
+#. Login to the WebGoat application as f5student
 
 #. In the Firefox Inspector Network tab find the POST request to /login. Notice the password is in clear text in the request.
 
@@ -90,7 +90,7 @@ Task 3 - Test Data Safe Configuration
 
     |Lab3-07|
 
-#. Login to the WebGoat application as f5student:password
+#. Login to the WebGoat application as f5student
 
 #. In the Firefox Inspector Network tab find the POST request to /login. Notice the username and password fields are no longer in clear text.
 

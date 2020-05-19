@@ -10,7 +10,7 @@ Lab 2.1: Allowed HTTP Request Methods
         :width: 800px
 .. |lab2.1-5| image:: images/lab2.1-5.png
         :width: 800px
- 
+
 Task 1 - Allowed Methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -29,7 +29,7 @@ Task 2 - Restricting Method on per URL basis
 
     |lab2.1-2|
 
-#. Click the URL for /WebGoat/logout. Switch to the advanced view and select the methods enforcement tab and check override policy allowed methods and slide 'POST" with a state of disallow and click **update** and **Apply policy**
+#. Click the URL for /WebGoat/logout. Switch to the advanced view and select the methods enforcement tab and check override policy allowed methods and slide "POST" with a state of disallow and click **update** and then click **Apply policy**
 
     |lab2.1-3|
 
@@ -37,7 +37,7 @@ Task 2 - Restricting Method on per URL basis
 
 #. in the RDP client open a terminal and paste this command ``curl -k -d "param1=value1&param2=value2" -X POST https://insecureapp1.f5.demo/WebGoat/logout``.
 
-#. What is the result, and why?  The result should be the request getting block because a method (POST) has been disabled on the URL /WebGoat/logout
+#. What is the result, and why?  The result should be the request getting block because a method (POST) has been disabled on the URL /WebGoat/logout . Examine the results in the event log.
 
 |lab2.1-4|
 
