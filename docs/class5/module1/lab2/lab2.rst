@@ -45,16 +45,16 @@ Task 2 - Test Credential Stuffing Detection
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
-#.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``.  On the second attempt, you should immediately be blocked because this username/password combination is present in the credential stuffing database.
+#.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``.  On the second attempt, you should receive a CAPTCHA because this configured mitigation for credentials matching the credential stuffing database.
 
 
-#.  Examine the most recent **Blocked** request in the event log:
+#.  Examine the most recent request in the event log:
 
     |lab2-1|
 
-    Take note of the username field.  The request was blocked as a brute force attack.
+    Take note of the username field.  The request was matched as a potential credential stuffing attack.
 
-#.  Click the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window:
+#.  Near the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window click on the number under **Occurrences**:
 
     |lab2-2|
 
