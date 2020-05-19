@@ -104,7 +104,7 @@ If you are continuing from WAF 141 please start at step 9 below (setting policy 
 
     |lab41-20|
 
-#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies** andeEnsure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below.
+#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies** and ensure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below.
 
     |lab41-01|
 
@@ -147,7 +147,7 @@ Define Login & Logout Pages
 
         #.  Populate the form as shown below and click **Create**:
 
-            ``Location: https://insecureapp1.f5.demo.com/WebGoat/welcome.mvc``
+            ``Location: https://insecureapp1.f5.demo/WebGoat/welcome.mvc``
 
             ``/WebGoat/login``
 
@@ -235,7 +235,9 @@ Task 2 - Test username based Brute Force Protection
 Task 3 - Enable Device ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and under the **Browsers** tab edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.  Device ID is a unique identifier that F5 WAF generates for each client browser.
+#. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and under the **Browsers** tab edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.
+
+Device ID is a unique identifier that F5 WAF generates for each client browser.
 You can use the device identifier to identify nefarious clients and diagnose security issues, such as session hijacking, web scraping, brute force login attempts, and others.
 
 
@@ -251,7 +253,7 @@ Task 4 - Test Device ID based Brute Force Protection
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
-#.  Attempt to login using **different** usernames and password each time.
+#.  Attempt to login using a **different username** and password each time.
 
 #. Once Blocked close the browser and re-open a new **incognito window** in **Chrome**
 
