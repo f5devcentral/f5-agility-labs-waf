@@ -175,6 +175,10 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #.  Open the BIG-IP GUI interface .
 
+#. Navigate to Security -> Application Security -> Sessions and Logins -> Login Enforcement
+
+#. Delete any urls in **Authenticated URLS** and click **Save and then Apply Policy**
+
 #.  Navigate to **Security -> Application Security -> Brute Force Attack Prevention** and click **Create**.
 
     .. note:: F5 WAF has a number of brute force attack detection capabilities that are beyond the scope of this exercise.  Take some time to examine some of the other options as you work through this lab.  For more information see:  ``https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-asm-implementations/mitigating-brute-force-attacks.html`` .
