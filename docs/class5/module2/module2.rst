@@ -1,6 +1,6 @@
-Module 2: Credential Stuffing Protection
+Module 2: HTTP Methods, DataGuard, Sensitive Data
 ===================================================
-Expected time to complete: **1.5 hours**
+Expected time to complete: **45 mins**
 
 This first module covers the following topics:
 
