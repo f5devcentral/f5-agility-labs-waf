@@ -86,7 +86,7 @@ Task 3 - Test Data Safe Configuration
 
     |Lab3-06|
 
-#. Right click in the passeord field and choose 'inspect element'. Notice the field name is obfuscated and rotates every few seconds.
+#. Right click in the password field and choose 'inspect element'. Notice the field name is obfuscated and rotates every few seconds.
 
     |Lab3-07|
 
