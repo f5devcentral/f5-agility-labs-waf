@@ -9,6 +9,8 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |lab1-3| image:: images/lab1-3.png
         :width: 800px
+..  |lab1-3a| image:: images/lab1-3a.png
+        :width: 800px
 ..  |lab1-4| image:: images/lab1-4.png
         :width: 800px
 ..  |lab1-5| image:: images/lab1-5.png
@@ -47,6 +49,8 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |lab41-07| image:: images/lab41-07.png
         :width: 800px
+..  |lab41-08| image:: images/lab41-08.png
+                :width: 800px
 
 
 ..  |lab41-007| image:: images/lab41-007.png
@@ -100,7 +104,7 @@ If you are continuing from WAF 141 please start at step 9 below (setting policy 
 
     |lab41-20|
 
-#.  Ensure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below.
+#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies** andeEnsure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below.
 
     |lab41-01|
 
@@ -129,11 +133,7 @@ Enabling Bot Profile
         |pbd|
 
 #.  Click **Save**.
-#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies**
-#.  Check to make sure that Bot Defense profile and Application Security profiles are enabled.
-#.  Click **Update**
 
-        |lab1-2.1|
 
 
 Define Login & Logout Pages
@@ -145,7 +145,7 @@ Define Login & Logout Pages
 
                 |lab41-03|
 
-        #.  Populate the form as shown below and click **Create **:
+        #.  Populate the form as shown below and click **Create**:
 
             ``Location: https://insecureapp1.f5.demo.com/WebGoat/welcome.mvc``
 
@@ -159,6 +159,8 @@ Define Login & Logout Pages
 
         #.  Populate the form as shown below and click **Create and then Apply policy**.
 
+          ``/WebGoat/logout``
+
                  |lab41-05|
 
         Please proceed to Task 1.
@@ -170,18 +172,22 @@ Define Login & Logout Pages
 There is more than one kind of brute force attack. In the classic version, hackers attempt to log in to an application by repeatedly guessing users’ account credentials. Because of these attacks, most applications now lock an account when it encounters multiple unsuccessful authentication attempts, at least temporarily. However, this strategy only protects against attack on a single account.
 In another version of this attack, commonly called “credential stuffing,” hackers make only one attempt to log in to users’ accounts. They obtain a collection of user name and password combinations from a compromised application and programmatically evaluate them against their target application, looking for accounts where users reused their compromised credentials. When they finish, the hackers know those accounts for which they have valid credentials on the target application.
 
+.. note:: F5 WAF has a number of brute force attack detection capabilities that are beyond the scope of this exercise.  Take some time to examine some of the other options as you work through this lab.  For more information see:  ``https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-asm-implementations/mitigating-brute-force-attacks.html`` .
+
 Task 1 - Configure Brute Force Attack Prevention
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #.  Open the BIG-IP GUI interface .
 
-#. Navigate to Security -> Application Security -> Sessions and Logins -> Login Enforcement
+#. Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**
 
-#. Delete any urls in **Authenticated URLS** and click **Save and then Apply Policy**
+#. **Remove** any urls in **Authenticated URLS** and click **Save and then Apply Policy**
+
+    |lab41-08|
 
 #.  Navigate to **Security -> Application Security -> Brute Force Attack Prevention** and click **Create**.
 
-    .. note:: F5 WAF has a number of brute force attack detection capabilities that are beyond the scope of this exercise.  Take some time to examine some of the other options as you work through this lab.  For more information see:  ``https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-asm-implementations/mitigating-brute-force-attacks.html`` .
+
 
 #.  Select the login page you created earlier or imported as part of lab setup.
 
@@ -208,16 +214,19 @@ Task 2 - Test username based Brute Force Protection
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
-#.  Attempt to login using the same username (not f5student) and password at least 4 times.
+#.  Attempt to login using the same username and password at least 4 times or until CAPTCHA is displayed. Solve the CAPTCHA
 
+#.  Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests:
 
-#.  Examine the most recent **illegal** request in the event log:
+    You should see two requests for /WebGoat/login , one is the CAPTCHA challenge and the other is the CAPTCHA solve result.
 
     |lab1-3|
 
-    Take note of the username field.  The request was blocked as a brute force attack.
+    |lab1-3a|
 
-#.  Click the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window:
+    Take note of the username field.  The request was considered as a brute force attack with an action of Alarm and CAPTCHA.
+
+#.  Near the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window click on the number under **Occurrences**:
 
     |lab1-4|
 
@@ -226,7 +235,9 @@ Task 2 - Test username based Brute Force Protection
 Task 3 - Enable Device ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and under the **Browsers** tab edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.  The Device ID is a unique identifier that F5 WAF creates by sending JavaScript to get information about the client device
+#. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and under the **Browsers** tab edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.  Device ID is a unique identifier that F5 WAF generates for each client browser.
+You can use the device identifier to identify nefarious clients and diagnose security issues, such as session hijacking, web scraping, brute force login attempts, and others.
+
 
 #. Click **Save**
 
@@ -246,11 +257,11 @@ Task 4 - Test Device ID based Brute Force Protection
 
 #. Attempt to login using a different username as in step 3, your first login request should be blocked.
 
-#. Examine the most recent illegal request in the event log:
+#. Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests:
 
     |lab1-6|
 
-#. Click on the Occurrences and notice the Device ID for the request.
+#. Click on the Occurrences and notice the Device ID in the request.
 
     |lab1-7|
 
