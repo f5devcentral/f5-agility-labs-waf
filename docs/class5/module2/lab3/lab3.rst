@@ -1,23 +1,27 @@
 Lab 2.3: Sensitive Data
--------------------
+=======================
 
-..  |lab2.3-0| image:: images/lab2.3-0.png
-        :width: 800px
-..  |lab2.3-1| image:: images/lab2.3-1.png
-        :width: 800px
-..  |lab2.3-2| image:: images/lab2.3-2.png
-        :width: 800px
-..  |lab2.3-5| image:: images/lab2.3-5.png
-        :width: 800px
-..  |lab2.3-3| image:: images/lab2.3-3.png
-        :width: 800px
+.. |lab2.3-0| image:: images/lab2.3-0.png
+   :width: 800px
 
+.. |lab2.3-1| image:: images/lab2.3-1.png
+   :width: 800px
 
+.. |lab2.3-2| image:: images/lab2.3-2.png
+   :width: 800px
 
+.. |lab2.3-5| image:: images/lab2.3-5.png
+   :width: 800px
 
+.. |lab2.3-3| image:: images/lab2.3-3.png
+   :width: 800px
 
-
-By default, the BIG-IP ASM system logs information about incoming requests to the request log in plain text. In some cases you may want to mask request information in the logs as some requests include sensitive information, such as authorization credentials or credit card information. When you enable Mask Value in Logs for a policy element, the system replaces the sensitive data with asterisks (***). The masked data cannot be viewed by the administrator.
+By default, the BIG-IP ASM system logs information about incoming requests to
+the request log in plain text. In some cases you may want to mask request
+information in the logs as some requests include sensitive information, such as
+authorization credentials or credit card information. When you enable Mask
+Value in Logs for a policy element, the system replaces the sensitive data with
+asterisks (\*\*\*\*\*\*). The masked data cannot be viewed by the administrator.
 
 You can mask data in the logs for the following policy elements.
 
@@ -42,7 +46,8 @@ More information can be found here :
 https://support.f5.com/csp/article/K52154401
 
 Task 1 - Login Page
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
+
 #.  Open a new Private Browsing window in **Firefox** .
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` and login as f5student
 
@@ -76,9 +81,5 @@ Task 1 - Login Page
         After applying mask.
 
         |lab2.3-5|
-
-
-
-
 
 **This concludes section 2.3**

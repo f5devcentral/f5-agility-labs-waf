@@ -14,20 +14,20 @@ Linux client (client01):
 
 * Web Attack Tools: (Only used in 141,241,341 classes)
 
- * `Goldeneye <https://github.com/jseidl/GoldenEye>`_ - HTTP DOS Tool
- * `Metasploit <https://www.metasploit.com/>`_ - Pen testing framework
- * `nmap/nping <https://nmap.org/>`_ - Network mapper
- * `Slowhttptest <https://github.com/shekyan/slowhttptest>`_ - HTTP DOS Tool
- * `wapiti <http://wapiti.sourceforge.net/>`_ - web application auditor
- * `w3af <http://w3af.org/>`_ - web application auditor
- * `Burp Suite Community Edition <https://portswigger.net/burp>`_ - HTTP Request Manipulation
+  * `Goldeneye <https://github.com/jseidl/GoldenEye>`_ - HTTP DOS Tool
+  * `Metasploit <https://www.metasploit.com/>`_ - Pen testing framework
+  * `nmap/nping <https://nmap.org/>`_ - Network mapper
+  * `Slowhttptest <https://github.com/shekyan/slowhttptest>`_ - HTTP DOS Tool
+  * `wapiti <http://wapiti.sourceforge.net/>`_ - web application auditor
+  * `w3af <http://w3af.org/>`_ - web application auditor
+  * `Burp Suite Community Edition <https://portswigger.net/burp>`_ - HTTP Request Manipulation
 
 * Api Tools: (Only used in 342 Programmability class)
 
- * `Ansible <https://www.ansible.com/>`_ - Automation platform
- * `curl <https://curl.haxx.se/>`_ - command line webclient, will be used to interact with the iControl Rest API
- * `Postman <https://www.getpostman.com/>`_ - Graphical based Restful Client, will be used to interact with the iControl Rest API
- * `python <https://www.python.org/>`_ - general programming language used to interact with the iControl Rest API 
+  * `Ansible <https://www.ansible.com/>`_ - Automation platform
+  * `curl <https://curl.haxx.se/>`_ - command line webclient, will be used to interact with the iControl Rest API
+  * `Postman <https://www.getpostman.com/>`_ - Graphical based Restful Client, will be used to interact with the iControl Rest API
+  * `python <https://www.python.org/>`_ - general programming language used to interact with the iControl Rest API 
 
 Linux server (server01): (Only used in 141,241,341 classes)
 
@@ -41,9 +41,9 @@ focus of the lab is Control Plane programmability rather than Data Plane
 traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
--  1 x Ubuntu Linux 18.04 client, with client tools installed - aptly named: client01
--  1 x F5 BIG-IP VE (v13.1.0.5) running ASM and LTM - aptly named: bigip01
--  1 x Ubuntu Linux 18.04 serve, with webgoat 8 installed - aptly named: server01 
+- 1 x Ubuntu Linux 18.04 client, with client tools installed - aptly named: client01
+- 1 x F5 BIG-IP VE (v13.1.0.5) running ASM and LTM - aptly named: bigip01
+- 1 x Ubuntu Linux 18.04 serve, with webgoat 8 installed - aptly named: server01 
 
 .. nwdiag:: labtopology.diag
    :width: 800

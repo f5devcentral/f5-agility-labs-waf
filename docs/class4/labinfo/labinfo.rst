@@ -10,15 +10,13 @@ Environment
 
 **Web Attack Tools used in this lab:**
 
- * `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
- * `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
- * `ab (Apache Bench) <https://httpd.apache.org/docs/2.4/programs/ab.html>`_ - HTTP Load Testing
+* `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
+* `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
+* `ab (Apache Bench) <https://httpd.apache.org/docs/2.4/programs/ab.html>`_ - HTTP Load Testing
  
 **Linux server (server01):**
 
 * `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. The primary goal of the WebGoat project is simple: create a de-facto interactive teaching environment for web application security.
-
-.. _lab-topology:
 
 Lab Topology
 ---------------

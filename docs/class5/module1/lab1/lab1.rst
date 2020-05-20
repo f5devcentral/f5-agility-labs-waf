@@ -1,5 +1,5 @@
 Lab 1.1: Brute Force Attack Prevention
-####################################
+######################################
 
 ..  |lab1-1| image:: images/lab1-1.png
         :width: 800px
@@ -51,11 +51,8 @@ Lab 1.1: Brute Force Attack Prevention
         :width: 800px
 ..  |lab41-08| image:: images/lab41-08.png
                 :width: 800px
-
-
 ..  |lab41-007| image:: images/lab41-007.png
         :width: 800px
-
 
 #. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this.
 

@@ -1,7 +1,9 @@
 Lab Environment & Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: All work is done from the Linux client/jumphost (client01), which can be accessed via RDP (Windows Remote Desktop) or ssh. No installation or interaction with your local system is required.
+.. NOTE:: All work is done from the Linux client/jumphost (client01), which can
+   be accessed via RDP (Windows Remote Desktop) or ssh. No installation or
+   interaction with your local system is required.
 
 Environment
 -----------
@@ -10,14 +12,12 @@ Environment
 
 **Web Attack Tools used in this lab:**
 
- * `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
- * `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
+- `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
+- `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
 
 **Linux server (server01):**
 
-* `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. The primary goal of the WebGoat project is simple: create a de-facto interactive teaching environment for web application security.
-
-.. _lab-topology:
+- `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. The primary goal of the WebGoat project is simple: create a de-facto interactive teaching environment for web application security.
 
 Lab Topology
 ---------------
