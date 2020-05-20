@@ -1,6 +1,6 @@
-Module 1: Bruteforce Protection
+Module 1: Bruteforce Protection, Credential Stuffing
 ===================================================
-Expected time to complete: **1.5 hours**
+Expected time to complete: **60 minutes**
 
 This first module covers the following topics:
 
