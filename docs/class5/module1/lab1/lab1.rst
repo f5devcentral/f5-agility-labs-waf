@@ -177,11 +177,17 @@ In another version of this attack, commonly called “credential stuffing,” ha
 Task 1 - Configure Brute Force Attack Prevention
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Open a terminal in the RDP client and ssh to the BIG-IP: ``ssh admin@10.1.10.245``.
+
+#. Run the command ``modify sys db asm.cs_qualified_urls value "/WebGoat/login"``.
+
+#. Run the command ``save sys config``.
+
 #.  Open the BIG-IP GUI interface .
 
-#. Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**
+#. Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**.
 
-#. **Remove** any urls in **Authenticated URLS** and click **Save and then Apply Policy**
+#. **Remove** any urls in **Authenticated URLS** and click **Save and then Apply Policy**.
 
     |lab41-08|
 
@@ -214,7 +220,7 @@ Task 2 - Test username based Brute Force Protection
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
 
-#.  Attempt to login using the same username and password at least 4 times or until CAPTCHA is displayed. Solve the CAPTCHA
+#.  Attempt to login using the same username and password at least 4 times or until CAPTCHA is displayed. Solve the CAPTCHA.
 
 #.  Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests:
 
