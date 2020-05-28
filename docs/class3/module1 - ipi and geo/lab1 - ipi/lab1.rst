@@ -17,7 +17,7 @@ Objective
 .. image:: images/xrdp.png
   :width: 600 px
 
-Simply click in the username field and backspace. Enter the name: **f5student** and in the password firld use the **password** provided by the instructor. 
+Simply click in the username field and backspace. Enter the name: **f5student** and in the password field use the **password** provided by the instructor. 
 
 #. Launch Chrome browser (please be patient and don't click the icon multiple times)
 
