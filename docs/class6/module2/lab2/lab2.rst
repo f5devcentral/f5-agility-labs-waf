@@ -1,12 +1,12 @@
 Lab 2.2: Initial Configuration and First Run of f5 WAF Tester
-========================================================
+=============================================================
 
 To run the f5 WAF tester tool, a configuration file needs to be populated to specify which f5 instance this application is running on,
 an account to log into the f5 instance to look at logs, name of the ASM policy to see why attacks are getting through, and the URL of the 
 application you want to test.
 
 2.2.1 - Initial Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To populate the configuration file, use the Terminal and go to f5 waf tester directory .  
 
@@ -20,10 +20,9 @@ Then execute:
 
 	./f5-waf-tester --init
 
-
 This will run you through a wizard where you will populate:
 
-	[BIG-IP] Host []: `10.1.1.4'
+	[BIG-IP] Host []: `10.1.1.4`
 		This is the management IP of the Big-IP that is securing your application.
 
 	[BIG-IP] Username []: admin
@@ -84,4 +83,3 @@ Summary:
     		"fail": 13, 
 
     		"pass": 35
-

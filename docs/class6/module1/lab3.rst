@@ -1,9 +1,9 @@
 Lab 1.3: Creation of ASM Policies via Importing JSON Files
-=========================================
-
+==========================================================
 
 **1.3.1** Open Visual Studio Code by clicking on the icon shown below:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. image:: images/Lab2-1.png
 
 **1.3.2** Once Visual Studio Code is open, you'll see a collection on the left titled 'UDF_WAF_CICD' with several items underneath:
@@ -60,14 +60,6 @@ and
 
 .. image:: images/Lab2-10.png
 
-    
 **1.3.7** Check the policies on the BIGIP and verify that secops_waf_policy_2 has '403' in the allowed response types.
 
 #Please add screenshot for confirmation here
-
-
-
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

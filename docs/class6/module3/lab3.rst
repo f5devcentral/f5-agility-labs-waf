@@ -1,11 +1,10 @@
 Lab 3.3: Deploy Juice-shop Web App to Production ENV and run DAST
-========================================================
+=================================================================
 
 .. _lab3:
 
-
 3.3.1 Deploy Juice-Shop App to Production
-------------------------------------
+-----------------------------------------
 
 Production deployment is triggered by creating a Tag. 
 This is a common development practice that allows tagging and simultaneous release/delivery of the App code into Production environment.
@@ -39,7 +38,6 @@ Click on :guilabel:`waflabs / waf_cicd` Project
 
 Navigate to :guilabel:`Repository` -> :guilabel:`Tags` and click on :guilabel:`New tag`
 
-
 .. image:: images/tags.png
 
 Fill out a **Tag name** field and click on :guilabel:`Create tag`. You can use **prod-v1.0** as suggested Tag name.
@@ -52,12 +50,10 @@ Fill out a **Tag name** field and click on :guilabel:`Create tag`. You can use *
 
 Navigate to :guilabel:`CI / CD` -> :guilabel:`Pipelines` and click on the pipeline that is currently running and has a **Commit** message set to a Tag name created in previous step
 
-
 3.3.4 Connect to Production Juice-Shop App
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Upon successful pipeline completion you can access Juice-Shop App by selecting :guilabel:`firefox` --> :guilabel:`favorites` --> :guilabel:`WAF-342` --> :guilabel:`Production` --> :guilabel:`OWASP juice shop - PRODUCTION`
-
 
 Pipeline Summary
 ----------------

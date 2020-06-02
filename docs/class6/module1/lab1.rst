@@ -5,7 +5,7 @@ We’re going to be working in the BIG-IP to create an ASM template with some sp
 Once the template is created, we’ll use AS3 and Postman to add an ASM policy to a VS based on our template to show how to add automation of ASM policies to applications.  
 
 1.1.1 Open RDP to the Client linux
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **For users with Mac's, keystrokes won't show as you type.  Don't worry, just keep typing and login.**
 
 Log into the Linux Client via RDP using the following credentials:
@@ -19,7 +19,7 @@ Log into the Linux Client via RDP using the following credentials:
 .. image:: images/1-module1.png
 
 1.1.2 Log into the BIG-IP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Log into the BIG-IP by opening the FireFox browser in the Linux client and selecting the browser bookmark titled :guilabel:`bigip01` using the following credentials:
 
@@ -30,7 +30,7 @@ Log into the BIG-IP by opening the FireFox browser in the Linux client and selec
 .. image:: images/2-module1.png
 
 1.1.3 Create a policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Let’s create an AWAF base policy that we’ll reference later, by navigating to:
 		
@@ -41,7 +41,7 @@ Let’s create an AWAF base policy that we’ll reference later, by navigating t
             .. image:: images/3-module1.png
 
 1.1.4 Configure policy properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #Please fix all guilabel tags below. They are not rendering correctly in the remainder of this file
 
@@ -61,8 +61,6 @@ Name the policy :guilabel:`base_policy` and set the following settings:
 
  Differentiate between HTTP/WS and HTTPS/WSS URLs:       :guilabel:`Disabled`  
  
-
-
 Click :guilabel:`Save` to save the policy
 
 .. image:: images/4-module1.png
@@ -70,7 +68,7 @@ Click :guilabel:`Save` to save the policy
 Click :guilabel:`Save` to save the policy
 
 1.1.5 Block traffic from North Korea
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Navigate to:  Security  ››  Application Security : Geolocation Enforcement
 
@@ -93,7 +91,7 @@ Click :guilabel:`Save` to save the policy
         .. image:: images/7-module1.png
 
         
-        Click :guilabel:`Save` **at the bottom of this screen to save our changes.
+        Click :guilabel:`Save` \*\*at the bottom of this screen to save our changes.
 
-        Click :guilabel:`Apply policy` **at the top right of the screen to save our changes.
+        Click :guilabel:`Apply policy` \*\*at the top right of the screen to save our changes.
 

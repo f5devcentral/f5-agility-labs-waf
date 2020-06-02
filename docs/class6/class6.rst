@@ -1,8 +1,8 @@
-Class 6: AWAF class 6 - WAF in a CI/CD pipeline 
-======================================
+Class 6: AWAF - WAF in a CI/CD Pipeline 
+=======================================
 
 Intro
-======================================
+-----
 
 Welcome to F5's Agility Labs, 2020 edition! This class will focus on how to integrate F5 AWAF into a CI/CD pipeline. 
 
@@ -15,7 +15,6 @@ By the end of this lab you should be able to:
 3. Enable SRE's to deploy applications using your template 
 
 4. Enable SRE's to make custom changes to the WAF policy
-
 
 In order to successfully complete the lab you should have a basic understanding of some of the DevOps methodologies and tools,
 
@@ -31,18 +30,19 @@ Continuous Delivery and Deployment consist of a step further CI, deploying your 
 These methodologies allow you to catch bugs and errors early in the development cycle, ensuring that all the code deployed to production complies with the code standards you established for your app.
 
 Two main features that make AWAF to DevSecOps integration frictionless
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- * Declarative AWAF policy expressed as a YAML or JSON blob
- * Outgoing webhooks for Slack and MS Teams
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Declarative AWAF policy expressed as a YAML or JSON blob
+* Outgoing webhooks for Slack and MS Teams
   
 Declarative AWAF policy YAML/JSON file can be used in place of a legacy XML policy (XML policy is still supported) and can be easily applied to an app following the same pipeline of the DevOps toolchain. Policy can be kept in SCM alongside with app source code, and be used by CI server in a traditional DevOps deployment model. Since JSON and YAML are trivially mapped (and JSON can be converted to YAML and vice versa), AWAF supports both file types.
 For the purpose of this lab our WAF policy is expressed as a JSON blob.
 
 AWAF policy overview
-======================================
+--------------------
 
 Policy structure
-----------------
+~~~~~~~~~~~~~~~~
 
 AWAF policy consists of 3 parts:
 
@@ -66,7 +66,6 @@ Adjustments
 
 .. image:: images/adjustments.png
 
-
 Modifications
 ^^^^^^^^^^^^^
 
@@ -74,16 +73,13 @@ Modifications
 
 .. image:: images/modifications.png
 
-
 ChatOps
 -------
 
 New feature in 15.1 allows AWAF to use outgoing webhooks to send notifications to a Slack or MS Teams channels. This makes a great addition to a commonly-used "ChatOps" method where Devs, DevOps and DevSecOps monitor a particular channel for any notifications raised by SCM, WAF, Ci server etc.
 Webhooks are defined explicitly inside the AWAF policy and can be triggered by a number of different events. Notification messages are configurable and may contain various useful information about the event. AS it applies to AWAF, notification message can be sent when the policy has been applied, or a security event has been observed:
 
-
 **Webhooks are not used in this lab**
-
 
 Lab structure
 -------------
@@ -92,13 +88,10 @@ During this lab you will work with GitLab CE and utilize SCM and CI/CD pipelines
 
 You use AWAF suggestions for trusted traffic to modify WAF policy and re-deploy the app all the way to Production.
 
-
-
-
-
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
    :glob:
 
+   labinfo/labinfo
    module*/module*

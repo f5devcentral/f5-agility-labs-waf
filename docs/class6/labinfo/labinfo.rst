@@ -1,10 +1,9 @@
 Lab Environment & Topology 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 .. NOTE:: All work is done from the Linux client/jumphost (client01), which can
    be accessed via RDP (Windows Remote Desktop) or ssh. No installation or
    interaction with your local system is required.
-
 
 Environment
 -----------
@@ -66,10 +65,10 @@ components:
      - 10.1.20.252
      - ssh - ``f5student:password``
 
-.. note:: 
-External links are not required reading for the lab, rather supplemental if you you would like to get a different take or additional info.
+.. note:: External links are not required reading for the lab, rather
+   supplemental if you you would like to get a different take or
+   additional info.
 
-|
-
-.. note::
-Replace all instances of <bigip> with the management ip of the bigip1, 10.1.1.245. The $password referenced in the curl commands is an environment variable, there is no need to modify it. 
+.. note:: Replace all instances of <bigip> with the management ip of the
+   bigip1, 10.1.1.245. The $password referenced in the curl commands is an
+   environment variable, there is no need to modify it. 

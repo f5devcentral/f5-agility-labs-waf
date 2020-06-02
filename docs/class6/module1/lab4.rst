@@ -1,12 +1,11 @@
 Lab 1.4: Deploying to secops testing environment 
-=========================================
-
+================================================
 
 Now that we have a template created, we’re now done with the BIG-IP for now and are moving onto Postman.  
 Postman will be interacting with our BIG-IP via AS3 making API calls.  
 Launch Postman from the Linux desktop icon shown below:
 
-        .. image:: images/10-module1.png
+    .. image:: images/10-module1.png
 
     **1.4.1** Once Postman is open, we need to import the collection (series of declarations we’ll be using on our BIG-IP) from GitHub.  To do so, click on ‘Import’ on the top left of Postman and select ‘Import From Link’ option.  Paste the following into the field where you enter the URL and click ‘Import’
     
@@ -28,6 +27,7 @@ Launch Postman from the Linux desktop icon shown below:
         .. image:: images/13-module1.png
 
         **4.** This validates that AS3 is running and responded with version 3.16.0
+
 #Please fix guilabels
 **1.4.2:** We’re now going to make an AS3 declaration to the BIG-IP.  To view the JSON declaration, click on the declaration titled **as3 with_declarative_waf_and_vs** and select :guilabel:`Body` and :guilabel:`raw` as shown below:
 

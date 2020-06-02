@@ -1,5 +1,5 @@
 Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer) 
-===================================================
+===================================================================
 
 **Intro**
 
@@ -18,11 +18,9 @@ Also, think about how you can test your policy since it's not going to be deploy
 - Creating ASM Policies via Importing JSON Files (lab3)
 - Deploying to a 'secops testing' environemnt (lab4) 
 
-
 .. toctree::
    :maxdepth: 1
    :glob:
 
    lab*
    review
-
