@@ -1,23 +1,99 @@
-Class 6: ASM 342 - WAF Programmability
+Class 6: AWAF class 6 - WAF in a CI/CD pipeline 
 ======================================
 
-Welcome to F5's Agility Labs, 2018 edition! This class will focus on how to interact with ASM using the REST API, demonstrating  how the API can be used to help with daily tasks and improve security.
+Intro
+======================================
 
-The goal of this class to help students become familar with the iControl Rest API as it is related to ASM. It takes the student from little or no knowledge demostrating to the students the concepts and tools to get started, as well as some more complex examples written in Python.
+Welcome to F5's Agility Labs, 2020 edition! This class will focus on how to integrate F5 AWAF into a CI/CD pipeline. 
 
-This is the 4th 4-hour class focused on ASM. The other 3 classes are based on
+By the end of this lab you should be able to:
 
-`Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_
+1. Create an AWAF template
 
-Here is a complete listing of all ASM classes offered at this years agility.
+2. Properly test the template 
 
-ASM141 - Good WAF Security - Getting started with ASM
+3. Enable SRE's to deploy applications using your template 
 
-ASM241 - Elevated WAF Security - Elevating ASM Protection
+4. Enable SRE's to make custom changes to the WAF policy
 
-ASM341 - High and Maximum WAF Security - Maximizing ASM Protection
 
-ASM342 - WAF Programmability - Enhancing ASM Security and Manageability
+In order to successfully complete the lab you should have a basic understanding of some of the DevOps methodologies and tools,
+
+**Source Control Management (SCM)**
+(or version control) is the practice of tracking and managing changes to code. Source control management (SCM) systems provide a running history of code development and help to resolve conflicts when merging contributions from multiple sources.
+
+**Infrastructure as Code (IaC)**
+is a set of configurations, policies, and profiles considered to be a “deployment artifacts” and can be treated just like code. That means they can be stored and managed in repositories, versioned, and reviewed. They can be pulled, cloned, and committed in the same way a developer pulls, clones, and commits code to and from a repository (like Github).
+
+**Continuos Integration/Continuos Deployment (CI/CD)** 
+works by pushing small code chunks to your application’s code base hosted in a Git repository, and, to every push, run a pipeline of scripts to build, test, and validate the code changes before merging them into the main branch.
+Continuous Delivery and Deployment consist of a step further CI, deploying your application to production at every push to the default branch of the repository.
+These methodologies allow you to catch bugs and errors early in the development cycle, ensuring that all the code deployed to production complies with the code standards you established for your app.
+
+Two main features that make AWAF to DevSecOps integration frictionless
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * Declarative AWAF policy expressed as a YAML or JSON blob
+ * Outgoing webhooks for Slack and MS Teams
+  
+Declarative AWAF policy YAML/JSON file can be used in place of a legacy XML policy (XML policy is still supported) and can be easily applied to an app following the same pipeline of the DevOps toolchain. Policy can be kept in SCM alongside with app source code, and be used by CI server in a traditional DevOps deployment model. Since JSON and YAML are trivially mapped (and JSON can be converted to YAML and vice versa), AWAF supports both file types.
+For the purpose of this lab our WAF policy is expressed as a JSON blob.
+
+AWAF policy overview
+======================================
+
+Policy structure
+----------------
+
+AWAF policy consists of 3 parts:
+
+* Baseline policy
+* Adjustments
+* Modifications
+
+Baseline
+^^^^^^^^
+
+**Baseline** policy part defines basic parameters - name, description and a template used for this policy
+
+.. image:: images/baseline.png
+
+.. note:: In the future it will be possible to reference an externally hosted policy
+
+Adjustments
+^^^^^^^^^^^
+
+**Adjustments** part defines overrides and/or additions to the baseline policy. This include any blocking settings overrides, signature settings and outgoing webhooks
+
+.. image:: images/adjustments.png
+
+
+Modifications
+^^^^^^^^^^^^^
+
+**Modifications** policy part defines individual actions that modify the policy based on AWAF learning or other actions like DAST resolutions
+
+.. image:: images/modifications.png
+
+
+ChatOps
+-------
+
+New feature in 15.1 allows AWAF to use outgoing webhooks to send notifications to a Slack or MS Teams channels. This makes a great addition to a commonly-used "ChatOps" method where Devs, DevOps and DevSecOps monitor a particular channel for any notifications raised by SCM, WAF, Ci server etc.
+Webhooks are defined explicitly inside the AWAF policy and can be triggered by a number of different events. Notification messages are configurable and may contain various useful information about the event. AS it applies to AWAF, notification message can be sent when the policy has been applied, or a security event has been observed:
+
+
+**Webhooks are not used in this lab**
+
+
+Lab structure
+-------------
+
+During this lab you will work with GitLab CE and utilize SCM and CI/CD pipelines to build, test and deploy 'OWASP Juice-Shop' App into a Docker host fronted by BIG-IP AWAF. 
+
+You use AWAF suggestions for trusted traffic to modify WAF policy and re-deploy the app all the way to Production.
+
+
+
 
 
 .. toctree::
@@ -25,6 +101,4 @@ ASM342 - WAF Programmability - Enhancing ASM Security and Manageability
    :caption: Contents:
    :glob:
 
-   labinfo/labinfo
    module*/module*
- 

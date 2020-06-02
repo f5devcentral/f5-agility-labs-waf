@@ -1,87 +1,39 @@
-Module 2: Viewing and Manipulating the Rest API via curl 
+Module 2: Policy testing - Intro to f5 WAF Tester (secops engineer)
 ========================================================
 
-Expected time to complete: **1 hours**
+Expected time to complete: **10 minutes**
 
 **Intro**
+~~~~~~~~~~
 
-If you have experience with another RestFul API, the F5 RestFul API will be very familiar. If you have no familiarity with a RestFul API, don't worry there are only a few key concepts to understand.
+In this lab, we will cover the following:
 
-The Rest API uses HTTP requests with a combination certain uri and HTTP verbs/commands 
+- Install the f5 WAF tester tool
+- Configure the tool and run it against the Juiceshop web site
+- Remediate the WAF policy so SSRF attacks are blocked
 
-All queries to ASM begin with the uri /mgmt/tm/asm .
+**f5 WAF Tester**
+~~~~~~~~~~~~~~~~~~
 
-For example, querying the uri /mgmt/tm/asm/policies (https://<mgmt ip>/mgmt/tm/asm/policies) will display all asm policies in JSON format.
+f5 Network's Threat Research Team has created a tool that provides an easy and fast way to integrate security testing as part of the SDLC process for basic application protection health check before moving to production.
+The tool is intended to test the WAF configuration state and its provided security posture against common web attack types. The tool will send HTTP requests containing attacks and will expect to receive a WAF blocking page in the response. In case the attack vector was not blocked, the tool will read the WAF logs and its configuration to try determine possible reasons for the attack not being blocked, and suggest corresponding actions.
 
-**Other URIs:**
+.. image:: images/f5-waf-tester.png
 
-/mgmt/tm/asm (root asm configuration)
+**Disclaimer**: This tool is not meant for testing whether the application itself is vulnerable and does not replace a DAST or a SAST.  
 
-/mgmt/tm/asm/signatures (lists all attack signatures that are installed)
+If you would like to see the GitHub repository for the tester, it can be found here:
 
-/mgmt/tm/asm/events (lists asm events)
+https://github.com/f5devcentral/f5-waf-tester
 
-/mgmt/tm/asm/requests (lists asm requests)
-
-/mgmt/tm/asm/policies/MrLpFzRHNarvj_zuAOD0fw (Whoa what is this? Its a way of accessing a policy directly. We will investigate this in detail later.)
-
-HTTP uses commands/verbs such as POST, GET, etc. What roles do they play? HTTP commands determine the operation/type of the request. In other words whether data is simply retrieved or created/modified.
-
-|
-|
-
-.. list-table:: HTTP Method Uses
-   :widths: 15 45
-   :header-rows: 1
-
-   * - METHOD
-     - RESULT 
-   * - GET
-     - retrieves configuration properties or run-time statistics on the resource specified by the URI in the request 
-   * - PATCH
-     - modifies only the properties of the resource specified in the URI
-   * - PUT 
-     - modifies the properties of the resource specified in the URI and sets the remaining properties to either default values or empty values
-   * - POST
-     - creates a new resource based on the URI (eg new ASM policy)     
-   * - DELETE
-     - deletes a resource based on the URI (eg delete an ASM policy) *Note: this method only takes a URI as an option*
-
-|
-|
-
-.. list-table:: HTTP Method Use Cases
-                :widths: 15 10 15
-                :header-rows: 1
-
-                * - USE CASE
-                  - METHOD
-                  - Example
-                * - Create a new asm policy 
-                  - POST
-                  - curl -sk -u admin:password -X POST https://<bigip>/mgmt/tm/asm/policies -d '{"name":<policyName>}'
-                * - View the settings of the new asm policy
-                  - GET
-                  - curl -sk -u admin:password -X GET https://<bigip>/mgmt/tm/asm/policies
-                * - Add a whitelist ip to the new APM policy
-                  - POST
-                  - curl -sk -u admin:password -X POST https://<bigip>/mgmt/tm/asm/policies/<policyId>/whitelist-ips -H "Content-Type: application/json" -d '{"ipAddress":"<whitelist ip>", "ipMask":"<netmask>"}'
-                * - Enable the "Policy Builder trusted IP" settings for the whitelist IP (by default disabled), leaving all other whitelist settings alone 
-                  - PATCH
-                  - curl -sk -u admin:password -X PATCH https://<bigip>/mgmt/tm/asm/policies/<policyId>/whitelist-ips/<whitelistIpId> -H “Content-Type: application/json” -d '{"trustedByPolicyBuilder":"true"}'
-                * - Delete a policy 
-		  - DELETE
-		  - curl -sk -u admin:password -X DELETE https://<bigip>/mgmt/tm/asm/policies/<policyId> -H “Content-Type: application/json”
-                * - Delete a whitelist ip from policy
-                  - DELETE
-                  - curl -sk -u admin:password -X DELETE https://<bigip>/mgmt/tm/asm/policies/<policyId>/whitelist-ips/<whitelistIpId> -H “Content-Type: application/json”
-
-Topics:
+#Please fix TOC Tree...not rendering correctly
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
-   lab*/lab*
-   review
-   lab*/answer*
+   lab1/lab1
+   lab2/lab2
+   lab3/lab3
+   lab4/lab4
+   lab5/lab5
