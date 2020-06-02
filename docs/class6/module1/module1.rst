@@ -1,34 +1,28 @@
-Module 1: Ansible 
+Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer) 
 ===================================================
-Expected time to complete: **1 hours**
-
 
 **Intro**
 
-Ansible is an automated configuration tool that uses config files written in YAML to push configurations to devices and rollback. 
+As the security engineer, you are tasked with building a WAF policy template that will be used by the application teams. 
 
-Some benefits of Ansible:
+Since the policy is used by multiple teams, it will mostly contain negative security controls (signatures, ip reputation...) 
 
+During the exercise, think which settings should be enabled and how changes to the template will be managed. 
 
+Also, think about how you can test your policy since it's not going to be deployed by the security engineer. 
 
-**Agentless** -  As long as the system can be ssh’d into and has python, it can be configured with Ansible.
+**In this lab, we will cover the following:**
 
-**Idempotent** - Ansible’s whole architecture is structured around the concept of idempotency. The core idea here is that you only do things if they are needed and that things are repeatable without side effects. More than anything else this sold me over Puppet and Chef.
+- Creation of an AWAF base policy (lab1) 
+- Creating a template from a base policy (lab2)
+- Creating ASM Policies via Importing JSON Files (lab3)
+- Deploying to a 'secops testing' environemnt (lab4) 
 
-**Declarative Not Procedural** - Other configuration tools tend to be procedural — do this and then do that and so on. Ansible works by writing a description of the state of the machine that you want and then it takes steps to fulfill that description.
-
-**Learning Curve** - Ansible typically take much less time to understand than tools like Chef or Puppet. 
-
-
-Although the ASM Ansible functionality is currently limited to policy creation/importation, F5 has invested heavily in developing an Ansible library to interact with the BIG-IP iControl Rest API. Curiosity has grown greatly over the last year and we want to demonstrate how to get started with Ansible and ASM, as future releases will enhance Ansible's ASM capabilities.
-
-
-This first module covers the following topics:
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
-   lab*/lab*
+   lab*
    review
 
