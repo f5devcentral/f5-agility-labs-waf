@@ -1,7 +1,7 @@
 Lab Environment & Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: All work is done from the Linux client/jumphost (client01), which can
+.. NOTE:: All work is done from the Linux client/Jumphost (client01), which can
    be accessed via RDP (Windows Remote Desktop) or ssh. No installation or
    interaction with your local system is required.
 
