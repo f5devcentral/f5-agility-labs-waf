@@ -1,5 +1,5 @@
-Class 6: AWAF - WAF in a CI/CD Pipeline 
-=======================================
+Class 6: AWAF in a CI/CD Pipeline 
+=================================
 
 Intro
 -----
