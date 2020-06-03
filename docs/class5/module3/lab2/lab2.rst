@@ -64,9 +64,9 @@ Task 3 - Test Configuration
 
 #. Navigate to **Security -> Application Security -> Policy Building -> Traffic Learning**
 
-#. Review the entry for 'illegal parameter value length'.
+#. Review the entry for **illegal parameter value length**.
 
-  |lab3-05|
+   |lab3-05|
 
 #. Click **Accept Suggestion** and then click **Apply Policy**
 
@@ -79,7 +79,7 @@ Task 3 - Test Configuration
 #. Return to **Security -> Application Security -> Parameters List**
    Notice that accepting the suggestion for the username parameter has adjusted the maximum-length value to 10.
 
-  |lab3-06|
+   |lab3-06|
 
 
 #. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
@@ -88,17 +88,17 @@ Task 3 - Test Configuration
 
 #. Choose Injection Flaws -> SQL Injection (intro) from the menu on the left then chose page 9 from the top.
 
-  |lab3-07|
+   |lab3-07|
 
 #. Adjust settings as seen and click **get account info**. The attack succeeds and you should see a list of accounts that start with **John**.
 
 
-  |lab3-08|
+   |lab3-08|
 
 #. Return to **Security -> Application Security -> Parameters List** and remove the **account** parameter from staging by unchecking the Enabled checkbox next to Perform Staging.
     Click Update then **Apply policy**.
 
-  |lab3-09|
+   |lab3-09|
 
 #. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
 
