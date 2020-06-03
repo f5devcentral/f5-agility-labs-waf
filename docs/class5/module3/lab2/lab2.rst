@@ -1,7 +1,8 @@
 Lab 3.2: Protection from Parameter Exploits
 -----------------------
 
-F5 Advanced WAF includes DataSafe which can protect your web applications from credential theft by MITB malware. In this exercise you will configure DataSafe to protect the Webgoat login page from credential theft.
+In this lab we will look at the parameter protection capability in F5 WAF.  F5 WAF can leverage automatic parameter learning using the policy feature however in the interest of time, this lab we will be configuring parameters manually.
+For more information on Automatic Policy Builder: `https://support.f5.com/csp/article/K75376155`
 
 .. |lab3-01| image:: images/lab3-01.png
         :width: 800px
@@ -31,17 +32,20 @@ Task 1 - Create Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Browse to the BIGIP GUI.
 
-#. Navigate to **Security -> Application Security -> Parameters List** and click create. Create the username and password parameters as seen below
+#. Navigate to **Security -> Application Security -> Parameters List** and click create. Create the username and account parameters as seen below
 
-  'username' parameter
+  **'username' parameter**
+
   |lab3-01|
-  'account' parameter
+
+  **'account' parameter**
+
   |lab3-02|
 
 Task 2 - Modify Learning and Blocking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings** and enable setting for 'illegal parameter value length' and 'illegal meta character in value' as seen below.
+Navigate to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings** and enable settings for 'illegal parameter value length' and 'illegal meta character in value' as seen below.
 
     |lab3-03|
 
@@ -62,11 +66,11 @@ Task 3 - Test Configuration
 
 #. Navigate to **Security -> Application Security -> Policy Building -> Traffic Learning**
 
-#. Review the entry for 'illegal parameter value length'
+#. Review the entry for 'illegal parameter value length'.
 
   |lab3-05|
 
-#. Click Accept Suggestion and the **Apply Policy**
+#. Click **Accept Suggestion** and then click **Apply Policy**
 
 #. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
 
@@ -75,6 +79,7 @@ Task 3 - Test Configuration
 #. Your login should be allowed.
 
 #. Return to **Security -> Application Security -> Parameters List**
+   Notice that accepting the suggestion for the username parameter has adjusted the maximum-length value to 10.
 
   |lab3-06|
 
@@ -83,15 +88,17 @@ Task 3 - Test Configuration
 
 #. login as f5student
 
-#. Choose Injection Flaws -> SQL Injection from the menu on the left then chose page 9 from the top.
+#. Choose Injection Flaws -> SQL Injection (intro) from the menu on the left then chose page 9 from the top.
 
   |lab3-07|
 
-#. Adjust settings as seen and click 'get account info'. You should see a list of accounts that start with 'John'.
+#. Adjust settings as seen and click **get account info**. You should see a list of accounts that start with 'John'.
+
 
   |lab3-08|
 
-#. Return to **Security -> Application Security -> Parameters List** and remove the 'account' parameter from staging. Click Update then apply policy.
+#. Return to **Security -> Application Security -> Parameters List** and remove the 'account' parameter from staging by unchecking the Enabled checkbox next to Perform Staging.
+    Click Update then **Apply policy**.
 
   |lab3-09|
 
@@ -99,13 +106,13 @@ Task 3 - Test Configuration
 
 #. login as f5student
 
-#. Choose Injection Flaws -> SQL Injection from the menu on the left then chose page 9 from the top.
+#. Choose Injection Flaws -> SQL Injection (intro) from the menu on the left then chose page 9 from the top.
 
-#. Adjust settings as seen and click 'get account info'. You should see a list of accounts that start with 'John'.
+#. Adjust settings as used in an earlier step and click 'get account info'.
 
-#. The attack should fail since you are enforcing metacharacters on your parameter. In this case the ' character is not allowed.
+#. The attack should fail since you are enforcing meta characters on your parameter. In this case the ' character is not allowed.
 
-#. Review the logs
+#. Review the event logs. In this case the ' character is not allowed.
 
   |lab3-10|
 
