@@ -1,7 +1,7 @@
 Lab 3.2: Protection from Parameter Exploits
 -----------------------
 
-In this lab we will look at the parameter protection capability in F5 WAF.  F5 WAF can leverage automatic parameter learning using the policy feature however in the interest of time, this lab we will be configuring parameters manually.
+In this lab we will look at the parameter protection capability in F5 WAF.  F5 WAF can leverage automatic parameter learning using the automatic policy policy feature however in the interest of time, this lab we will be configuring parameters manually.
 For more information on Automatic Policy Builder: `https://support.f5.com/csp/article/K75376155`
 
 .. |lab3-01| image:: images/lab3-01.png
@@ -32,7 +32,7 @@ Task 1 - Create Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Browse to the BIGIP GUI.
 
-#. Navigate to **Security -> Application Security -> Parameters List** and click create. Create the username and account parameters as seen below
+#. Navigate to **Security -> Application Security -> Parameters List** and click **create**. Create the username and account parameters as seen below and click **create**.
 
   **'username' parameter**
 
@@ -45,7 +45,7 @@ Task 1 - Create Parameters
 Task 2 - Modify Learning and Blocking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings** and enable settings for 'illegal parameter value length' and 'illegal meta character in value' as seen below.
+Navigate to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings** and enable the **Parameters** settings for 'illegal parameter value length' and 'illegal meta character in value' as seen below in the **Policy Building Settings** section.
 
     |lab3-03|
 
@@ -54,13 +54,11 @@ Navigate to **Security -> Application Security -> Policy Building -> Learning an
 Task 3 - Test Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
+#. Open a new Firefox Private Browsing window and go to the WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` and login as **f5student**.
 
-#. login as f5student
+#. Your login attempt should be blocked.
 
-#. Your login should be blocked.
-
-#. Examine the recent event logs
+#. Examine the recent event logs under **Security -> Event Logs -> Application -> Requests** for the /WebGoat/login events.
 
    |lab3-04|
 
@@ -92,12 +90,12 @@ Task 3 - Test Configuration
 
   |lab3-07|
 
-#. Adjust settings as seen and click **get account info**. You should see a list of accounts that start with 'John'.
+#. Adjust settings as seen and click **get account info**. The attack succeeds and you should see a list of accounts that start with **John**.
 
 
   |lab3-08|
 
-#. Return to **Security -> Application Security -> Parameters List** and remove the 'account' parameter from staging by unchecking the Enabled checkbox next to Perform Staging.
+#. Return to **Security -> Application Security -> Parameters List** and remove the **account** parameter from staging by unchecking the Enabled checkbox next to Perform Staging.
     Click Update then **Apply policy**.
 
   |lab3-09|
@@ -112,7 +110,7 @@ Task 3 - Test Configuration
 
 #. The attack should fail since you are enforcing meta characters on your parameter. In this case the ' character is not allowed.
 
-#. Review the event logs. In this case the ' character is not allowed.
+#. Review the event logs under **Security -> Event Logs -> Application -> Requests**. In this case the ' character is not allowed.
 
   |lab3-10|
 
