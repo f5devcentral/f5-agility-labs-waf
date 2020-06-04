@@ -84,12 +84,11 @@ Task 3 - Test Configuration
 
    |lab3-07|
 
-#. Adjust settings as seen and click **get account info**. The attack succeeds and you should see a list of accounts that start with **John**.
+#. Adjust settings as seen and click **get account info**. The attack succeeds and you should see a list of accounts.
 
    |lab3-08|
 
-#. Return to **Security -> Application Security -> Parameters List** and remove the **account** parameter from staging by unchecking the Enabled checkbox next to Perform Staging.
-    Click Update then **Apply policy**.
+#. Navigate to **Security -> Application Security -> Parameters List** and remove the **account** parameter from staging by unchecking the Enabled checkbox next to Perform Staging. Click Update then **Apply policy**.
 
    |lab3-09|
 

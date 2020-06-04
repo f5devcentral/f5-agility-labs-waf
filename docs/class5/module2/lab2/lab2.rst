@@ -14,6 +14,8 @@ Lab 2.2: Data Guard
         :width: 800px
 ..  |lab2.2-5| image:: images/lab2.2-5.png
         :width: 800px
+..  |lab2.2-6| image:: images/lab2.2-6.png
+        :width: 800px
 
 
 
@@ -65,7 +67,9 @@ Task 2 - Test DataGuard
 
     .. NOTE:: You can also use PCRE to define custom patterns for obfuscation.  Feel free to experiment with this as it can have interesting consequences for the application (intentional or otherwise).
 
+#.  Examine the most recent requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**. Look for the Data Guard violations.
 
+    |lab2.2-6|
 |
 |
 

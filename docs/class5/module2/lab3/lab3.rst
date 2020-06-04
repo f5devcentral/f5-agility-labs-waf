@@ -74,6 +74,8 @@ Task 1 - Login Page
 
 #.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``  and login
 
+#.  Examine the most recent requests and compare to earlier requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**.
+
 #. The cookie content is now obfuscated in the Logs when they were visible before.
 
         |lab2.3-3|

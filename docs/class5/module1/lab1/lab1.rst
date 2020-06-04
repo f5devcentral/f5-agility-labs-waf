@@ -73,12 +73,6 @@ Simply click in the username field and backspace. Enter the name: **f5student** 
 Task 0: Level Set
 ~~~~~~~~~~~~~~~~~
 
-This lab depends on components built in earlier labs.  If you're continuing on from WAF241 using the same lab environment, proceed to Task 1.
-
-If this is a new environment follow the directions below starting at step 1 to restore a completed policy.
-
-If you are continuing from WAF 141 please start at step 9 below (setting policy to blocking)
-
 #.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut.
 
 #.  Login to the BIG-IP.
@@ -105,6 +99,8 @@ If you are continuing from WAF 141 please start at step 9 below (setting policy 
 
     |lab41-01|
 
+#.  Click Update
+
 #.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode and click **Save and then Apply Policy**.
 
     |lab41-007|
@@ -125,6 +121,7 @@ Enabling Bot Profile
 
 #.  Click on the **Bot Mitigation Settings** tab and review the default configuration.
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
+#.  Click on the **Mobile Applications** tab adn review the Mobile SDK Information
 #.  Click on the **Browsers** tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
 
         |pbd|
@@ -160,7 +157,7 @@ Define Login & Logout Pages
 
                  |lab41-05|
 
-        Please proceed to Task 1.
+
 
 
 
@@ -174,7 +171,7 @@ In another version of this attack, commonly called “credential stuffing,” ha
 Task 1 - Configure Brute Force Attack Prevention
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a terminal in the RDP client and ssh to the BIG-IP: ``ssh admin@10.1.10.245``.
+#. Open a terminal in the RDP client and ssh to the BIG-IP using the **admin** user and provided **password** : ``ssh admin@10.1.10.245``.
 
 #. Run the command ``modify sys db asm.cs_qualified_urls value "/WebGoat/login"``.
 
@@ -182,11 +179,6 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #.  Open the BIG-IP GUI interface .
 
-#. Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**.
-
-#. **Remove** any urls in **Authenticated URLS** and click **Save and then Apply Policy**.
-
-    |lab41-08|
 
 #.  Navigate to **Security -> Application Security -> Brute Force Attack Prevention** and click **Create**.
 
@@ -205,7 +197,7 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #.  Click **Apply Policy**.
 
-#. Ensure WAF and Bot policy are both applied to the Virtual as seen.
+#. Ensure WAF and Bot policy are both applied to the Virtual as seen and click **update**.
 
     |lab1-2.1|
 
@@ -215,9 +207,9 @@ Task 2 - Test username based Brute Force Protection
 
 #.  Open a new Private Browsing window in **Firefox** .
 
-#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
+#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
 
-#.  Attempt to login using the same username and password at least 4 times or until CAPTCHA is displayed. Solve the CAPTCHA.
+#.  Attempt to login using the same username and password of your choice at least 4 times or until CAPTCHA is displayed. Solve the CAPTCHA.
 
 #.  Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests:
 
@@ -254,9 +246,9 @@ Task 4 - Test Device ID based Brute Force Protection
 
 #.  Open a new **incognito window** window in **Chrome** .
 
-#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` but **do not login as f5student** .
+#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
 
-#.  Attempt to login using a **different username** and password each time.
+#.  Attempt to login using a **different username** and password each time until blocked.
 
 #. Once Blocked close the browser and re-open a new **incognito window** in **Chrome**
 

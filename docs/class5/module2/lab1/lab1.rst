@@ -37,7 +37,9 @@ Task 2 - Restricting Method on per URL basis
 
 #. in the RDP client open a terminal and paste this command ``curl -k -d "param1=value1&param2=value2" -X POST https://insecureapp1.f5.demo/WebGoat/logout``.
 
-#. What is the result, and why?  The result should be the request getting block because a method (POST) has been disabled on the URL /WebGoat/logout . Examine the results in the event log.
+#. What is the result, and why?  The result should be the request getting block because a method (POST) has been disabled on the URL /WebGoat/logout .
+
+#. Examine the most recent requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**.
 
 |lab2.1-4|
 
