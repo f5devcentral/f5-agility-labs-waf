@@ -1,7 +1,6 @@
 Lab 2.2: Data Guard
 -------------------
 
-
 ..  |lab2.2-1| image:: images/lab2.2-1.png
         :width: 800px
 ..  |lab2.2-2| image:: images/lab2.2-2.png
@@ -17,10 +16,11 @@ Lab 2.2: Data Guard
 ..  |lab2.2-6| image:: images/lab2.2-6.png
         :width: 800px
 
-
-
-DataGuard is a DLP-like feature of ASM that can prevent harmful data leakage from your application in the event of a successful attack.  It can also be used to help prevent users from entering certain types of data that should not be stored in a particular system.  This feature should be deployed with care as it has the potential to break applications if applied too broadly.
-
+DataGuard is a DLP-like feature of ASM that can prevent harmful data leakage
+from your application in the event of a successful attack. It can also be used
+to help prevent users from entering certain types of data that should not be
+stored in a particular system.  This feature should be deployed with care as it
+has the potential to break applications if applied too broadly.
 
 Task 1 - Configure DataGuard
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,12 +37,13 @@ Task 1 - Configure DataGuard
 
     |lab2.2-2|
 
-
 #.  Click **Save**.
 
 #.  Click **Apply Policy** .
 
-..  note:: Deploying DataGuard too pervasively can have a negative performance impact on your system. In a production environment we typically recommend deploying DataGard against specific URLs where possible.
+.. note:: Deploying DataGuard too pervasively can have a negative performance
+   impact on your system. In a production environment we typically recommend
+   deploying DataGard against specific URLs where possible.
 
 Task 2 - Test DataGuard
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,6 +71,7 @@ Task 2 - Test DataGuard
 #.  Examine the most recent requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**. Look for the Data Guard violations.
 
     |lab2.2-6|
+
 |
 |
 
