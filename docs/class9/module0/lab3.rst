@@ -78,16 +78,10 @@ Use a rainbow lookup table to expose the admin user's password by navigating to 
 Task - Demonstrate an unauthorized file access vulnerability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to /ftp to expose an unwanted directory listing
-
-.. image:: /_static/class9/juice_shop_ftp.png
-
-Click on the file ``acquisitions.md`` and attempt to download it.
-
 Navigate to /encryptionkeys to expose an unwanted directory listing
 
 .. image:: /_static/class9/juice_shop_encryptionkeys.png
 
 Click on the file ``premium.key`` and attempt to download it.
 
-The files in these directories can be downloaded. A good WAF policy should block access to senstive file types.
+The files in this directory can be downloaded. A good WAF policy should block access to sensitive file types.

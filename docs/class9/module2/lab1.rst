@@ -102,20 +102,20 @@ Navigate to **Security -> Event Logs -> Application -> Requests** where you shou
 Task - Compare results of an unauthorized file access attempt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The attempt to download the file in the ``/ftp`` directory fails with the following message:
+The attempt to download the file in the ``/encryptionkeys`` directory fails with the following message:
 
-.. image:: /_static/class9/support_id_file.png
+.. image:: /_static/class9/support_id_file_1.png
 
 Task - Search for log entry using a Support ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate to **Security -> Event Logs -> Application -> Requests** and then click on the ``Open Filter`` icon (beside Order by Date / Newest) and then enter the support ID shown on the blocked page in the Support ID field at the bottom of the filter window then click the ``Apply Filter`` button:
 
-.. image:: /_static/class9/support_id.png
+.. image:: /_static/class9/support_id_1.png
 
 Task - View the Application Request Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once the filter is applied you should only see one illegal request for the URI ``/ftp/package.json.bak``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type.
+Once the filter is applied you should only see one illegal request for the URI ``/encryptionkeys/premium.key``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type.
 
-.. image:: /_static/class9/log_file_access.png
+.. image:: /_static/class9/log_file_access_1.png
