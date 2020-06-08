@@ -78,7 +78,7 @@ Test TC Signatures and Review Logs
 
 #. Click on the event for **/remotefgt_lang** and note the triggered violations. Click on **All Details** to the right of the screen to get more information. You can also click the **Open to new Window** icon in the top right to get an isolated view of this violation. 
 #. To see exactly which Attack Signature or Threat Campaign was triggered under the **Violations** section click the **1** under **Occurrences** for **Attack Signature Detected**. 
-#. Notice that the Attack Signature was a parameter level Directory Traversal Attempt. Also notice that this signature is currently in staging. Attack signatures have or can have a different enforecement readiness period than Threat Campaign Signatures. 
+#. Notice that the Attack Signature was a parameter level Directory Traversal Attempt. Also notice that this signature is currently in staging. Attack signatures have or can have a different enforcement readiness period than Threat Campaign Signatures. 
 
 If this policy was in blocking mode would this signature have blocked the attack?
 
