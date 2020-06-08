@@ -60,4 +60,4 @@ and
 
 .. image:: images/Lab2-10.png
 
-1.3.7 Check the policies on the BIGIP and verify that secops_waf_policy_2 has ‘403’ in the allowed response types.
+**1.3.7** Check the policies on the BIGIP and verify that secops_waf_policy_2 has ‘403’ in the allowed response types.
