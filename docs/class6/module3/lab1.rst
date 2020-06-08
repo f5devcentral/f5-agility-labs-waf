@@ -79,8 +79,8 @@ AWAF generates suggestions based on the 'policy builder'.when working with AWAF 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Open the bigip GUI :guilabel:`firefox` -> :guilabel:`bigip01`
-2. Navigate to 'traffic learning' :guilabel:`security` -> :guilabel:`application security` -> :guilabel:`policy building` -> :guilabel:`traffic learning`
-3. Verify that you are looking at :guilabel:`juiceshop_waf_policy_staging` policy under the :guilabel:`staging` partition
+2. Verify that you are looking at :guilabel:`juiceshop_waf_policy_staging` policy under the :guilabel:`staging` partition
+3. Navigate to 'traffic learning' :guilabel:`security` -> :guilabel:`application security` -> :guilabel:`policy building` -> :guilabel:`traffic learning`
 4. review the suggestions
 
 Question - Why did the request to http://10.1.10.150/ftp/packages.json get blocked? What is the required policy change? 
