@@ -70,7 +70,7 @@ Test TC Signatures and Review Logs
 .. image:: images/test_req.png
   :width: 600 px
 
-#. Click on the **Fortinet SSL VPN** attack and then click the blue **Send** button. Repeat this process for the **Oracle2** and **Atlassian** attacks. Explore the Headers and Payloads that are being sent. If your policy was in blocking mode you would receive a block page but since the policy is transparent, these attacks are making it through. 
+#. Click on the **Fortinet SSL VPN** attack and then click the blue **Send** button. Repeat this process for the **Oracle2** attack. Explore the Headers and Payloads that are being sent. If your policy was in blocking mode you would receive a block page but since the policy is transparent, these attacks are making it through. 
 #. Navigate to **Security > Event Logs > Application > Requests** and review the Sev5 events.
 
 .. image:: images/events.png
@@ -88,7 +88,7 @@ If this policy was in blocking mode would this signature have blocked the attack
 If you guessed no, you are correct. This signature is still in staging and therefor would not be blocked.  
 
 #. Under the **Violations** section click the **1** under **Occurrences** for **Threat Campaign detected** and review the signature that was triggered and the Applied Blocking Settings. 
-#. Review the other two alerts that we generated and notice different Attack Signatures and Threat Campaign Signatures were triggered in each. The Atlassian attack actually generated three Violations. 
+#. Review the other alert that we generated and note any additional Attack Signatures that were fired.
 
 .. image:: images/violations.png
   :width: 600 px
