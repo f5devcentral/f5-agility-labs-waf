@@ -73,7 +73,7 @@ Task 2 - Configuring DataSafe
 
     |Lab3-4|
 
-#. Apply Data Safe Profile to Virtual Server
+#. Apply Data Safe Profile to Virtual Server and remove any WAF or other policies.
 
     |Lab3-5|
 
@@ -96,4 +96,4 @@ Task 3 - Test Data Safe Configuration
 
     |Lab3-08|
 
-This concludes Lab 3.
+This concludes Lab 3.1.

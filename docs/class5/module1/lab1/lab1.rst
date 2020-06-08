@@ -121,7 +121,7 @@ Enabling Bot Profile
 
 #.  Click on the **Bot Mitigation Settings** tab and review the default configuration.
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
-#.  Click on the **Mobile Applications** tab adn review the Mobile SDK Information
+#.  Click on the **Mobile Applications** tab and review the Mobile SDK Information
 #.  Click on the **Browsers** tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
 
         |pbd|

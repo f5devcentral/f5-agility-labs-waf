@@ -16,6 +16,10 @@ Lab 2.3: Sensitive Data
 .. |lab2.3-3| image:: images/lab2.3-3.png
    :width: 800px
 
+
+.. |lab2.3-9| image:: images/lab2.3-9.png
+  :width: 800px
+
 By default, the BIG-IP ASM system logs information about incoming requests to
 the request log in plain text. In some cases you may want to mask request
 information in the logs as some requests include sensitive information, such as
@@ -59,6 +63,8 @@ Task 1 - Login Page
 #.  Open the BIG-IP interface.
 
 #.  Navigate to **Security -> Application Security -> Parameters List** and select the Sensitive Parameters tab and view the configuration.
+
+        |lab2.3-9|
 
 #. Next we will obfuscate cookies as they could contain sensitive information we would not want an administrator to have access to.
 

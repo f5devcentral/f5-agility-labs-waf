@@ -1,7 +1,7 @@
 Lab 3.2: Protection from Parameter Exploits
 -------------------------------------------
 
-In this lab we will look at the parameter protection capability in F5 WAF.  F5 WAF can leverage automatic parameter learning using the automatic policy policy feature however in the interest of time, this lab we will be configuring parameters manually.
+In this lab we will look at the parameter protection capability in F5 WAF.  F5 WAF can leverage automatic parameter learning using the automatic policy builder feature however in the interest of time, this lab we will be configuring parameters manually.
 For more information on Automatic Policy Builder: `https://support.f5.com/csp/article/K75376155`
 
 .. |lab3-01| image:: images/lab3-01.png

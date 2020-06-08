@@ -1,4 +1,4 @@
-Lab 2.1: Credential Stuffing
+Lab 1.2: Credential Stuffing
 ----------------------------
 
 ..  |lab2-11| image:: images/lab2-11.png
@@ -78,11 +78,13 @@ Task 2 - Test Credential Stuffing Detection
 
 #.  In order to release any blocking that's currently in place, navigate to **Security -> Application Security -> Brute Force Attack Prevention** and **Delete** the Brute Force configuration we created previously.
 
+#. Click **Apply Policy** .
+
 #.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies** and ensure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below removing the **Bot Profile**.
 
     |lab41-01|
 
-#. Click **Apply Policy** .
+
 
 |
 |
