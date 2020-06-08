@@ -64,7 +64,7 @@ Explore the policy and pay attention to the **modifications** section. It should
 
 Click on :guilabel:`Copy file contents` button for new_waf_policy.json content and navigate back to root folder of the repo:
 
-On the root folder of the repo open `waf_policy.json` file for editing and perform `CTRL-A/CTRL-C` to paste the content of `new_waf_policy.json` and overwrite the original policy file:
+On the root folder of the repo open `waf_policy.json` file for editing and perform `CTRL-A/CTRL-V` to paste the content of `new_waf_policy.json` and overwrite the original policy file:
 
 .. note:: Depending on Web Browser type, it is possible that during copy/paste `new_waf_policy.json` is "minified" i.e. you see a single line instead of a multi-line structured file. This format **does not** affect the JSON structure but can be "prettified" to be more "human-readable" using one of many available tools, for example |Beautifier|
 
