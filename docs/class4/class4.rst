@@ -1,5 +1,5 @@
-Class 4: WAF 241 - Elevating ASM Protection
-===========================================
+Class 4: WAF 241 – Learning and the Positive Security Model
+===========================================================
 
 Welcome to F5's Agility Labs, 2020 edition! 
 
@@ -9,6 +9,8 @@ This is the 2nd class in a four part series based on
 
 Here is a complete listing of all F5 WAF classes offered at this years Agility.
 
+* WAF 111 - Protect yourself against the OWASP Top 10
+
 * WAF 141 - Getting started with WAF, Bot Defense and Threat Campaigns
 
 * WAF 241 – Learning and the Positive Security Model
@@ -16,8 +18,6 @@ Here is a complete listing of all F5 WAF classes offered at this years Agility.
 * WAF 341 – Advanced Protection and Positive Security
 
 * WAF 342 – WAF in a CI/CD pipeline (new 15.1 features)
-
-* WAF 111 - Protect yourself against the OWASP Top 10
 
 * WAF/APM API Security and Management
 
