@@ -13,7 +13,7 @@ Here is a complete listing of all F5 WAF classes offered at this years Agility.
 
 * WAF 341 – Advanced Protection and Positive Security
 
-* WAF 342 – WAF in a CI/CD pipeline (new 15.1 features) 
+* WAF 342 – WAF in a CI/CD pipeline (new 15.1 features)
 
 * WAF 111 - Protect yourself against the OWASP Top 10
 
