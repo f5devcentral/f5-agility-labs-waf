@@ -62,6 +62,9 @@ Create the DoS Profile
 
     |lab21-03|
 
+    .. NOTE:: The screenshot references an application security policy, but unless you've been using the same lab environment since the WAF141 class, you won't have one here.  It is not required for this lab, but you will restore this policy in Module 4.
+    
+
 #.  Enable the **local-dos** logging profile, and click **update**
 
     |lab21-04|
@@ -166,7 +169,7 @@ Visibility & Reporting
 
     |lab21-16|
 
-#.  Next, navigate to **Security -> Reporting -> DoS -> URL Latencies**.  The BIG-IP also keeps track of the performance of each URI in order to assess the impact of an attack (stress) on specific parts of an application.
+#.  Next, navigate to **Security -> Reporting -> DoS -> URL Latencies**.  The BIG-IP also keeps track of the performance of each URI in order to assess the impact of an attack (stress) on specific parts of an application.  Since this is a lab instance you will probably want to adjust the time period to **Last Hour** in order to get some more meaningful statistics.
 
     |lab21-17|
 

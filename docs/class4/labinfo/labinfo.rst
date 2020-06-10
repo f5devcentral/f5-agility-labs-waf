@@ -24,9 +24,9 @@ Lab Topology
 The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
--  1 x Ubuntu Linux 18.04 client
+-  1 x Ubuntu Linux 16.04 client
 -  1 x F5 BIG-IP VE (v15.1.0.1) running Advanced WAF with Ip Intelligence & Threat Campaigns Subscription Services.  
--  1 x Ubuntu Linux 18.04 server
+-  1 x Ubuntu Linux 16.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
@@ -46,14 +46,14 @@ components:
      - 10.1.1.5
      - 10.1.10.51
      - N/A
-     - rdp-``f5student:password``
+     - rdp - ``f5student:(pw from instructor)``
    * - Bigip (bigip01)
      - 10.1.1.8
      - 10.1.10.245
      - 10.1.20.245
-     - https - ``admin:password``  ssh - ``f5student:password``
+     - https - ``admin:(pw from instructor)``  ssh - ``admin:(pw from instructor)``
    * - Linux Server & WebGOAT app (server01)
      - 10.1.1.6
      - N/A
      - 10.1.20.252
-     - ssh - ``f5student:password``
+     - ssh - ``f5student:(pw from instructor)``
