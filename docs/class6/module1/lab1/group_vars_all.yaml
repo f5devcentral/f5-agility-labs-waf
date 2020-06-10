@@ -1,5 +1,0 @@
-bigip_user: admin
-bigip_password: ****** 
-bigip_port: "443"
-bigip_partition: "Common"
-validate_certs: "false"

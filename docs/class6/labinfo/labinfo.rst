@@ -1,37 +1,23 @@
 Lab Environment & Topology 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
-.. WARNING:: All work is done from the Linux client/jumphost (client01), which can be access via RDP (Windows Remote Desktop) or ssh. No installation or interaction with your local system is required.
-
-All pre-built environments implement the Lab Topology shown below.  Please
-review the topology first, then find the section matching the lab environment
-you are using for connection instructions.
+.. NOTE:: All work is done from the Linux client/jumphost (client01), which can
+   be accessed via RDP (Windows Remote Desktop) or ssh. No installation or
+   interaction with your local system is required.
 
 Environment
 -----------
 
-Linux client (client01):
+**Linux client (client01):**
 
-* Web Attack Tools: (Only used in 141,241,341 classes)
+**Web Attack Tools used in this lab:**
 
- * `Goldeneye <https://github.com/jseidl/GoldenEye>`_ - HTTP DOS Tool
- * `Metasploit <https://www.metasploit.com/>`_ - Pen testing framework
- * `nmap/nping <https://nmap.org/>`_ - Network mapper
- * `Slowhttptest <https://github.com/shekyan/slowhttptest>`_ - HTTP DOS Tool
- * `wapiti <http://wapiti.sourceforge.net/>`_ - web application auditor
- * `w3af <http://w3af.org/>`_ - web application auditor
- * `Burp Suite Community Edition <https://portswigger.net/burp>`_ - HTTP Request Manipulation
+- `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
+- `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
 
-* Api Tools: (Only used in 342 Programmability class)
+**Linux server (server01):**
 
- * `Ansible <https://www.ansible.com/>`_ - Automation platform
- * `curl <https://curl.haxx.se/>`_ - command line webclient, will be used to interact with the iControl Rest API
- * `Postman <https://www.getpostman.com/>`_ - Graphical based Restful Client, will be used to interact with the iControl Rest API
- * `python <https://www.python.org/>`_ - general programming language used to interact with the iControl Rest API 
-
-Linux server (server01): (Only used in 141,241,341 classes)
-
-* `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - deliberately insecure web application
+- `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. The primary goal of the WebGoat project is simple: create a de-facto interactive teaching environment for web application security.
 
 Lab Topology
 ------------
@@ -42,8 +28,8 @@ traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
 -  1 x Ubuntu Linux 18.04 client, with client tools installed - aptly named: client01
--  1 x F5 BIG-IP VE (v13.1.0.5) running ASM and LTM - aptly named: bigip01
--  1 x Ubuntu Linux 18.04 serve, with webgoat 8 installed - aptly named: server01 
+-  1 x F5 BIG-IP VE (v15.1.0.1) running ASM and LTM - aptly named: bigip01
+-  1 x Ubuntu Linux 18.04 server, with webgoat 8 installed - aptly named: server01 
 
 .. nwdiag:: labtopology.diag
    :width: 800
@@ -79,21 +65,10 @@ components:
      - 10.1.20.252
      - ssh - ``f5student:password``
 
-|
-|
+.. note:: External links are not required reading for the lab, rather
+   supplemental if you you would like to get a different take or
+   additional info.
 
-A graphical representation of the lab:
-
-.. image:: images/Agility2018LabDiagram.png
-
-|
-
-.. note:: 
-        
-        External links are not required reading for the lab, rather supplemental if you you would like to get a different take or additional info.
-
-|
-
-.. note::
-
-        Replace all instances of <bigip> with the management ip of the bigip1, 10.1.1.245. The $password referenced in the curl commands is an environment variable, there is no need to modify it. 
+.. note:: Replace all instances of <bigip> with the management ip of the
+   bigip1, 10.1.1.245. The $password referenced in the curl commands is an
+   environment variable, there is no need to modify it. 

@@ -1,21 +1,27 @@
-Class 3: ASM 141 - Good WAF Security, Getting started with ASM
-==============================================================
+Class 3: WAF 141 - Getting started with WAF, Bot Detection and Threat Campaigns
+=================================================================================
 
-This class will focus on a best practice approach to getting started with ASM and application security.
+This class will focus on a best practice approach to getting started with F5 WAF and application security. This introductory class will give you guidance on deploying WAF services in a successive fashion. This 141 class focuses entirely on the negative security model aspects of WAF configuration. 
 
-This is the 1st class in a four part series based on: `Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_
+This is the 1st class in a three part lab series based on: `Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_
 
-Here is a complete listing of all ASM classes offered at this years Agility.
+Here is a complete listing of all F5 WAF classes offered at this years Agility.
 
-* Good WAF Security - Getting started with ASM
+* WAF 111 - Protect yourself against the OWASP Top 10
 
-* Elevated WAF Security - Elevating ASM Protection
+* WAF 141 - Getting started with WAF, Bot Defense and Threat Campaigns
 
-* High and Maximum WAF Security - Maximizing ASM Protection
+* WAF 241 – Learning and the Positive Security Model
 
-* WAF Programmability - Enhancing ASM Security and Manageability
+* WAF 341 – Advanced Protection and Positive Security
 
-Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education.
+* WAF 342 – WAF in a CI/CD pipeline (new 15.1 features)
+
+* WAF/APM API Security and Management
+
+Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education and create your own test lab environment.
+
+WAF 141 Table  of Contents:
 
 .. toctree::
    :maxdepth: 1

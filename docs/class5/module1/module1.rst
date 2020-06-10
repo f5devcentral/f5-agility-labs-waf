@@ -1,6 +1,6 @@
-Module 1: Positive Security
-===================================================
-Expected time to complete: **1.5 hours**
+Module 1: Bruteforce Protection, Credential Stuffing
+====================================================
+Expected time to complete: **60 minutes**
 
 This first module covers the following topics:
 

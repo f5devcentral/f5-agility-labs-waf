@@ -1,39 +1,85 @@
-Lab 2.2: Curl Policy Creation and Modification
---------------------------------------------------
+Lab 2.2: Initial Configuration and First Run of f5 WAF Tester
+=============================================================
 
-Task 1 - Using curl to create a ASM policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To run the f5 WAF tester tool, a configuration file needs to be populated to specify which f5 instance this application is running on,
+an account to log into the f5 instance to look at logs, name of the ASM policy to see why attacks are getting through, and the URL of the 
+application you want to test.
 
+2.2.1 - Initial Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that you've run a few curl commands yourself, we'll now make it a little easier (this is an automation lab, after all). 
-
-|
-
-Run the following command to create a new ASM policy "curl1" (this may take a couple of minutes). JSON will be displayed showing the policy creation and the policy's attributes:
-
-.. code-block:: bash
-        
-        curl -sk -u admin:$password -X POST https://10.1.1.245/mgmt/tm/asm/policies -d '{"name":"curl1"}' | sed 's/,/\'$'\n/g'
-
-|
-
-Navigate to Security->Application Security->Security Policies->Policies List to verify the "curl1" policy was created
-
-
-Before running the below command, navigate to Security->Application Security->IP Addresses->IP Address Exceptions for the “curl1" policy, noting the configuration. 
-
-.. note:: 
-
-        To select the different policies by using the “Current edited security policy” dropdown.
-
-Run the following command to modify the policy by adding a whitelist ip, using the policy id from the output of "curl1" policy creation:
+To populate the configuration file, use the Terminal and go to f5 waf tester directory .  
 
 .. code-block:: bash
 
-        curl -sk -u admin:$password -X POST https://10.1.1.245/mgmt/tm/asm/policies/<policyId>/whitelist-ips -H "Content-Type: application/json" -d '{"ipAddress":"165.25.76.234", "ipMask":"255.255.255.255"}'
+	cd /home/f5student/.local/bin
 
-|
+Then execute:
+	
+.. code-block:: bash
 
-Refresh the IP Address Exceptions to verify the whitelist ip 165.25.76.234/255.255.255.255 was added.
+	./f5-waf-tester --init
 
-Notice the policy was not applied, click “Apply Policy”.  Applying the policy requires a separate REST call.  This will be covered in subsequent labs.
+This will run you through a wizard where you will populate:
+
+	[BIG-IP] Host []: `10.1.1.4`
+		This is the management IP of the Big-IP that is securing your application.
+
+	[BIG-IP] Username []: admin
+		Username of an account that can log into the Big-IP. (Can be a guest account)
+
+	[BIG-IP] Password []: f5DEMOs4u!
+		Password that is tied to the username above.
+
+	ASM Policy Name []: /secops_testing/juiceshop/waf_secops_testing
+		Name of the policy that is tied to the virtual server of the application you are testing.
+
+	Virtual Server URL []: http://10.1.10.120 
+		URL of the virtual server that services the application you are testing. 
+
+For this lab take the defaults for the rest of the prompts (See Appendix A for an explanation of the other features).  If you want to see the configuration file, it can be found here: /home/f5student/.local/lib/python2.7/site-packages/f5_waf_tester/config/config.json 
+You can see the config file by typing:
+
+.. code-block:: bash
+
+	cat ~/.local/lib/python2.7/site-packages/f5_waf_tester/config/config.json
+
+2.2.3 - Run the tool
+~~~~~~~~~~~~~~~~~~~~~
+
+You can now run the tool by issuing:
+
+.. code-block:: bash
+
+	./f5-waf-tester
+
+The results of the tests will be displayed in the Terminal and also saved to "report.json" under the current folder. Test results will give you information of the attack type that was executed, name of the attack, what protection it was testing (signature, evasion, or violation) along with a pass or fail verdict. If the protection is a signature, it will show the signature ID; if an evasion, it will show the evasion name; if a violation, it will show the violation name.  If the attack passes, you will get the support ID of the block page.  If the attack fails, you will get information of why it failed so you can make policy changes.  At the end it will show the summary and provide total number of passed/failed tests:
+
+Attack information:
+      	"attack_type": "Insecure Deserialization", 
+
+      	"name": "Insecure Deserialization - node.js", 
+
+      	"results": {
+        		"header": {
+          			"expected_result": {
+            				"type": "signature", 
+            				"value": "200004283”
+Failed test:
+          	"pass": false, 
+
+          	"reason": "ASM Policy is not in blocking mode", 
+
+          	"support_id": ""
+Passed test:
+		"pass": true, 
+
+          	"reason": "", 
+
+          	"support_id": "4469169378524397882"
+Summary:
+		"summary": {
+
+    		"fail": 13, 
+
+    		"pass": 35

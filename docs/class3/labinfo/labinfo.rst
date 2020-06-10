@@ -1,7 +1,9 @@
 Lab Environment & Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: All work is done from the Linux client/jumphost (client01), which can be accessed via RDP (Windows Remote Desktop) or ssh. No installation or interaction with your local system is required.
+.. NOTE:: All work is done from the Linux client/Jumphost (client01), which can
+   be accessed via RDP (Windows Remote Desktop) or ssh. No installation or
+   interaction with your local system is required.
 
 Environment
 -----------
@@ -10,21 +12,12 @@ Environment
 
 **Web Attack Tools used in this lab:**
 
- * `OWASP ZAP <https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project>`_ - DAST
- * `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
-
-**Api Tools:**
-
- * `Ansible <https://www.ansible.com/>`_ - Automation platform
- * `curl <https://curl.haxx.se/>`_ - command line webclient, will be used to interact with the iControl Rest API
- * `Postman <https://www.getpostman.com/>`_ - Graphical based Restful Client, will be used to interact with the iControl Rest API
- * `python <https://www.python.org/>`_ - general programming language used to interact with the iControl Rest API
+- `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
+- `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
 
 **Linux server (server01):**
 
-* `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. You can install and practice with WebGoat. There are other 'goats' such as WebGoat for .Net. In each lesson, users must demonstrate their understanding of a security issue by exploiting a real vulnerability in the WebGoat applications. For example, in one of the lessons the user must use SQL injection to steal fake credit card numbers. The application aims to provide a realistic teaching environment, providing users with hints and code to further explain the lesson.
-
-Why the name "WebGoat"? Developers should not feel bad about not knowing security. Even the best programmers make security errors. What they need is a scapegoat, right? Just blame it on the **Goat!**
+- `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. The primary goal of the WebGoat project is simple: create a de-facto interactive teaching environment for web application security.
 
 Lab Topology
 ---------------
@@ -32,9 +25,9 @@ Lab Topology
 The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
--  1 x Ubuntu Linux 16.04 client
--  1 x F5 BIG-IP VE (v13.1.0.2) running ASM and LTM
--  1 x Ubuntu Linux 16.04 server
+-  1 x Ubuntu Linux 18.04 client
+-  1 x F5 BIG-IP VE (v15.1.0.1) running Advanced WAF with Ip Intelligence & Threat Campaigns Subscription Services.  
+-  1 x Ubuntu Linux 18.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
@@ -42,6 +35,7 @@ components:
 .. list-table::
    :widths: 15 15 15 15 15
    :header-rows: 1
+   :stub-columns: 1
 
 
    * - **Component**
@@ -50,24 +44,18 @@ components:
      - **servernet IP**
      - **Credentials**
    * - Linux Client (client01)
-     - 10.1.1.51
+     - 10.1.1.5
      - 10.1.10.51
      - N/A
-     - https-``ubuntu:ubuntu``
+     - rdp-``f5student:password``
    * - Bigip (bigip01)
-     - 10.1.1.245
+     - 10.1.1.8
      - 10.1.10.245
      - 10.1.20.245
-     - https - ``admin:f5DEMOs4u!`` ssh - ``f5student:f5DEMOs4u!``
+     - https - ``admin:password``  ssh - ``f5student:password``
    * - Linux Server & WebGOAT app (server01)
-     - 10.1.1.252
+     - 10.1.1.6
      - N/A
      - 10.1.20.252
-     - ssh - ``f5student:f5DEMOs4u!``
+     - ssh - ``f5student:password``
 
-
-A graphical representation of the lab:
-
-|labDiagram|
-
-.. |labDiagram| image:: images/Agility2018LabDiagram.png

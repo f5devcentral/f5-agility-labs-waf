@@ -1,91 +1,93 @@
-Lab 2.3: Credential Stuffing
-----------------------------
+Lab 2.3: Sensitive Data
+=======================
 
-..  |lab23-1| image:: images/lab23-1.png
-        :width: 800px
-..  |lab23-2| image:: images/lab23-2.png
-        :width: 800px
-..  |lab23-3| image:: images/lab23-3.png
-        :width: 800px
-..  |lab23-4| image:: images/lab23-4.png
-        :width: 800px
-..  |lab23-5| image:: images/lab23-5.png
-        :width: 800px
-..  |lab23-6| image:: images/lab23-6.png
-        :width: 800px
-..  |lab23-7| image:: images/lab23-7.png
-        :width: 800px
+.. |lab2.3-0| image:: images/lab2.3-0.png
+   :width: 800px
 
-Credential stuffing is a type of brute force attack that leverages stolen credentials from another source. This source is most commonly the breach of a widley used online service.  These leaked credentials are then levered in an attempt to compromise higher value targets in instances where users used the same credentials across multiple services. BIG-IP now has the capability to detect these types of attacks by employing a database of credentials that are known to have been compromised in a previous breach. The credentials are stored as one-way hashed usernames and passwords to protect them from further disclosure. Also note that we've chosen CAPTCHA as mitigation for this lab because it provides immediate feedback to the student.  In a production environment, Client Side Integrity Defense (or both), may be a more effective form of mitigation during an actual attack.  Feel free to experiment with this in the lab.
+.. |lab2.3-1| image:: images/lab2.3-1.png
+   :width: 800px
 
-.. note:: Items in this section depend on steps in prior sections, please ensure you've completed all sections in lab 2 up to this point before beginning this lab.
+.. |lab2.3-2| image:: images/lab2.3-2.png
+   :width: 800px
+
+.. |lab2.3-5| image:: images/lab2.3-5.png
+   :width: 800px
+
+.. |lab2.3-3| image:: images/lab2.3-3.png
+   :width: 800px
 
 
-Task 1 - Configure Credential Stuffing Detection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. |lab2.3-9| image:: images/lab2.3-9.png
+  :width: 800px
 
-#.  Open the BIG-IP interface in Firefox. 
-    
-#.  Navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force Attack Prevention** and click **Create**.
+By default, the BIG-IP ASM system logs information about incoming requests to
+the request log in plain text. In some cases you may want to mask request
+information in the logs as some requests include sensitive information, such as
+authorization credentials or credit card information. When you enable Mask
+Value in Logs for a policy element, the system replaces the sensitive data with
+asterisks (\*\*\*\*\*\*). The masked data cannot be viewed by the administrator.
 
-    .. note:: ASM has a number of brute force attack detection capabilities that are beyond the scope of this exercise.  Take some time to examine some of the other options as you work through this lab.  For more information see:  ``https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-13-1-0/6.html`` .
+You can mask data in the logs for the following policy elements.
 
-#.  Select the login page we created in Lab 2.1.
+**Parameters**	Masks the parameter value, including the value for positional parameters. The setting does not mask the parameter name.	GET /profiles/******
 
-    |lab23-1|
+**HTTP headers**	Masks the header value. The setting does not mask the header name.	GET / HTTP/1.1
+Host: Example.com
+Connection: Keep-alive
+Authorization: ******
+Cookie: TS-Cookie
 
-#.  Configure **Credential Stuffing** detection within the **Distributed Brute Force Protection** Section as follows:
+**Cookies**	Masks the values for allowed and enforced cookies types. The setting does not mask the cookie name and does not apply to BIG-IP ASM cookies.	GET / HTTP/1.1
+Host: Example.com
+Connection: Keep-alive
+Cookie: ******
 
-    |lab23-3|
+**JSON Profiles**	Masks elements within the JSON data whose values are should considered sensitive.	secID: ******
 
-#.  Click **Create** .
+**XML Profiles**	Masks sensitive data in an XML document. You can specify the element or attribute whose value contains sensitive data and should be masked by the policy.	<secID>******</secID>
 
-    
-#.  Click **Apply Policy**, then click **OK** .
+More information can be found here :
+https://support.f5.com/csp/article/K52154401
 
+Task 1 - Login Page
+~~~~~~~~~~~~~~~~~~~
 
-Task 2 - Test Credential Stuffing Detection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+#.  Open a new Private Browsing window in **Firefox** .
+#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` and login as f5student
+
+#. Examine the most recent  request in the event log for /WebGoat/login. Notice that you cannot see the password for f5student in the request.
+   The password is masked in the logs due to a sensitive parameter setting.
+
+        |lab2.3-0|
+
+#.  Open the BIG-IP interface.
+
+#.  Navigate to **Security -> Application Security -> Parameters List** and select the Sensitive Parameters tab and view the configuration.
+
+        |lab2.3-9|
+
+#. Next we will obfuscate cookies as they could contain sensitive information we would not want an administrator to have access to.
+
+#. Navigate to **Security -> Application Security -> Headers -> Cookies List.**
+
+#. Click Create and create the JSESSIONID cookie as seen below
+
+        |lab2.3-2|
+
+#. Click **Create and then Apply Policy**
+
 #.  Open a new Private Browsing window in **Firefox** .
 
-#.  Go to the to WebGoat login page at ``http://10.1.10.145/WebGoat/login`` but **do not login as f5student** .
+#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``  and login
 
-#.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``.  On the second attempt, you should immediately be challenged via CAPTCHA because this username/password combination is present in the credential stuffing database.
+#.  Examine the most recent requests and compare to earlier requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**.
 
-#.  **Solve** the CAPTCHA(s) and continue.
+#. The cookie content is now obfuscated in the Logs when they were visible before.
 
-#.  Examine the most recent **illegal** request in the event log:
+        |lab2.3-3|
 
-    |lab23-4|
+        After applying mask.
 
-    Take note of the username field.  The request was blocked as a brute force attack.
+        |lab2.3-5|
 
-#.  Click the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window:
-
-    |lab23-5|
-
-    The message indicates the number of login attempts that matched the internal database.
-
-#.  Now check out the reporting under **Event Logs -> Application -> Brute Force Attacks**:
-
-    |lab23-6|
-
-#.  Click on one of the attack entries to get some more detail about the attack:
-
-    |lab23-7|
-
-#.  For fun, head over to ``https://haveibeenpwned.com/`` and put in the email address of the account we used in the lab to get some details.  It may also be interesting to put in your own account(s) to see if any of your credentials have been breached.  You could also try some of your old username/password combinations against the credential stuffing database on the F5.  While on the main page explore some of the breach data on the bottom to get a sense of how big this problem is.
-
-    .. note:: The credential stuffing feature is considered Early Access in version 13.1 and the database is not yet being updated regularly.  You are advised to seek guidance from your F5 SE before deploying this capability.
-
-#.  In order to release any blocking that's currently in place, navigate to **Security -> Application Security -> Anomaly Detection -> Brute Force Attack Prevention** and **Delete** the Brute Force configuration we created previously.
-
-#. Click **Apply Policy** then click **OK**.
-
-|
-|
-
-
-**This concludes section 3.**
-
+**This concludes section 2.3**

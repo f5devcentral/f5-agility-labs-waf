@@ -1,111 +1,48 @@
-Lab 2.1: User Session Tracking
-------------------------------
-
-..  |lab21-1| image:: images/lab21-1.png
+Lab 2.1: Allowed HTTP Request Methods
+----------------------------------------------------------
+.. |lab2.1-1| image:: images/2.1-1.png
         :width: 800px
-..  |lab21-2| image:: images/lab21-2.png
+.. |lab2.1-2| image:: images/2.1-2.png
         :width: 800px
-..  |lab21-3| image:: images/lab21-3.png
+.. |lab2.1-3| image:: images/2.1-3.png
         :width: 800px
-..  |lab21-4| image:: images/lab21-4.png
+.. |lab2.1-4| image:: images/lab2.1-4.png
         :width: 800px
-..  |lab21-5| image:: images/lab21-5.png
-        :width: 800px
-..  |lab21-ffprivate| image:: images/lab21-ffprivate.png
-        :width: 600px
-..  |lab21-6| image:: images/lab21-6.png
-        :width: 800px
-..  |lab21-7| image:: images/lab21-7.png
+.. |lab2.1-5| image:: images/lab2.1-5.png
         :width: 800px
 
-In this exercise we'll explore the session tracking capabilities present in BIG-IP ASM.  BIG-IP ASM not only has the capability to gather user identity details from login pages and APM, but can also generate a unique device-id for each connected client.  We'll explore both below.
+Task 1 - Allowed Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Task 1: Create a Security Policy and Enable Logging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. In the BIG-IP WebUI navigate to **Security -> Application Security -> Headers -> Methods**.
 
-#.  Open your browser of choice and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.1.245/`` or by clicking on the **bigip** shortcut in Firefox.
+#. Policy wide Method permissions are configured here.  If your application requires a method beyond the default three, they can be added by clicking the **Create** button.
 
-#.  Login to the BIG-IP with the username: **f5student** and the password **password**
+    |lab2.1-1|
 
-#.  Create a new ASM policy by navigating to **Security -> Application Security -> Security Policies**.
+Task 2 - Restricting Method on per URL basis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Click **Create New Policy**, fill in the page as follows, and then click **Create Policy** as shown below.
-    
-        |lab21-1|
-        
-        .. NOTE:: If the virtual server doesn't appear in the dropdown list, ensure that it has an HTTP profile assigned.
+#. Let's go to our Allowed URLs list **Security -> Application Security -> URLs -> Allowed URLs**.
 
-#.  Navigate to **Local Traffic -> Virtual Servers -> asm_vs -> Security -> Policies**.
+#. View the settings for the URLs, notice the method can optionally be specified for the URL while creating:
 
-#.  Ensure the Log Profile is set to  **"Log All Requests"** profile as shown below.
+    |lab2.1-2|
 
-        |lab21-2|
+#. Click the URL for /WebGoat/logout. Switch to the advanced view and select the methods enforcement tab and check override policy allowed methods and slide "POST" with a state of disallow and click **update** and then click **Apply policy**
 
-        .. note:: While you're here it's a good idea to confirm that the Lab2 security policy is also enabled.
+    |lab2.1-3|
 
 
-Task 2: Define Login & Logout Pages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List** and click **Create**.
+#. in the RDP client open a terminal and paste this command ``curl -k -d "param1=value1&param2=value2" -X POST https://insecureapp1.f5.demo/WebGoat/logout``.
 
-#.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
+#. What is the result, and why?  The result should be the request getting block because a method (POST) has been disabled on the URL /WebGoat/logout .
 
-        |lab21-3|
+#. Examine the most recent requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**.
 
-#.  Populate the form as shown below and click **Create**:
+|lab2.1-4|
 
-        |lab21-4|
+|lab2.1-5|
 
-#.  From the tab bar select **Logout Pages List** or navigate to **Security -> Application Security -> Sessions and Logins -> Logout Pages List**
-
-#.  Populate the form as shown below and click **Create**.
-
-        |lab21-5| 
-
-
-Task 3: Enable Session Tracking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#.  Navigate to **Security -> Application Security -> Sessions and Logins -> Session Tracking**
-
-#.  Check **Session Awareness** and ensure **Use All Login Pages** is selected in the drop-down below it.
-    
-#.  Ensure **Track Violations and perform Actions** is also enabled, then click **Save**.
-
-#.  Click **Apply Policy** in the upper right hand corner of the inner frame, then click **OK**.
-
-
-Task 4: Test Session Tracking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#.  Navigate to **Security -> Event Logs -> Application -> Requests** and click the **X** in the filter bar to clear the **Illegal Requests** filter.
-
-#.  Click on the select all **checkbox** to the far left of the filter bar then **Delete Requests** or if given the option **Delete all Requests**.  This will make it easier to review the logs from the next step.
-
-#.  In Firefox open a private browsing window and navigate to ``http://10.1.10.145/WebGoat/login``, then login to the WebGoat app with the credentials **f5student** / **password** .
-
-        |lab21-ffprivate|
-
-
-#.  Return to the BIG-IP interface.
-
-#.  Deselect the **checkbox** and click the **refresh** button.
-
-#.  Click on the most recent log entry.  You should now see that the username that submitted the request is clearly identified in the log.
-
-        |lab21-6|
-
-#.  Click the drop-down next to the username field and you should be given 3 options.  **Enable** "Log All Requests" and click **change**.
-
-        |lab21-7|
-
-        .. NOTE::  Since we are already logging all requests, this will not affect the logging per say, but will allow us to demonstrate the associated reporting features in ASM without blocking access to our lab client.
-
-#.  Navigate to **Reporting -> Application -> Session Tracking Status**.  You should now see that the user f5student appears in the tracking list.  If you were to click "View Requests" you would be taken to only the requests made by that user.  You may also use this page to release the user from Session Tracking.  These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
-
-#.  Finally, **select** the f5student entry in the list and click **release**, then close the private browsing window.
-
-
-    **This concludes Section 2.1**
-
+**This concludes section 2.1**

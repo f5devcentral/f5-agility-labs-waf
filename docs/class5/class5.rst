@@ -1,33 +1,29 @@
-Class 5: ASM 341 - High and Maximum Security
-============================================
+Class 5: WAF 341 – Advanced Protection and Positive Security
+============================================================
 
-Welcome to F5's Agility Labs, 2018 edition! This lab will focus on how
-to progress your application security to the limits of what F5's WAF,
-ASM, can offer.  We'll be using tools spanning both positive and
-negative security to show you how to best protect your application from
-today's threats.
+This lab will focus on how to progress your application security to the limits of what F5 WAF can offer.
 
-The goal of this lab series is to help security administrators become
-familiar with the tools and techniques available to protect a web
-application. The final lab section deals with some of the more
-complicated means avaiable that should be implemented after the
-techniques in ASM141 and ASM241 have already been explored.
-
-This series of ASM labs is based on:
+This is the 3rd class in a three part lab series based on:
 
 `Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_
 
-Here is a complete listing of all ASM classes offered at this year's
-agility:
+Here is a complete listing of all F5 WAF classes offered at this years Agility.
 
-  * ASM141  Good WAF Security - Getting started with ASM
+* WAF 111 - Protect yourself against the OWASP Top 10
 
-  * ASM241 - Elevated WAF Security - Elevating ASM Protection
+* WAF 141 - Getting started with WAF, Bot Defense and Threat Campaigns
 
-  * ASM341 - High and Maximum WAF Security - Maximizing ASM Protection
+* WAF 241 – Learning and the Positive Security Model
 
-  * ASM342 - WAF Programmability - Enhancing ASM Security and
-    Manageability
+* WAF 341 – Advanced Protection and Positive Security
+
+* WAF 342 – WAF in a CI/CD pipeline (new 15.1 features)
+
+* WAF/APM API Security and Management
+
+Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education and create your own test lab environment.
+
+WAF 341 Table of Contents:
 
 .. toctree::
    :maxdepth: 1
@@ -35,3 +31,16 @@ agility:
 
    labinfo/labinfo
    module*/module*
+
+
+F5 Anti-Bot Mobile SDK extends bot identification in Advanced Web Application Firewall (Advanced WAF) and BIG-IP ASM protection to allow mobile applications to identify as valid applications, which eliminates bot threats.
+To use this enhanced capability, you must integrate the F5 Anti-Bot Mobile SDK with your mobile applications.
+
+.. image:: antibot-mobile-sdk.png
+        :width: 800px
+
+F5 Anti-Bot Mobile SDK Integration
+https://www.f5.com/pdf/products/integrate_F5_anti-bot_mobile_SDK_with_any_mobile_app.pdf
+
+F5 Bot Management
+https://www.f5.com/solutions/application-security/bot-management
