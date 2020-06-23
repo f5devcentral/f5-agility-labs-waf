@@ -123,7 +123,7 @@ Mitigations by Category
 	``curl https://10.1.10.145/WebGoat/login -k -H "User-Agent: Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:Port Check)"``
 
 #.  Take a look at the response and check the Bot Request logs on BIG-IP again.
-#.  Navingate to **Security > Bot Defense > Bot Defense Profiles** and select **insecureApp1_botprofile**
+#.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and select **insecureApp1_botprofile**
 #.  Click on the tab for **Bot Mitigation Settings**
 #.  Select **Add Exceptions** and search for **nikto**
 
