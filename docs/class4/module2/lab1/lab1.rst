@@ -141,7 +141,7 @@ Examine the Mitigation
 
     |lab21-12|
 
-    Notice that the **Deployement State** is **Mitigate**. Since **approve signatures** was not enabled in the DoS Protection profile, this signature was automatically deployed once computed.  If desired, enabling the **aprove signatures** option would require user interaction before any mitigations were deployed.
+    Notice that the **Deployment State** is **Mitigate**. Since **approve signatures** was not enabled in the DoS Protection profile, this signature was automatically deployed once computed.  If desired, enabling the **aprove signatures** option would require user interaction before any mitigations were deployed.
 
 #.  Click on the **signature name** (in blue) to examine the contents of the signature.
 
