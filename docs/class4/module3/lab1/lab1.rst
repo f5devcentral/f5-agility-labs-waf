@@ -85,7 +85,7 @@ Task 2 - Import the Scan Data
 
         |lab31-07|
 
-    .. NOTE:: Many of the vulnerabilities marked as not resolvable may yet be reslovable by ASM, but not automatically.
+    .. NOTE:: Many of the vulnerabilities marked as not resolvable may yet be resolvable by ASM, but not automatically.
 
 |
 
