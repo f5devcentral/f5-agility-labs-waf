@@ -1,4 +1,4 @@
-Class 4: WAF 241 – Learning and the Positive Security Model
+Class 4: WAF 241 – Elevated WAF Protection
 ===========================================================
 
 Welcome to F5's Agility Labs, 2020 edition! 
