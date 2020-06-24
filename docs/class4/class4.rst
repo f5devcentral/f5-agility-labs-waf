@@ -13,7 +13,7 @@ Here is a complete listing of all F5 WAF classes offered at this years Agility.
 
 * WAF 141 - Getting started with WAF, Bot Defense and Threat Campaigns
 
-* WAF 241 – Learning and the Positive Security Model
+* WAF 241 – Elevated WAF Protection
 
 * WAF 341 – Advanced Protection and Positive Security
 
