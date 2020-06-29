@@ -26,8 +26,6 @@ If you would like to see the GitHub repository for the tester, it can be found h
 
 https://github.com/f5devcentral/f5-waf-tester
 
-#Please fix TOC Tree...not rendering correctly
-
 .. toctree::
    :maxdepth: 1
    :glob:
