@@ -14,7 +14,6 @@ Here are the highlevel stages we are going to execute:
 ~~~~~~~~~~~~~~~~~
 
 In the linux client RDP session open Firefox and click gitlab from the waf-342 favorites folder 
-#Please fix guilabels
 
 :guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-342` -> :guilabel:`GitLab`
 
