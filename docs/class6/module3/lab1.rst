@@ -6,7 +6,7 @@ Staging Pipeline
 
 We are starting with a staging pipeline that will build the app and deploy it to the staging environment. 
 the pipeline is built from the **master** branch. 
-here are the highlevel stages we are going to execute:
+Here are the highlevel stages we are going to execute:
 
 .. image:: images/pipeline_overview.png
 
