@@ -94,7 +94,7 @@ Train the DoS Profile
         ./baseline_menu_SSL.sh
     ..
 
-#.  Select either **option 1** or **option 2**, but notice that option 3 stops the attack.  You will use this later.
+#.  Select either **option 1** or **option 2**, but notice that option 3 stops the script.  You will use this later.
 
     |lab21-06|
 

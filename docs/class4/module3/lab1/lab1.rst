@@ -69,7 +69,7 @@ Task 2 - Import the Scan Data
 
         |lab31-04|
 
-#.  Import the **webgoat.xml** file from **/home/f5student/ASM241** .
+#.  Import the **webgoat.xml** file from **/home/f5student/WAF241** .
 
         |lab31-05|
 
