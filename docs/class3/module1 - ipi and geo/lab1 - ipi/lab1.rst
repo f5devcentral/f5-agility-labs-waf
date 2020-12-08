@@ -176,7 +176,7 @@ Create your first WAF Policy & Configure L7 IPI
 .. image:: images/policy_mod.png
   :width: 600 px
 
-#. Navigate to **Security > Network Firewall > IP Intelligence > Policies** and disable the Global IPI profile and click **update**. 
+#. Navigate to **Security > Network Firewall > IP Intelligence > Policies** and set the Global IP Intelligence Policy to **none** and click **update**. 
 
 .. image:: images/disable_global.png
   :width: 600 px
