@@ -21,7 +21,7 @@ Simply click in the username field and backspace. Enter the name: **f5student** 
 
 #. Launch Chrome browser (please be patient and don't click the icon multiple times)
 
-.. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the "f5student" password provided by your lab instructor. 
+.. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the **password** provided for "f5student".
 
 .. image:: images/keychain.png
   :width: 600 px
