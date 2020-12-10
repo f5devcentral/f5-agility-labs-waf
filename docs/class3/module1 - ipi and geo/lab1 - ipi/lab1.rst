@@ -106,7 +106,7 @@ Create Custom Category
 .. image:: images/add_to_cat.png
   :width: 600 px
 
-#. Enter the ip address: **134.119.218.71** and set the seconds to **3600** (1 hour)
+#. Enter the ip address: **42.231.162.22** and set the seconds to **3600** (1 hour)
 #. Click **Insert Entry**
 
 .. image:: images/add_ip.png
