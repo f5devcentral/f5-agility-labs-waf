@@ -183,9 +183,6 @@ html_theme_options = {
                      }
 html_last_updated_fmt = '%Y-%m-%d %I:%M:%S'
 
-def setup(app):
-    app.add_stylesheet('css/f5_agility_theme.css')
-
 extlinks = {
     'issues':( ("%s/issues/%%s" % github_repo), 'issue ' )
 }
