@@ -27,5 +27,5 @@ WAF 141 Table  of Contents:
    :maxdepth: 1
    :glob:
 
-   labinfo/labinfo
+   labinfo*/labinfo*
    module*/module*
