@@ -24,8 +24,8 @@ Following the Agility conference you can visit `clouddocs.f5.com <https://cloudd
 WAF 141 Table  of Contents 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :glob:
 
-   labinfo/labinfo.rst
+   labinfo/labinfo
    module*/module*
