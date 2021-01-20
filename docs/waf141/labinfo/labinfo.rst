@@ -31,7 +31,7 @@ components have been included in your lab environment:
 -  1 x Ubuntu Linux 20.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
-components:
+components. The "password" will be provided by your instructor. 
 
 .. list-table::
    :widths: 15 15 15 15 15
@@ -40,16 +40,16 @@ components:
 
 
    * - **Component**
-     - **mgmtnet IP**
-     - **clientnet IP**
-     - **servernet IP**
+     - **mgt IP**
+     - **ClientSide IP**
+     - **ServerSide IP**
      - **Credentials**
    * - Linux Client
      - 10.1.1.7
      - 10.1.10.51
      - N/A
      - rdp-``f5student:password``
-   * - Bigip (bigip01)
+   * - BIG-IP
      - 10.1.1.4
      - 10.1.10.245
      - 10.1.20.245
