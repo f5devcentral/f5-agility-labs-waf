@@ -20,7 +20,7 @@ Environment
 
 - `JuiceShop <https://owasp.org/www-project-juice-shop/>`_ - OWASP Juice Shop is probably the most modern and sophisticated insecure web application! 
 
-Lab Topology
+**Lab Topology**
 ---------------
 
 The network topology implemented for this lab is very simple. The following
@@ -31,7 +31,7 @@ components have been included in your lab environment:
 -  1 x Ubuntu Linux 20.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
-components. The "password" will be provided by your instructor. 
+components. **The "password" will be provided by your instructor.**
 
 .. list-table::
    :widths: 15 15 15 15 15
