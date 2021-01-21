@@ -3,38 +3,21 @@ Exercise 1.1: IP Intelligence Policy
 Objective
 ~~~~~~~~~
 
-- Configure Global IPI Profile and enable logging in global network log profile
-- Review logging
-- Create & apply IPI Logging Profile 
-- Configure VS Specific IPI Profile 
+- Configure Global IPI Profile & Logging
+- Review Global IPI Logs
 - Configure Custom Category and add an IP 
-- Create your first WAF Policy and review IPI options 
+- Create your first WAF Policy and implement IPI  
 
 - Estimated time for completion: **30** **minutes**.
 
-#. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this. 
-
-.. image:: images/xrdp.png
-  :width: 600 px
-
-Simply click in the username field and backspace. Enter the name: **f5student** and in the password field use the **password** provided by the instructor. 
-
-#. Launch Chrome browser (please be patient and don't click the icon multiple times)
-
-.. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the **password** provided for "f5student".
-
-.. image:: images/keychain.png
-  :width: 600 px
+#. RDP to Linux Client and launch Google Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
 
 #. Click the BIG-IP bookmark and login to TMUI. admin/<password>. 
 
 Create Your 1st L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
-Often, questions arise around what is the best way to implement. As always, the answer is; **it depends**. Implementing globally or at the VS level will provide the best 
-performance and uses a separate log file for violations. This also keeps the actual WAF logs clean. When managing global or VS specific policy your security admins may not have this level of access to the BIG-IP. 
-A WAF admin assigned **Application Security Administrator** rights on a BIG-IP can only modify WAF policies and can not see or make changes to the VS itself or the global IPI settings. This means the IPI policy would need to be managed inside of the WAF policy. 
-When implementing within the WAF policy the blocking happens at layer 7 rather than layer 3 and any IPI violations will be in the WAF event logs with all the other alerts. By inspecting at Layer 7 we have the additional capability to scrutinize the XFF header. Another benefit of Layer 7 IPI is that the violations are fed into our event correlation reporting capabilties.  
+We will be applying a IPI via a Global Policy to secure layer 3 device-wide, as well as a WAF policy to validate any IP's present at Layer 7. 
 
 .. image:: images/ipi_options.png
   :width: 600 px
