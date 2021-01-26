@@ -1,4 +1,4 @@
-Exercise 1.2: Add Geolocation to the Policy
+Exercise 1.2: Add a Geolocation Policy
 -------------------------------------------------
 Geolocation
 ~~~~~~~~~~~~~

@@ -1,4 +1,4 @@
-Exercise 1.1: IP Intelligence Policy
+Exercise 1.1: IP Intelligence Policies
 ---------------------------------------
 Objective
 ~~~~~~~~~
@@ -6,49 +6,48 @@ Objective
 - Configure Global IPI Profile & Logging
 - Review Global IPI Logs
 - Configure Custom Category and add an IP 
-- Create your first WAF Policy and implement IPI  
+- Create your first WAF Policy and implement IPI w/ XFF inspection
 
 - Estimated time for completion: **30** **minutes**.
 
 #. RDP to Linux Client and launch Google Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
 
-#. Click the BIG-IP bookmark and login to TMUI. admin/<password>. 
+#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/<password>. 
 
 Create Your 1st L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
-We will be applying a IPI via a Global Policy to secure layer 3 device-wide, as well as a WAF policy to validate any IP's present at Layer 7. 
+We will be applying IPI via a Global Policy to secure layer 3 device-wide, as well as within the layer 7 WAF policy to inspect the X-Forwarded-For Header.
 
 .. image:: images/ipi_options.png
   :width: 600 px
 
-In this lab we will start by enabling a Global IPI Policy, then configure a VS specific profile with a custom category. 
-We will also explore the configuration of IPI within the WAF policy itself. 
+In this first lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
 
-#. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
-
+1. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
 
 .. image:: images/ipi.png
   :width: 600 px
 
-#. Click on the **Create** button. 
+2. Click on the **Create** button. 
 
 #. For the name:  **global_ipi** 
 
-#. Under **IP Intelligence Policy Properties**: For the Default Log Action choose: **yes** to Log Category Matches
+#. Under **IP Intelligence Policy Properties** For the Default Log Action choose **yes** to Log Category Matches.
 
-#. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Note that hardware acceleration is not available when logging all matches. 
+5. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Inline help is very useful when navigating the myriad of options available within any configuration screen.
+Note that hardware acceleration is not available when logging all matches. This exercise is to familiarize you with inline help and will not affect our virtual lab.
 
-#. Click **Add** under the categories section. 
+6. Click **Add** under the categories section. 
 
-#. From the category section choose **botnets** and click **Done editing**.
+7. From the category section choose **botnets** and click **Done editing**.
 
-#. Repeat this process and add the following additional categories: **infected_sources**, **scanners**, **spam_sources**, & **denial_of_service**.
+8. Repeat this process and add the following additional categories: **infected_sources**, **scanners**, **spam_sources**, & **denial_of_service**.
 
 .. image:: images/ipi_global.png
   :width: 600 px
 
-#. Commit the Changes to the System.
+9. Commit the Changes to the System.
 
 Setup Logging for Global IPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
