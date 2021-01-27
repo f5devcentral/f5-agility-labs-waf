@@ -10,48 +10,54 @@ Objective
 
 - Estimated time for completion: **30** **minutes**.
 
-#. RDP to Linux Client and launch Google Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
-
-#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/<password>. 
-
 Create Your 1st L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
-We will be applying IPI via a Global Policy to secure layer 3 device-wide, as well as within the layer 7 WAF policy to inspect the X-Forwarded-For Header.
+We will follow security best-practice by applying IPI via a Global Policy to secure layer 3 device-wide and within the layer 7 WAF policy to protect the App by inspecting the X-Forwarded-For Header.
 
 .. image:: images/ipi_options.png
   :width: 600 px
 
 In this first lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
 
-1. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
+#. RDP to Linux Client and launch Google Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
+
+#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/<password>. 
+
+#. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
 
 .. image:: images/ipi.png
   :width: 600 px
 
-2. Click on the **Create** button. 
+4. Click on the **Create** button.
 
 #. For the name:  **global_ipi** 
 
-#. Under **IP Intelligence Policy Properties** For the Default Log Action choose **yes** to Log Category Matches.
+#. Under **IP Intelligence Policy Properties** For the Default Log Action choose **yes** to **Log Category Matches**.
 
-5. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Inline help is very useful when navigating the myriad of options available within any configuration screen.
-Note that hardware acceleration is not available when logging all matches. This exercise is to familiarize you with inline help and will not affect our virtual lab.
+#. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Inline help is very useful when navigating the myriad of options available within any configuration screen.
 
-6. Click **Add** under the categories section. 
+.. Note:: Notice in the setting descriptions that hardware acceleration is not available when "logging all matches". This exercise is to familiarize you with inline help and will not affect our virtual lab.
 
-7. From the category section choose **botnets** and click **Done editing**.
+8. To the right of the screen, click **Add** under the categories section. 
 
-8. Repeat this process and add the following additional categories: **infected_sources**, **scanners**, **spam_sources**, & **denial_of_service**.
+#. From the category section choose **botnets** and click **Done editing**.
+
+#. Repeat this process and add the following additional categories: **infected_sources**, **scanners**, **spam_sources**, & **denial_of_service**.
 
 .. image:: images/ipi_global.png
   :width: 600 px
 
-9. Commit the Changes to the System.
+11. Commit the Changes to the System.
+
+#. Apply the **global_ipi** policy and click **Update**.
+
+.. image:: images/global_policy.png
+  :width: 600 px
 
 Setup Logging for Global IPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Event Logs > Logging Profiles** and click on **global-network**
+#. From the "Main tab" (top left of screen), navigate to **Security > Event Logs > Logging Profiles** and click on **global-network**
 #. Under the Network Firewall section configure the IP Intelligence publisher to use **local-db-publisher**
 #. Check **Log GEO Events**
 #. Click **Update**
@@ -59,16 +65,9 @@ Setup Logging for Global IPI
 .. image:: images/ipi_global_log.png
   :width: 600 px
 
-Apply Global IPI & Test
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to: **Security > Network Firewall > IP Intelligence > Policies**.
-#. Apply the **global_ipi** policy and click **Update**.
-
-.. image:: images/global_policy.png
-  :width: 600 px
-
-#. RDP to the client01 jumphost
-#. Open a terminal and navigate to **/home/f5student/waf141/agility2020wafTools**
+Test 
+~~~~~~~~~~~~~~~~
+#. On the Linux Client, open a terminal and **cd** to **Agility2021wafTools**
 #. Run the following command to send some traffic to the site: **./ipi_tester**.
 
 .. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
@@ -94,41 +93,6 @@ Create Custom Category
 .. image:: images/add_ip.png
   :width: 600 px
 
-Create VS Specific L3 IPI Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to  **Security > Network Firewall > IP Intelligence > Policies** and click **create**. 
-#. Name: **webgoat_ipi**
-#. For Default Log Action choose **yes** to log category matches. 
-#. Under Categories click **Add** and choose the **my_bad_ips** custom category. 
-#. Click **Done Editing** and **Commit the Changes To System**.
-
-.. image:: images/webgoat_ipi.png
-  :width: 600 px
-
-Create IPI Logging Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Event Logs > Logging Profiles** and click **Create**.
-#. Name: **IPI_Log**
-#. Select **Network Firewall** and **local-db-publisher** under IP Intelligence and then click **Create**.
-
-.. image:: images/ipi_log.png
-  :width: 600 px
-
-Apply IPI Policy and Logging Profile to VS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Local Traffic > Virtual Servers** and click on **insecureApp1_vs**
-#. Under the **Security tab > Policies** in the top middle of the GUI, enable the webgoat IPI profile and associated logging profile.
-#. Click Update.
-
-.. image:: images/vs_sec.png
-  :width: 600 px
-
-Verifying the Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. You should now see Global and VS Specific Violations.
-
-.. image:: images/vs_spec.png
-  :width: 600 px
 
 Create your first WAF Policy & Configure L7 IPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
