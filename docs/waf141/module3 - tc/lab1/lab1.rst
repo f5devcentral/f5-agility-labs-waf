@@ -1,6 +1,11 @@
 Exercise 3.1: Threat Campaigns
 ----------------------------------------
 
+Threat Campaign signatures are subscription based and sourced from a variety of threat intel sources based on real world campaigns to attack and/or take over resources. 
+Attackers are constantly looking for ways to exploit the latest vulnerabilities and/or new ways to exploit old vulnerabilities. F5’s Threat Research team is constantly monitoring malicious activity around the globe and creating signatures specific to these exploits. These Threat Campaign signatures are based on current “in-the-wild” attacks. Threat Campaign signatures contain contextual information about the nature and purpose of the attack.
+
+As an example, a normal WAF signature might tell you that SQL injection was attempted. A Threat Campaign signature will tell you that a known threat actor used a specific exploit of the latest Apache Struts vulnerability (CVE -****) in an attempt to deploy ransomware for cryptomining software.
+
 Objective
 ~~~~~~~~~~~
 
@@ -10,10 +15,6 @@ Objective
 - Disable a signature Security  > Application Security > Security Policies > Policies List  
 
 -  Estimated time for completion: **20** **minutes**
-
-
-
-Threat Campaigns are only available with Advanced WAF and are context based, very high accuracy signatures. Threat Campaign signatures are subscription based and sourced from a variety of threat intel sources based on real world campaigns to attack and/or take over resources. 
 
 Configure the Virtual Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

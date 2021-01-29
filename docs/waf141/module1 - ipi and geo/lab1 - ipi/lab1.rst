@@ -13,18 +13,18 @@ Objective
 Create Your 1st L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
-We will follow security best-practice by applying IPI via a Global Policy to secure layer 3 device-wide and within the layer 7 WAF policy to protect the App by inspecting the HTTP X-Forwarded-For Header.
+We will follow security best-practice by applying IPI via a Global Policy to secure Layer 3 device-wide and within the Layer 7 WAF policy to protect the App by inspecting the HTTP X-Forwarded-For Header.
 
 .. image:: images/ipi_options.png
   :width: 600 px
 
 In this first lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
 
-#. RDP to Linux Client and launch Google Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
+#. RDP to the Linux Client and launch Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
 
 #. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/<password>. 
 
-#. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially these are the listening IP's that receive requests for your application and proxy the request to the backend "real" servers.
+#. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IP's that receive requests for your application and proxy the request to the backend "real" servers.
 
 | You will see 3 Virtual Servers: 
 
@@ -35,7 +35,7 @@ In this first lab, we will start by enabling a Global IPI Policy; much like you 
 
 | * **juiceshop-test.f5agility.com** - Will be used later to send spoofed traffic to the main site
 | * **owasp-juiceshop_443_vs** - Main Site - Status of green indicates a healthy backend pool of real servers 
-| * **owasp-juiceshop_80_vs** - Standard Port 80 redirect to main site
+| * **owasp-juiceshop_80_vs** - Standard port 80 redirect to main site
 
 | 
 
@@ -60,7 +60,7 @@ In this first lab, we will start by enabling a Global IPI Policy; much like you 
 
 #. From the category section choose **botnets** and click **Done editing**.
 
-#. Repeat this process and add the following additional categories: **phishing**, **scanners**, **spam_sources**, & **denial_of_service**.
+#. Repeat this process and add the following additional categories: **phishing**, **scanners**, **spam_sources**, & **denial_of_service**. Outside of this lab, you would want to enable additional categories for protection.  
 
 .. image:: images/ipi_global.png
   :width: 600 px
@@ -139,8 +139,8 @@ Create your first WAF Policy
 #. Name the policy: **juiceshop_waf**
 #. Select Policy Template: **Rapid Deployment Policy** (accept the popup)
 #. Select Virtual Server: **owasp-juiceshop_443_vs**
-#. Logging Profiles: **Log All Requests**
-#. Notice that the enforement mode is already in **Transparent Mode** and Signature Staging is **Enabled**
+#. Logging Profiles: **Log all requests**
+#. Notice that the Enforcement Mode is already in **Transparent Mode** and Signature Staging is **Enabled**
 #. Click **Save**.
 
 .. image:: images/waf_policy.png
@@ -164,16 +164,16 @@ Configure L7 IPI
 .. image:: images/waf_ipi.png
   :width: 600 px
 
-5. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and clieck on **juiceshop_waf** policy.
+5. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and click on **juiceshop_waf** policy.
 #. Finally, scroll down under **General Settings** and click **Enabled** under **Trust XFF Header**.  
 #. Click **Save** and **Apply Policy**
 
 Test XFF Inspection
 ~~~~~~~~~~~~~~~~~~~~
-#. Open a terminal on the Client and run the following command to insert a malicious IP into the XFF Header: 
+1. Open a new terminal or terminal tab on the Client (the ipi_tester script should still be running) and run the following command to insert a malicious IP into the XFF Header: 
+::  
 
-
-**curl -H "X-Forwarded-For: 134.119.218.243" -k https://juiceshop.f5agility.com**
+  curl -H "X-Forwarded-For: 134.119.218.243" -k https://juiceshop.f5agility.com/xff-test
 
 | If that IP has rotated out of the malicious DB, you can try one of these alternates:
 
@@ -193,8 +193,6 @@ Test XFF Inspection
 .. image:: images/events.png
   :width: 600 px
 
-3. In the violation details you can see the entire request details even though this site was using strong TLS for encryption. 
+3. In the violation details you can see the entire request details including the XFF Header even though this site was using strong TLS for encryption. 
 
-**Congratulations! You have just completed lab 1 by implementing IPI policies both globally and at Layer 7 for a specific application. This follows our best-practice guidance for getting started with Application Security.**  
-
-**This completes Lab 1.1**
+**This completes Exercise 1.1**
