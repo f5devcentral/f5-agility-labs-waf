@@ -54,7 +54,7 @@ In this first lab, we will start by enabling a Global IPI Policy; much like you 
 
 #. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Inline help is very useful when navigating the myriad of options available within any configuration screen.
 
-.. NOTE:: Notice in the setting descriptions that hardware acceleration is not available when "logging all matches". This exercise is to familiarize you with inline help and will not affect our virtual lab.
+.. NOTE:: Notice in the setting descriptions that hardware acceleration is not available when "logging all matches". This exercise is to familiarize you with the value of inline help and will not affect our virtual lab.
 
 9. To the right of the screen, click **Add** under the categories section. 
 
@@ -74,7 +74,7 @@ In this first lab, we will start by enabling a Global IPI Policy; much like you 
 
 Setup Logging for Global IPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Event Logs > Logging Profiles** and click on **global-network**
+#. In the upper left of the GUI under the **Main** tab, navigate to **Security > Event Logs > Logging Profiles** and click on **global-network**
 #. Under the Network Firewall section configure the IP Intelligence publisher to use **local-db-publisher**
 #. Check **Log GEO Events**
 #. Click **Update**
@@ -194,5 +194,7 @@ Test XFF Inspection
   :width: 600 px
 
 3. In the violation details you can see the entire request details including the XFF Header even though this site was using strong TLS for encryption. 
+
+.. NOTE:: Attackers often use proxies to add in source IP randomness. Headers such as XFF are used to track the original source IP so the packets can be returned. In this example the HTTP request was sent from a malicious IP but through a proxy that was not known to be malicious. The request passed right through our Layer 3 IPI policy but was picked up at Layer 7 due to the WAF's capabilities. 
 
 **This completes Exercise 1.1**
