@@ -45,7 +45,7 @@ Task – We will continue applying protections while working down the Dashboard
 
         .. image:: /_static/class9/loginform.png
 
-    .. Note:: You can identify the strings and parameters listed above by either getting info from the application developers or by using tools built into your own browser.  Here is a method from one of our F5 videos, the link brings you right to that discovery method https://youtu.be/sk6wv4XxXSE?t=165
+    .. Note:: You can identify the strings and parameters listed above by either getting info from the application developers or by using tools built into your own browser.  Here is a method from one of our F5 videos, the link brings you right to that discovery method https://youtu.be/YqswibSgMyk?t=178
 
     - Click the **Create** button at the bottom of the page.  
 
