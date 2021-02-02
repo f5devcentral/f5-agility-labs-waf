@@ -1,45 +1,50 @@
-Lab 1: Bot Defense
+Lab 1: Elevated Bot Defense
 -------------------------------------------
 
-..  |log_profile| image:: images/log_profile.png
-        :width: 800px
-..  |blank_vs| image:: images/blank_vs.png
-        :width: 800px
-..  |bot_profile| image:: images/bot_profile.png
-        :width: 800px
-..  |bot_vs| image:: images/bot_vs.png
-        :width: 800px
-..  |setblock| image:: images/setblock.png
-        :width: 800px
-..  |pbd| image:: images/pbd.png
-        :width: 800px
-..  |block_req| image:: images/block_req.png
-        :width: 800px
-..  |except_search| image:: images/except_search.png
-        :width: 800px
-..  |captcha| image:: images/captcha.png
-        :width: 800px
-..  |honey| image:: images/honey.png
-        :width: 800px
-..  |dashboard| image:: images/dashboard.png
-        :width: 800px
-..  |clean_prof| image:: images/clean_prof.png
-        :width: 800px
+We started in the 141 class with a Relaxed or "signature-only" based bot defense profile that did not include any active JS challenges. Now to build on that knowledge, and improve our security posture, we will create a Balanced Bot Mitigation Profile that includes active challenges. 
 
+**Balanced Mode Bot Profile Template Benefits**
 
+* Defines a moderate security policy that performs advanced verification of Browsers
+* Blocks Malicious Bots that bypass signature checks
+* Can initiate CAPTCHA challenge for Suspicious Browsers
+* Strong verification of Mobile Apps using Anti-Bot Mobile Security SDK (Add-on required)
+* Limits the total request rate produced by Unknown bots and allows Trusted and Untrusted Bots. 
+* Malicious Bots and Suspicious Browsers are identified by using both anomaly detection algorithms and bot signatures. 
+* This mode provides an advanced protection level with reduced latency impact because Browser verification is performed by injecting challenge in HTTP response. 
 
 Objective
 ~~~~~~~~~
 
-- Create a Bot Defense profile with a balanced approach
+- Create a "Balanced" Bot Defense profile - This will include active challenges
 - Understand the difference in Bot Defense Templates and Bot Categories
-- Block a Bot Request
+- Actively block a Bot requests
+- Review Logs 
 
 -  Estimated time for completion: **20** **minutes**
 
-        .. IMPORTANT:: To clearly demonstrate the Bot Defense profile, please disable any previously configured security profiles on the virtual server.”
+.. IMPORTANT:: If you are continuing your lab session from 141 with the same deployment, please disable any previously configured security profiles on the virtual server and skip down to "Enabling Bot Defense”. New students start at step 1. 
 
-        |blank_vs|
+.. image:: images/blank_vs.png
+  :width: 600 px
+
+#. RDP to the Linux Client and launch Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
+
+#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/<password>. 
+
+#. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IP's that receive requests for your application and proxy the request to the backend "real" servers.
+
+| You will see 3 Virtual Servers: 
+
+.. image:: images/virtual_servers.png
+  :width: 600 px
+
+|
+
+| * **juiceshop-test.f5agility.com** - Will be used later to send spoofed traffic to the main site
+| * **owasp-juiceshop_443_vs** - Main Site - Status of green indicates a healthy backend pool of real servers 
+| * **owasp-juiceshop_80_vs** - Standard port 80 redirect to main site
+
 
 Enabling Bot Defense 
 ~~~~~~~~~~~~~~~~~~~~
