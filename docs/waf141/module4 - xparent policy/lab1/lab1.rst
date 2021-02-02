@@ -3,7 +3,7 @@ Exercise 4.1: Transparent Policy
 
 Objective
 ~~~~~~~~~~
-We created a transparent policy way back in Lab 1 to configure Layer 7 XFF inspection for IPI and Geolocation enforcement. We then tested out the Threat Campaign signatures in Lab 3 and now we will explore and test some of the other components that should be in scope for enforcement early on in your WAF deployment. 
+We created a transparent policy way back in Lab 1 to configure Geolocation enforcement & Layer 7 XFF inspection for IPI. We then tested out the Threat Campaign signatures in Lab 3 and now we will explore and test some of the other components that should be in scope for enforcement early on in your WAF deployment. 
 
 
 - Review Learning & Blocking & Policy Building Process settings
@@ -30,13 +30,65 @@ Recall from Lab 1, that we used the Rapid Deployment Policy template to create o
 .. image:: images/learning.png
   :width: 600 px
 
+7. Notice that most of the learning suggestions involve enabling various HTTP protocol Compliance Checks.   
+8. Find and select the suggestion for **Enable HTTP protocol compliance check - HTTP Check: No Host header in HTTP/1.1 request**. 
+9. Review the **Suggested Action** and click **Accept** and **Apply Policy**. 
+
+.. image:: images/proto.png
+  :width: 600 px
+
+10. What just happened and how do you see what changed by who and when? Audit Log of course!
+11. Go to **Security > Application Security >  Audit > Log** and review the most recent actions. You can see who, what and when every component within a policy was modified. 
+
+.. image:: images/audit.png
+  :width: 600 px
+
+
+12. Click on the Element Name (blue hyperlink) **No Host header in HTTP/1.1 request** This takes you to the Learning and Blocking Settings screen where the check was enabled. 
+13. Notice that by default in the Rapid Deployment Policy, learning is enabled for most of the common HTTP Protocol compliancy checks. Also notice that the **Enable** checkbox next to **No Host header in HTTP/1.1 request** is now checked.  
+14. Uncheck the **Learn box** for this violation then **Save** and **Apply** policy. 
+15. Open a new Terminal and send the following request. This request is being sent without a host header and should now raise a violation in our Event Log rather than a learning suggestion. 
+::  
+    curl -k -H 'Host:' https://juiceshop.f5agility.com/
+
+16. Review the Alarmed request in **Security > Event Logs > Application  > Requests**.
+
+.. image:: images/httpviol.png
+  :width: 600 px
+
+17. To review, you just took a learning suggestion and accepted it to enable a protocol compliancy check and then you disabled future learning suggestions for this event. Violations are now alarmed in the Event Logs. 
+18. Go back to **Security > Application Security >  Policy Building > Traffic Learning** You would now typically go through and enable all of the checks that the policy is recommending regarding http protocol compliance and evasion technique detection. One suggestion in particular is different and should catch your eye. It is a false positive from when we left a review and we will deal with that next. 
+
+.. NOTE:: Remember that your policy is safely in transparent mode so accepting suggestions and enabling checks will only raise alarms and no blocking actions will occur. This is why it is very important to start off transparently until you fully understand the basics of managing a WAF policy. 
+
+
+False Positive Remediation 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. You should still be at **Security > Application Security >  Policy Building > Traffic Learning** 
+2. Find and select the suggestion for **Illegal method** and examine the details closely. 
+3. Notice the **Suggested Action** and the requests that caused this suggestion. In this case, by Accepting the suggestion, we will be be allowing a new method of **Put** in our policy. 
+
+.. image:: images/review.png
+  :width: 600 px
+
+4. **Accept** the suggestion and **Apply** the Policy. 
+5. In a new browser tab, make sure you are logged in to JuiceShop and leave another review for **Apple Juice**. 
+6.  Review the request in **Security > Event Logs > Application  > Requests**. 
+
+.. image:: images/put.png
+  :width: 600 px
+
+.. NOTE:: If you had not accepted this suggestion and eventually went to blocking mode, the reviews for this site would be broken because Put is not a default allowed method in a Rapid Deployment Policy. Working through learning suggestions is an essential part of policy development and should occur as early as possible during software development and testing. It IS NOT best-practice to wait until the site is in production before bolting on a WAF policy as an after-thought. 
+
 Policy Building Process
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click on the **Learning and Blocking Settings** tab at the top of the screen and expand the **Policy Building Process** section. Here you can see settings that this particular policy is using for is learning processes. Notice that **Trusted IP Addresses List** is empty. 
-#. Click the little window icon next to **Trusted IP Addresses List** is empty.
+One thing you can do to greatly increase the integrity of the learning suggestions is to define trusted IP's. You can also tell the system to Only learn from trusted IP's which is a very wise thing to do if you are developing policy on an app that is exposed to untrusted or Internet traffic. 
+
+#. Go to **Security > Application Security >  Policy Building > Learning and Blocking Settings** and expand the **Policy Building Process** section at the bottom. Here you can see settings that this particular policy is using for learning. Notice that **Trusted IP Addresses List** is empty. 
+#. Click the little window/arrow icon next to **Trusted IP Addresses List** is empty.
 #. This takes you to: **Security > Application Security > IP Addresses > IP Address Exceptions** Click **Create**. 
-#. For IP Address: **10.10.10.0** and for Netmask: **255.255.255.0**. Check the box for **Policy Builder trusted IP** and click **Create** and **Apply Policy**.
+#. For IP Address: **10.0.0.0** and for Netmask: **255.0.0.0**. Check the box for **Policy Builder trusted IP** and click **Create** and **Apply Policy**.
 
 .. image:: images/ip.png
   :width: 600 px
@@ -49,72 +101,43 @@ Policy Building Process
 
 **You now know how to define a trusted ip and configure the policy building process settings**
 
-Enforcing HTTP Protocol Compliance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Under **Learning and Blocking Settings** expand the **HTTP protocol compliance failed** section. Enforcing HTTP protocol compliance is a good practice and should not cause administrative burden. Notice we are already set to learn for most of the violations in case a webapp is poorly written or configured. By learning we will have the opportunity to weed out any false positives caused by HTTP Protocol Compliance violations prior to enabling blocking. 
-#. Uncheck the box for learning under **Bad Host header Value** and check the **Enable** box.  
-#. Check the box to enable learning for **Host header contains IP address**.
-#. Hit **Save** at the bottom of the screen and then **Apply Policy** at the top of the screen. 
-
-.. image:: images/http.png
-  :width: 600 px
-
-We have now told the system to not making any learning suggestions on bad host header values. We then enabled the default action as defined for **HTTP protocol compliance failed**. If we receive a match we will **Alarm** in Transparent Mode and **Block** if the policy was in Blocking Mode. 
-We also told the sytem to start generating learning suggestions if we see any attempts to access the site via IP address instead of hostname.  
-
-#. From Firefox on client01, load the insecureApp1 bookmark and refresh several times. 
-#. Navigate to **Security > Application Security >  Policy Building > Traffic Learning** then scroll down to the bottom under **Suggestions** and notice the new learning suggestion for **Host header contains IP address** since we are browsing the site by IP and not hostname. 
-#. If we accept this suggestion it will actually enable the HTTP Check for **Host header contains IP address**. Click **Accept** and **Apply Policy**
-#. Return to the **Learning and Blocking Settings** tab at the top of the GUI to review the effect of your action. 
-#. Notice that the **Enable** box is now checked for **Host header contains IP address**.
-
-.. image:: images/enabled.png
-  :width: 600 px
-
-This means as violations occur you will now see them in the event logs. 
-
-#. From Firefox on client01, load the insecureApp1 bookmark and refresh several times. 
-#. Navigate to **Security > Event Logs > Application > Requests** and review the latest Sev3 alert. Notice the Violation type and then click on the **1** under Occurrences to see more information. 
-
-.. image:: images/violation.png
-  :width: 600 px
-
-#. Close the Firefox browser. 
-
 Burp'ing the App
 ~~~~~~~~~~~~~~~~
-
 In this section we are going to use the free/community version of an excellent DAST tool; Burp. Unfortunately, the free version does not actually allow DAST but it is still an excellent tool for packet crafting and that's exactly how we are going to use it.
-We will be manually sending two different attack types to demonstrate the protocol compliance features of ASM.
+
+Accept the Remaining Learning Suggestions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Go to **Security > Application Security >  Policy Building > Traffic Learning** and select all of the remaining suggestions and click **Accept > Accept suggestions** and then **Apply Policy**. 
+
+.. image:: images/accept.png
+  :width: 600 px
 
 HTTP Compliancy Check - Bad Host Header Value
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The **Bad Host Header Value** check is an HTTP Parser Attack and definitely something that should be implemented as part of **Good WAF Security**.
+The **Bad Host Header Value** check is an HTTP Parser Attack and definitely something that should be implemented as part of **Good WAF Security**. It was included in the suggestions you just accepted. 
 
 **Risk:**
 If we allow bad host header values they can be used to Fuzz web servers and gather system information. Successful exploitation of this attack could allow for the execution of XSS arbitrary code.
 
-#. Launch **Burp** from the dock and ignore the java warning. 
+#. Launch **Burp** from the Desktop. **Do Not click multiple times. It takes a few moments to load**. 
 
 .. image:: images/burp.png
 
 **DO NOT update**. 
 
 #. Choose **Temporary Project** and click **Next** and then click **Start Burp**. 
-
-#. Click the **Repeater** tab and paste in the following http request (**Replace password with the password provided by the instructor.**) and click **Send**.
-#. A popup window will appear to Configure the target details. For host use: **10.1.10.145**. For port use: **443**. Check the **Use HTTPS** box. 
+#. Click the **Repeater** tab and paste in the following http request (**Replace password with the password you've been using all along.**) and click **Send**.
+#. A popup window will appear to configure the target details. For host use: **10.1.10.145**. For port use: **443**. Check the **Use HTTPS** box. 
 #. Click **Send**
 
 |
 
-XSS in HOST Header
+**XSS in HOST Header**
 
 ::
 
-  POST https://10.1.10.145/WebGoat/login HTTP/1.1
+  POST https://10.1.10.145/rest/user/login HTTP/1.1
   User-Agent: BabyYoda
   Pragma: no-cache
   Cache-Control: no-cache
@@ -122,22 +145,27 @@ XSS in HOST Header
   Content-Length: 38
   Host: <script>alert(document.cookie);</script>
 
-  username=f5student&password=password
+  username=f5student&password=[password]
 
 
 .. image:: images/burpreq.png
   :width: 600 px
 
-#. Browse to **Security > Event Logs > Application > Requests** and review the alert for this Sev5 attack. Note the alert severity is much higher (5) for this attack type due to several violations occuring.
+#. Browse to **Security > Event Logs > Application > Requests** and review the alert for this Sev5 attack. Note the alert severity is much higher (5) for this attack type due to several violations occuring including HTTP protocol Violations and several XSS signatures.
 #. Review all the details and then click the **3** under the **Attack Signature Detected** violation to see all of the staged XSS Attack Signatures that were triggered. 
+
+.. image:: images/xss-out.png
+  :width: 600 px
+
+
 
 Server Technologies & Attack Signatures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this exercise we will examine server technologies which allow you to automatically discover server-side frameworks, web servers and operating systems. This feature helps when the backend technologies are not well known. The feature can be enabled to auto detect. You can also add the technologies that you know. Creating custom signature sets allows you to define what signature groupings work best for your needs.
+In this final exercise we will examine server technologies which allow you to automatically discover server-side frameworks, web servers and operating systems. This feature helps when the backend technologies are not well known or communicated from the Dev team.
 
 #. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures**
-#. Review the Attack Signatures that were applied during policy creation from back in Lab 1. Notice that they are set to **Learn/Alarm/Block and Staging is enabled**. 
+#. Review the Attack Signatures that were applied during policy creation from back in Lab 1. **Generic Detection Signatures (High/Medium Accuracy)**. Notice that they are set to **Learn/Alarm/Block and Staging is enabled**. 
 #. Locate Server Technologies and expand the option. Click **Enable Server Technology Detection**, click **Save** and then click the **New Window Icon** next to Server Technologies. 
 
 .. image:: images/st.png
@@ -160,15 +188,15 @@ In this exercise we will examine server technologies which allow you to automati
 Framework Attacks
 ~~~~~~~~~~~~~~~~~~~
 
-Back in BURP navigate to the repeater tab and adjust the payload to the following and hit go. **Use the password provided by the instructor**
+Back in BURP navigate to the repeater tab and adjust the payload to the following and hit go. **Replace password with the password you’ve been using all along**
 
 |
 
-Framework Attack
+**Framework Attack**
 
 ::
 
-  POST https://10.1.10.145/WebGoat/login HTTP/1.1
+  POST https://10.1.10.145/rest/user/login HTTP/1.1
   User-Agent: ImperialProbeDroid
   Pragma: no-cache
   Cache-Control: no-cache
@@ -176,7 +204,7 @@ Framework Attack
   Content-Length: 38
   Host: DarthMaul
 
-  username=f5student&password=password
+  username=f5student&password=[password]
 
 
 #. Browse to **Security > Event Logs > Application > Requests** and look for the most recent Sev5 Event. Select the event, review the violations and click the **2** under Occurrences for the Attack signature detected violation.  
@@ -196,19 +224,27 @@ Review Reporting
 .. image:: images/client_ip.png
   :width: 600 px
 
-#. Change the Advanced Filter to: **Top Alarmed URLs**. 
+4. Change the Advanced Filter to: **Top Alarmed URLs**. 
 #. Change the Advanced Filter to: **Top attacks in the last day** and View By: to **Client Countries**. 
 #. Explore addtional charts that you can generate and export. 
 
 .. image:: images/charts.png
   :width: 600 px
 
-#. Navigate to **Security > Overview > Application > Traffic**
+7. Navigate to **Security > Overview > Application > Traffic**
 
 .. image:: images/overview.png
   :width: 600 px
 
+8. Go to **Security > Overview > OWASP Compliance** and review the report. As you can see there is still much to do from a best-practices App-Sec perspective. For more information check out our OWASP 111 Lab which covers these categories in detail. 
+
+.. image:: images/owasp.png
+  :width: 600 px
+
+
 **This completes Lab 4**
+
+**Congratulations! It was a long road but you made it though and now have the knowledge to go forth and start testing. Given the Advanced WAF is a proxy, you could build a Virtual Edition F5 locally on your machine and implement a number of test scenarios with no impacts to a production application. Contact your friendly neighborhood F5 Solutions Engineer for more information!! Hope to see you in the 241 Elevated WAF Protection class! Cheers!!!**
 
 
 
