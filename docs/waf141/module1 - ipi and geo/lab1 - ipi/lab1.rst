@@ -22,9 +22,9 @@ In this first lab, we will start by enabling a Global IPI Policy; much like you 
 
 #. RDP to the Linux Client and launch Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
 
-#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/<password>. 
+#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/[password]. 
 
-#. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IP's that receive requests for your application and proxy the request to the backend "real" servers.
+#. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IP's that receive requests for your application and proxy the requests to the backend "real" servers.
 
 | You will see 3 Virtual Servers: 
 
