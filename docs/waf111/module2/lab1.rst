@@ -25,7 +25,7 @@ Task - Restart the Juice Shop Application
 
 The Juice Shop application must be restarted to reset the database. Log onto the Internal LAMP Server by navigating to the Systems column, clicking on the Access dropdown and then clicking on **WEB SHELL**
 
-.. image:: /_static/class9/web_shell_internal_lamp.png
+.. image:: ../images/web_shell_internal_lamp.png
 
 At the shell prompt, type the following commands to restart the Juice Shop application. The first command will list the running docker containers. Note the STATUS. The second command restarts the Juice Shop docker container (only the first 3 unique charcters of the container ID are required) and the third command will list the running container where you should see the STATUS listed as Up for a few seconds which confirms the application was restarted.
 
@@ -74,7 +74,7 @@ Task - Compare results of XSS hacking attempt
 
 The attempt to injected the XSS hack via the feedback form should fail and the you should see something similar to this on the page:
 
-.. image:: /_static/class9/block_xss.png
+.. image:: ../images/block_xss.png
 
 If you visit the Customer Feedback page you should NOT hear the jingle.
 
@@ -83,39 +83,39 @@ Task - View the Application Request Logs
 
 Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI ``/api/Feedbacks/``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. Also, make sure to scroll to the bottom of the Decoded Request section to see the string that was entered in the form.
 
-.. image:: /_static/class9/event_log_xss.png
+.. image:: ../images/event_log_xss.png
 
 Task - Compare results of SQL injection hacking attempt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The attempt to inject the malicious SQL query should fail and the you should see something similar to the following in your browser:
 
-.. image:: /_static/class9/block_sql_injection.png
+.. image:: ../images/block_sql_injection.png
 
 Task - View the Application Request Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI ``/rest/products/search``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. You can see the query at the top of the Decoded Request section.
 
-.. image:: /_static/class9/log_sql_injection.png
+.. image:: ../images/log_sql_injection.png
 
 Task - Compare results of an unauthorized file access attempt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The attempt to download the file in the ``/encryptionkeys`` directory fails with the following message:
 
-.. image:: /_static/class9/support_id_file_1.png
+.. image:: ../images/support_id_file_1.png
 
 Task - Search for log entry using a Support ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate to **Security -> Event Logs -> Application -> Requests** and then click on the ``Open Filter`` icon (beside Order by Date / Newest) and then enter the support ID shown on the blocked page in the Support ID field at the bottom of the filter window then click the ``Apply Filter`` button:
 
-.. image:: /_static/class9/support_id_1.png
+.. image:: ../images/support_id_1.png
 
 Task - View the Application Request Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once the filter is applied you should only see one illegal request for the URI ``/encryptionkeys/premium.key``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type.
 
-.. image:: /_static/class9/log_file_access_1.png
+.. image:: ../images/log_file_access_1.png

@@ -16,15 +16,15 @@ Task – Add a SSH Key to the Lab
 
 After logging into UDF, navigate to your preferences by clicking on the icon in the top right and then clicking Preferences
 
-    .. image:: /_static/class9/udf_prefs.png
+    .. image:: ../images/udf_prefs.png
 
 On the next page click the ``Create SSH Key`` button
 
-    .. image:: /_static/class9/udf_create_key.png
+    .. image:: ../images/udf_create_key.png
 
 Copy and paste your SSH public key into the field provided.
 
-    .. image:: /_static/class9/udf_add_key.png
+    .. image:: ../images/udf_add_key.png
 
 
 On MacOS you can run the following commands to generate a new key:
@@ -44,6 +44,6 @@ Copy and paste that into the Create SSH Key window in the field labled ``Key`` a
 
 Try connecting via SSH to the External Jump Host by navigating to the ``Components`` tab and using the ``Access`` dropdown in the External Jump Host box under the ``Systems`` column where you can click on the SSH option.
 
-    .. image:: /_static/class9/udf_ssh_external.png
+    .. image:: ../images/udf_ssh_external.png
 
 You should be promted to open the connection using the default SSH application such as Terminal or iTerm on MacOS and putty on Windows.
