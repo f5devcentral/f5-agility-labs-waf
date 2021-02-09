@@ -1,42 +1,5 @@
-Lab 2.1: Behavioral DOS Protection
+Lab 3: Behavioral DOS Protection
 ----------------------------------
-
-..  |lab21-01| image:: images/lab21-01.png
-        :width: 800px
-..  |lab21-02| image:: images/lab21-02.png
-        :width: 800px
-..  |lab21-03| image:: images/lab21-03.png
-        :width: 800px
-..  |lab21-04| image:: images/lab21-04.png
-        :width: 800px
-..  |lab21-05| image:: images/lab21-05.png
-        :width: 800px
-..  |lab21-06| image:: images/lab21-06.png
-        :width: 800px
-..  |lab21-07| image:: images/lab21-07.png
-        :width: 800px
-..  |lab21-08| image:: images/lab21-08.png
-        :width: 800px
-..  |lab21-09| image:: images/lab21-09.png
-        :width: 800px
-..  |lab21-10| image:: images/lab21-10.png
-        :width: 800px
-..  |lab21-11| image:: images/lab21-11.png
-        :width: 800px
-..  |lab21-12| image:: images/lab21-12.png
-        :width: 800px
-..  |lab21-13| image:: images/lab21-13.png
-        :width: 800px
-..  |lab21-14| image:: images/lab21-14.png
-        :width: 800px
-..  |lab21-15| image:: images/lab21-15.png
-        :width: 800px
-..  |lab21-16| image:: images/lab21-16.png
-        :width: 800px
-..  |lab21-17| image:: images/lab21-17.png
-        :width: 800px
-
-
 
 In this lab you will run traffic generation scripts as well as attacks against a Virtual Server in order to trigger Behavioral DoS Protection.
 
@@ -44,79 +7,62 @@ In this lab you will run traffic generation scripts as well as attacks against a
 Create the DoS Profile
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open Chrome and use the **bigip01** shortcut to login to the BIG-IP.
+#. Navigate to **Security > DoS Protection > Protection Profiles** and click **Create**.
+#. Name the profile **juiceshop_dos** and click **Behavioral & Stress-based Detection** to the left. 
+#. Configure the **Behavioral & Stress-based Detection** settings like below and click **Finished**.
 
-#.  Navigate to **Security -> DoS Protection -> Protection Profiles** and click **create**.
+.. image:: images/bdos.png
+  :width: 600 px
 
-#.  Name the profile **insecureapp1_dosprofile** like below, then click **Behavioral & Stress-based Detection** to the left:
+#.  Navigate to **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies**. 
+#.  **Enable** the Dos Protection Profile and choose our new **juiceshop_dos** profile and also **Enable** the **local-dos** Log Profile. 
+#. Click **Update**.
 
-    |lab21-01|
+Your virtual server should look like this: 
 
-#.  Configure the **Behavioral & Stress-based Detection** settings like below and click **Finished**.
-
-    |lab21-02|
-
-#.  Navigate to **Local Traffic -> Virtual Servers -> insecureApp1_vs** then click **Security Tab -> Policies**
-
-#.  Attach the DoS Protection Profile to the virtual server we just created by selecting **Enabled** next to **DoS Protection Profile** and selecting **insecureapp1_dosprofile** from the dropdown.
-
-    |lab21-03|
-
-    .. NOTE:: The screenshot references an application security policy, but unless you've been using the same lab environment since the WAF141 class, you won't have one here.  It is not required for this lab, but you will restore this policy in Module 4.
-    
-
-#.  Enable the **local-dos** logging profile, and click **update**
-
-    |lab21-04|
+.. image:: images/dos.png
+  :width: 600 px
 
 
 Train the DoS Profile
 ~~~~~~~~~~~~~~~~~~~~~
 
-#.  SSH into the BIG-IP as the **admin** user and type **bash** followed by **enter**.
+#.  Open a new Terminal and SSH into the BIG-IP as the **admin** ``ssh admin@10.1.1.4`` then type **bash** and hit **enter**.
+#.  Paste the following command: ``admd -s vs./Common/owasp-juiceshop_443_vs+/Common/juiceshop_dos.info.learning``
 
-#.  Type the following command:
+It should look like this:
 
-    .. code-block:: bash
-
-            admd -s vs./Common/insecureApp1_vs+/Common/insecureapp1_dosprofile.info.learning
-    ..
-
-    It should look like this:
-
-    |lab21-05|
-
-#.  Open a local terminal window on your jumphost / client01, examine your home directory, and run the **baseline_menu_SSL.sh** script.
+.. image:: images/doslearn.png
+  :width: 600 px
+  
+3.  With the **admd** command still running, open another tab in your Terminal and run the **baseline_menu.sh** script.
 
     .. code-block:: bash
 
-        cd agility2020wafTools/
-        ./baseline_menu_SSL.sh
+        cd Agility2021wafTools/
+        ./baseline_menu.sh
     ..
 
-#.  Select either **option 1** or **option 2**, but notice that option 3 stops the script.  You will use this later.
+4. Select either **option 1** or **option 2**, but notice that option 3 stops the script.  You will use this later.
+#. Open one more terminal tab and run the script again, but this time select the **other** option.
 
-    |lab21-06|
-
-#.  Open one more terminal window and run the script again, but this time select the **other** option.
-
-    |lab21-07|
-
+ 
     .. NOTE:: Due to the use of machine learning, the order in which you execute these traffic generation patterns does not particularly matter.  The BIG-IP will learn regardless. The purpose is really to train the BIG-IP on "normal traffic patterns" for the app.  Obviously, this is a sterile environment designed to demonstrate the capabilities quickly.  Traffic learning in a production environment will likely take significantly longer.
 
-#.  Go back to your BIG-IP terminal window and take a look at the output of your prior **admd** command.  The admd command returns data on the progress of the traffic learning process.  Wait until the first number in the brackets has a value of 90 or above.  This represents the percentage confidence the system has in the accuracy of the baseline traffic.
+#. Go back to your BIG-IP terminal window and take a look at the output of your prior **admd** command. The admd command returns data on the progress of the traffic learning process and **it can take several minutes to start learning behaviors**.  
+#. **Wait** for what seems like forever and you wonder if your lab your broken, until the first number in the brackets has a value of 90 or above.  This represents the percentage confidence the system has in the accuracy of the baseline traffic.
 
-    |lab21-08|
+Finally! 
 
-#.  Once you have reached 90% confidence, you may move on to the next task.  This may take upto **10 minutes or longer** depending on various factors.
+.. image:: images/learned.png
+  :width: 600 px
 
+#. Once you have reached 90% confidence, you may move on to the next task.  This may take upto **10 minutes or longer** depending on various factors.
 
 Launch an Attack
 ~~~~~~~~~~~~~~~~
 
-#.  Open yet another terminal window on the jumphost.
-
-#.  In your home directory, you will find another script named **AB_SSL_DOS.sh**.  Run this script.
+#.  Open yet another Terminal window on the client and in the **Agility2021wafTools** directory you will find another script named **AB_SSL_DOS.sh**.  Run this script.
 
     .. code-block:: bash
 
@@ -124,11 +70,10 @@ Launch an Attack
             ./AB_SSL_DOS.sh
     ..
     
-    |lab21-09|
+ 
 
 #.  Select **1** for "Attack start - similarity" and hit **enter**.  Notice that entering 4 ends the script.  You will use this later to end the attack.  As the attack starts, the output should look similar to this:
 
-    |lab21-10|
 
     .. NOTE:: At some point, the script may start to generate SSL errors.  This is expected as the BIG-IP adds the offending IP addresses to its shun list while it computes a solution to the attack.
 
@@ -137,15 +82,12 @@ Examine the Mitigation
 
 #.  In the TMUI, go to **Security > DoS Protection > Signatures** and click on the bar for **Dynamic**. You should see an entry similar to the on below (this may not show up right away, refresh the page until an entry appears).
 
-    |lab21-11|
-
-    |lab21-12|
 
     Notice that the **Deployment State** is **Mitigate**. Since **approve signatures** was not enabled in the DoS Protection profile, this signature was automatically deployed once computed.  If desired, enabling the **aprove signatures** option would require user interaction before any mitigations were deployed.
 
 #.  Click on the **signature name** (in blue) to examine the contents of the signature.
 
-    |lab21-13|
+  
 
     The signature generated here is a product of machine learning.  The BIG-IP is actually able to determine which aspects of the traffic are problematic and create a signature to match them....Thus protecting you from the attack.
 
@@ -153,7 +95,7 @@ Examine the Mitigation
 
 #.  Once persistent, the signature will remain a part of the BIG-IP system and may actually be modified manually if so desired.  To modify the signature open the **flyout** on the right.
 
-    |lab21-14|
+ 
 
 Visibility & Reporting
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -161,17 +103,17 @@ Visibility & Reporting
 
 #.  Navigate to **Security -> Event Logs -> DoS -> Application Events** 
 
-    |lab21-15|
+   
 
 #.  This gives us a quick view of what has happened from an Application DoS perspective. Notice that the attack Detection and Mitigation were Behavioral.
 
 #.  Now, navigate to **Security -> Overview -> Dashboard**.  Ensure that you've selected a virtual server on the right and that the Behavioral DoS dashboard is selected in the upper left.  Spend some time exploring here.  Notice you can get details from each attack and export the data to CSV for later analysis.
 
-    |lab21-16|
+
 
 #.  Next, navigate to **Security -> Reporting -> DoS -> URL Latencies**.  The BIG-IP also keeps track of the performance of each URI in order to assess the impact of an attack (stress) on specific parts of an application.  Since this is a lab instance you will probably want to adjust the time period to **Last Hour** in order to get some more meaningful statistics.
 
-    |lab21-17|
+
 
 #. In each of your terminal windows type **Ctrl+C** to terminate the scripts. The **AB_SSL_DOS.sh** script will require you to enter **3** stop the attacks, then **4** to quit after pressing **Ctrl+C**.
 

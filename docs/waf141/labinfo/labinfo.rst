@@ -21,7 +21,7 @@ Environment
 - `JuiceShop <https://owasp.org/www-project-juice-shop/>`_ - OWASP Juice Shop is probably the most modern and sophisticated insecure web application! 
 
 **Lab Topology**
----------------
+-------------------
 
 The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
