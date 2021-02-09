@@ -16,13 +16,13 @@ Discover and learn to operate the Dashboard
 
 #. Click on the expand arrow next to **A1 Injection**.  This will display the attack signature types and required protections you need to secure yourself against this risk.
 
-    .. image:: /_static/class9/a1initialreview.png
+    .. image:: ../images/a1initialreview.png
 
 #. On that same screen in the OWASP Dashboard, hover your pointer over **SQL-Injection** and select the **checkmark**.  Also hover over **Server Side Code Injection** and select the **checkmark**.  These checkmarks apply the protections to the policy.  Notice your potential A1 Injection protection % increased.
 
     .. Note::  In the dashboard, if you see the checkmark available, it will enforce any protections required to be compliant for that vector.
 
-    .. image:: /_static/class9/a1addsignatures.png
+    .. image:: ../images/a1addsignatures.png
 
 #. Press the blue **Review & Update** button below.  On the pop up window press the blue **Save & Apply Policy** button.  
 
@@ -38,11 +38,11 @@ Discover and learn to operate the Dashboard
 
     .. Note:: For those of you looking for the attack signature list, you may have now noticed the location of attack signatures has changed in the most recent release. 
 
-    .. image:: /_static/class9/disablestaging.png
+    .. image:: ../images/disablestaging.png
 
 #. Go back to your OWASP Dashboard **Security -> Overview -> OWASP Compliance**.  Select your policy ``juice_shop_waf``..  You can now see a lot more OWASP protections now.
 
-    .. image:: /_static/class9/dbwithblocking.png
+    .. image:: ../images/dbwithblocking.png
 
     .. Note:: When we disabled the staging, we represented a user waiting out the enforcement readiness period.  We basically just time traveled to the future!!  https://youtu.be/8qrriKcwvlY
 

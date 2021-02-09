@@ -22,7 +22,7 @@ Task – We will continue applying protections while working down the Dashboard
     - Press **Save** at the bottom of that screen
     - Press **Apply Policy** button at the top right corner of your screen
 
-    .. image:: /_static/class9/evasiontechniques.png
+    .. image:: ../images/evasiontechniques.png
 
 #. Go back to the Dashboard.  Click **Security > Overview > OWASP Compliance**.  You now see you are 100% protected against A1 Injection.  Now expand **A2 Broken Authentication**.  You can see with some of the default protections, and the previous attack signatures we applied are providing some protections.  The signatures we applied previously protect against some auth attacks, and cookie tampering protection is on by default when applying a base policy.
 
@@ -34,7 +34,7 @@ Task – We will continue applying protections while working down the Dashboard
 
     - Under A2 click the link named **Not Fulfilled** next to Login Enforcement.  This is just a link/shortcut to the login page settings.  
 
-        .. image:: /_static/class9/loginenforcement.png
+        .. image:: ../images/loginenforcement.png
 
     - This opens a new tab in the policy where you declare the info for your login page.  Press **Create** on the top right corner of the page.  
     - In the login URL field enter ``/#/login``
@@ -43,7 +43,7 @@ Task – We will continue applying protections while working down the Dashboard
     - Type ``password`` in the **Password Parameter Name**
     - Type ``Invalid`` in the **A string that should NOT appear in the response** field
 
-        .. image:: /_static/class9/loginform.png
+        .. image:: ../images/loginform.png
 
     .. Note:: You can identify the strings and parameters listed above by either getting info from the application developers or by using tools built into your own browser.  Here is a method from one of our F5 videos, the link brings you right to that discovery method https://youtu.be/YqswibSgMyk?t=178
 
@@ -74,7 +74,7 @@ Task – We will continue applying protections while working down the Dashboard
     - Click on the **checkmark** for all processes that your organization is currently following for the application.  You can also click the **No/Ghostbuster** symbol here if the condition is not met.
     - Below is an example, but you may complete this any way you choose.
 
-        .. image:: /_static/class9/securitymisconfig.png
+        .. image:: ../images/securitymisconfig.png
 
         .. Note:: In this example, we have marked that we are performing application and vulnerability scanning.  We have chosen to ignore the app and system patching (An example why would be a legacy system or app that no longer recieves patching).  In this instance, we want to ignore that requirement as it is not applicable to the application. In our example, App System hardening is a practice that we have not yet implemented, so we will leave this unsatisfied until that is complete. 
 
