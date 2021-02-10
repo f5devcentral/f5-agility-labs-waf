@@ -15,23 +15,6 @@ To install on different platforms:
         
          sudo dnf install -y python-pip
 
-More information can be observed by clicking f5-waf-tester --help
-usage: f5-waf-tester [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]
-
-optional arguments:
-  -h, --help            Show this help message and exit
-  -v, --version         Show program's version number and exit
-  -i, --init            Initialize Configuration. (default: False)
-  -c CONFIG, --config CONFIG
-                        Configuration File Path. (default:
-                        /usr/local/lib/python2.7/dist-
-                        packages/f5-waf-tester/config/config.json)
-  -t TESTS, --tests TESTS
-                        Tests File Path. (default: /usr/local/lib/python2.7
-                        /dist-
-                        packages/f5-waf-tester/config/tests.json)
-  -r REPORT, --report REPORT
-                        Report File Save Path. (default: report.json)
 
 When going through the configuration file prompts (./f5-waf-tester –init), there are more prompts that you can configure:
 

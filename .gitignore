@@ -1,6 +1,7 @@
 docs/_build/*
 media/
 .DS_Store
+*.DS_Store
 pdf/*
 .vscode
 *.sublime-*

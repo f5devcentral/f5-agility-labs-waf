@@ -14,17 +14,17 @@ Apply additional protections against the OWASP Top 10
 
     - Under A2 click the link named **Not Fulfilled** next to Login Enforcement.  
 
-        .. image:: /_static/class9/loginenforcement.png
+        .. image:: ../images/loginenforcement.png
 
     - Then, click on the **Login Enforcement** tab
 
-        .. image:: /_static/class9/loginpageslist.png
+        .. image:: ../images/loginpageslist.png
 
     - In the Authenticated URLs field enter ``/#/privacy-security/`` and press the add button and ``/#/wallet`` and press the add button.  Based on app exploration we can identify that these URIs should only be accessible after successful login.
     - Press the **Save** button below.  Then press the **Apply Policy** Button in the top right corner. 
     - Now press the link in the note message below titled **Learning and Blocking Settings Screen**
 
-        .. image:: /_static/class9/enforcementURLs.png
+        .. image:: ../images/enforcementURLs.png
 
     - On this screen add a checkmark in the **Alarm** and **Block** checkboxes.
     - Press **Save** below and **Apply Policy** in the top right.
@@ -58,7 +58,7 @@ Apply additional protections against the OWASP Top 10
     - To apply these blocks now go to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings**.
     -  Expand the **Parameters Section**.  Place a check in the **Alarm** and **Block** boxes for both **Illegal meta character in parameter name** and **Illegal meta character in value**
 
-        .. image:: /_static/class9/Illegalmetachar.png
+        .. image:: ../images/Illegalmetachar.png
 
     - Press **Save** at the bottom of the screen and **Apply Policy** in the top right corner.  
     - If you want to view the dshboard again you will see the A7 catagory is now at 100%.

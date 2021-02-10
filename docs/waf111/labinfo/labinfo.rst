@@ -1,7 +1,7 @@
 Lab Environment & Topology 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-..  |lab-diag| image:: /_static/class9/waf111_lab_diagram.png
+..  |lab-diag| image:: ../images/waf111_lab_diagram.png
 
 Environment
 -----------

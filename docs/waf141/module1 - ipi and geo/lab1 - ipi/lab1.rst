@@ -1,4 +1,4 @@
-Exercise 1.1: IP Intelligence Policy
+Exercise 1.1: IP Intelligence Policies
 ---------------------------------------
 Objective
 ~~~~~~~~~
@@ -6,53 +6,75 @@ Objective
 - Configure Global IPI Profile & Logging
 - Review Global IPI Logs
 - Configure Custom Category and add an IP 
-- Create your first WAF Policy and implement IPI  
+- Create your first WAF Policy and implement IPI w/ XFF inspection
 
 - Estimated time for completion: **30** **minutes**.
-
-#. RDP to Linux Client and launch Google Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
-
-#. Click the BIG-IP bookmark and login to TMUI. admin/<password>. 
 
 Create Your 1st L3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
-We will be applying a IPI via a Global Policy to secure layer 3 device-wide, as well as a WAF policy to validate any IP's present at Layer 7. 
+We will follow security best-practice by applying IPI via a Global Policy to secure Layer 3 device-wide and within the Layer 7 WAF policy to protect the App by inspecting the HTTP X-Forwarded-For Header.
 
 .. image:: images/ipi_options.png
   :width: 600 px
 
-In this lab we will start by enabling a Global IPI Policy, then configure a VS specific profile with a custom category. 
-We will also explore the configuration of IPI within the WAF policy itself. 
+In this first lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
 
-#. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
+#. RDP to the Linux Client and launch Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
 
+#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/[password]. 
+
+#. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IP's that receive requests for your application and proxy the requests to the backend "real" servers.
+
+| You will see 3 Virtual Servers: 
+
+.. image:: images/virtual_servers.png
+  :width: 600 px
+
+|
+
+| * **juiceshop-test.f5agility.com** - Will be used later to send spoofed traffic to the main site
+| * **owasp-juiceshop_443_vs** - Main Site - Status of green indicates a healthy backend pool of real servers 
+| * **owasp-juiceshop_80_vs** - Standard port 80 redirect to main site
+
+| 
+
+4. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
 
 .. image:: images/ipi.png
   :width: 600 px
 
-#. Click on the **Create** button. 
+.. NOTE:: Network Firewall IP Intelligence Policies are a layer 3 enforcement capability and part of Advanced WAF. No additional licensing is necessary beyond Advanced WAF with an IPI Subscription. 
+
+5. Click on the **Create** button.
 
 #. For the name:  **global_ipi** 
 
-#. Under **IP Intelligence Policy Properties**: For the Default Log Action choose: **yes** to Log Category Matches
+#. Under **IP Intelligence Policy Properties** For the Default Log Action choose **yes** to **Log Category Matches**.
 
-#. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Note that hardware acceleration is not available when logging all matches. 
+#. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Inline help is very useful when navigating the myriad of options available within any configuration screen.
 
-#. Click **Add** under the categories section. 
+.. NOTE:: Notice in the setting descriptions that hardware acceleration is not available when "logging all matches". This exercise is to familiarize you with the value of inline help and will not affect our virtual lab.
+
+9. To the right of the screen, click **Add** under the categories section. 
 
 #. From the category section choose **botnets** and click **Done editing**.
 
-#. Repeat this process and add the following additional categories: **infected_sources**, **scanners**, **spam_sources**, & **denial_of_service**.
+#. Repeat this process and add the following additional categories: **phishing**, **scanners**, **spam_sources**, & **denial_of_service**. Outside of this lab, you would want to enable additional categories for protection.  
 
 .. image:: images/ipi_global.png
   :width: 600 px
 
-#. Commit the Changes to the System.
+12. Commit the Changes to the System.
+
+#. Apply the **global_ipi** policy and click **Update**.
+
+.. image:: images/global_policy.png
+  :width: 600 px
 
 Setup Logging for Global IPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Event Logs > Logging Profiles** and click on **global-network**
+#. In the upper left of the GUI under the **Main** tab, navigate to **Security > Event Logs > Logging Profiles** and click on **global-network**
 #. Under the Network Firewall section configure the IP Intelligence publisher to use **local-db-publisher**
 #. Check **Log GEO Events**
 #. Click **Update**
@@ -60,16 +82,9 @@ Setup Logging for Global IPI
 .. image:: images/ipi_global_log.png
   :width: 600 px
 
-Apply Global IPI & Test
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to: **Security > Network Firewall > IP Intelligence > Policies**.
-#. Apply the **global_ipi** policy and click **Update**.
-
-.. image:: images/global_policy.png
-  :width: 600 px
-
-#. RDP to the client01 jumphost
-#. Open a terminal and navigate to **/home/f5student/waf141/agility2020wafTools**
+Test 
+~~~~~~~~~~~~~~~~
+#. On the Linux Client, open a terminal and **cd** to **Agility2021wafTools**
 #. Run the following command to send some traffic to the site: **./ipi_tester**.
 
 .. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
@@ -89,104 +104,97 @@ Create Custom Category
 .. image:: images/add_to_cat.png
   :width: 600 px
 
-#. Enter the ip address: **42.231.162.22** and set the seconds to **3600** (1 hour)
+5. Enter the ip address: **134.119.218.243** or any of the other malicious IP's showing up in the IP Intelligence logs, and set the seconds to **3600** (1 hour)
 #. Click **Insert Entry**
 
 .. image:: images/add_ip.png
   :width: 600 px
 
-Create VS Specific L3 IPI Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to  **Security > Network Firewall > IP Intelligence > Policies** and click **create**. 
-#. Name: **webgoat_ipi**
-#. For Default Log Action choose **yes** to log category matches. 
-#. Under Categories click **Add** and choose the **my_bad_ips** custom category. 
-#. Click **Done Editing** and **Commit the Changes To System**.
+7. Navigate to **Security > Network Firewall > IP Intelligence > Policies** and click **global_ipi**
 
-.. image:: images/webgoat_ipi.png
+#. Under **Categories** click **Add** and select your new custom category **my_bad_ips**. Click **Done Editing** and **Commit Changes**.
+
+.. image:: images/my_bad_ips.png
   :width: 600 px
 
-Create IPI Logging Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Event Logs > Logging Profiles** and click **Create**.
-#. Name: **IPI_Log**
-#. Select **Network Firewall** and **local-db-publisher** under IP Intelligence and then click **Create**.
 
-.. image:: images/ipi_log.png
+9. Navigate back to **Security > Event Logs > Network > Ip Intelligence** and review the entries
+
+.. image:: images/my_bad_ips_log.png
   :width: 600 px
 
-Apply IPI Policy and Logging Profile to VS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Local Traffic > Virtual Servers** and click on **insecureApp1_vs**
-#. Under the **Security tab > Policies** in the top middle of the GUI, enable the webgoat IPI profile and associated logging profile.
-#. Click Update.
+**This concludes the Layer 3 IPI policy lab section.** 
 
-.. image:: images/vs_sec.png
-  :width: 600 px
+| **To recap, you have just configured a Global IP Intelligence policy and added a custom category.**
+| **This policy is inspecting Layer 3 only and is a best-practice first step to securing your Application traffic.**
 
-Verifying the Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. You should now see Global and VS Specific Violations.
+|
 
-.. image:: images/vs_spec.png
-  :width: 600 px
+| **We will now configure a Layer 7 WAF policy to inspect the X-Forwarded-For HTTP Header.**
 
-Create your first WAF Policy & Configure L7 IPI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create your first WAF Policy 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Navigate to **Security > Application Security > Security Policies** and click the Plus (+) button. 
-#. Name the policy: **insecureApp1_asmpolicy**
-#. Select Policy Template: **Rapid Deployment Policy**
-#. Select Virtual Server: **insecureApp1_vs**
-#. Notice that the enforement mode is already in **Transparent Mode** and Signature Staging is **Enabled**
+#. Name the policy: **juiceshop_waf**
+#. Select Policy Template: **Rapid Deployment Policy** (accept the popup)
+#. Select Virtual Server: **owasp-juiceshop_443_vs**
+#. Logging Profiles: **Log all requests**
+#. Notice that the Enforcement Mode is already in **Transparent Mode** and Signature Staging is **Enabled**
 #. Click **Save**.
 
 .. image:: images/waf_policy.png
   :width: 600 px
 
-#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. Notice that **Access from malicious IP address** is set to **Alarm** and **Block**. We will cover these concepts later in the lab but for now the policy is still transparent so the blocking setting has no effect. 
+Configure L7 IPI
+~~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/ipi_asm.png
+#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. 
+
+.. NOTE::  These are the settings that govern what happens when a violation occurs such as **Alarm** and **Block**. We will cover these concepts later in the lab but for now the policy is still transparent so the blocking setting has no effect. 
+
+
+.. image:: images/ipi_waf.png
   :width: 600 px
 
-#. Navigate to **Local Traffic > Virtual Servers** and click on **insecureApp1_vs**.
-#. Under the Security tab in the top middle of the GUI click on **Policies** and your policy settings should look like this. 
-
-.. image:: images/policy_setting.png
-  :width: 600 px
-
-#. Disable the IP Intelligence Profile and enable the **Log all requests** logging profile as shown below, then click **update**. 
-
-.. image:: images/policy_mod.png
-  :width: 600 px
-
-#. Navigate to **Security > Network Firewall > IP Intelligence > Policies** and set the Global IP Intelligence Policy to **none** and click **update**. 
-
-.. image:: images/disable_global.png
-  :width: 600 px
-
-#. Navigate to **Security > Application Security > IP Addresses > IP Intelligence** and enable IP Intelligence. 
-#. Notice at the top left that you are working within the insecureApp1_asmpolicy policy context. Enable **Alarm** and **Block** for each category. 
+2. Navigate to **Security > Application Security > IP Addresses > IP Intelligence** and enable IP Intelligence. 
+#. Notice at the top left drop-down that you are working within the juiceshop_waf policy context. Enable **Alarm** and **Block** for each category. 
 #. Click **Save** and **Apply Policy**
 
 .. image:: images/waf_ipi.png
   :width: 600 px
 
+5. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and click on **juiceshop_waf** policy.
+#. Finally, scroll down under **General Settings** and click **Enabled** under **Trust XFF Header**.  
+#. Click **Save** and **Apply Policy**
 
-#. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should now see IPI violations. If you browse to the site via Firefox on Client01 you should see good traffic as well in the event logs since we are logging all requests and not all IP's are malicious. 
+Test XFF Inspection
+~~~~~~~~~~~~~~~~~~~~
+1. Open a new terminal or terminal tab on the Client (the ipi_tester script should still be running) and run the following command to insert a malicious IP into the XFF Header: 
+::  
+
+  curl -H "X-Forwarded-For: 134.119.218.243" -k https://juiceshop.f5agility.com/xff-test
+
+| If that IP has rotated out of the malicious DB, you can try one of these alternates:
+
+* 80.191.169.66 - Spam Source
+* 85.185.152.146 - Spam Source
+* 220.169.127.172 - Scanner
+* 222.74.73.202 - Scanner
+* 62.149.29.36 - Spam Source
+* 82.200.247.241 - Phishing
+* 134.119.219.93 - Spam Source
+* 218.17.228.102 - Spam Source
+* 220.169.127.172 - Scanner
+
+
+2. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should see a Sev3 Alert for the attempted access from a malicious IP. 
 
 .. image:: images/events.png
   :width: 600 px
 
-#. Click on one of the alerts and review the violation details. Note that you can see the entire request details even though this site was using strong TLS for encryption. 
+3. In the violation details you can see the entire request details including the XFF Header even though this site was using strong TLS for encryption. 
 
-.. image:: images/alert.png
-  :width: 600 px
+.. NOTE:: Attackers often use proxies to add in source IP randomness. Headers such as XFF are used to track the original source IP so the packets can be returned. In this example the HTTP request was sent from a malicious IP but through a proxy that was not known to be malicious. The request passed right through our Layer 3 IPI policy but was picked up at Layer 7 due to the WAF's capabilities. 
 
-.. NOTE:: It is best practice to enable Trust XFF in the policy when configuring IPI via WAF policy. XFF inspection is one of the advantages to consider when deploying IPI and can only be done via WAF policy. Although this setting is not needed to demonstrate this lab, it is strongly recommended to have it enabled. 
-
-.. image:: images/trust_xff.png
-  :width: 600 px
-
-As you can see, there are several methods of configuring IP Intelligence on the BIG-IP and each has it's own pro's and con's. It will be up to you to decide which method works best for your organization but at least now you know and knowing is most of the battle in IT. 
-
-**This completes Lab 1.1**
+**This completes Exercise 1.1**

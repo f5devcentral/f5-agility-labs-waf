@@ -16,17 +16,17 @@ Create security policy using the Guided Configuration
 
 #. On your UDF page, go to your BIG-IP component, click the **Access** drop down menu and choose **TMUI** (traffic management user interface).  This is a link to your configuration utility.  
 
-    .. image:: /_static/class9/bigiplogin.png
+    .. image:: ../images/bigiplogin.png
 
 #. Login to the BIG-IP with the ever so secure credentails of Username  ``admin`` and Password ``admin``.  
 
 #. On the Main tab to your left, select **Security > Guided Configuration**. This opens the Guided Configuration screen.
 
-    .. image:: /_static/class9/webappbutton.png
+    .. image:: ../images/webappbutton.png
 
 #. Click on the **Web Application Protection** template button.
 
-    .. image:: /_static/class9/webapptemplate.png
+    .. image:: ../images/webapptemplate.png
 
 #. The guided configuration now provides an overview of what will be configured. Click the  **Next** button.
 
@@ -38,7 +38,7 @@ Create security policy using the Guided Configuration
 
 #. Click on **Show Advanced Settings** button in the upper right hand corner of your page.
 
-    .. image:: /_static/class9/advanced2.png
+    .. image:: ../images/advanced2.png
 
 #. Under **Server Technologies** add the following to the selected window.  Adding these technologies will assist in building a more precise policy.
 
@@ -52,17 +52,17 @@ Create security policy using the Guided Configuration
 
 #. Press the **Save & Next** Button below.  
 
-    .. image:: /_static/class9/servertechnologies.png
+    .. image:: ../images/servertechnologies.png
 
     .. Note:: We are adding these technologies since we know what the application is using.  There is also a feature that can be turned on that can allow the policy to learn these technologies.
 
 #. Check off **Assign Policy to Virtual Server**, under **Virtual Server** choose **Use Existing**, and move the Juice_Shop_VS to the selected window.  Press **Save & Next**
 
-    .. image:: /_static/class9/addvs.png
+    .. image:: ../images/addvs.png
 
 #. The next page will summarize the objects and policy configuration.  Review, and take note that you can also go back and edit if required.  When done click **Deploy** at the bottom of the screen.  It will take a few moments to complete the policy build.
 
-    .. image:: /_static/class9/ready_to_deploy.png
+    .. image:: ../images/ready_to_deploy.png
 
 #.  After the policy is created, we will want to apply a logging profile to our new security policy.
 
@@ -70,11 +70,11 @@ Create security policy using the Guided Configuration
     - Place a check to the left of the **Virtual Server** name that your new security policy is applied to.  
     - Now click the blue **Attach** button above and select **Logging Profile**
 
-    .. image:: /_static/class9/attachlogging1.png
+    .. image:: ../images/attachlogging1.png
 
     - Select **Log illegal requests** and press the other **Attach** button below.
 
-    .. image:: /_static/class9/attachlogging2.png
+    .. image:: ../images/attachlogging2.png
 
     - You will now see the logging profile is added under the Application Security column.  
 

@@ -1,4 +1,4 @@
-Module 2: Bot Detection Lab
+Module 2: Bot Detection
 ===================================================
 Expected time to complete: **20 minutes**
 
