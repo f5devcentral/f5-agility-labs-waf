@@ -1,0 +1,26 @@
+name: Build the Docs
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      S3_DIR: waf
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - run: ./containthedocs-build.sh
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Copy files to s3 (Staging Clouddocs)
+      run: |
+        aws s3 sync --delete $PWD/docs/_build/html/ s3://clouddocs.f5networks.net/training/community/$S3_DIR/html/
