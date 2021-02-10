@@ -71,7 +71,11 @@ Whitelisting a Bot & Demonstrating Rate-Limiting
 .. NOTE:: In the "real world" you will need to set this to a value that makes sense for your application or environment to ensure the logs do not become overwhelming. If you don't know, it's usually pretty safe to start with the default of 30. 
 
 3. Under **Mitigation Settings Exceptions** click **Add Exceptions** and search for **curl** and click **Add**.
-#. Change the Mitigation Setting to **None** and then **Save** the profile. 
+
+.. image:: images/addcurl.png
+  :width: 600 px
+
+4. Change the Mitigation Setting to **None** and then **Save** the profile. 
 
 .. image:: images/rate-limit.png
   :width: 600 px

@@ -4,7 +4,7 @@ Exercise 3.1: Threat Campaigns
 Threat Campaign signatures are subscription based and sourced from a variety of threat intel sources based on real world campaigns to attack and/or take over resources. 
 Attackers are constantly looking for ways to exploit the latest vulnerabilities and/or new ways to exploit old vulnerabilities. F5’s Threat Research team is constantly monitoring malicious activity around the globe and creating signatures specific to these exploits. These Threat Campaign signatures are based on current “in-the-wild” attacks. Threat Campaign signatures contain contextual information about the nature and purpose of the attack.
 
-As an example, a normal WAF signature might tell you that SQL injection was attempted. A Threat Campaign signature will tell you that a known threat actor used a specific exploit of the latest Apache Struts vulnerability (CVE -****) in an attempt to deploy ransomware for cryptomining software.
+As an example, a normal WAF signature might tell you that SQL injection was attempted. A Threat Campaign signature will tell you that a known threat actor used a specific exploit of the latest Apache Struts vulnerability (CVE -xxxx) in an attempt to deploy ransomware for cryptomining software.
 
 Objective
 ~~~~~~~~~~~
@@ -61,7 +61,7 @@ Test TC Signatures and Review Logs
 
 .. Important:: Please ensure the ipi_tester script is not running in the terminal on the Linux Client. 
 
-#. From the Linux Client, confirm that the ipi_tester script is not running in the terminal and launch **Postman** from the dock. **It takes a few moments for Postman to launch**. 
+#. From the Linux Client, confirm that the ipi_tester script is not running in the terminal and launch **Postman** from the Desktop. **It takes a few moments for Postman to launch**. 
 
 .. image:: images/postman.png
 
@@ -72,14 +72,19 @@ Test TC Signatures and Review Logs
 .. image:: images/test_req.png
   :width: 600 px
 
-4. Click on the **Fortinet SSL VPN** attack and then click the blue **Send** button. Repeat this process for the **Oracle2** attack. Explore the Headers and body that is being sent. If your policy was in blocking mode you would receive a block page but since the policy is transparent, these attacks are making it through and the juiceshop page is returned. 
+4. Click on the **Fortinet SSL VPN** attack and then click the blue **Send** button. Repeat this process for the **Oracle2** attack. Explore the http headers and bodies being sent. If your policy was in blocking mode you would receive a block page but since the policy is transparent, these attacks are making it through and the juiceshop page is returned. 
 #. Back in Advanced WAF, navigate to **Security > Event Logs > Application > Requests** and review the Sev5 events.
 
 .. image:: images/events.png
   :width: 600 px
 
-6. Click on the event for **/remotefgt_lang** and note the triggered violations. Click on **All Details** to the right of the screen to get more information. You can also click the **Open to new Window** icon in the top right to get an isolated view of this violation. 
-#. When working in the WAF Requests event viewer, you can see exactly which Attack Signatures or Threat Campaigns were triggered under the **Violations** section. Click the **Numerical Value** under **Occurrences** for **Threat Campaign detected**. 
+6. Click on the event for **/remotefgt_lang** and note the triggered violations. Click on **All Details** to the right of the screen to get more information. You can also click the **Open to new tab** icon in the top right to get an isolated view of this violation. 
+
+.. image:: images/newtab.png
+  :width: 600 px
+
+
+7. When working in the WAF Requests event viewer, you can see exactly which Attack Signatures or Threat Campaigns were triggered under the **Violations** section. Click the **Numerical Value** under **Occurrences** for **Threat Campaign detected**. 
 
 .. image:: images/numerical.png
   :width: 600 px

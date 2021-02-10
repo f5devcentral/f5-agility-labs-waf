@@ -14,8 +14,9 @@ Create the DoS Profile
 .. image:: images/bdos.png
   :width: 600 px
 
-#.  Navigate to **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies**. 
-#.  **Enable** the Dos Protection Profile and choose our new **juiceshop_dos** profile and also **Enable** the **local-dos** Log Profile. 
+#. Navigate to **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies**. 
+#. **Disable** the Application Security Policy for demo purposes only. 
+#. **Enable** the Dos Protection Profile and choose our new **juiceshop_dos** profile and also **Enable** the **local-dos** and remove **Log all requests** Log Profile. 
 #. Click **Update**.
 
 Your virtual server should look like this: 

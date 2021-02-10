@@ -23,7 +23,7 @@ Geolocation
 
 .. NOTE:: N/A covers all RFC1918 private addresses. If you aren’t dropping them at your border router (layer 3), you may decide to geo-enforce at ASM (Layer 7) if no private IP’s will be accessing the site.
 
-4. You should now see entries in the event log that contain both IPI and Geolocation violations.
+4. Navigate to **Security > Event Logs > Application > Requests** and review the entries in the event log that contain both IPI and Geolocation violations.
 
 .. image:: images/geo_violation.png
   :width: 600 px
