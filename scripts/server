@@ -6,16 +6,16 @@ else
 	PORT=$1
 fi
 
-if [ -d _build ]; then
+if [ -d docs/_build ]; then
 	echo "Starting server on TCP/$PORT..."
 	echo "Enter <Ctrl+c> to stop the server..."
-	cd _build 
-	for i in `cat ../../server-dependencies`
-	do
-		../../containthedocs-wget $i;
-	done
-	python -mSimpleHTTPServer $PORT
+	cd docs/_build 
+	for i in `cat ../../scripts/server-dependencies`
+	  do
+		  ../../containthedocs-wget $i;
+  	done
+	python3 -m http.server $PORT
 else
-	echo "The _build directory doesn't exist... try running 'script/setup'"
+	echo "The docs/_build directory doesn't exist... try building the doc first, './containthedocs-build.sh'"
 	exit 1
 fi
