@@ -1,4 +1,4 @@
-Module 3: Behavioral DoS
+Module 3: Layer 7 DoS
 ========================
 Expected time to complete: **20 min**
 
