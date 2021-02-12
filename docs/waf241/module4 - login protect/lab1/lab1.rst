@@ -43,7 +43,7 @@ Lab 4.1: Login Page Protection
         :width: 600px
 
 
-In this exercise we'll explore some of the login protection and session tracking capabilities present in BIG-IP ASM.  BIG-IP ASM not only has the capability to gather user identity details from login pages and APM, but can also generate a unique device-id for each connected client.  You'll explore this more in WAF341.
+In this exercise we'll explore some of the login protection and session tracking capabilities present in F5 Advanced WAF.  F5 Advanced WAF not only has the capability to gather user identity details from login pages and APM, but can also generate a unique device-id for each connected client.  You'll explore this more in WAF341.
 
 
 Task 0: Level Set
