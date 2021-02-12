@@ -159,12 +159,16 @@ Configure L7 IPI
 
 2. Navigate to **Security > Application Security > IP Addresses > IP Intelligence** and enable IP Intelligence. 
 #. Notice at the top left drop-down that you are working within the juiceshop_waf policy context. Enable **Alarm** and **Block** for each category. 
-#. Click **Save** and **Apply Policy**
 
 .. image:: images/waf_ipi.png
   :width: 600 px
 
-5. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and click on **juiceshop_waf** policy.
+4. Click **Save** and **Apply Policy**. You will get an "Are you sure" popup that you can banish by clicking **Do not ask for this confirmation again**
+
+.. image:: images/annoy.png
+  :width: 600 px
+
+#. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and click on **juiceshop_waf** policy.
 #. Finally, scroll down under **General Settings** and click **Enabled** under **Trust XFF Header**.  
 #. Click **Save** and **Apply Policy**
 
