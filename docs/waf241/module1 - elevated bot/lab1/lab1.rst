@@ -1,7 +1,7 @@
 Lab 1: Elevated Bot Defense
 -------------------------------------------
 
-We started in the 141 class with a Relaxed or "signature-only" Bot Defense Profile that did not include any active challenges. Now to build on that knowledge, and **elevate** our security posture, we will create a Balanced Bot Mitigation Profile that includes active JavaScript challenges. 
+We started in the 141 class with a Relaxed or "Signature Only" Bot Defense Profile that did not include any active challenges. Now to build on that knowledge, and **Elevate** our security posture, we will create a Balanced Bot Mitigation Profile that includes active JavaScript challenges. 
 
 **Balanced Mode Bot Profile Template Benefits**
 
@@ -27,7 +27,7 @@ Objective
 
 -  Estimated time for completion: **20** **minutes**
 
-.. IMPORTANT:: If you are continuing your lab session from 141 with the same deployment, please disable any previously configured security profiles on the virtual server and skip down to "Enabling Bot Defense”. New students start at step 1. 
+.. IMPORTANT:: If you are continuing your lab session from 141 with the same deployment, please disable any previously configured security profiles on the virtual server and skip down to "Configuring Bot Defense”. New students start at step 1. 
 
 .. image:: images/blank_vs.png
   :width: 600 px
