@@ -52,7 +52,12 @@ Recall from Lab 1, that we used the Rapid Deployment Policy template to create o
 
 13. Click on the Element Name (blue hyperlink) **No Host header in HTTP/1.1 request** This takes you to the Learning and Blocking Settings screen where the check was enabled. 
 #. Notice that by default in the Rapid Deployment Policy, learning is enabled for most of the common HTTP Protocol compliancy checks. Also notice that the **Enable** checkbox next to **No Host header in HTTP/1.1 request** is now checked.  
-#. Uncheck the **Learn box** for this violation then **Save** and **Apply** policy. 
+
+.. image:: images/http_req.png
+  :width: 600 px
+
+
+15. Uncheck the **Learn box** for this violation then **Save** and **Apply** policy. 
 #. Open a new Terminal and send the following request. This request is being sent without a host header and should now raise a violation in our Event Log rather than a learning suggestion. 
 
 ``curl -k -H 'Host:' https://juiceshop.f5agility.com/``
@@ -195,7 +200,7 @@ In this final exercise we will examine server technologies which allow you to au
 Framework Attacks
 ~~~~~~~~~~~~~~~~~~~
 
-Back in BURP navigate to the repeater tab and adjust the payload to the following and hit go. **Replace password with the password you’ve been using all along**
+Back in BURP navigate to the repeater tab and adjust the payload to the following and hit **Send**. **Replace password with the password you’ve been using all along**
 
 |
 
