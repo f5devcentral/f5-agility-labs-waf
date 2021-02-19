@@ -16,7 +16,7 @@ Objective
 Create Logging Profile 
 ~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to **Security > Event Logs > Logging Profiles** and create a new Logging Profile with the settings shown in the screenshot below and click **Create**. 
+#. Navigate to **Security > Event Logs > Logging Profiles** and click **Create** to a new Logging Profile with the settings shown in the screenshot below. Click **Create**. 
 
 .. image:: images/log_profile.png
   :width: 600 px
@@ -30,7 +30,7 @@ Create Logging Profile
   :width: 600 px
 
 6. Click on the **Bot Mitigation Settings** tab and review the default configuration.
-#. Click on the **Signature Enforcement** tab and review the default configuration.
+#. Click on the **Signature Enforcement** tab and review the signatures and staging status.
 #. Click **Save**.
 
 Apply the Policy and Logging Profile
@@ -46,7 +46,7 @@ Apply the Policy and Logging Profile
 .. image:: images/blank_vs.png
   :width: 600 px
 
-4. Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. Notice curl is an untrusted bot in the HTTP Library category of Bots. 
+4. Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. Notice curl (the bot being used in our ipi_tester script) is an untrusted bot in the HTTP Library category of Bots. 
 
 .. image:: images/bot_log.png
   :width: 600 px
@@ -56,7 +56,7 @@ Apply the Policy and Logging Profile
 .. image:: images/bot_traf.png
   :width: 600 px
 
-6. Click on the **owasp-juiceshop_443_vs** Virtual Server and explore the analytics available under **View Detected Bots**.
+6. Click on the **owasp-juiceshop_443_vs** Virtual Server and explore the analytics available under **View Detected Bots** at the bottom of the screen.
 
 .. image:: images/curl.png
   :width: 600 px
@@ -66,7 +66,7 @@ Whitelisting a Bot & Demonstrating Rate-Limiting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to **Security > Bot Defense > Bot Defense Profiles > juiceshop_bot > Bot Mitigation Settings**
-#. Under **Mitigation Settings** change Unknown Bots to **Rate Limit** with a setting of **1** TPS. **1** is a very aggressive rate-limit and used for demo purposes in this lab. 
+#. Under **Mitigation Settings** change Unknown Bots to **Rate Limit** with a setting of **5** TPS. **5** is a very aggressive rate-limit and used for demo purposes in this lab. 
 
 .. NOTE:: In the "real world" you will need to set this to a value that makes sense for your application or environment to ensure the logs do not become overwhelming. If you don't know, it's usually pretty safe to start with the default of 30. 
 
@@ -88,7 +88,7 @@ Whitelisting a Bot & Demonstrating Rate-Limiting
 
 7. Click the down arrow under **Mitigation Action** and note the reason for the alarm. 
 
-.. NOTE:: Even though we have whitelisted this bot we can still ensure that it is rate-limited to prevent stress on the application and any violations to that rate-limit will be Alarmed. This bot is currently violating the rate-limit of 1 TPS. 
+.. NOTE:: Even though we have whitelisted this bot we can still ensure that it is rate-limited to prevent stress on the application and any violations to that rate-limit will be Alarmed. This bot is currently violating the rate-limit of 5 TPS. 
 
 .. image:: images/bot-rate-limit.png
   :width: 600 px

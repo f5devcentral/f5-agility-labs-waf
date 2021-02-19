@@ -1,7 +1,7 @@
 Lab 3: Behavioral DOS Protection
 ----------------------------------
 
-In this lab you will use a baseline traffic generation script and an Apache Bench based attack script against a Virtual Server in both unprotected and protected mode in order to trigger Behavioral DoS Protection. **Unlimited Behavioral Dos protection profiles are a feature of Advanced WAF**. 
+In this lab you will use a baseline traffic generation script and an Apache Bench based attack script against a Virtual Server in both unprotected and protected mode in order to trigger Behavioral DoS Protection. **Unlimited Behavioral Dos protection profiles are a feature of Advanced WAF**.
 
 
 Test Default Site Behavior
@@ -55,42 +55,39 @@ Advanced WAF to the Rescue
 
 #. Navigate to **Security > DoS Protection > Protection Profiles** and click **Create**.
 #. Name the profile **juiceshop_dos** and click **Behavioral & Stress-based Detection** to the left. 
-#. Configure the **Behavioral & Stress-based Detection** settings like below:
-  
-  * Operation Mode: Transparent (It is always best-practice to add new features to a policy in transparent mode until you fully understand the impacts.) 
-
-  * Thresholds Mode: **Manual**
+#. Configure the **Behavioral & Stress-based Detection** settings like below and click **Finished**.
+ 
+  * Thresholds Mode: **Automatic**
   
   * Stress-based Detection and Mitigation: 
   
-    * By Source IP: **Edit > Check all 3 boxes**
+    * By Source IP: **Check all 3 boxes**
   
     * By Device ID: **Not Applicable for this lab**
     
-    * By Geolocation: **Not Applicable for this lab**
+    * By Geolocation: **Check all 3 boxes**
     
-    * By URL: **Not Applicable for this lab**
+    * By URL: **Check all 3 boxes**
     
-    * Site Wide: **Edit > Check all 3 boxes**
+    * Site Wide: **Check all 3 boxes**
 
-  * Behavioral Detection and Mitigation: > click **Edit** 
+  * Behavioral Detection and Mitigation:
   
     * **Check** the box for **Use TLS patterns as part of host identification**
     
     * **Check** the box for **TLS fingerprinting signatures**
 
     * Under **Mitigation** read the description of **Standard Protection**.
-  
-  * Prevention Duration: > click **Edit**
-    
-    * Escalation Period: **10** seconds
-  
+
 .. image:: images/bdos.png
+  :width: 600 px
+
+.. image:: images/bdetect.png
   :width: 600 px
 
 4. Click **Finished**
 
-.. IMPORTANT:: What you essentially just configured was a series of DoS traffic categorizers and step-up remediations. Remediations will fire in the order that they are shown in the GUI and progress every 10 seconds. First a client side integrity check is performed (JS injection), next a CAPTCHA and finally Rate-Limiting kicks in. 
+.. IMPORTANT:: What you essentially just configured was a a series of traffic categorizers and step-up remediations. Remediations will fire in the order that they are shown in the GUI. First a client side integrity check is performed (JS injection), next a CAPTCHA and finally Rate-Limiting kicks in. 
 
 #. Navigate to **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies**. 
 #. **Enable** the Dos Protection Profile and choose our new **juiceshop_dos** profile and also **Enable** the **local-dos** Logging Profile. 
@@ -101,7 +98,9 @@ Your virtual server should look like this:
 .. image:: images/dos.png
   :width: 600 px
 
-8. Open a new **Terminal** tab and start the attack script again and choose option **1**:
+8. In Chrome, browse the site and ensure everything is still loading ok. The site should be unaffected by the DoS profile unless there are signs of stress on the server at which time mitigations will kick in. **Continue to browse and refresh the site for at least 1 minute**
+
+9. Open a new **Terminal** tab and start the attack script again and choose option **1**:
 
     .. code-block:: bash
 
@@ -109,31 +108,32 @@ Your virtual server should look like this:
         ./AB_SSL_DOS.sh
     ..
 
-9. Navigate to **Security > Event Logs > DoS > Application Events** and review the entry. 
-#. Click on the Attack ID #. 
+10. In Chrome, browse the site. Initially, it will appear to be broken again even though we have a Dos Profile applied.
+11. Navigate to **Security > Event Logs > DoS > Application Events** and review the entry. 
+12. Click on the Attack ID #. 
 
 .. image:: images/bdoslog.png
   :width: 600 px
 
-11. Once the Dashboard loads, turn on **Real Time** by checking the box at the top under **Dos Attack IDs** in the right hand pane make sure the attack ID is selected. 
+13. Once the Dashboard loads, turn on **Real Time** by checking the box at the top under **Dos Attack IDs** in the right hand pane make sure the attack ID is selected. 
   
 There is alot of information on DoS Visibility Dashboard including the type of attack, the severity, duration and much more. You can use the **Real Time** filters on the right to further dissect the traffic and drill down for analysis. 
 
 .. image:: images/dash.png
   :width: 600 px
 
-12. Navigate to **Security > Dos Protection > Signatures** and click on **Dynamic**. 
-#. You will see a **Dynamic Signature** was created based off of the behaviors associated with this attack. Click on the signature name and it will expand to show the details of the signature. 
+14. Navigate to **Security > Dos Protection > Signatures** and click on **Dynamic**. 
+15. You will see a **Dynamic Signature** was created based off of the behaviors associated with this attack. Click on the signature name and it will expand to show the details of the signature. 
 
 .. image:: images/dynsig.png
   :width: 600 px
 
 
-14. Open a new tab in Chrome and open Juice Shop again. The page should be functioning with minimum latency even though the attack is still ongoing in the background. 
+16. Open a new tab in Chrome and open Juice Shop again. The page should be functioning with minimum latency even though the attack is still ongoing in the background. 
 
 .. NOTE:: What you are witnessing first hand is F5's proprietary machine learning in action. We are able to create very granular dynamic signatures to effectively mitigate only the bad traffic.  
 
-15. Navigate to **Security > Reporting > DoS > Analysis** and review the system health overview of the BIG-IP device itself. 
+17. Navigate to **Security > Reporting > DoS > Analysis** and review the system health overview of the BIG-IP device itself. 
 
 .. image:: images/sys.png
   :width: 600 px

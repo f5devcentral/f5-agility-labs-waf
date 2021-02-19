@@ -22,16 +22,20 @@ If you were following along in successive fashion and building your own environm
 
 Choose this option if you would like to create a list of top-level URL directories ``(e.g. /abc/*) and /``, while enforcing all other URLs with a wildcard rule.
 
-8. Enable Learn and Alarm for **Illegal URL**, click **Save** and **Apply Policy**. 
-
 .. image:: images/heads.png
   :width: 600 px
+
+8. Enable Learn and Alarm for **Illegal URL**, click **Save** and **Apply Policy** which is back at the top right of the UI. Accept the popup and check the box for no more confirmations and then **Ok**. 
+
+.. image:: images/pop1.png
+  :width: 600 px
+
 
 Whitelist
 ~~~~~~~~~~
 Since we will be training the waf for positive security, let's create a whitelist. This will help to create high fidelity learning suggestions as events occur. 
 
-#. Navigate to **Security > Application Security > IP Addresses > IP Address Exceptions** and click **Create**. Configure the whitelist for a 10/8 to allow our internal "trusted" *cough *cough networks as shown below and check the box for **Policy Builder trusted IP**. 
+#. Navigate to **Security > Application Security > IP Addresses > IP Address Exceptions** and click **Create**. Configure the whitelist for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
 #. Note in the upper left that this Whitelist is only associated with the juiceshop_blocking policy. Whitelists are unique per policy but could be defined at the parent level. 
 #. Click **Create** and **Apply Policy**. 
 
@@ -56,19 +60,19 @@ Exercise the App Part 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Close any existing Juice Shop tabs in the browser and open a new one to the **OWASP Juice Shop** bookmark. 
-#. Request Rejected!!! What Happened?
+#. **Request Rejected!!!** What Happened?
 
 Investigating an Incident
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Event Logs > Application > Requests** and review the blocked events. In both cases it was an illegal hostname due to the checks that we enabled under **Headers** in **Learning and Blocking Settings** just moments ago. 
+#. Click back on the **Advanced WAF** tab and navigate to **Security > Event Logs > Application > Requests** and review the blocked events. In both cases it was an illegal hostname due to the checks that we enabled under **Headers** in **Learning and Blocking Settings** just moments ago. 
 #. The problem is that we enabled checking for a hostname but haven't defined what that hostname is yet. This exercise is to draw your attention to the importance of understanding what you are enabling in Learning and Blocking Settings and how to quickly resolve an issue. We can easily add the hostname. 
+#. Select one of the alerts and click **Accept**. By clicking **Accept** we will be instructing the system to create a learning suggestion to add a new hostname for this policy if it did not have one already. 
 
-.. image:: images/illegal.png
+.. image:: images/illhost.png
   :width: 600 px
 
-#. Select one of the alerts and click **Accept**. By clicking **Accept** we will be instructing the system to create a learning suggestion to add a new hostname for this policy if it did not have one already. 
-#. Notice a screen briefly pops up and informs you that the system is checking the learning mode. Our policy is set to manually learn so we will need to manually accept this suggestion. 
-#. Navigate to **Security > Application Security > Policy Building > Traffic Learning** and note the learning suggestions and score. You will see suggestions to add the top level URL and a Valid Hostname.  All of the others involve enabling various checks for evasion techniques and http protocol compliancy which is generally a good idea. 
+4. Notice a screen briefly pops up and informs you that the system is checking the learning mode. Our policy is set to manually learn so we will need to manually accept this suggestion. 
+#. Navigate to **Security > Application Security > Policy Building > Traffic Learning** and note the learning suggestions and score. You will see suggestions to add the top level URL and a Valid Hostname.  All of the others involve enabling various checks for evasion techniques and http protocol compliancy which are generally a good idea to enable. 
 #. Click the box to **Select All** suggestions and click **Accept > Accept suggestions** and **Apply Policy**.
 #. Navigate to **Security > Application Security > Headers > Host Names** to review the hostname that was configured when you accepted the learning suggestion. 
 
@@ -90,7 +94,12 @@ Exercise the App Part 2
 
 5. In the Advanced WAF tab navigate to **Security > Event Logs > Application > Requests** and you will see a blocked event for the review you just left. 
 #. Click on the blocked event and review the Violation. This is an **Illegal method** violation due to "Put" being used as the command to leave feedback. "Put" is not a default allowed HTTP command per the Rapid Deployment Policy Template.  
-#. Click the **Accept** which will add "Put" to the **Allowed Methods** in **Security > Application Security > Headers > Methods**
+
+.. image:: images/badreview.png
+  :width: 600 px
+
+
+7. Click the **Accept** which will add "Put" to the **Allowed Methods** in **Security > Application Security > Headers > Methods**
 #. Click **Apply Policy**.
 
 .. image:: images/put1.png
@@ -104,7 +113,7 @@ Exercise the App Part 2
   :width: 600 px
 
 
-**This is is how to train a waf and why it is critical to get your policies developed during the testing phase of application devlopment.**
+**This is is how to train a waf and why it is critical to get your policies developed from trusted sources during the testing phases of application development.**
 
 File Types
 ~~~~~~~~~~~~
@@ -113,10 +122,18 @@ File types are low-hanging fruit from a positive security perspective and a grea
 
 #. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings > File Types** and change the default learning mode from **Selective** to **Compact** and read the description.  
 #. Click **Save** and **Apply Policy**.
-#. Go back to the Juice Shop tab and browse to the **Photo Wall**. 
-#. In Advanced WAF go to **Security > Application Security > Policy Building > Traffic Learning** and notice the new file type learning suggestions. 
-#. Select all of the new suggestions and click **Accept > Accept Suggestions** and **Apply Policy**. 
-#. Navigate to **Security > Application Security > File Types > Allowed File Types** and review what was added. Click on the **Disallowed File Types** tab at the top of the GUI and review the default disallowed files for this policy. 
+#. Go back to the Juice Shop tab and browse to the **Photo Wall** via the "Hamburger Menu" at the top left.
+
+.. image:: images/ham.png
+  :width: 600 px
+
+4. In Advanced WAF go to **Security > Application Security > Policy Building > Traffic Learning** and notice the new file type learning suggestions. 
+#. Review and then select all of the new suggestions and click **Accept > Accept Suggestions** and **Apply Policy**. There may be additional suggestions that you can safely accept. 
+
+.. image:: images/fileaccept.png
+  :width: 600 px
+
+6. Navigate to **Security > Application Security > File Types > Allowed File Types** and review what was added. Click on the **Disallowed File Types** tab at the top of the GUI and review the default disallowed files for this policy. 
 
 .. image:: images/files.png
   :width: 600 px
@@ -124,52 +141,55 @@ File types are low-hanging fruit from a positive security perspective and a grea
 Testing WAF Policy
 ~~~~~~~~~~~~~~~~~~~~~
 
-#. On the Linux Client desktop launch Burp Suite Community Edition. **Do not click mulitple times. It takes a few moments to load on first launch**. 
+#. On the Linux Client desktop launch Burp Suite Community Edition. **DO NOT click multiple times. It takes a few moments to load on first launch**. 
 
 .. image:: images/burp.png
   :width: 60 px
 
-2. Click **Next** on Temporary project and then click **Start Burp**. **Do not accept any offers to update the software**. 
-#. Click on the **Proxy** tab and click on **Intercept is on** to turn it off.  
-#. Click the **Open Browser** button and wait for several moments for the built-in Burp Browser to open. Your setup should look like this:
+2. Take the default setting of **Temporary project** by clicking **Next** and then click **Start Burp** with the default settings. **Do not accept any offers to update the software**. 
+#. Click on the **Proxy** tab and click on the "blue" **Intercept is on** button to turn it off.  
+#. Click the **Open Browser** button and **wait for several moments** for the built-in Burp Browser to open. Your setup should look like this:
 
 .. image:: images/browser.png
   :width: 600 px
 
-4. In the Burp browser paste in: ``https://juiceshop.f5agility.com/`` but do **NOT** hit the Return key yet. 
-#. Back in Burp Console click on **Intercept is off** to turn it back on.
-#. In Burp browser click in the URL bar and hit the **Return** key on your keyboard to send the request for ``https://juiceshop.f5agility.com/`` 
+5. In the Burp browser paste in: ``https://juiceshop.f5agility.com/`` but do **NOT** hit the Return key yet. 
+#. Back in Burp Console click on **Intercept is off** button to turn it back on.
+#. In Burp browser click in the whitespace of the URL bar twice so the URL is NOT highlighted and hit the **Return** key on your keyboard to send the request for ``https://juiceshop.f5agility.com/`` 
 #. You will notice Burp Console will popover the browser with the intercepted request. You can now decide which actions to take real-time before sending the requests. 
+
+.. Important:: You may see some requests mixed in that are Google related. These are produced automatically by the browser and you can safely forward them until you get to the request for https://juiceshop.f5agility.com. 
+
 
 .. image:: images/burpjuice.png
   :width: 600 px
 
-8. Go ahead and choose to **Forward** that request. You may see some requests mixed in that are Google related. These are produced automatically by the browser. You can safely forward them. 
+9. Go ahead and choose to **Forward** that request. 
 #. As you can see Burp is a very powerful proxy that allows you to view each request as it is being made and potentially insert or modify that request before sending. 
 #. Click on **Intercept is on** to turn it off so the rest of the requests load and then click it again to turn it back on so that it reads **Intercept is on**.
-#. Back in the Burp Browser the page should have loaded from the previous requests so just click the **Refresh** button in the browser. 
+#. Back in the Burp Browser the page should have loaded from the previous requests so just click the **Refresh** button in the browser and **Dismiss** the popup. 
 #. You may see a request or two for **socket.io** which is used for session persistence in the app. You can just forward them until you get to the following request for the default page:
 
 .. image:: images/defaultpage.png
   :width: 600 px
 
-13. Modify the request to fetch an evilfile.exe file from the server and click **Forward**. 
+14. Modify the request to fetch an evilfile.exe file from the server and click **Forward**. 
 
 .. image:: images/evilfile.png
   :width: 600 px
 
-14. Navigate to **Security > Event Logs > Application > Requests** and review the alert. Was it blocked? 
-
-.. NOTE:: Even though policy is in blocking mode individual elements can be very granularly configured to Alarm or Block. In practice you could have a Blocking policy with everything in Learning and Blocking settings only set to "Alarm". You can then methodically enable blocking for each individual element and validate the application. This gives you the utmost flexibility when moving from a Transparent to Blocking policy. 
+15. Navigate to **Security > Event Logs > Application > Requests** and review the alert. Was it blocked? 
 
 .. image:: images/evilalert.png
   :width: 600 px
 
-15. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings > File Types** and enable **Block** for **Illegal file type**.
+.. NOTE:: Even though policy is in blocking mode individual elements can be very granularly configured to Alarm or Block. In practice you could have a Blocking policy with everything in Learning and Blocking settings only set to "Alarm". You can then methodically enable blocking for each individual element and validate the application. This gives you the utmost flexibility when moving from a Transparent to Blocking policy. 
+
+16. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings > File Types** and enable **Block** for **Illegal file type**.
 #. Click **Save** and **Apply Policy**. 
 
 
-16. Back in Burp Console modify another request for **evilfile.exe** again and click **Forward**. Just delete whatever URI is currently being called and replace it with ``evilfile.exe`` **Make sure the Host is set to juiceshop.f5agility.com and not a google site. If it is related to google just click forward until you get to the next juiceshop.f5agility.com "Host" request**. 
+17. Back in Burp Console modify another request for **evilfile.exe** again and click **Forward**. Just delete whatever URI is currently being called and replace it with ``evilfile.exe`` **Make sure the Host is set to juiceshop.f5agility.com and not a google site. If it is related to google just click forward until you get to the next juiceshop.f5agility.com "Host" request**. 
 
 #. Navigate to **Security > Event Logs > Application > Requests** and review the alert. Was it blocked this time? 
 
@@ -180,13 +200,20 @@ Monkeying with the ASM Cookie
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Back in Burp Console make sure you are looking at a request for Host **juiceshop.f5agility.com**. If not, click  forward until you find one. 
-#. Under **Cookie** notice the 3 cookies. there is one for language, 1 for persistence (io) and one set by the WAF (TS Cookie). 
-#. Add an extra character (7) to the end of the TS cookie value and click **Forward**. 
+#. Under **Cookie** notice at least 3 cookies. 
+
+  * language (used to set language pref in the browser)
+  * io (Juice Shop session cookie)
+  * TS (Set by Advanced WAF and will always be a unique identifier) 
+
+
+3. Add an extra character (7) to the end of the TS cookie value and click **Forward**. 
 
 .. image:: images/modified.png
   :width: 600 px
 
-4. Navigate to **Security > Event Logs > Application > Requests** and review the alert. By disabling the learning suggestion earlier, we rightfully blocked this modified cookie instead of creating a learning suggestion for it. 
+4. Navigate to **Security > Event Logs > Application > Requests** and review the alert. 
+
 
 .. image:: images/modified1.png
   :width: 600 px
@@ -201,4 +228,4 @@ Monkeying with the ASM Cookie
 
 **This concludes Lab 2**
 
-**This lab was designed to give you the building blocks necessary to be comfortable managing a WAF policy. You now know how to turn on and test some easy and operationally low-cost features that will greatly elevate your security policy.**
+**This lab was designed to give you the tools and strategies for building and managing a more complex or "Day 2" WAF policy. You now know how to turn on and test some positive security features that will greatly elevate your application security posture.**

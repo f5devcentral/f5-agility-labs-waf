@@ -2,7 +2,7 @@ Exercise 1.2: Add a Geolocation Policy
 -------------------------------------------------
 Another practical control to implement early on in your WAF deployment is Geolocation blocking or fencing. If we know that our application is only supposed to be accessed from certain countries or not accessed from others, now is the time to get that configured and enforced. 
 
-.. NOTE:: Much like our Layer 7 IPI Policy, with Advanced WAF the Geolocation logic happens at the policy level. You may have many policies each with their own unique confguration per application or you may use a parent policy that has baseline settings. 
+.. NOTE:: Much like our Layer 7 IPI Policy, with Advanced WAF the Geolocation logic happens at the policy level. You may have many policies each with their own unique configuration per application or you may use a parent policy that has baseline settings. 
 
 Geolocation
 ~~~~~~~~~~~~~
