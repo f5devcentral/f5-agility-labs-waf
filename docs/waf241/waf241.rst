@@ -2,7 +2,10 @@ WAF 241 – Elevated WAF Protection
 =================================================================================
 
 This class will focus on a best practice approach to elevating your WAF protection after becoming comfortable with the content in the 141 "Getting Started" class. 
-This is the 2nd class in a three part lab series (141,241,341) based on: `Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_
+This is the 2nd class in a three part lab series (141,241,341) based on: `Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_ which closely maps to this visualization of layered Application Security. 
+
+.. image:: images/attackfilters.png   
+  :width: 600 px
 
 Here is a complete listing of all F5 WAF classes offered at this years Agility.
 

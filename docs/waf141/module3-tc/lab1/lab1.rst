@@ -19,11 +19,11 @@ Objective
 
 Prep the Virtual Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-These steps are necessary for this demonstration. In the "real world" having the Bot Defense Profile pick up this type of attack coming from a tool, not a browser, would be preferred. 
+These steps are necessary for this demonstration. In the "real world" having the Bot Defense Profile pick up this type of attack coming from a tool, not a browser, would be preferred, going back to the layered security approach.
 
 #. Navigate to **Local Traffic > Virtual Servers > Virtual Server List > owasp-juiceshop_443_vs > Security > Policies**. 
 #. **Enable the Application Security Policy: juiceshop_waf**. Threat Campaign Signatures are part of your WAF policy. 
-#. **Remove the Bot Defense Profile** We are removing the bot profile since we will be using a "Bot" to test the Threat Campaign signatures. 
+#. **Disable the Bot Defense Profile** We are removing the bot profile since we will be using a "Bot" to test the Threat Campaign signatures. 
 #. **Remove the Bot_Log profile** and click **Update**. Your virtual should look like this: 
 
 .. image:: images/virtual.png
@@ -59,7 +59,7 @@ Review TC Learning and Blocking Settings
 Test TC Signatures and Review Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Important:: Please ensure the ipi_tester script is not running in the terminal on the Linux Client. 
+.. Important:: Please ensure the ipi_tester script is not running in the terminal on the Linux Client. If it is, you can strop it with **Ctrl+C**
 
 #. From the Linux Client, confirm that the ipi_tester script is not running in the terminal and launch **Postman** from the Desktop. **It takes a few moments for Postman to launch**. 
 
@@ -76,12 +76,12 @@ Test TC Signatures and Review Logs
 #. Back in Advanced WAF, navigate to **Security > Event Logs > Application > Requests** and review the Sev5 events.
 
 .. image:: images/events.png
-  :width: 600 px
+  :width: 200 px
 
 6. Click on the event for **/remotefgt_lang** and note the triggered violations. Click on **All Details** to the right of the screen to get more information. You can also click the **Open to new tab** icon in the top right to get an isolated view of this violation. 
 
 .. image:: images/newtab.png
-  :width: 600 px
+  :width: 200 px
 
 
 7. When working in the WAF Requests event viewer, you can see exactly which Attack Signatures or Threat Campaigns were triggered under the **Violations** section. Click the **Numerical Value** under **Occurrences** for **Threat Campaign detected**. 

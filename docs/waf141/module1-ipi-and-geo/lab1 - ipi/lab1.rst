@@ -20,9 +20,9 @@ We will follow security best-practice by applying IPI via a Global Policy to sec
 
 In this first lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
 
-#. RDP to the Linux Client and launch Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
+#. RDP to the Linux Client and launch Chrome Browser. You can double-click the icon or right click and choose execute but **do not click multiple times**. It does take a few moments for the browser to launch the first time. 
 
-#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/[password]. 
+#. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/[password]. It is normal to see a certificate warning that you can safely click through. 
 
 #. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IP's that receive requests for your application and proxy the requests to the backend "real" servers.
 
@@ -67,7 +67,7 @@ In this first lab, we will start by enabling a Global IPI Policy; much like you 
 
 12. Commit the Changes to the System.
 
-#. Apply the **global_ipi** policy and click **Update**.
+#. Under **Global Policy Assignment > IP Intelligence Policy** click on the dropdown and select the **global_ipi** policy and click **Update**.
 
 .. image:: images/global_policy.png
   :width: 600 px
@@ -89,17 +89,17 @@ Test
 
 .. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
 
-#. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. Notice the Geolocation Data as well as the Black List Class to the right of the log screen. 
+3. Navigate to **Security > Event Logs > Network > Ip Intelligence** and review the entries. Notice the Geolocation Data as well as the Black List Class to the right of the log screen. 
 
 .. image:: images/global_event.png
   :width: 600 px
 
 Create Custom Category 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to: **Security > Network Firewall > IP Intelligence > Blacklist Categories** and click **create**.
+#. Navigate to: **Security > Network Firewall > IP Intelligence > Blacklist Categories** and click **Create**.
 #. Name: **my_bad_ips** with a match type of **Source**
 #. Click **Finished**
-#. Select the category name **my_bad_ips** and click **Add To Category**
+#. Click the checkbox next to the name **my_bad_ips** and then at the bottom of the GUI, click **Add To Category**.
 
 .. image:: images/add_to_cat.png
   :width: 600 px
@@ -112,13 +112,13 @@ Create Custom Category
 
 7. Navigate to **Security > Network Firewall > IP Intelligence > Policies** and click **global_ipi**
 
-#. Under **Categories** click **Add** and select your new custom category **my_bad_ips**. Click **Done Editing** and **Commit Changes**.
+#. Under **Categories** click **Add** and select your new custom category **my_bad_ips** from the drop-down. Click **Done Editing** and **Commit Changes to System**.
 
 .. image:: images/my_bad_ips.png
   :width: 600 px
 
 
-9. Navigate back to **Security > Event Logs > Network > Ip Intelligence** and review the entries
+9. Navigate back to **Security > Event Logs > Network > Ip Intelligence** and review the entries under the column **Black List Class**. You will see entries for your custom category **my_bad_ips**. 
 
 .. image:: images/my_bad_ips_log.png
   :width: 600 px
@@ -157,18 +157,18 @@ Configure L7 IPI
 .. image:: images/ipi_waf.png
   :width: 600 px
 
-2. Navigate to **Security > Application Security > IP Addresses > IP Intelligence** and enable IP Intelligence. 
+2. Navigate to **Security > Application Security > IP Addresses > IP Intelligence** and enable IP Intelligence by checking the box. 
 #. Notice at the top left drop-down that you are working within the juiceshop_waf policy context. Enable **Alarm** and **Block** for each category. 
 
 .. image:: images/waf_ipi.png
   :width: 600 px
 
-4. Click **Save** and **Apply Policy**. You will get an "Are you sure" popup that you can banish by clicking **Do not ask for this confirmation again**
+4. Click **Save** and **Apply Policy**. You will get an "Are you sure" popup that you can banish by clicking **Do not ask for this confirmation again**.
 
 .. image:: images/annoy.png
   :width: 600 px
 
-#. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and click on **juiceshop_waf** policy.
+5. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and click on **juiceshop_waf** policy.
 #. Finally, scroll down under **General Settings** and click **Enabled** under **Trust XFF Header**.  
 #. Click **Save** and **Apply Policy**
 
@@ -192,13 +192,13 @@ Test XFF Inspection
 * 220.169.127.172 - Scanner
 
 
-2. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should see a Sev3 Alert for the attempted access from a malicious IP. 
+2. Navigate to **Security > Event Logs > Application > Requests** and review the entries. You should see a Sev3 Alert for the attempted access to uri: **/xff-test** from a malicious IP. 
 
 .. image:: images/events.png
   :width: 600 px
 
 3. In the violation details you can see the entire request details including the XFF Header even though this site was using strong TLS for encryption. 
 
-.. NOTE:: Attackers often use proxies to add in source IP randomness. Headers such as XFF are used to track the original source IP so the packets can be returned. In this example the HTTP request was sent from a malicious IP but through a proxy that was not known to be malicious. The request passed right through our Layer 3 IPI policy but was picked up at Layer 7 due to the WAF's capabilities. 
+.. NOTE:: Attackers often use proxies to add in source IP randomness. Headers such as XFF are used to track the original source IP so the packets can be returned. In this example the HTTP request was sent from a malicious IP but through a proxy that was not known to be malicious. The request passed right through our Global Layer 3 IPI policy but was picked up at Layer 7 due to the WAF's capabilities. This demonstrates the importance of implementing security in layers. 
 
 **This completes Exercise 1.1**
