@@ -145,4 +145,5 @@ Stop the Baseline and Attack Scripts
 
 #. In each of your terminal windows type **Ctrl+C** to terminate the scripts. The **AB_SSL_DOS.sh** script will require you to enter **4** to completely stop the attacks. 
 
+
 **This concludes Lab 3**
