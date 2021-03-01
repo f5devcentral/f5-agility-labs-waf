@@ -57,7 +57,7 @@ Advanced WAF to the Rescue
 #. Name the profile **juiceshop_dos** and click **Behavioral & Stress-based Detection** to the left. 
 #. Configure the **Behavioral & Stress-based Detection** settings like below:
   
-  * Operation Mode: Transparent (It is always best-practice to add new features to a policy in transparent mode until you fully understand the impacts.) 
+  * Operation Mode: **Transparent** (It is always best-practice to add new features to a policy in transparent mode until you fully understand the impacts.) 
 
   * Thresholds Mode: **Manual**
   
@@ -92,6 +92,9 @@ Advanced WAF to the Rescue
 
 .. IMPORTANT:: What you essentially just configured was a series of DoS traffic categorizers and step-up remediations. Remediations will fire in the order that they are shown in the GUI and progress every 10 seconds. First a client side integrity check is performed (JS injection), next a CAPTCHA and finally Rate-Limiting kicks in. 
 
+Apply the Dos Profile and Test
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #. Navigate to **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies**. 
 #. **Enable** the Dos Protection Profile and choose our new **juiceshop_dos** profile and also **Enable** the **local-dos** Logging Profile. 
 #. Click **Update**.
@@ -101,6 +104,8 @@ Your virtual server should look like this:
 .. image:: images/dos.png
   :width: 600 px
 
+7. Open a new tab to Juice Shop and browse the site. There should not be any perceivable effect of ahving applied the dos profile. 
+leave feedback, customer complaint, photo wall etc. spend about a minute browsing the site
 8. Open a new **Terminal** tab and start the attack script again and choose option **1**:
 
     .. code-block:: bash
@@ -109,18 +114,20 @@ Your virtual server should look like this:
         ./AB_SSL_DOS.sh
     ..
 
-9. Navigate to **Security > Event Logs > DoS > Application Events** and review the entry. 
+9. Navigate to **Security > Event Logs > DoS > Application Events** and review the entry. the system immediately picked up the attack due to the stress on the server 
 #. Click on the Attack ID #. 
 
 .. image:: images/bdoslog.png
   :width: 600 px
 
-11. Once the Dashboard loads, turn on **Real Time** by checking the box at the top under **Dos Attack IDs** in the right hand pane make sure the attack ID is selected. 
+11. Once the Dashboard loads, turn on **Real Time** by checking the box at the top under **Dos Attack IDs** 
+1. Scroll Down and review the Attack information 
   
-There is alot of information on DoS Visibility Dashboard including the type of attack, the severity, duration and much more. You can use the **Real Time** filters on the right to further dissect the traffic and drill down for analysis. 
-
 .. image:: images/dash.png
   :width: 600 px
+
+  There is alot of information on DoS Visibility Dashboard including the type of attack, the severity, duration and much more. You can use the **Real Time** filters on the right to further dissect the traffic and drill down for analysis. **It may take some time for various data fields to load**.
+
 
 12. Navigate to **Security > Dos Protection > Signatures** and click on **Dynamic**. 
 #. You will see a **Dynamic Signature** was created based off of the behaviors associated with this attack. Click on the signature name and it will expand to show the details of the signature. 
@@ -144,5 +151,6 @@ Stop the Baseline and Attack Scripts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. In each of your terminal windows type **Ctrl+C** to terminate the scripts. The **AB_SSL_DOS.sh** script will require you to enter **4** to completely stop the attacks. 
+
 
 **This concludes Lab 3**
