@@ -18,7 +18,7 @@ If you were following along in successive fashion and building your own environm
   :width: 600 px
 
 6. Under **Headers** check the box for both Alarm and Block for **Illegal host name** and then it's very important to check the bottom box for **Learn New Hostnames**.
-7. Under **URLS** enable **Compact Mode** for Learning Mode instead of **Never (wildcard only)**. Note the description of this mode: 
+7. Under **URLS** enable **Compact Mode** for "Learn New HTTP URLS" instead of **Never (wildcard only)**. Note the description of this mode: 
 
 Choose this option if you would like to create a list of top-level URL directories ``(e.g. /abc/*) and /``, while enforcing all other URLs with a wildcard rule.
 
@@ -36,7 +36,7 @@ Whitelist
 Since we will be training the waf for positive security, let's create a whitelist. This will help to create high fidelity learning suggestions as events occur. 
 
 #. Navigate to **Security > Application Security > IP Addresses > IP Address Exceptions** and click **Create**. Configure the whitelist for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
-#. Note in the upper left that this Whitelist is only associated with the juiceshop_blocking policy. Whitelists are unique per policy but could be defined at the parent level. 
+#. Note in the upper left that this Whitelist is only associated with the juiceshop_blocking policy. Whitelists are unique per policy but could be defined at part of a parent policy and delegated down to child policies. 
 #. Click **Create** and **Apply Policy**. 
 
 .. image:: images/list.png
@@ -47,11 +47,11 @@ Configure the Virtual Server
 
 #. Navigate to  **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies** 
 
-.. NOTE:: For Demo purposes, we will be removing the Bot Defense Profile to exclusively test the blocking Application Security Policy. In the "real world" these profiles compliment each other by providing a layered defense for your application. 
+.. NOTE:: For Demo purposes, we will be removing the Bot Defense Profile to exclusively test the blocking Application Security Policy. In the "real world" these profiles complement each other by providing a layered defense for your application. 
 
 2. **Enable** the Application Security Policy **juiceshop-blocking**. 
 #. **Disable** the Bot Defense profile. 
-#. **Move** the Balanced_Bot_Log from **Selected** to **Available** and add move the **Log all requests** profile over to **Selected** and click **Update**. 
+#. **Move** the Balanced_Bot_Log from **Selected** to **Available** and move the **Log all requests** profile over to **Selected** and click **Update**. 
 
 .. image:: images/virt.png
   :width: 600 px
@@ -66,12 +66,6 @@ Investigating an Incident
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Click back on the **Advanced WAF** tab and navigate to **Security > Event Logs > Application > Requests** and review the blocked events. In both cases it was an illegal hostname due to the checks that we enabled under **Headers** in **Learning and Blocking Settings** just moments ago. 
 #. The problem is that we enabled checking for a hostname but haven't defined what that hostname is yet. This exercise is to draw your attention to the importance of understanding what you are enabling in Learning and Blocking Settings and how to quickly resolve an issue. We can easily add the hostname. 
-#. Select one of the alerts and click **Accept**. By clicking **Accept** we will be instructing the system to create a learning suggestion to add a new hostname for this policy if it did not have one already. 
-
-.. image:: images/illhost.png
-  :width: 600 px
-
-4. Notice a screen briefly pops up and informs you that the system is checking the learning mode. Our policy is set to manually learn so we will need to manually accept this suggestion. 
 #. Navigate to **Security > Application Security > Policy Building > Traffic Learning** and note the learning suggestions and score. You will see suggestions to add the top level URL and a Valid Hostname.  All of the others involve enabling various checks for evasion techniques and http protocol compliancy which are generally a good idea to enable. 
 #. Click the box to **Select All** suggestions and click **Accept > Accept suggestions** and **Apply Policy**.
 #. Navigate to **Security > Application Security > Headers > Host Names** to review the hostname that was configured when you accepted the learning suggestion. 
@@ -83,8 +77,12 @@ Exercise the App Part 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Go back to the Juice Shop tab and do a [Shft + Refresh] 
-#. Click **Account > Login** in the top right and then click **Not yet a customer** on the login form. 
-#. Use **f5student@f5agility.com** for email address and the same password you've been using for the labs. Select and complete any of the Security Questions and click **Register**. 
+#. If you are continuing with the same deployment from the 141 class, skip to step 4, else click **Account > Login** in the top right and then click **Not yet a customer** on the login form. 
+
+.. image:: images/account.png
+  :width: 600 px
+
+3. Use **f5student@f5agility.com** for email address and the same password you've been using for the labs. Select and complete any of the Security Questions and click **Register**. 
 #. Login with the new account, click on the **Apple Juice** and leave a short review and click **Submit**.
 
 .. image:: images/feedback.png
@@ -99,14 +97,14 @@ Exercise the App Part 2
   :width: 600 px
 
 
-7. Click the **Accept** which will add "Put" to the **Allowed Methods** in **Security > Application Security > Headers > Methods**
-#. Click **Apply Policy**.
+7. Click the **Accept** button which will add "Put" to the **Allowed Methods** in **Security > Application Security > Headers > Methods**
+#. Navigate to **Security > Application Security > Headers > Methods** to review the addition and click **Apply Policy**.
 
 .. image:: images/put1.png
   :width: 600 px
 
 
-9. Go back to Juice Shop and test leaving a review again. From the left menu start a support chat, then browse to the photo wall and finally test leaving a complaint. 
+9. Go back to Juice Shop and test leaving a review again. From the left hamburger menu start a support chat and test leaving a complaint. 
 10. Navigate to **Security > Event Logs > Application > Requests** and you should see all **Allowed Requests** at this point. If you, by rare chance, see a blocked request, take steps similar to the previous to resolve the issue by **Accepting** the blocked request. 
 
 .. image:: images/allowed.png
@@ -178,12 +176,12 @@ Testing WAF Policy
 .. image:: images/evilfile.png
   :width: 600 px
 
-15. Navigate to **Security > Event Logs > Application > Requests** and review the alert. Was it blocked? 
+15. In Advanced WAF, navigate to **Security > Event Logs > Application > Requests** and review the alert. Was it blocked? 
 
 .. image:: images/evilalert.png
   :width: 600 px
 
-.. NOTE:: Even though policy is in blocking mode individual elements can be very granularly configured to Alarm or Block. In practice you could have a Blocking policy with everything in Learning and Blocking settings only set to "Alarm". You can then methodically enable blocking for each individual element and validate the application. This gives you the utmost flexibility when moving from a Transparent to Blocking policy. 
+.. NOTE:: Even though policy is in blocking mode, individual elements can be very granularly configured to Alarm or Block. In practice you could have a Blocking policy with everything in set in Learning and Blocking settings to only "Alarm". You can then methodically enable blocking for each individual element and validate the application. This gives you the utmost flexibility when moving from a Transparent to Blocking policy. 
 
 16. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings > File Types** and enable **Block** for **Illegal file type**.
 #. Click **Save** and **Apply Policy**. 
@@ -224,7 +222,8 @@ Monkeying with the ASM Cookie
 .. image:: images/iphost.png
   :width: 600 px
 
-7. Refresh **Security > Event Logs > Application > Requests** and review the alert. What was the violation? How could you add it to the allowed hostnames if required?
+7. Close Burp
+8. Back in Advanced WAF, refresh **Security > Event Logs > Application > Requests** and review the alert. What was the violation? How could you add it to the allowed hostnames if required?
 
 **This concludes Lab 2**
 

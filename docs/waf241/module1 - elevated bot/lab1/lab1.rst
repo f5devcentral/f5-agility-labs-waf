@@ -32,7 +32,7 @@ Objective
 .. image:: images/blank_vs.png
   :width: 600 px
 
-#. RDP to the Linux Client and launch Chrome Browser. **Do not click multiple times**. It can take a few moments for the browser to launch the first time. 
+#. RDP to the Linux Client and launch Chrome Browser. You can double-click the icon or right click and choose execute but **do not click multiple times**. It does take a few moments for the browser to launch the first time. 
 
 #. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/[password]. 
 
@@ -53,10 +53,10 @@ Objective
 Configuring Bot Defense 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The first step in enabling Bot Defense is to set up the log profile so we can capture all of the events we need to see. We will then create and apply the Bot Defense profile. 
+The first step in enabling Bot Defense is to set up the log profile so we can capture all of the events we need to see. We will then create and apply the Bot Defense profile to our Juice Shop Virtual Server. 
 
 #. Navigate to **Security > Event Logs > Logging Profiles** and click **Create** to setup a new Logging Profile named: **Balanced_Bot_Log**. 
-#. Configure the profile per the screenshot below and when finished click **Create**. 
+#. Configure the profile per the screenshot below and when finished click **Create**. You may need to resize the browser for the "Create" button to be visible. 
 
 .. NOTE:: Initially, we are logging everything so we get can a feel for traffic patterns where normally in the "real world" you would scale this back to log only essential requirements and not necessarily valid human or mobile devices. 
 
@@ -112,12 +112,12 @@ Applying Bot Defense
 Verify Browser Challenges 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Back in the JuiceShop tab, click the Browsers **Refresh** button. **Do not dismiss the popup or interact with the site in any way**. (Inspection tools should still be open and focused on the Network tab)
-#. Find the 1st entry named **juiceshop.f5agility.com** at the top and click on it. There will be two. The top one is empty (Failed to load response data) because there was none, but if you look at the headers you can see this is actually a 307 temp redirect back to "/" with 2 **TS** cookies set by the WAF. This was the first phase of the Active challenge and similar in a way to how our TCP SYN cookies work at Layer 4. 
+#. Find the 1st entry named **juiceshop.f5agility.com** at the top and click on it. There will be two. The top one is empty (Failed to load response data) because there was none, but if you look at the headers you can see this is actually a 307 temp redirect back to "/" with 2 **TS** cookies set by the WAF. The **TSPD_101** cookie is the one set as part of the challenge. This was the first phase of the Active challenge and similar in a way to how our TCP SYN cookies work at Layer 4. 
 
 .. image:: images/first.png
   :width: 600 px
 
-3. Under the next request you will see quite a different HTML response this time as the Advanced WAF has inserted obfuscated JS to challenge and verify the browser. 
+3. Under the second request for **juiceshop.f5agility.com** you will see quite a different HTML response this time as the Advanced WAF has inserted obfuscated JS to challenge and verify the browser. 
 #. You may need to resize the Inspect > Response pane to get a better look at the JS. This code is not easy to reverse engineer and is updated often via the Advanced WAF **Live Update** feature.
 
 .. image:: images/with_bot.png
@@ -125,7 +125,7 @@ Verify Browser Challenges
 
 
 5. You can now **Close** the **Inspection tools** in the browser and **Refresh** the Juice Shop site. **Dismiss** the popup and click on one of the first items for sale such as the Apple or Banana Juice. 
-#. Back in the Advanced WAF tab navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. You will see all valid requests from **"Chrome Browser"**. 
+#. Back in the Advanced WAF tab navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. You will see all valid and/or challenged requests from **"Chrome Browser"**. 
 #. Click on some of the requests and then click the **All Details** tab on the right and review the **Verification Action and Challenge Status**. You will also see a unique DeviceID was assigned per the Balanced_Bot_Profile default settings. Also note the Bot Details and the full text visibility of the request below. 
 
 .. image:: images/goodbot.png
@@ -158,7 +158,7 @@ Testing with a Bot
         ``curl https://juiceshop.f5agility.com/ -k -H "User-Agent: Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:Port Check)"``
 
 
-You should get a **Request Rejected** Response in the Terminal window. 
+You should get a **Request Rejected** response in the Terminal window. 
 
 .. image:: images/reject.png
   :width: 600 px
@@ -186,7 +186,7 @@ Spoofing a legitimate UA
         ``curl https://juiceshop.f5agility.com/ -k -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" | more``
 
 
-Here we see a response but it isn't the default HTML of the Juiceshop page we saew earlier or a **Request Rejected** page as seen in the previous example. Continue to hit the space bar to see the remainder of the response/challenge. 
+Here we see a response but it isn't the default HTML of the Juiceshop page we saw earlier or a **Request Rejected** page as seen in the previous example. Continue to hit the space bar to see the remainder of the response/challenge. 
 
 .. image:: images/js.png
   :width: 600 px
