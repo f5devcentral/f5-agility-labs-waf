@@ -144,7 +144,7 @@ Testing WAF Policy
 .. image:: images/burp.png
   :width: 60 px
 
-2. Take the default setting of **Temporary project** by clicking **Next** and then click **Start Burp** with the default settings. **Do not accept any offers to update the software**. 
+2. Take the default setting of **Temporary project** by clicking **Next** and then click **Start Burp** with the default settings. **Do not accept any offers to update/restart the software**. 
 #. Click on the **Proxy** tab and click on the "blue" **Intercept is on** button to turn it off.  
 #. Click the **Open Browser** button and **wait for several moments** for the built-in Burp Browser to open. Your setup should look like this:
 

@@ -1,8 +1,6 @@
-Lab 4.1: Login Page Protection
+Lab 4: Login Page Protection
 ------------------------------
 
-..  |lab41-01| image:: images/lab41-01.png
-        :width: 800px
 ..  |lab41-02| image:: images/lab41-02.png
         :width: 800px
 ..  |lab41-03| image:: images/lab41-03.png
@@ -33,159 +31,117 @@ Lab 4.1: Login Page Protection
         :width: 800px
 ..  |lab41-16| image:: images/lab41-16.png
         :width: 800px
-..  |lab41-17| image:: images/lab41-17.png
-        :width: 800px
-..  |lab41-18| image:: images/lab41-18.png
-        :width: 800px
-..  |lab41-19| image:: images/lab41-19.png
-        :width: 800px
-..  |lab41-20| image:: images/lab41-20.png
-        :width: 600px
 
 
-In this exercise we'll explore some of the login protection and session tracking capabilities present in F5 Advanced WAF.  F5 Advanced WAF not only has the capability to gather user identity details from login pages and APM, but can also generate a unique device-id for each connected client.  You'll explore this more in WAF341.
+
+In this final lab we will explore some of the login protection and session tracking capabilities present in F5 Advanced WAF and end with a fully configured Virtual Server.  F5 Advanced WAF not only has the capability to gather user identity details from login pages and APM, but can also generate a unique Device-ID for each connected client. 
 
 
-Task 0: Level Set
-~~~~~~~~~~~~~~~~~
-
-This lab depends on components built in WAF141.  If you're continuing on from WAF141 using the same lab environment, proceed to Task1.  If this is a new environment, follow the directions below to restore a completed policy from WAF141.
-
-#.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut.
-
-#.  Login to the BIG-IP.
-
-#.  Navigate to **Security -> Application Security -> Security Policies**.
-
-#.  Click the **...** button next to create, then click **import policy**.
-
-    |lab41-17|
-
-#.  Naviagte to the waf241 folder and open the **waf141_complete.xml** file.
-
-    |lab41-18|
-
-#.  Ensure that **New Policy** is selected and click **Import**.
-
-    |lab41-19|
-
-#.  You now have a policy like the one below:
-
-    |lab41-20|
-
-#.  If everything looks correct, continue to **Task 1**.
-
-
-Task 1: Verify ASM configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut.
-
-#.  Login to the BIG-IP.
-
-#.  Ensure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below.
-
-        |lab41-01|
-
-#.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode.
-
-
-Task 2: Define Login & Logout Pages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List**.  Ensure the **insecureApp1_asmpolicy** is selected at the top of the screen and click **Create**.
-
-#.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
-
-        |lab41-03|
-
-#.  Populate the form as shown below and click **Create**:
-
-        |lab41-04|
-
-#.  From the tab bar select **Logout Pages List** or navigate to **Security -> Application Security -> Sessions and Logins -> Logout Pages List**
-
-#.  Populate the form as shown below and click **Create**.
-
-         |lab41-05|
-
-#.  Navigate to **Security -> Application Security -> Sessions and Logins -> Login Enforcement**, populate the list shown
-
-
-         |lab41-06|
-
-
-#.  Now, head over to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings**
-
-#.  Expand **Sessions and Logins**
-
-#.  Ensure that the **Login URL bypassed** violation is configured as follows and click **save**:
-
-        |lab41-07|
-
-#.  Click **Apply Policy**
-
-Task 3: Test Login Enforcement
+Virtual Server Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  In Firefox, browse to **https://insecureapp1.f5.demo/WebGoat/start.mvc**
+#. Navigate to **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies** and enable the Application Security Policy: **juiceshop_blocking**. 
+#. **Enable** the **Balanced_Bot_Profile** and add both the **Log all requests** and **Balanced_Bot_Log** logging profiles and click **Update**. You can leave the DoS profiles in place. Your fully configured Virtual Server config should look like this: 
 
-#.  Your attempt should be blocked:
+.. image:: images/login_vs.png
+        :width: 600 px
 
-        |lab41-08|
+Define Login & Logout Pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Now, navigate to **Security -> Event Logs -> Application -> Requests** and locate the **start.mvc** request.  It should be near the top.
+go to account Logout
+go to password inspect
+login with username and add an extra ! to your password so it fails
+login with regular username/password
+2 entries in inspect > network
 
-        |lab41-09|
+#.  To configure a login page, go to **Security > Application Security > Sessions and Logins > Login Pages List**.  Ensure the **juiceshop_blocking** is selected at the top-middle-left of the GUI and click **Create**.
+#.  We'll now populate the form with data gathered from the browser inspection tools during a login attempt as shown below. 
 
-        ..NOTE:: Note that this is not particularly real world due to the relatively small volume of traffic in this lab environment.  In a production environment, it would likely be more expedient to search on the support id.
+.. image:: images/response.png
+        :width: 600 px
 
-#.  Note the reason for the block.  This was the violation we just configured:
+3.  Fill out the **Login Page Properties** and **Access Validation** fields as shown and then click **Create**. 
 
-        |lab41-10|
-
-Task 4: Enable Session Tracking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#.  Navigate to **Security -> Application Security -> Sessions and Logins -> Session Tracking**
-
-#.  Check **Session Awareness** and ensure **Use All Login Pages** is selected in the drop-down below it.
-
-        |lab41-11|
-
-#.  Ensure **Track Violations and perform Actions** is also enabled, then click **Save**.
-
-        |lab41-12|
-
-#.  Click **Apply Policy** in the upper right hand corner of the inner frame, then click **OK**.
+.. image:: images/loginp.png
+        :width: 600 px
 
 
-Task 5: Test Session Tracking
+4.  From the tab bar at the top middle of the GUI, select **Login Enforcement** and populate the form as shown below. The **/profile** URI should never have attempted access without authentication. 
+5.  Click **Save** and make note of the **Note** in red txt. We will configure **Learning and Blocking Settings** momentarily. 
+
+.. image:: images/le.png
+        :width: 600 px
+
+
+Enable Session Tracking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Click the **Session Tracking** tab at the top middle of the screen and under **Session Hijacking** click the **Enabled** button. Read through the notes paying close attention to the ones in **red**.
+
+   - For the first red note, regarding the bot profile, we are covered since DeviceID is enabled in our **Balanced_Bot_Profile** by default and it is applied to the VS.  
+   - The second is more informational and let's us know that non-browser entities will be blocked if they can not run the JS and produce a DeviceID. 
+   - The third is regarding **Learning and Blocking Settings** which we will configure in a moment. 
+  
+#. Under **Session Tracking Configuration** Check the box for **Session Awareness** and click **Save** and **Apply Policy**. 
+
+.. image:: images/session.png
+        :width: 600 px
+
+
+3. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings > Sessions and Logins**
+#. Check the box for **Learn, Alarm and Block** for both **ASM Cookie Hijacking** and **Login URL bypassed** and click **Save** and **Apply Policy**. 
+
+.. image:: images/sessionaware.png
+        :width: 600 px
+
+Test Login Enforcement
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Open a new tab in Chrome Browser and paste in the following "login enforced" URL:  ``https://juiceshop.f5agility.com/profile``
+
+#. Your attempt should be blocked:
+
+.. image:: images/block.png
+        :width: 600 px
+
+
+3. Back in Advanced WAF tab, navigate to **Security > Event Logs > Application > Requests** and locate the blocked request for **/profile**. Note the reason for the block then click on **View** under Suggestions to open a new tab to the learning suggestions screen. 
+
+.. image:: images/blocked.png
+        :width: 600 px
+
+4. You will notice a learning suggestion for this since we enabled learning for this violation in **Learning and Blocking Settings**. 
+#. Look at this suggestion very carefully. It has a score of 100% and comes from a trusted IP. The suggested action is to **Remove /profile from Authenticated URLS** which is something we definitely DO NOT want to do. 
+#. Learning suggestions can be tricky especially if they are coming from a trusted source and have a high confidence learning score. Always take a close look at the suggested action. For this suggestion click **Ignore** so no further suggestions are created.
+
+.. image:: images/learn.png
+        :width: 600 px
+
+Test Session Tracking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  In Firefox open a private browsing window and browse to **https://insecureapp1.f5.demo/WebGoat/login** then login.
+#. Open a new Chrome Incognito tab by typing (CTRL+SHFT+N) then open Juice Shop and login with the account you created earlier for f5student@f5agility.com. 
+#. Return to the Advanced WAF and navigate to **Security > Event Logs > Application > Requests** and click on one of them, then click **All Details** to the right. 
 
-#.  Return to the BIG-IP interface and navigate to **Security -> Event Logs -> Application -> Requests**
+.. image:: images/sessions.png
+        :width: 600 px
 
-#.  Ensure that you're viewing all requests.
+#. Click the down arrow next to **Device ID** to open the Session Tracking details. Check the box to enable **Log All Requests** and click **Change**. You are now tracking all sessions from this Device ID. 
 
-#.  Click on the most recent log entry.  You should now see that the username that submitted the request is clearly identified in the log.
-
-        |lab41-14|
-
-#.  Click the drop-down next to the username field and you should be given 3 options.  **Enable** "Log All Requests" and click **change**.
-
-        |lab41-15|
-
-        .. NOTE::  Since we are already logging all requests, this will not affect the logging per say, but will allow us to demonstrate the associated reporting features in ASM without blocking access to our lab client.
+.. image:: images/did.png
+        :width: 600 px
 
 
-#.  Navigate to **Reporting -> Application -> Session Tracking Status**.  You should now see that the user f5student appears in the tracking list.  If you were to click "View Requests" you would be taken to only the requests made by that user.  You may also use this page to release the user from Session Tracking.  These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
+#. Repeat this process for the username field as well to track all sessions from **f5student**
 
-        |lab41-16|
+.. image:: images/user.png
+        :width: 600 px
 
-#.  Finally, **select** the f5student entry in the list and click **release**, then close the private browsing window.
+#. Navigate to **Reporting > Application > Session Tracking Status** and review the entries that were just created from the application request event log. 
+#. Click "View Requests" for either of them to see all requests filtered by either the Device ID or Username. You may also use this page to release the Username or Device ID from Session Tracking.  
+#. These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
+#. Finally, navigate to **Security > Application Security > Sessions and Logins > Session Tracking** and review the other more detailed actions you can take based off of Devie ID, Username etc. 
 
-
-    **This concludes Section 2.1**
+**This concludes Lab 4**
 
