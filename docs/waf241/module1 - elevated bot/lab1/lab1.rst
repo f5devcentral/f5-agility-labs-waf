@@ -16,23 +16,19 @@ We started in the 141 class with a Relaxed or "Signature Only" Bot Defense Profi
 .. image:: images/prof_types.png
   :width: 600 px
 
-
-Objective
-~~~~~~~~~
-
-- Create a "Balanced" Bot Defense profile - This will include active challenges
-- Understand the difference in Bot Defense Templates and Bot Categories
-- Actively block Bot requests
-- Review Logs 
-
 -  Estimated time for completion: **20** **minutes**
 
-.. IMPORTANT:: If you are continuing your lab session from 141 with the same deployment, please disable any previously configured security profiles on the virtual server and skip down to "Configuring Bot Defense”. New students start at step 1. 
+.. IMPORTANT:: If you are continuing your lab session from 141 with the same deployment, please disable any previously configured security profiles on the Virtual Server and skip down to "Configuring Bot Defense”. New students start at step 1. 
 
 .. image:: images/blank_vs.png
   :width: 600 px
 
-#. RDP to the Linux Client and launch Chrome Browser. You can double-click the icon or right click and choose execute but **do not click multiple times**. It does take a few moments for the browser to launch the first time. 
+#. RDP to the Linux Client by choosing the RDP access method from your UDF environment page. You will be presented with the following prompt where you will enter the password only. The **f5student** account is hard-coded into XRDP for your convenience. 
+
+  .. image:: images/xrdp.png
+    :width: 600 px
+
+2. Once logged in, launch Chrome Browser. You can double-click the icon or right click and choose execute but **do not click multiple times**. It does take a few moments for the browser to launch the first time. 
 
 #. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/[password]. 
 
