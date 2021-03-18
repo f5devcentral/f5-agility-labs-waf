@@ -4,7 +4,7 @@ F5 Agility Labs - Index
 Welcome
 -------
 
-Welcome to the |classbold| lab at F5 Agility |year|
+Welcome to the |classbold| labs for F5 Agility |year|
 
 .. toctree::
    :maxdepth: 1

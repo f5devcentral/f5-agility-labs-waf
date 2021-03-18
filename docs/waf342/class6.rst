@@ -1,5 +1,5 @@
-Class 6: AWAF in a CI/CD Pipeline 
-=================================
+WAF 342 - AWAF in a CI/CD Pipeline (Self Guided)
+=================================================
 
 Intro
 -----
