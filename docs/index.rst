@@ -11,7 +11,7 @@ Welcome to the |classbold| labs for F5 Agility |year|
    :caption: Contents:
    :glob:
 
-   intro*
+   
    waf*/*
    
 

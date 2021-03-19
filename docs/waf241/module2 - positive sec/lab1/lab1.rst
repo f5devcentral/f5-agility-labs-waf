@@ -16,8 +16,10 @@ If you were following along in successive fashion and building your own environm
 
 .. image:: images/cookies.png
   :width: 600 px
+  
 |
 |
+
 6. Under **Headers** check the box for both Alarm and Block for **Illegal host name** and then it's very important to check the bottom box for **Learn New Hostnames**.
 7. Under **URLS** enable **Compact Mode** for "Learn New HTTP URLS" instead of **Never (wildcard only)**. Note the description of this mode: 
 
