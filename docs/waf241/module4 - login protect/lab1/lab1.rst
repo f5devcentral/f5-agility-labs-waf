@@ -1,41 +1,7 @@
 Lab 4: Login Page Protection
 ------------------------------
 
-..  |lab41-02| image:: images/lab41-02.png
-        :width: 800px
-..  |lab41-03| image:: images/lab41-03.png
-        :width: 800px
-..  |lab41-04| image:: images/lab41-04.png
-        :width: 800px
-..  |lab41-05| image:: images/lab41-05.png
-        :width: 800px
-..  |lab41-06| image:: images/lab41-06.png
-        :width: 800px
-..  |lab41-07| image:: images/lab41-07.png
-        :width: 800px
-..  |lab41-08| image:: images/lab41-08.png
-        :width: 800px
-..  |lab41-09| image:: images/lab41-09.png
-        :width: 800px
-..  |lab41-10| image:: images/lab41-10.png
-        :width: 800px
-..  |lab41-11| image:: images/lab41-11.png
-        :width: 800px
-..  |lab41-12| image:: images/lab41-12.png
-        :width: 800px
-..  |lab41-13| image:: images/lab41-13.png
-        :width: 600px
-..  |lab41-14| image:: images/lab41-14.png
-        :width: 800px
-..  |lab41-15| image:: images/lab41-15.png
-        :width: 800px
-..  |lab41-16| image:: images/lab41-16.png
-        :width: 800px
-
-
-
 In this final lab we will explore some of the login protection and session tracking capabilities present in F5 Advanced WAF and end with a fully configured Virtual Server.  F5 Advanced WAF not only has the capability to gather user identity details from login pages and APM, but can also generate a unique Device-ID for each connected client. 
-
 
 Virtual Server Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,12 +14,6 @@ Virtual Server Configuration
 
 Define Login & Logout Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-go to account Logout
-go to password inspect
-login with username and add an extra ! to your password so it fails
-login with regular username/password
-2 entries in inspect > network
 
 #.  To configure a login page, go to **Security > Application Security > Sessions and Logins > Login Pages List**.  Ensure the **juiceshop_blocking** is selected at the top-middle-left of the GUI and click **Create**.
 #.  We'll now populate the form with data gathered from the browser inspection tools during a login attempt as shown below. 
@@ -127,18 +87,18 @@ Test Session Tracking
 .. image:: images/sessions.png
         :width: 600 px
 
-#. Click the down arrow next to **Device ID** to open the Session Tracking details. Check the box to enable **Log All Requests** and click **Change**. You are now tracking all sessions from this Device ID. 
+3. Click the down arrow next to **Device ID** to open the Session Tracking details. Check the box to enable **Log All Requests** and click **Change**. You are now tracking all sessions from this Device ID. 
 
 .. image:: images/did.png
         :width: 600 px
 
 
-#. Repeat this process for the username field as well to track all sessions from **f5student**
+4. Repeat this process for the username field as well to track all sessions from **f5student**
 
 .. image:: images/user.png
         :width: 600 px
 
-#. Navigate to **Reporting > Application > Session Tracking Status** and review the entries that were just created from the application request event log. 
+5. Navigate to **Reporting > Application > Session Tracking Status** and review the entries that were just created from the application request event log. 
 #. Click "View Requests" for either of them to see all requests filtered by either the Device ID or Username. You may also use this page to release the Username or Device ID from Session Tracking.  
 #. These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
 #. Finally, navigate to **Security > Application Security > Sessions and Logins > Session Tracking** and review the other more detailed actions you can take based off of Devie ID, Username etc. 
