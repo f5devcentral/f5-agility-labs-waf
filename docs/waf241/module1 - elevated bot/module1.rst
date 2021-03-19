@@ -1,4 +1,4 @@
-Module 1: Elevated Bot Defense
+Module 1: Elevated Bot Defense1
 ==================================
 Expected time to complete: **20 min**
 
