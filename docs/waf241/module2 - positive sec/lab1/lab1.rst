@@ -34,12 +34,12 @@ Choose this option if you would like to create a list of top-level URL directori
   :width: 600 px
 
 
-Whitelist
+Allow List
 ~~~~~~~~~~
-Since we will be training the waf for positive security, let's create a whitelist. This will help to create high fidelity learning suggestions as events occur. 
+Since we will be training the waf for positive security, let's create an allow list. This will help to create high fidelity learning suggestions as events occur. 
 
-#. Navigate to **Security > Application Security > IP Addresses > IP Address Exceptions** and click **Create**. Configure the whitelist for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
-#. Note in the upper left that this Whitelist is only associated with the juiceshop_blocking policy. Whitelists are unique per policy but could be defined at part of a parent policy and delegated down to child policies. 
+#. Navigate to **Security > Application Security > IP Addresses > IP Address Exceptions** and click **Create**. Configure the allow list for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
+#. Note in the upper left that this allow list is only associated with the juiceshop_blocking policy. Allow lists are unique per policy but could be defined at part of a parent policy and delegated down to child policies. 
 #. Click **Create** and **Apply Policy**. 
 
 .. image:: images/list.png
