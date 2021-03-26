@@ -237,7 +237,7 @@ Review Reporting
 
 4. Change the Advanced Filter to: **Top Alarmed URLs**. 
 #. Change the Advanced Filter to: **Top attacks in the last day** and View By: to **Client Countries**. 
-#. Explore addtional charts that you can generate and export. 
+#. Explore additional charts that you can generate and export. 
 
 .. image:: images/charts.png
   :width: 600 px
