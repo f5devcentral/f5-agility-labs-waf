@@ -1,5 +1,5 @@
-Class 5: WAF 341 – Advanced Protection and Positive Security
-============================================================
+WAF 341 – Advanced Protection and Positive Security (Self Guided)
+==================================================================
 
 This lab will focus on how to progress your application security to the limits of what F5 WAF can offer.
 

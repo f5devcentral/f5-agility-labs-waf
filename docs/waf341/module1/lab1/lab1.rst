@@ -1,5 +1,5 @@
-Lab 1.1: Brute Force Attack Preventio n
-######################################
+Lab 1.1: Brute Force Attack Prevention
+########################################
 
 ..  |lab1-1| image:: images/lab1-1.png
         :width: 800px
