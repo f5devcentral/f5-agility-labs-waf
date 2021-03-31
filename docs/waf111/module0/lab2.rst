@@ -14,7 +14,7 @@ Objective
 Task – Navigate the Juice Shop Site
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To access the site navigating to the ``Components`` tab and using the ``Access`` dropdown in the ``BIG-IP 15.1`` box under the ``F5 Products`` column click on the ``Juick Shop`` option.
+To access the site navigating to the ``Components`` tab and using the ``Access`` dropdown in the ``BIG-IP 16.0.1.1-0.0.6`` box under the ``F5 Products`` column click on the ``Juick Shop`` option.
 
     .. image:: ../images/udf_juice_shop_link.png
 
