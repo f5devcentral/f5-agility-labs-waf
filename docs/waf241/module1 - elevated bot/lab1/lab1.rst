@@ -69,7 +69,7 @@ The first step in enabling Bot Defense is to set up the log profile so we can ca
   :width: 600 px
 
 8. Click on the **Bot Mitigation Settings** tab and review the default Mitigation Settings for various classifications of bots and browsers. We will see these settings in action shortly.
-#. Click on the **Browsers** tab and under **Browser Verification** and note the settings as well as the settings for **Device ID Mode**.
+#. Click on the **Browsers** tab and under **Browser Verification** and note the settings as well as the setting for **Device ID Mode**.
 
 * The grace period allows web pages (including complex pages such as those which include images, JS, and CSS) the time to be recognized as non-bots, receive validation, and completely load without unnecessarily dropping requests.
 * The grace period begins after the client is validated, a configuration change occurs, or when proactive bot defense starts as a result of a detected DoS attack or high latency.
@@ -120,7 +120,7 @@ Verify Browser Challenges
   :width: 600 px
 
 
-5. You can now **Close** the **Inspection tools** in the browser and **Refresh** the Juice Shop site. **Dismiss** the popup and click on one of the first items for sale such as the Apple or Banana Juice. 
+5. Now that we have verified the Bot Profile is actively inserting the challenge, you can **Close** the **Inspection tools** in the browser and **Refresh** the Juice Shop site. **Dismiss** the popup and click on one of the first items for sale such as the Apple or Banana Juice. 
 #. Back in the Advanced WAF tab navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. You will see all valid and/or challenged requests from **"Chrome Browser"**. 
 #. Click on some of the requests and then click the **All Details** tab on the right and review the **Verification Action and Challenge Status**. You will also see a unique DeviceID was assigned per the Balanced_Bot_Profile default settings. Also note the Bot Details and the full text visibility of the request below. 
 
@@ -200,7 +200,7 @@ Here we see a response but it isn't the default HTML of the Juiceshop page we sa
 
 .. NOTE:: The Bot Profile identified the requesting party as a suspicious browser and issued a Captcha Response due to Suspicious HTTP Headers Presence or Order. That was the Javascript we saw returned in the terminal window. 
 
-**At this point it should be getting clearer to you as to how a bot profile operates from a mitigation settings perspective. We "could" start blocking or redirecting Untrusted Bots to another pool of servers for forensics. We "could" also send Suspicious browsers or Malicious Bots to a honeypot page.**
+**At this point it should be getting clearer to you as to how a bot profile operates from a mitigation settings perspective and how to validate your configurations. We "could" start blocking or redirecting Untrusted Bots to another pool of servers for forensics. We "could" also send Suspicious browsers or Malicious Bots to a honeypot page.**
 
 .. image:: images/mitig.png
   :width: 600 px

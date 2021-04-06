@@ -82,7 +82,7 @@ Test Session Tracking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open a new Chrome Incognito tab by typing (CTRL+SHFT+N) then open Juice Shop and login with the account you created earlier for f5student@f5agility.com. 
-#. Return to the Advanced WAF and navigate to **Security > Event Logs > Application > Requests** and click on one of them, then click **All Details** to the right. 
+#. Return to the Advanced WAF and navigate to **Security > Event Logs > Application > Requests** and click on any of them except for "/socket.io". Click **All Details** to the right. 
 
 .. image:: images/sessions.png
         :width: 600 px

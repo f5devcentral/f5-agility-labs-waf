@@ -1,7 +1,7 @@
 Lab 3: Behavioral DOS Protection
 ----------------------------------
 
-In this lab you will use a baseline traffic generation script and an Apache Bench based attack script against a Virtual Server in both transparent and blocking mode, in order to trigger Behavioral DoS Protection. **Unlimited Behavioral DoS protection profiles are a feature of Advanced WAF. Legacy ASM customers are limited**. 
+In this lab you will use a baseline traffic generation script and an Apache Bench based attack script against a Virtual Server in both transparent and blocking mode to trigger Behavioral DoS Protection. **Unlimited Behavioral DoS protection profiles are a feature of Advanced WAF. Legacy ASM customers are limited**. 
 
 
 Test Default Site Behavior
@@ -43,7 +43,7 @@ Start the Attack
     ..
 
 2. Choose **Option 1** and hit the **Return Key or Enter key**. 
-3. Back in Chrome browser, attempt to refresh the site. **There are no smoke and mirrors here.** The Apache Bench script almost instantly knocked this single container site offline. If it isn't offline, then it horribly slow and un-usable. **There was no special configuration on the server side.**
+3. Back in Chrome browser, attempt to refresh the site. **There are no smoke and mirrors here.** The Apache Bench script almost instantly knocked this single container site offline. If it isn't offline, then it's horribly slow and un-usable. **There was no special configuration on the server side.**
 4. Stop the Apache Bench script by hitting (Ctrl + C) and then type the # **4** and hit the **Return Key or Enter key**.
 5. In Juice Shop refresh the page a few times. The site should recover quickly as the connections die down. 
 6. **Leave the baseline_menu script running**. 
@@ -66,8 +66,6 @@ For demonstration purposes in this lab we will simply configure Source IP based 
   * Stress-based Detection and Mitigation: 
   
     * By Source IP: Click **Edit** and check the box at the bottom for **Client Side Integrity Defense** which tells the WAF to send an Active JS challenge when under attack to verify the browser vs an attacking bot.
-
-.. NOTE:: You can also enable CAPTCHA and Rate-limiting but you will not get a chance to see that in action in this lab as Client Side Integrity Defense is enough to mitigate the mighty Apache Bench "bot".   
 
 * Set the Relative Threshold to 500% and **15** transactions per second. 
 * Set the Absolute Threshold TPS to **20**. 
@@ -116,18 +114,18 @@ Your virtual server should look like this:
         cd ~/Agility2021wafTools/
         ./AB_SSL_DOS.sh
 
-7. Navigate to **Security > Event Logs > DoS > Application Events** and review the entry. the system immediately picked up the attack due to the behavior. 
+7. Navigate to **Security > Event Logs > DoS > Application Events** and review the entry. The system immediately picked up the attack due to the behavior. 
 #. Click on the Attack ID #. 
 
 .. image:: images/dos.png
   :width: 600 px
   
-9. Once the Dashboard loads, turn on **Real Time** by checking the box at the top under **Dos Attack IDs**. **It will take a few moments for the things to populate.**
+9. Once the Dashboard loads, turn on **Real Time** by checking the box at the top under **DoS Attack IDs**. **It will take a few moments for the data to populate. "Real Time" is relative here.**
 
 .. image:: images/bdoslog.png
   :width: 600 px
 
-10. Click on the attack graphic and then select the virtual server to the right. You may have to wait a few moments for the Virtual Server to appear and clicking the **Refresh** button can speed it along. As you click items, you are applying real time filters. 
+10. **Eventually...it may take several minutes**, click on the attack graphic and then select the virtual server to the right. You may have to wait a few moments for the Virtual Server to appear.
 #. There is alot of information on DoS Visibility Dashboard including the type of attack, the severity, duration and much more. You can use the **Real Time** filters on the right to further dissect the traffic and drill down for analysis. **It may take some time for various data fields to load**.
 #. From the right hand filters menu expand **Client IP Addresses**, **Pool Members** and **URLS** and review the attack data. You can drag the boxes to group them closer together as shown here and there is also a flyout. 
 
@@ -140,9 +138,8 @@ Your virtual server should look like this:
 14. At the bottom you will get to the HTTP stats which should be of most interest. 
 
 .. image:: images/sys.png
-  :width: 600 px
-
-
+   :width: 600 px
+   
 |
 
 .. image:: images/http_stats.png
@@ -150,7 +147,7 @@ Your virtual server should look like this:
 
 Stop the Baseline and Attack Scripts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. In each of your terminal windows or tabs type **Ctrl+C** to terminate the scripts. The **AB_SSL_DOS.sh** script will require you to enter **4** to completely stop the attacks. 
+#. In each of your terminal windows or tabs type **Ctrl+C** to terminate **all** the scripts including the baseline. The **AB_SSL_DOS.sh** script will require you to enter **4** to completely stop the attacks. 
 
 
 Enable Blocking in the DoS Profile
@@ -166,7 +163,7 @@ Enable Blocking in the DoS Profile
         cd ~/Agility2021wafTools/
         ./AB_SSL_DOS.sh
 
-5. Attempt to refresh Juice Shop..initailly it is down but within about a minute and a few refreshes later, the WAF has figured out the attack and taken mitigation action. 
+5. Attempt to refresh Juice Shop..initially it is down, but within about a minute and a few refreshes later, the WAF has figured out the attack and taken mitigation action. 
 #. Navigate to **Security > Event Logs > DoS > Application Events** and review the new entries. We can see that the attack was picked up by behavioral mitigation first.
 #. Next we can see that the mitigation was changed to **DOS L7 Attack** with **Source IP-Based Client Side Integrity Defense**. This means that the WAF is actively challenging these IP addresses with JS. 
 #. Expand the **+** and you will be able to see more details about the mitigation for each of the client IP's. 
@@ -188,7 +185,7 @@ Verifying Behaviors
 
 4. Stop the Apache Bench attack in the terminal window by typing **CTRL +C** and then **4** and hit **Return**. 
 #. Now run this command in terminal to send the request from an IP that is being mitigated by DoS profile. ``curl -k --interface 10.1.10.51 https://juiceshop.f5agility.com``
-#. Notice the javascript challenge. This ip will continue to be challenged for the duration of the de-escalation period of 360 seconds that we set earlier as long as the server is under stress. 
+#. Notice the javascript challenge. This ip will continue to be challenged for the duration of the de-escalation period of 360 seconds that we set earlier or as long as the server is under stress from this IP. 
 
 .. image:: images/curl2.png
   :width: 600 px

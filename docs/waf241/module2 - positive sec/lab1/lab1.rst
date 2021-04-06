@@ -20,7 +20,7 @@ If you were following along in successive fashion and building your own environm
 |
 |
 
-6. Under **Headers** check the box for both Alarm and Block for **Illegal host name** and then it's very important to check the bottom box for **Learn New Hostnames**.
+6. Under **Headers** check the box for both Alarm and Block for **Illegal host name** and then it's **very important** to check the bottom box for **Learn New Hostnames**.
 7. Under **URLS** enable **Compact Mode** for "Learn New HTTP URLS" instead of **Never (wildcard only)**. Note the description of this mode: 
 
 Choose this option if you would like to create a list of top-level URL directories ``(e.g. /abc/*) and /``, while enforcing all other URLs with a wildcard rule.
@@ -71,7 +71,11 @@ Investigating an Incident
 #. The problem is that we enabled checking for a hostname but haven't defined what that hostname is yet. This exercise is to draw your attention to the importance of understanding what you are enabling in Learning and Blocking Settings and how to quickly resolve an issue. We can easily add the hostname. 
 #. Navigate to **Security > Application Security > Policy Building > Traffic Learning** and note the learning suggestions and score. You will see suggestions to add the top level URL and a Valid Hostname.  All of the others involve enabling various checks for evasion techniques and http protocol compliancy which are generally a good idea to enable. 
 #. Click the box to **Select All** suggestions and click **Accept > Accept suggestions** and **Apply Policy**.
-#. Navigate to **Security > Application Security > Headers > Host Names** to review the hostname that was configured when you accepted the learning suggestion. 
+
+.. image:: images/learn.png
+  :width: 600 px
+
+5. Navigate to **Security > Application Security > Headers > Host Names** to review the hostname that was configured when you accepted the learning suggestion. 
 
 .. image:: images/host.png
   :width: 600 px
@@ -114,10 +118,10 @@ Exercise the App Part 2
   :width: 600 px
 
 
-**This is is how to train a waf and why it is critical to get your policies developed from trusted sources during the testing phases of application development.**
+**This is is how to train a waf, ferret out any false positives and why it is critical to get your policies developed from trusted sources during the testing phases of application development.**
 
-File Types
-~~~~~~~~~~~~
+Enforcing File Types
+~~~~~~~~~~~~~~~~~~~~~~
 
 File types are low-hanging fruit from a positive security perspective and a great starting point for enhancing your security policy by allowing or disallowing access to known file types or extensions. We will enable Compact mode learning to create a learned list of common file types and enforce against a pre-populated list of disallowed file types. 
 
@@ -159,7 +163,7 @@ Testing WAF Policy
 #. In Burp browser click in the whitespace of the URL bar twice so the URL is NOT highlighted and hit the **Return** key on your keyboard to send the request for ``https://juiceshop.f5agility.com/`` 
 #. You will notice Burp Console will popover the browser with the intercepted request. You can now decide which actions to take real-time before sending the requests. 
 
-.. Important:: You may see some requests mixed in that are Google related. These are produced automatically by the browser and you can safely forward them until you get to the request for https://juiceshop.f5agility.com. 
+.. Important:: You may see some requests mixed in that are Google related (www.gstatic.com, googleapis.com etc). These are produced automatically by the browser and you can safely forward them until you get to the request for https://juiceshop.f5agility.com. 
 
 
 .. image:: images/burpjuice.png
@@ -169,7 +173,7 @@ Testing WAF Policy
 #. As you can see Burp is a very powerful proxy that allows you to view each request as it is being made and potentially insert or modify that request before sending. 
 #. Click on **Intercept is on** to turn it off so the rest of the requests load and then click it again to turn it back on so that it reads **Intercept is on**.
 #. Back in the Burp Browser the page should have loaded from the previous requests so just click the **Refresh** button in the browser and **Dismiss** the popup. 
-#. You may see a request or two for **socket.io** which is used for session persistence in the app. You can just forward them until you get to the following request for the default page:
+#. You can use any of the **GET** requests for **Host: juiceshop.f5agility.com**. Simply forward any of the aformentioned Google related requests should they pop up. 
 
 .. image:: images/defaultpage.png
   :width: 600 px
