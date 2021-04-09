@@ -10,9 +10,6 @@ classname = "F5 Web Application Firewall Solutions"
 # OPTIONAL: The URL to the GitHub Repository for this class
 github_repo = "https://github.com/f5devcentral/f5-agility-labs-waf"
 
-# OPTIONAL: Google Analytics
-# googleanalytics_id = 'UA-85156643-4'
-
 #
 # END CONFIG
 # ----------
@@ -88,10 +85,6 @@ extensions = [
   'sphinxcontrib.blockdiag'
   #'sphinx.ext.autosectionlabel'
 ]
-
-if 'googleanalytics_id' in locals() and len(googleanalytics_id) > 0:
-  extensions += ['sphinxcontrib.googleanalytics']
-  googleanalytics_enabled = True
 
 graphviz_output_format = 'svg'
 graphviz_font = 'DejaVu Sans:style=Book'
@@ -175,14 +168,15 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
+html4_writer = True
 html_theme = 'f5_sphinx_theme'
 html_theme_path = f5_sphinx_theme.get_html_theme_path()
-html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html','relations.html']}
+html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html']}
 html_theme_options = {
                         'site_name': 'Community Training Classes & Labs',
                         'next_prev_link': True
                      }
-html_last_updated_fmt = '%Y-%m-%d %I:%M:%S'
+html_last_updated_fmt = '%Y-%m-%d %H:%M:%S'
 
 extlinks = {
     'issues':( ("%s/issues/%%s" % github_repo), 'issue ' )
