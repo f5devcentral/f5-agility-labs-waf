@@ -31,7 +31,8 @@ F5 Advanced WAF includes DataSafe which can protect your web applications from c
 	:width: 800px
 .. |Lab3-2a| image:: images/lab3-2a.png
 	:width: 800px 
-
+.. |Lab3-2aa| image:: images/lab3-2aa.png
+	:width: 800px
 
 Task 1 - Login Observation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,7 +49,7 @@ Task 1 - Login Observation
 
     |Lab3-02|
 
-#. Click in the **Network** tab in the Firefox Inspector and click **Persist logs**
+#. Click in the **Network** tab in the Firefox Inspector 
 
 #. Login to the Juiceshop application as **f5student@agility.com**
 
@@ -72,6 +73,8 @@ Task 2 - Configuring DataSafe
 	|Lab03-02|    
 
 	|Lab3-2|
+
+	|Lab3-2aa|
     
 	|Lab3-2a|
 
