@@ -31,7 +31,7 @@ F5 Advanced WAF includes DataSafe which can protect your web applications from c
 	:width: 800px
 .. |Lab3-2a| image:: images/lab3-2a.png
 	:width: 800px 
-.. |Lab3-2aa| image:: images/lab3-2aa.png
+.. |Lab3-2aa| image:: images/Lab3-2aa.png
 	:width: 800px
 
 Task 1 - Login Observation
