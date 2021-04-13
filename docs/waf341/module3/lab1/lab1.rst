@@ -36,9 +36,9 @@ F5 Advanced WAF includes DataSafe which can protect your web applications from c
 Task 1 - Login Observation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new Firefox Private Browsing window and go to the to Juiceshop login page by clicking 'account' and then 'login' in the upper right hand corner of the page 
+#. Open a new Firefox Private Browsing window and go to the to Juiceshop login page by clicking **account** and then **login** in the upper right hand corner of the page 
 
-#. Right click in the username field and choose 'inspect element' (or use CTRL + SHIFT + N). Notice the form field is visible and is named 'email'
+#. Right click in the **email** field and choose **inspect element** (or use CTRL + SHIFT + N). Notice the form field is visible and is named **email**
 
     |Lab3-00|
 
@@ -50,7 +50,7 @@ Task 1 - Login Observation
 
 #. Click in the **Network** tab in the Firefox Inspector and click **Persist logs**
 
-#. Login to the Juiceshop application as f5student
+#. Login to the Juiceshop application as **f5student@agility.com**
 
 #. In the Firefox Inspector Network tab find the POST request to /rest/user/login. Notice the username and password are in clear text in the request and are in a JSON format.
 
@@ -91,7 +91,7 @@ Task 3 - Test Data Safe Configuration
 #. Open a new Firefox Private Browsing window and go to the to Juiceshop login page 
 
 
-#. Login to the Juiceshop application as f5student@f5agility.com
+#. Login to the Juiceshop application as f5student@agility.com
 
 #. In the Firefox Inspector Network tab find the POST request to /rest/user/login. Notice the JSON username and password fields are no longer in clear text.
 
