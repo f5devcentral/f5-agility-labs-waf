@@ -24,6 +24,10 @@ For more information on Automatic Policy Builder: `https://support.f5.com/csp/ar
         :width: 800px
 .. |lab3-10| image:: images/lab3-10.png
         :width: 800px
+.. |lab3-052| image:: images/lab3-052.png
+	:width: 800px
+.. |lab3-053| image:: images/lab3-053.png
+	:width: 800px
 
 Task 1 - Create Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,7 +71,7 @@ Task 3 - Test Configuration
 #. Your login should be allowed.
 
 #. Return to **Security -> Application Security -> Parameters List**
-   Notice that accepting the suggestion for the username parameter has adjusted the maximum-length value to 10.
+   Notice that accepting the suggestion for the username parameter has adjusted the maximum-length value to 25.
 
    |lab3-06|
 
