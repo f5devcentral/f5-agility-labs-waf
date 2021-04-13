@@ -48,29 +48,23 @@ Task 1 - Configure DataGuard
 Task 2 - Test DataGuard
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open a new private browsing window in **Firefox** and login as f5student to WebGoat at ``https://insecureapp1.f5.demo/WebGoat/login``.
+#.  Open a new private browsing window in **Firefox** and login as f5student@agility.com to Juiceshop
 
-#.  Click **A8:2013 Request Forgeries / Cross Site Request Forgeries** in the WebGoat menu then click **4** on the menu.
+#.  Navigate to **Account > Orders & Payment > My save addresses**
 
     |lab2.2-3|
 
-#.  Type in something that looks like a social security number in the first field  like ``135-79-0246`` for example.
+#.  Add a new address choosing values for the field and placing something that looks like a US Social Security number in the name field.
 
     |lab2.2-4|
 
-#. Click submit and you will receive a message. Press F5 or refresh to reload browser
+#. Click submit and you will see your save address with the all but the last 4 digits of the name value replaced with ****
 
     |lab2.2-4a|
 
-#.  Now try a fake credit card number like ``4111111111111111``.  Refresh your browser and you should see your comments with ** in place of the sensitive data
-
-    |lab2.2-5|
 
     .. NOTE:: You can also use PCRE to define custom patterns for obfuscation.  Feel free to experiment with this as it can have interesting consequences for the application (intentional or otherwise).
 
-#.  Examine the most recent requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**. Look for the Data Guard violations.
-
-    |lab2.2-6|
 
 |
 |
