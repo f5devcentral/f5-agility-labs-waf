@@ -78,6 +78,8 @@ Task 2 - Configuring DataSafe
     
 	|Lab3-2a|
 
+	|Lab3-2aa|
+
 #. Add parameter **email** as seen below to the /rest/user/login url.
 
     |Lab3-3|
