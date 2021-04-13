@@ -1,7 +1,7 @@
 Lab 3.1: DataSafe
 -----------------------
 
-F5 Advanced WAF includes DataSafe which can protect your web applications from credential theft by MITB malware. In this exercise you will configure DataSafe to protect the Webgoat login page from credential theft.
+F5 Advanced WAF includes DataSafe which can protect your web applications from credential theft by MITB malware. In this exercise you will configure DataSafe to protect the Juiceshop login page from credential theft.
 
 .. |lab3-01| image:: images/lab3-01.png
         :width: 800px
@@ -27,28 +27,32 @@ F5 Advanced WAF includes DataSafe which can protect your web applications from c
         :width: 800px
 .. |Lab3-08| image:: images/lab3-08.png
         :width: 800px
+.. |Lab03-02| image:: images/lab03-02.png
+	:width: 800px
+.. |Lab3-2a| image:: images/lab3-2a.png
+	:width: 800px 
 
 
 Task 1 - Login Observation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
+#. Open a new Firefox Private Browsing window and go to the to Juiceshop login page by clicking 'account' and then 'login' in the upper right hand corner of the page 
 
-#. Right click in the username field and choose 'inspect element' (or use CTRL + SHIFT + N). Notice the form field is visible and is named 'username'
+#. Right click in the username field and choose 'inspect element' (or use CTRL + SHIFT + N). Notice the form field is visible and is named 'email'
 
     |Lab3-00|
 
     |Lab3-01|
 
-#. Right click in the password field and choose 'inspect element'. Notice the form field is visbile and is named 'password'
+#. Right click in the password field and choose 'inspect element'. Notice the form field is visible and is named 'password'
 
     |Lab3-02|
 
 #. Click in the **Network** tab in the Firefox Inspector and click **Persist logs**
 
-#. Login to the WebGoat application as f5student
+#. Login to the Juiceshop application as f5student
 
-#. In the Firefox Inspector Network tab find the POST request to /login. Notice the password is in clear text in the request.
+#. In the Firefox Inspector Network tab find the POST request to /rest/user/login. Notice the username and password are in clear text in the request and are in a JSON format.
 
     |Lab3-03|
 
@@ -63,36 +67,33 @@ Task 2 - Configuring DataSafe
 
     |Lab3-1|
 
-#. Add a url with settings seen below (notice case on url must be all lowercase)
+#. Add 2 urls with settings seen below (notice case on url must be all lowercase)
 
-    |Lab3-2|
+	|Lab03-02|    
 
-#. Add parameters **username and password** as seen below.
+	|Lab3-2|
+    
+	|Lab3-2a|
+
+#. Add parameter **email** as seen below to the /rest/user/login url.
 
     |Lab3-3|
 
-    |Lab3-4|
+   
 
-#. Apply Data Safe Profile to Virtual Server and remove any WAF or other policies.
+#. Apply Data Safe Profile to the owasp-juiceshop_443_vs Virtual Server and remove any WAF or other policies.
 
     |Lab3-5|
 
 Task 3 - Test Data Safe Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
+#. Open a new Firefox Private Browsing window and go to the to Juiceshop login page 
 
-#. Right click in the username field and choose 'inspect element'. Notice the field name is obfuscated and rotates every few seconds.
 
-    |Lab3-06|
+#. Login to the Juiceshop application as f5student@f5agility.com
 
-#. Right click in the password field and choose 'inspect element'. Notice the field name is obfuscated and rotates every few seconds.
-
-    |Lab3-07|
-
-#. Login to the WebGoat application as f5student
-
-#. In the Firefox Inspector Network tab find the POST request to /login. Notice the username and password fields are no longer in clear text.
+#. In the Firefox Inspector Network tab find the POST request to /rest/user/login. Notice the JSON username and password fields are no longer in clear text.
 
     |Lab3-08|
 
