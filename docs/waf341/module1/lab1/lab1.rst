@@ -69,37 +69,78 @@ Lab 1.1: Brute Force Attack Prevention
 Task 0: Level Set
 ~~~~~~~~~~~~~~~~~
 
-#.  Open Chrome and navigate to the BIG-IP management interface.  For the purposes of this lab you can find it at ``https://10.1.10.245/`` or by clicking on the **bigip01** shortcut.
+#.  Click the F5 Advanced WAF bookmark and login to TMUI. admin/[password].
 
-#.  Login to the BIG-IP.
 
-#.  Navigate to **Security -> Application Security -> Security Policies**.
+- Create a blocking policy using the guided configuration utiliy
 
-#.  Click the **...** button next to create, then click **import policy**.
+- Apply the security policy to an existing virtual server
 
-    |lab41-17|
+- Apply a security logging profile to the virtiual server
 
-#.  Navigate to the **waf241** folder and open the **waf141_complete.xml** file.
+Create security policy using the Guided Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    |lab41-18|
 
-#.  Ensure that **New Policy** is selected and click **Import**.
 
-    |lab41-19|
+#. On the Main tab to your left, select **Security > Guided Configuration**. This opens the Guided Configuration screen.
 
-#.  You now have a policy like the one below:
+    .. image:: ../images/webappbutton.png
 
-    |lab41-20|
+#. Click on the **Web Application Protection** template button.
 
-#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies** and ensure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below.
+    .. image:: ../images/webapptemplate.png
 
-    |lab41-01|
+#. The guided configuration now provides an overview of what will be configured. Click the  **Next** button.
 
-#.  Click Update
+#. Give your configuration the name ``juice_shop_waf`` this will also name your security policy.
 
-#.  Navigate to  **Security -> Application Security -> Security Policies -> Policies List** and place the **insecureApp1_asmpolicy** policy in **blocking** mode and click **Save and then Apply Policy**.
+#. Under **Select Enforcement Mode** select **Blocking**
 
-    |lab41-007|
+    .. Note:: Typically you would deploy a new policy in a transparent mode so you can observe the logs before blocking to help avoid false positives.  But come on....this is a lab.  We are going to block stuff!  
+
+#. Click on **Show Advanced Settings** button in the upper right hand corner of your page.
+
+    .. image:: ../images/advanced2.png
+
+#. Under **Server Technologies** add the following to the selected window.  Adding these technologies will assist in building a more precise policy.
+
+    - AngularJS
+    - Express.js
+    - JavaScript
+    - JQuery
+    - MongoDB
+    - Node.js
+    - SQLite
+
+#. Press the **Save & Next** Button below.  
+
+    .. image:: ../images/servertechnologies.png
+
+    .. Note:: We are adding these technologies since we know what the application is using.  There is also a feature that can be turned on that can allow the policy to learn these technologies.
+
+#. Check off **Assign Policy to Virtual Server**, under **Virtual Server** choose **Use Existing**, and move the Juice_Shop_VS to the selected window.  Press **Save & Next**
+
+    .. image:: ../images/addvs.png
+
+#. The next page will summarize the objects and policy configuration.  Review, and take note that you can also go back and edit if required.  When done click **Deploy** at the bottom of the screen.  It will take a few moments to complete the policy build.
+
+    .. image:: ../images/ready_to_deploy.png
+
+#.  After the policy is created, we will want to apply a logging profile to our new security policy.
+
+    - Go to **Securirty -> Overview -> Summary**, and the policy you just created should be listed. 
+    - Place a check to the left of the **Virtual Server** name that your new security policy is applied to.  
+    - Now click the blue **Attach** button above and select **Logging Profile**
+
+    .. image:: ../images/attachlogging1.png
+
+    - Select **Log illegal requests** and press the other **Attach** button below.
+
+    .. image:: ../images/attachlogging2.png
+
+    - You will now see the logging profile is added under the Application Security column.  
+
 
 
 Enabling Bot Profile
