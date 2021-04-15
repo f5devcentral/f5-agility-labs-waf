@@ -25,6 +25,7 @@ WAF 341 Table of Contents:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Contents:
    :glob:
 
    labinfo/labinfo
