@@ -120,7 +120,8 @@ Enabling Bot Profile
 #.  Click on the **Mobile Applications** tab and review the Mobile SDK Information
 #.  Click on the **Browsers** tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
 
-        |pbd|
+.. image:: images/pbd.png
+  :width: 600 px
 
 #.  Click **Save**.
 
