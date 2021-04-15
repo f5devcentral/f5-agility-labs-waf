@@ -1,58 +1,7 @@
 Lab 1.1: Brute Force Attack Prevention
 ########################################
 
-..  |lab1-1| image:: images/lab1-1.png
-        :width: 800px
-..  |lab1-2| image:: images/lab1-2.png
-        :width: 800px
-..  |lab1-2.1| image:: images/lab1-2.1.png
-        :width: 800px
-..  |lab1-3| image:: images/lab1-3.png
-        :width: 800px
-..  |lab1-3a| image:: images/lab1-3a.png
-        :width: 800px
-..  |lab1-4| image:: images/lab1-4.png
-        :width: 800px
-..  |lab1-5| image:: images/lab1-5.png
-        :width: 800px
-..  |lab1-6| image:: images/lab1-6.png
-        :width: 800px
-..  |lab1-7| image:: images/lab1-7.png
-        :width: 800px
-..  |lab41-17| image:: images/lab41-17.png
-        :width: 800px
-..  |lab41-18| image:: images/lab41-18.png
-        :width: 800px
-..  |lab41-19| image:: images/lab41-19.png
-        :width: 800px
-..  |lab41-20| image:: images/lab41-20.png
-        :width: 800px
-..  |pbd| image:: images/pbd.png
-        :width: 800px
-..  |lab41-01| image:: images/lab41-01.png
-        :width: 800px
-..  |log_profile| image:: images/log_profile.png
-        :width: 800px
-..  |bot_profile| image:: images/bot_profile.png
-        :width: 800px
-..  |setblock| image:: images/setblock.png
-        :width: 800px
-..  |bot_vs| image:: images/bot_vs.png
-        :width: 800px
-..  |lab41-03| image:: images/lab41-03.png
-        :width: 800px
-..  |lab41-04| image:: images/lab41-04.png
-        :width: 800px
-..  |lab41-05| image:: images/lab41-05.png
-        :width: 800px
-..  |lab41-06| image:: images/lab41-06.png
-        :width: 800px
-..  |lab41-07| image:: images/lab41-07.png
-        :width: 800px
-..  |lab41-08| image:: images/lab41-08.png
-                :width: 800px
-..  |lab41-007| image:: images/lab41-007.png
-        :width: 800px
+
 
 #. RDP to the Linux Client by choosing the RDP access method from your UDF environment page. You will be presented with the following prompt where you will enter the password only. The f5student account is hard-coded into XRDP for your convenience.
 
