@@ -53,7 +53,7 @@ Create security policy using the Guided Configuration
 
 #. Click on **Show Advanced Settings** button in the upper right hand corner of your page.
 
-.. image:: images/advanced2late.png
+.. image:: images/advanced2.png
   :width: 600 px
 
 #. Under **Server Technologies** add the following to the selected window.  Adding these technologies will assist in building a more precise policy.
