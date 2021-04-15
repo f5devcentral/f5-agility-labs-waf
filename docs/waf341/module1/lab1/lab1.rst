@@ -106,13 +106,14 @@ Enabling Bot Profile
 
 
 
-#.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and check to see if insecureApp1_botprofile has been created.  If not, click **Create**.
-#.  Name: **insecureApp1_botprofile**
+#.  Navigate to **Security > Bot Defense > Bot Defense Profiles** and check to see if juice_shop_botprofile has been created.  If not, click **Create**.
+#.  Name: **juice_shop_botprofile**
 #.  Profile Template: **Relaxed**
 #.  Change the Enforcement Mode to Blocking
 #.  Click the **Learn more** link to see an explanation of the options.
 
-        |bot_profile|
+.. image:: images/bot_profile.png
+  :width: 600 px
 
 #.  Click on the **Bot Mitigation Settings** tab and review the default configuration.
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
