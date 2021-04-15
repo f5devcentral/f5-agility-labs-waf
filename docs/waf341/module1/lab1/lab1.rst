@@ -53,7 +53,8 @@ Create security policy using the Guided Configuration
 
 #. Click on **Show Advanced Settings** button in the upper right hand corner of your page.
 
-    .. image:: ../images/advanced2.png
+.. image:: images/advanced2late.png
+  :width: 600 px
 
 #. Under **Server Technologies** add the following to the selected window.  Adding these technologies will assist in building a more precise policy.
 
@@ -67,17 +68,20 @@ Create security policy using the Guided Configuration
 
 #. Press the **Save & Next** Button below.  
 
-    .. image:: ../images/servertechnologies.png
+.. image:: images/servertechnologies.png
+  :width: 600 px
 
     .. Note:: We are adding these technologies since we know what the application is using.  There is also a feature that can be turned on that can allow the policy to learn these technologies.
 
 #. Check off **Assign Policy to Virtual Server**, under **Virtual Server** choose **Use Existing**, and move the Juice_Shop_VS to the selected window.  Press **Save & Next**
 
-    .. image:: ../images/addvs.png
+.. image:: images/addvs.png
+  :width: 600 px
 
 #. The next page will summarize the objects and policy configuration.  Review, and take note that you can also go back and edit if required.  When done click **Deploy** at the bottom of the screen.  It will take a few moments to complete the policy build.
 
-    .. image:: ../images/ready_to_deploy.png
+.. image:: images/ready_to_deploy.png
+  :width: 600 px
 
 #.  After the policy is created, we will want to apply a logging profile to our new security policy.
 
@@ -85,11 +89,13 @@ Create security policy using the Guided Configuration
     - Place a check to the left of the **Virtual Server** name that your new security policy is applied to.  
     - Now click the blue **Attach** button above and select **Logging Profile**
 
-    .. image:: ../images/attachlogging1.png
+.. image:: images/attachlogging1.png
+  :width: 600 px
 
     - Select **Log illegal requests** and press the other **Attach** button below.
 
-    .. image:: ../images/attachlogging2.png
+.. image:: images/attachlogging2.png
+  :width: 600 px
 
     - You will now see the logging profile is added under the Application Security column.  
 
