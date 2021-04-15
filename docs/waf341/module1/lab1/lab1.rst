@@ -54,19 +54,15 @@ Lab 1.1: Brute Force Attack Prevention
 ..  |lab41-007| image:: images/lab41-007.png
         :width: 800px
 
-#. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this.
+#. RDP to the Linux Client by choosing the RDP access method from your UDF environment page. You will be presented with the following prompt where you will enter the password only. The f5student account is hard-coded into XRDP for your convenience.
 
 .. image:: images/xrdp2.png
   :width: 600 px
 
-Simply click in the username field and backspace. Enter the name: **f5student** and in the password field use the **password** provided by the instructor.
 
-#. Launch Chrome browser (please be patient and don't click the icon multiple times)
+#. Once logged in, launch Chrome Browser. You can double-click the icon or right click and choose execute but do not click multiple times. It does take a few moments for the browser to launch the first time.
 
-.. NOTE:: If the Operating system prompts you enter your password for keychain access, please enter the "f5student" password provided by your lab instructor.
 
-.. image:: images/keychain.png
-  :width: 600 px
 
 
 
