@@ -56,7 +56,7 @@ Lab 1.1: Brute Force Attack Prevention
 
 #. RDP to client01. Depending on your RDP client, you may get a empty XRDP login screen such as this.
 
-.. image:: images/xrdp.png
+.. image:: images/xrdp1.png
   :width: 600 px
 
 Simply click in the username field and backspace. Enter the name: **f5student** and in the password field use the **password** provided by the instructor.
