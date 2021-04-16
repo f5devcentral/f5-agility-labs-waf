@@ -37,7 +37,7 @@ In the comment area paste the following:
 
 .. code-block:: none
 
-    <<script>FUD</script>iframe allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&auto_play=true>
+    <<script>FUD</script>iframe allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1030254214&auto_play=true>
 
 Then, choose any amount of stars for the rating and answer the math challenge and then click Submit.
 
