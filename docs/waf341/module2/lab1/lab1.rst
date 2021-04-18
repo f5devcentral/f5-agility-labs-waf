@@ -94,7 +94,8 @@ Task 2 - Configuring Method on per URL basis
 #. Attempt to delete the card
 
 #. What is the result, and Why?  
-        The card is deleted since you now are allowing the DELETE method on the /api/Cards/* uri.
+
+   The card is deleted since you now are allowing the DELETE method on the /api/Cards/* uri.
 
 
 
