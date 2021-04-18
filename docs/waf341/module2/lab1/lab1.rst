@@ -2,6 +2,8 @@ Lab 2.1: Allowed HTTP Request Methods
 ----------------------------------------------------------
 .. |lab2.1-1| image:: images/2.1-1.png
         :width: 800px
+.. |lab2.1-01| image:: images/2.1-01.png
+        :width: 800px
 .. |lab2.1-2| image:: images/2.1-2.png
         :width: 800px
 .. |lab2.1-3| image:: images/2.1-3.png
@@ -64,8 +66,11 @@ Task 1 - Allowed Methods
 
 #. In the BIG-IP WebUI navigate to **Security -> Application Security -> Headers -> Methods**.
 
-#. Policy wide Method permissions are configured here.  
-        If your application requires a method beyond the default three, it can be added by clicking the **Create** button.
+   Policy wide Method permissions are configured here.  
+   
+   |lab2.1-01|
+
+#. If your application requires a method beyond the default three, it can be added by clicking the **Create** button.
 
     |lab2.1-1|
 
