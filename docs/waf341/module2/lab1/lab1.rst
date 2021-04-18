@@ -24,6 +24,8 @@ Lab 2.1: Allowed HTTP Request Methods
         :width: 800px
 .. |lab2.1-0e| image:: images/2.1-0e.png
         :width: 800px
+.. |lab2.1-0aa| image:: images/2.1-0aa.png
+        :width: 800px
 
 Task 1 - Allowed Methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +39,9 @@ Task 1 - Allowed Methods
 
         |lab2.1-0a|
 
-#. Complete the user registration fields with any information you like and click "Register"  
+#. Complete the user registration fields using **f5student@agility.com** as your username "Register"  
+
+        |lab2.1-0aa|
 
 #. Login to your account
 
@@ -59,7 +63,8 @@ Task 1 - Allowed Methods
 
 #. In the BIG-IP WebUI navigate to **Security -> Application Security -> Headers -> Methods**.
 
-#. Policy wide Method permissions are configured here.  If your application requires a method beyond the default three, they can be added by clicking the **Create** button.
+#. Policy wide Method permissions are configured here.  If your application requires a method beyond the default three, 
+   it can be added by clicking the **Create** button.
 
     |lab2.1-1|
 
@@ -77,14 +82,17 @@ Task 2 - Configuring Method on per URL basis
 
     |lab2.1-3|
 
-#. Examine the created URI and switch to the advanced view and select the methods enforcement tab and check override policy allowed methods and slide "POST" with a state of disallow and click **update** and then click **Apply policy**
+#. Examine the created URI and switch to the advanced view
+   Select the methods enforcement tab and check override policy allowed methods and 
+   Slide "DELETE" with a state of **allow** and click **update** 
+   Click **Apply policy**
     
     |lab2.1-3a|
 
 
 #. Attempt to delete the card
 
-#. What is the result, and why?  The card is deleted since you now are allowing the DELETE method on the /api/Cards/* uri.
+#. What is the result, and Why?  The card is deleted since you now are allowing the DELETE method on the /api/Cards/* uri.
 
 
 
