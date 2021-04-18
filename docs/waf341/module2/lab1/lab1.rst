@@ -57,14 +57,15 @@ Task 1 - Allowed Methods
 
         |lab2.1-0d|
 
-#. Examine the most recent requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**. You should see a violation for "Illegal Method"
+#. Examine the most recent requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**. 
+        You should see a violation for "Illegal Method"
 
         |lab2.1-0e|
 
 #. In the BIG-IP WebUI navigate to **Security -> Application Security -> Headers -> Methods**.
 
-#. Policy wide Method permissions are configured here.  If your application requires a method beyond the default three, 
-   it can be added by clicking the **Create** button.
+#. Policy wide Method permissions are configured here.  
+        If your application requires a method beyond the default three, it can be added by clicking the **Create** button.
 
     |lab2.1-1|
 
@@ -83,16 +84,17 @@ Task 2 - Configuring Method on per URL basis
     |lab2.1-3|
 
 #. Examine the created URI and switch to the advanced view
-   Select the methods enforcement tab and check override policy allowed methods and 
-   Slide "DELETE" with a state of **allow** and click **update** 
-   Click **Apply policy**
+#. Select the methods enforcement tab and check override policy allowed methods and 
+#. Slide "DELETE" with a state of **allow** and click **update** 
+#. Click **Apply policy**
     
     |lab2.1-3a|
 
 
 #. Attempt to delete the card
 
-#. What is the result, and Why?  The card is deleted since you now are allowing the DELETE method on the /api/Cards/* uri.
+#. What is the result, and Why?  
+        The card is deleted since you now are allowing the DELETE method on the /api/Cards/* uri.
 
 
 
