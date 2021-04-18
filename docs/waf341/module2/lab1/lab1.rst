@@ -39,7 +39,7 @@ Task 1 - Allowed Methods
 
         |lab2.1-0a|
 
-#. Complete the user registration fields using **f5student@agility.com** as your username "Register"  
+#. Complete the user registration fields using **f5student@agility.com** as your username and click **Register**  
 
         |lab2.1-0aa|
 
