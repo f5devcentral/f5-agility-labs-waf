@@ -63,7 +63,7 @@ Task 1 - Allowed Methods
 
     |lab2.1-1|
 
-Task 2 - Restricting Method on per URL basis
+Task 2 - Configuring Method on per URL basis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -73,14 +73,12 @@ Task 2 - Restricting Method on per URL basis
 
     |lab2.1-2|
 
-#. Click **Create** to create a new allowed url as seen below 
-the URL for /api/Cards/*. 
+#. Click **Create** to create a new allowed url as seen below the URL for /api/Cards/*. 
 
     |lab2.1-3|
 
-#. Examine the created URI and switch to the advanced view and select the methods enforcement tab and 
-check override policy allowed methods and slide "POST" with a state of disallow and click **update** and then click 
-**Apply policy**
+#. Examine the created URI and switch to the advanced view and select the methods enforcement tab and check override policy allowed methods and slide "POST" with a state of disallow and click **update** and then click **Apply policy**
+    
     |lab2.1-3a|
 
 
