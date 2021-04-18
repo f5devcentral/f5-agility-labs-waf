@@ -12,17 +12,17 @@ Lab 2.1: Allowed HTTP Request Methods
         :width: 800px
 .. |lab2.1-5| image:: images/lab2.1-5.png
         :width: 800px
-.. |lab2.1-0| image:: images/lab2.1-0.png
+.. |lab2.1-0| image:: images/2.1-0.png
         :width: 800px
-.. |lab2.1-0a| image:: images/lab2.1-0a.png
+.. |lab2.1-0a| image:: images/2.1-0a.png
         :width: 800px
-.. |lab2.1-0b| image:: images/lab2.1-0b.png
+.. |lab2.1-0b| image:: images/2.1-0b.png
         :width: 800px
-.. |lab2.1-0c| image:: images/lab2.1-0c.png
+.. |lab2.1-0c| image:: images/2.1-0c.png
         :width: 800px
-.. |lab2.1-0d| image:: images/lab2.1-0d.png
+.. |lab2.1-0d| image:: images/2.1-0d.png
         :width: 800px
-.. |lab2.1-0e| image:: images/lab2.1-0e.png
+.. |lab2.1-0e| image:: images/2.1-0e.png
         :width: 800px
 
 Task 1 - Allowed Methods
