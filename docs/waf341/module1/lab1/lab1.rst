@@ -73,7 +73,7 @@ Create security policy using the Guided Configuration
 
     .. Note:: We are adding these technologies since we know what the application is using.  There is also a feature that can be turned on that can allow the policy to learn these technologies.
 
-#. Check off **Assign Policy to Virtual Server**, under **Virtual Server** choose **Use Existing**, and move the Juice_Shop_VS to the selected window.  Press **Save & Next**
+#. Check off **Assign Policy to Virtual Server**, under **Virtual Server** choose **Use Existing**, and move the owasp-juiceshop_443_VS to the selected window.  Press **Save & Next**
 
 .. image:: images/addvs.png
   :width: 600 px
