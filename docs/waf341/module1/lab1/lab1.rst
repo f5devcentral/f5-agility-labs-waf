@@ -179,11 +179,13 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #.  Select the login page you created earlier or imported as part of lab setup.
 
-    |lab1-1|
+.. image:: images/brute_force1.png
+  :width: 600 px
 
 #.  Configure **Source-based Brute Force Protection** settings as follows:
 
-    |lab1-2|
+.. image:: images/brute_force2.png
+  :width: 600 px
 
 #.  Click **Create** .
 
@@ -192,7 +194,8 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #. Ensure WAF and Bot policy are both applied to the Virtual as seen and click **update**.
 
-    |lab1-2.1|
+.. image:: images/brute_force3.png
+  :width: 600 px
 
 
 Task 2 - Test username based Brute Force Protection
