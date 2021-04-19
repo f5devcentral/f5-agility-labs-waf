@@ -157,6 +157,8 @@ Define Login Pages
   :width: 600 px
 
 
+Select **Save** then **Apply Policy**
+
 
 
 There is more than one kind of brute force attack. In the classic version, hackers attempt to log in to an application by repeatedly guessing users’ account credentials. Because of these attacks, most applications now lock an account when it encounters multiple unsuccessful authentication attempts, at least temporarily. However, this strategy only protects against attack on a single account.
