@@ -212,8 +212,8 @@ Task 2 - Test username based Brute Force Protection
 
     You should see two requests for /rest/user/login.
 
-.. image:: images/brute_force_test.png
-  :width: 600 px
+  .. image:: images/brute_force_test.png
+    :width: 600 px
 
 
     The request was considered as a brute force attack.
