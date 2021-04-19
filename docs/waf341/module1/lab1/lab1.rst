@@ -166,7 +166,7 @@ Task 1 - Configure Brute Force Attack Prevention
 #. Run the command ``save sys config``.
 
 
-.. image:: images/modify_sys_db.png
+.. image:: images/modify_sys_db.PNG
   :width: 600 px
 
 
@@ -179,12 +179,12 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #.  Select the login page you created earlier or imported as part of lab setup.
 
-.. image:: images/brute_force1.png
+.. image:: images/brute_force1.PNG
   :width: 600 px
 
 #.  Configure **Source-based Brute Force Protection** settings as follows:
 
-.. image:: images/brute_force2.png
+.. image:: images/brute_force2.PNG
   :width: 600 px
 
 #.  Click **Create** .
@@ -194,7 +194,7 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #. Ensure WAF and Bot policy are both applied to the Virtual as seen and click **update**.
 
-.. image:: images/brute_force3.png
+.. image:: images/brute_force3.PNG
   :width: 600 px
 
 
