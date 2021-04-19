@@ -54,11 +54,11 @@ Task 2 - Test Credential Stuffing Detection
 
 #.  Now check out the reporting under **Event Logs -> Application -> Brute Force Attacks**:
 
-    |lab2-3|
+.. image:: images/brute_force_enent_log.PNG
+  :width: 600 px
 
 #.  Click on one of the attack entries to get some more detail about the attack:
 
-    |lab23-7|
 
 #.  For fun, head over to ``https://haveibeenpwned.com/`` and put in the email address of the account we used in the lab to get some details.  It may also be interesting to put in your own account(s) to see if any of your credentials have been breached.  You could also try some of your old username/password combinations against the credential stuffing database on the F5.  While on the main page explore some of the breach data on the bottom to get a sense of how big this problem is.
 
@@ -68,9 +68,7 @@ Task 2 - Test Credential Stuffing Detection
 
 #. Click **Apply Policy** .
 
-#.  Navigate to **Local Traffic > Virtual Servers > Virtual Server List > insecureApp1_vs > Security > Policies** and ensure that the **insecureApp1_asmpolicy** policy and the **Log All requests** log profile are enabled on the **insecureApp1_vs** virtual server as shown below removing the **Bot Profile**.
 
-    |lab41-01|
 
 
 
