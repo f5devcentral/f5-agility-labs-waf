@@ -33,7 +33,7 @@ Task 2 - Test Credential Stuffing Detection
     
 #.  Open a new Private Browsing window in **Chrome or Firefox** .
 
-#.  Go to the to WebGoat login page at ``https://juiceshop.f5agility.com/#/login`` 
+#.  Go to the to Juice Shop login page at ``https://juiceshop.f5agility.com/#/login`` 
 
 #.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``. One the THIRD attempt, you should receive a blocking page.
 
