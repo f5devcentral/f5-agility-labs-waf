@@ -1,5 +1,5 @@
 Lab Environment & TopologyLab Environment & Topology
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE:: All work is done from the Linux Client, which can
    be accessed via RDP (Windows Remote Desktop). No installation or

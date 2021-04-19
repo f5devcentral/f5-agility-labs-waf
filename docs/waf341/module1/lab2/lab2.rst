@@ -31,22 +31,24 @@ Task 1 - Configure Credential Stuffing Detection
 Task 2 - Test Credential Stuffing Detection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-#.  Open a new Private Browsing window in **Firefox** .
+#.  Open a new Private Browsing window in **Chrome or Firefox** .
 
-#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` 
+#.  Go to the to WebGoat login page at ``https://juiceshop.f5agility.com/#/login`` 
 
-#.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``.  On the second attempt, you should receive a CAPTCHA because this configured mitigation for credentials matching the credential stuffing database.
+#.  Attempt to login using the username ``demo33@fidnet.com`` and password ``mountainman01``. One the THIRD attempt, you should receive a blocking page.
 
+.. image:: images/blocking_page.PNG
+  :width: 600 px
 
 #.  Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests
 
-    |lab2-1|
+.. image:: images/brute_force_events.PNG
+  :width: 600 px
 
     Take note of the username field.  The request was matched as a potential credential stuffing attack.
 
 #.  Near the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window click on the number under **Occurrences**:
 
-    |lab2-2|
 
     The message indicates the number of login attempts that matched the internal database.
 
