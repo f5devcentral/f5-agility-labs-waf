@@ -117,7 +117,7 @@ Enabling Bot Profile
 
 #.  Click on the **Bot Mitigation Settings** tab and review the default configuration. All of the Mitigation Settings should be configured for "Alarm." 
 
-.. image:: images/bot_mitigation_settings.png
+.. image:: images/bot_mitigation_settings.PNG
   :width: 600 px
 
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
