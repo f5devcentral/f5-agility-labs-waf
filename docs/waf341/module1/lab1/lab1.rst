@@ -141,8 +141,8 @@ Define Login Pages
 
         #. You will receive a **Login URL Validation** popout window. Select **Create Login Page**
 
-.. image:: images/login_url_validation.png
-  :width: 600 px        
+        .. image:: images/login_url_validation.png
+          :width: 600 px        
 
         #.  Populate the form as shown below and click **Create and then Apply Policy**:
 
