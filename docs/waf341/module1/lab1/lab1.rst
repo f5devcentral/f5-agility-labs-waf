@@ -209,6 +209,7 @@ Task 2 - Test username based Brute Force Protection
 
 #.  Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests:
 
+
     You should see two requests for /rest/user/login.
 
 .. image:: images/brute_force_test.png
@@ -223,12 +224,12 @@ Task 2 - Test username based Brute Force Protection
   :width: 600 px
 
     The message indicates the number of login attempts by a user exceeded the threshold.
-    
+
 
 Task 3 - Enable Device ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and under the **Browsers** tab edit the profile **insecureApp1_botprofile** to enable Device ID mode to "Generate Before Access" for browsers.
+#. Navigate to **Security -> Bot Defense -> Bot Defense Profiles** and under the **Browsers** tab edit the profile **juice_shop__botprofile** to enable Device ID mode to "Generate Before Access" for browsers.
 
 Device ID is a unique identifier that F5 WAF generates for each client browser.
 You can use the device identifier to identify nefarious clients and diagnose security issues, such as session hijacking, web scraping, brute force login attempts, and others.
@@ -236,7 +237,8 @@ You can use the device identifier to identify nefarious clients and diagnose sec
 
 #. Click **Save**
 
-    |lab1-5|
+.. image:: images/device_id_enable.png
+  :width: 600 px
 
 
 Task 4 - Test Device ID based Brute Force Protection
