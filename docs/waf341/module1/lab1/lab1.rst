@@ -201,9 +201,9 @@ Task 1 - Configure Brute Force Attack Prevention
 Task 2 - Test username based Brute Force Protection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  Open a new Private Browsing window in **Firefox** .
+#.  Open a new Private Browsing window in **Chrome or Firefox** .
 
-#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
+#.  Go to the to WebGoat login page at ``https://juiceshop.f5agility.com/#/login``
 
 #.  Attempt to login using the same username and password of your choice at least 4 times or until CAPTCHA is displayed. Solve the CAPTCHA.
 
