@@ -259,11 +259,11 @@ Task 4 - Test Device ID based Brute Force Protection
 
 #. Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests:
 
-    |lab1-6|
 
 #. Click on the Occurrences and notice the Device ID in the request.
 
-    |lab1-7|
+.. image:: images/test_device_id.PNG
+  :width: 600 px
 
 
 |
