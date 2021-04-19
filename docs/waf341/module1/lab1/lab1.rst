@@ -115,7 +115,11 @@ Enabling Bot Profile
 .. image:: images/bot_profile.png
   :width: 600 px
 
-#.  Click on the **Bot Mitigation Settings** tab and review the default configuration.
+#.  Click on the **Bot Mitigation Settings** tab and review the default configuration. All of the Mitigation Settings should be configured for "Alarm." 
+
+.. image:: images/bot_mitigation_settings.png
+  :width: 600 px
+
 #.  Click on the **Signature Enforcement** tab and review the default configuration.
 #.  Click on the **Mobile Applications** tab and review the Mobile SDK Information
 #.  Click on the **Browsers** tab on the left and Change the Browser Verification setting to **Verify Before Access**, then ensure that the grace period is set to **10 Seconds**.
