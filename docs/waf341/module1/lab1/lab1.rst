@@ -144,7 +144,7 @@ Define Login Pages
         .. image:: images/login_enforcement1.png
           :width: 600 px        
 
-        #.   #. You will receive a **Login URL Validation** popout window. Select **Create Login Page**
+        #.   You will receive a **Login URL Validation** popout window. Select **Create Login Page**
 
 
 .. image:: images/login_url_validation.png
