@@ -254,6 +254,9 @@ Task 4 - Test Device ID based Brute Force Protection
 
 #. Attempt to login using a different username as in step 3, your first login request should be blocked.
 
+.. image:: images/device_id_test.PNG
+  :width: 600 px
+
 #. Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests:
 
     |lab1-6|
