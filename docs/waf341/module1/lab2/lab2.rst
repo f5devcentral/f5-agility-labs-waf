@@ -19,8 +19,8 @@ Task 1 - Configure Credential Stuffing Detection
 
 #.  Configure **Credential Stuffing** detection within the **Distributed Brute Force Protection** Section as follows:
 
-.. image:: images/dist_brute_force_protection.PNG
-  :width: 600 px
+        .. image:: images/dist_brute_force_protection.PNG
+          :width: 600 px
 
 #.  Click **Save** .
 
@@ -68,9 +68,10 @@ Task 2 - Test Credential Stuffing Detection
 
 #. Click **Apply Policy** .
 
+#. Navigate to **Local Traffic > Virtual Servers > Virtual Server List > owasp_juice_shop_443_vs > Security > Policies** and ensure that the juice_shop_waf policy and the Log All requests log profile are enabled on the owasp_juice_shop_443_vs virtual server as shown below removing the Bot Profile.
 
-
-
+.. image:: images/vs_config.PNG
+  :width: 600 px
 
 |
 |
