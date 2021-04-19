@@ -19,8 +19,8 @@ Task 1 - Configure Credential Stuffing Detection
 
 #.  Configure **Credential Stuffing** detection within the **Distributed Brute Force Protection** Section as follows:
 
-        .. image:: images/dist_brute_force_protection.PNG
-          :width: 600 px
+.. image:: images/dist_brute_force_protection.PNG
+  :width: 600 px
 
 #.  Click **Save** .
 
