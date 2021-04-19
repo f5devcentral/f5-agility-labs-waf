@@ -161,9 +161,14 @@ Task 1 - Configure Brute Force Attack Prevention
 
 #. Open a terminal in the RDP client and ssh to the BIG-IP using the **admin** user and provided **password** : ``ssh admin@10.1.10.245``.
 
-#. Run the command ``modify sys db asm.cs_qualified_urls value "/WebGoat/login"``.
+#. Run the command ``modify sys db asm.cs_qualified_urls value "/rest/user/login"``.
 
 #. Run the command ``save sys config``.
+
+
+.. image:: images/modify_sys_db.png
+  :width: 600 px
+
 
 #.  Open the BIG-IP GUI interface .
 
