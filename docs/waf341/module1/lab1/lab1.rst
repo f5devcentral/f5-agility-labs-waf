@@ -131,7 +131,7 @@ Enabling Bot Profile
 
 
 
-Define Login & Logout Pages
+Define Login Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         #.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List**.  Ensure the **juice_shop_waf** is selected at the top of the screen and click **Create**.
