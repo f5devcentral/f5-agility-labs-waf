@@ -138,13 +138,13 @@ Define Login Pages
 
         #.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
 
+        #.  Populate the form as shown below and click **Create and then Apply Policy**:
 
-        #. You will receive a **Login URL Validation** popout window. Select **Create Login Page**
 
         .. image:: images/login_enforcement1.png
           :width: 600 px        
 
-        #.  Populate the form as shown below and click **Create and then Apply Policy**:
+        #.   #. You will receive a **Login URL Validation** popout window. Select **Create Login Page**
 
 
 .. image:: images/login_url_validation.png
