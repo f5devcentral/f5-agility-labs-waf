@@ -134,24 +134,27 @@ Enabling Bot Profile
 Define Login Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        #.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List**.  Ensure the **juice_shop_waf** is selected at the top of the screen and click **Create**.
+#.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List**.  Ensure the **juice_shop_waf** is selected at the top of the screen and click **Create**.
 
-        #.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
+#.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
 
-        #.  Populate the form as shown below and click **Create and then Apply Policy**:
+#.  Populate the form as shown below and click **Create and then Apply Policy**:
 
 
-        .. image:: images/login_enforcement1.png
-          :width: 600 px        
+.. image:: images/login_enforcement1.png
+  :width: 600 px        
 
-        #.   You will receive a **Login URL Validation** popout window. Select **Create Login Page**
+#.   You will receive a **Login URL Validation** popout window. Select **Create Login Page**
 
 
 .. image:: images/login_url_validation.png
   :width: 600 px
 
 
+#. Next navigate to **Security -> Application Security -> Security Policies -> Policies List - > juice_shop_waf**.  Select ** Response and Blocking Pages** and scroll down to **AJAX Blocking Behavior (JavaScript Injection)** and turn that setting to **On**
 
+.. image:: images/ajax_config.PNG
+  :width: 600 px
 
 
 
