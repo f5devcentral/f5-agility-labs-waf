@@ -42,9 +42,11 @@ Host: Example.com
 Connection: Keep-alive
 Cookie: ******
 
-**JSON Profiles**	Masks elements within the JSON data whose values are should considered sensitive.	secID: ******
+**JSON Profiles**	Masks elements within the JSON data whose values are should considered sensitive.	
+secID: ******
 
-**XML Profiles**	Masks sensitive data in an XML document. You can specify the element or attribute whose value contains sensitive data and should be masked by the policy.	<secID>******</secID>
+**XML Profiles**	Masks sensitive data in an XML document. You can specify the element or attribute whose value contains sensitive data and should be masked by the policy.	
+<secID>******</secID>
 
 More information can be found here :
 https://support.f5.com/csp/article/K52154401
@@ -53,14 +55,14 @@ Task 1 - Login Page
 ~~~~~~~~~~~~~~~~~~~
 
 #.  Open a new Private Browsing window in **Firefox** .
-#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` and login as f5student
+#.  Go to the to Juiceshop login page and login as f5student@agility.com
 
-#. Examine the most recent  request in the event log for /WebGoat/login. Notice that you cannot see the password for f5student in the request.
-   The password is masked in the logs due to a sensitive parameter setting.
+#. Examine the most recent request in the event logs for /rest/user/login. Notice that you **cannot** see the password for f5student@agility.com in the request.
+   The password is masked in the logs due to a sensitive parameter setting which is created by the policy automatically.
 
         |lab2.3-0|
 
-#.  Open the BIG-IP interface.
+#.  Open the BIG-IP GUI interface.
 
 #.  Navigate to **Security -> Application Security -> Parameters List** and select the Sensitive Parameters tab and view the configuration.
 
@@ -70,7 +72,7 @@ Task 1 - Login Page
 
 #. Navigate to **Security -> Application Security -> Headers -> Cookies List.**
 
-#. Click Create and create the JSESSIONID cookie as seen below
+#. Click Create and create the **io** cookie as seen below
 
         |lab2.3-2|
 
@@ -78,7 +80,7 @@ Task 1 - Login Page
 
 #.  Open a new Private Browsing window in **Firefox** .
 
-#.  Go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``  and login
+#.  Go to the to Juiceshop login page and login
 
 #.  Examine the most recent requests and compare to earlier requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**.
 

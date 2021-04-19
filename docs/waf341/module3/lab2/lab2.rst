@@ -12,7 +12,7 @@ For more information on Automatic Policy Builder: `https://support.f5.com/csp/ar
         :width: 800px
 .. |lab3-04| image:: images/lab3-04.png
         :width: 800px
-.. |lab3-05| image:: images/lab3-05.png
+.. |lab3-05| image:: images/lab3-5.png
         :width: 800px
 .. |lab3-06| image:: images/lab3-06.png
         :width: 800px
@@ -24,20 +24,21 @@ For more information on Automatic Policy Builder: `https://support.f5.com/csp/ar
         :width: 800px
 .. |lab3-10| image:: images/lab3-10.png
         :width: 800px
+.. |lab3-052| image:: images/lab3-052.png
+	:width: 800px
+.. |lab3-053| image:: images/lab3-053.png
+	:width: 800px
 
 Task 1 - Create Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Browse to the BIGIP GUI.
 
-#. Navigate to **Security -> Application Security -> Parameters List** and click **create**. Create the username and account parameters as seen below and click **create**.
+#. Navigate to **Security -> Application Security -> Parameters List** and click **create**. Create the **email** parameter as seen below and click **create**.
 
-  **'username' parameter**
+  **email** parameter**
 
   |lab3-01|
 
-  **'account' parameter**
-
-  |lab3-02|
 
 Task 2 - Modify Learning and Blocking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,61 +50,30 @@ Navigate to **Security -> Application Security -> Policy Building -> Learning an
 Task 3 - Test Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new Firefox Private Browsing window and go to the WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login`` and login as **f5student**.
+#. Open a new Firefox Private Browsing window and go to the Juiceshop login and login as **f5student@agility.com**.
 
-#. Your login attempt should be blocked.
+#. Your login attempt should be unsuccessful.
 
-#. Examine the recent event logs under **Security -> Event Logs -> Application -> Requests** for the /WebGoat/login events.
+#. Examine the recent event logs under **Security -> Event Logs -> Application -> Requests** for the /rest/user/login events.
 
-   |lab3-04|
+   |lab3-052|
 
 #. Navigate to **Security -> Application Security -> Policy Building -> Traffic Learning**
 
 #. Review the entry for **illegal parameter value length**.
 
-   |lab3-05|
+   |lab3-053|
 
 #. Click **Accept Suggestion** and then click **Apply Policy**
 
-#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
-
-#. login as f5student
+#. Open a new Firefox Private Browsing window and go to the to Juiceshop login as **f5student@agility.com**
 
 #. Your login should be allowed.
 
 #. Return to **Security -> Application Security -> Parameters List**
-   Notice that accepting the suggestion for the username parameter has adjusted the maximum-length value to 10.
+   Notice that accepting the suggestion for the username parameter has adjusted the maximum-length value to 25.
 
    |lab3-06|
 
-#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
-
-#. login as f5student
-
-#. Choose Injection Flaws -> SQL Injection (intro) from the menu on the left then chose page 9 from the top.
-
-   |lab3-07|
-
-#. Adjust settings as seen and click **get account info**. The attack succeeds and you should see a list of accounts.
-
-   |lab3-08|
-
-#. Navigate to **Security -> Application Security -> Parameters List** and remove the **account** parameter from staging by unchecking the Enabled checkbox next to Perform Staging. Click Update then **Apply policy**.
-
-   |lab3-09|
-
-#. Open a new Firefox Private Browsing window and go to the to WebGoat login page at ``https://insecureapp1.f5.demo/WebGoat/login``
-
-#. login as f5student
-
-#. Choose Injection Flaws -> SQL Injection (intro) from the menu on the left then chose page 9 from the top.
-
-#. Adjust settings as used in an earlier step and click 'get account info'.
-
-#. The attack should fail since you are enforcing meta characters on your parameter. In this case the ' character is not allowed.
-
-#. Review the event logs under **Security -> Event Logs -> Application -> Requests**. In this case the ' character is not allowed.
-
-  |lab3-10|
 
 This concludes Lab 3.2

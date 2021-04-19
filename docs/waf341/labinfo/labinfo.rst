@@ -1,34 +1,40 @@
-Lab Environment & Topology
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lab Environment & TopologyLab Environment & Topology
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: All work is done from the Linux client/jumphost (client01), which can be accessed via RDP (Windows Remote Desktop) or ssh. No installation or interaction with your local system is required.
+.. NOTE:: All work is done from the Linux Client, which can
+   be accessed via RDP (Windows Remote Desktop). No installation or
+   interaction with your local system is required.
 
 Environment
 -----------
 
-**Linux client (client01):**
+**Linux Client:**
 
 **Web Attack Tools used in this lab:**
 
-* `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
-* `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
+- `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
+- `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
+- `Postman <https://www.postman.com/>`_ - API Development and request crafting
+- `ab (Apache Bench) <https://httpd.apache.org/docs/2.4/programs/ab.html>`_ - HTTP Load Testing
 
-**Linux server (server01):**
+**Linux server:**
 
-* `WebGoat 8 <https://github.com/WebGoat/WebGoat/wiki>`_ - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons. The primary goal of the WebGoat project is simple: create a de-facto interactive teaching environment for web application security.
+- `JuiceShop <https://owasp.org/www-project-juice-shop/>`_ - OWASP Juice Shop
+   is probably the most modern and sophisticated insecure web application!
 
-Lab Topology
----------------
+**Lab Topology**
+----------------
 
 The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
--  1 x Ubuntu Linux 18.04 client
--  1 x F5 BIG-IP VE (v15.1.0.1) running Advanced WAF with Ip Intelligence & Threat Campaigns Subscription Services.  
--  1 x Ubuntu Linux 18.04 server
+-  1 x Ubuntu Linux 20.04 client
+-  1 x F5 BIG-IP VE (v16.0.1) running Advanced WAF with Ip Intelligence &
+   Threat Campaigns Subscription Services.
+-  1 x Ubuntu Linux 20.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
-components:
+components. **The "password" will be provided by your instructor.**
 
 .. list-table::
    :widths: 15 15 15 15 15
@@ -37,21 +43,21 @@ components:
 
 
    * - **Component**
-     - **mgmtnet IP**
-     - **clientnet IP**
-     - **servernet IP**
+     - **mgt IP**
+     - **ClientSide IP**
+     - **ServerSide IP**
      - **Credentials**
-   * - Linux Client (client01)
-     - 10.1.1.5
+   * - Linux Client
+     - 10.1.1.7
      - 10.1.10.51
      - N/A
      - rdp-``f5student:password``
-   * - Bigip (bigip01)
-     - 10.1.1.8
+   * - BIG-IP
+     - 10.1.1.4
      - 10.1.10.245
      - 10.1.20.245
      - https - ``admin:password``  ssh - ``f5student:password``
-   * - Linux Server & WebGOAT app (server01)
+   * - Linux Server
      - 10.1.1.6
      - N/A
      - 10.1.20.252
