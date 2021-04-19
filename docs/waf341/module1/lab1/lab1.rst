@@ -157,7 +157,7 @@ Define Login Pages
   :width: 600 px
 
 
-Select **Save** then **Apply Policy**
+#. Select **Save** then **Apply Policy**
 
 
 
