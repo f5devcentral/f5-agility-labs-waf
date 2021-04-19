@@ -246,7 +246,7 @@ Task 4 - Test Device ID based Brute Force Protection
 
 #.  Open a new **incognito window** window in **Chrome or Firefox** .
 
-#.  Go to the to Juice Shop login page at ``https://insecureapp1.f5.demo/WebGoat/login``
+#.  Go to the to Juice Shop login page at ``https://juiceshop.f5agility.com/#/login``
 
 #.  Attempt to login using a **different username** and password each time until blocked.
 
