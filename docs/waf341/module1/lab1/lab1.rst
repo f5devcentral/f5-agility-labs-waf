@@ -85,7 +85,7 @@ Create security policy using the Guided Configuration
 
 #.  After the policy is created, we will want to apply a logging profile to our new security policy.
 
-    - Go to **Securirty -> Overview -> Summary**, and the policy you just created should be listed. 
+    - Go to **Security -> Overview -> Summary**, and the policy you just created should be listed. 
     - Place a check to the left of the **Virtual Server** name that your new security policy is applied to.  
     - Now click the blue **Attach** button above and select **Logging Profile**
 
@@ -130,7 +130,7 @@ Enabling Bot Profile
 Define Login & Logout Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        #.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List**.  Ensure the **insecureApp1_asmpolicy** is selected at the top of the screen and click **Create**.
+        #.  To configure a login page, go to **Security -> Application Security -> Sessions and Logins -> Login Pages List**.  Ensure the **juice_shop_asmpolicy** is selected at the top of the screen and click **Create**.
 
         #.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
 
