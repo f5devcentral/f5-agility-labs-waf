@@ -205,21 +205,21 @@ Task 2 - Test username based Brute Force Protection
 
 #.  Go to the to WebGoat login page at ``https://juiceshop.f5agility.com/#/login``
 
-#.  Attempt to login using the same username and password of your choice at least 4 times or until CAPTCHA is displayed. Solve the CAPTCHA.
+#.  Attempt to login using the same username and password of your choice at least 4 times or until CAPTCHA is displayed.
 
 #.  Examine the most recent requests in the event log by navigating to Security -> Event Logs -> Applications -> Requests:
 
-    You should see two requests for /WebGoat/login , one is the CAPTCHA challenge and the other is the CAPTCHA solve result.
+    You should see two requests for /rest/user/login.
 
-    |lab1-3|
+.. image:: images/brute_force_test.png
+  :width: 600 px
 
-    |lab1-3a|
-
-    Take note of the username field.  The request was considered as a brute force attack with an action of Alarm and CAPTCHA.
+    The request was considered as a brute force attack.
 
 #.  Near the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window click on the number under **Occurrences**:
 
-    |lab1-4|
+.. image:: images/brute_force_test2.png
+  :width: 600 px
 
     The message indicates the number of login attempts by a user exceeded the threshold.
 
