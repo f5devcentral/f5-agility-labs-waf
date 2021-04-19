@@ -141,6 +141,7 @@ Define Login Pages
 
         #.  Populate the form as shown below and click **Create and then Apply Policy**:
 
+
 .. image:: images/login_enforcement1.png
   :width: 600 px
 
