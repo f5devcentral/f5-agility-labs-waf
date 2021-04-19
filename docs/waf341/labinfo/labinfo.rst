@@ -19,16 +19,18 @@ Environment
 
 **Linux server:**
 
-- `JuiceShop <https://owasp.org/www-project-juice-shop/>`_ - OWASP Juice Shop is probably the most modern and sophisticated insecure web application! 
+- `JuiceShop <https://owasp.org/www-project-juice-shop/>`_ - OWASP Juice Shop
+   is probably the most modern and sophisticated insecure web application!
 
 **Lab Topology**
--------------------
+----------------
 
 The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
 -  1 x Ubuntu Linux 20.04 client
--  1 x F5 BIG-IP VE (v16.0.1) running Advanced WAF with Ip Intelligence & Threat Campaigns Subscription Services.  
+-  1 x F5 BIG-IP VE (v16.0.1) running Advanced WAF with Ip Intelligence &
+   Threat Campaigns Subscription Services.
 -  1 x Ubuntu Linux 20.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
@@ -55,10 +57,8 @@ components. **The "password" will be provided by your instructor.**
      - 10.1.10.245
      - 10.1.20.245
      - https - ``admin:password``  ssh - ``f5student:password``
-   * - Linux Server 
+   * - Linux Server
      - 10.1.1.6
      - N/A
      - 10.1.20.252
      - ssh - ``f5student:password``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-

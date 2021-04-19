@@ -12,7 +12,7 @@ For more information on Automatic Policy Builder: `https://support.f5.com/csp/ar
         :width: 800px
 .. |lab3-04| image:: images/lab3-04.png
         :width: 800px
-.. |lab3-05| image:: images/lab3-05.png
+.. |lab3-05| image:: images/lab3-5.png
         :width: 800px
 .. |lab3-06| image:: images/lab3-06.png
         :width: 800px

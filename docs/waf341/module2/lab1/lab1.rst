@@ -85,7 +85,7 @@ Task 2 - Configuring Method on per URL basis
 
     |lab2.1-2|
 
-#. Click **Create** to create a new allowed url as seen below the URL for /api/Cards/*. 
+#. Click **Create** to create a new allowed url as seen below the URL for /api/Cards/\*. 
 
     |lab2.1-3|
 

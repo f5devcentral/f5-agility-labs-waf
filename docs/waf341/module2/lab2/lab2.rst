@@ -58,13 +58,12 @@ Task 2 - Test DataGuard
 
     |lab2.2-4|
 
-#. Click submit and you will see your save address with the all but the last 4 digits of the name value replaced with ****
+#. Click submit and you will see your save address with the all but the last 4 digits of the name value replaced with \*\*\*\*
 
     |lab2.2-4a|
 
 
     .. NOTE:: You can also use PCRE to define custom patterns for obfuscation.  Feel free to experiment with this as it can have interesting consequences for the application (intentional or otherwise).
-
 
 |
 |
