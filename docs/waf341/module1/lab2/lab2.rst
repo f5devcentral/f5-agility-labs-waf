@@ -1,22 +1,7 @@
 Lab 1.2: Credential Stuffing
 ----------------------------
 
-..  |lab2-11| image:: images/lab2-11.png
-        :width: 800px
-..  |lab2-1| image:: images/lab2-1.png
-        :width: 800px
-..  |lab2-2| image:: images/lab2-2.png
-        :width: 800px
-..  |lab2-3| image:: images/lab2-3.png
-        :width: 800px
-..  |lab23-5| image:: images/lab23-5.png
-        :width: 800px
-..  |lab23-6| image:: images/lab23-6.png
-        :width: 800px
-..  |lab23-7| image:: images/lab23-7.png
-        :width: 800px
-..  |lab41-01| image:: images/lab41-01.png
-        :width: 800px
+
 
 Credential stuffing is a type of brute force attack that leverages stolen credentials from another source. This source is most commonly the breach of a widley used online service.  These leaked credentials are then levered in an attempt to compromise higher value targets in instances where users used the same credentials across multiple services. BIG-IP now has the capability to detect these types of attacks by employing a database of credentials that are known to have been compromised in a previous breach. The credentials are stored as one-way hashed usernames and passwords to protect them from further disclosure. Also note that we've chosen CAPTCHA as mitigation for this lab because it provides immediate feedback to the student.  In a production environment, Client Side Integrity Defense (or both), may be a more effective form of mitigation during an actual attack.  Feel free to experiment with this in the lab.
 
@@ -30,11 +15,12 @@ Task 1 - Configure Credential Stuffing Detection
     
 #.  Navigate to **Security -> Application Security  -> Brute Force Attack Prevention**.
 
-#.  Click on the /WebGoat/login configuration created earlier.
+#.  Click on the /rest/user/login configuration created earlier.
 
 #.  Configure **Credential Stuffing** detection within the **Distributed Brute Force Protection** Section as follows:
 
-    |lab2-11|
+.. image:: images/dist_brute_force_protection.PNG
+  :width: 600 px
 
 #.  Click **Save** .
 
