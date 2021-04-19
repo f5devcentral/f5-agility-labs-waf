@@ -138,27 +138,11 @@ Define Login & Logout Pages
 
         #.  We'll now populate the form with data gathered from your favorite browser or reconnaissance tool.  For expedience, we've gathered the appropriate data for you in advance:
 
-                |lab41-03|
 
-        #.  Populate the form as shown below and click **Create**:
+        #.  Populate the form as shown below and click **Create and then Apply Policy**:
 
-            ``Location: https://insecureapp1.f5.demo/WebGoat/welcome.mvc``
-
-            ``/WebGoat/login``
-
-            ``302``
-
-                |lab41-04|
-
-        #.  From the tab bar select **Logout Pages List** or navigate to **Security -> Application Security -> Sessions and Logins -> Logout Pages List**
-
-        #.  Populate the form as shown below and click **Create and then Apply policy**.
-
-          ``/WebGoat/logout``
-
-                 |lab41-05|
-
-
+.. image:: images/login_enforcement1.png
+  :width: 600 px
 
 
 
