@@ -214,6 +214,7 @@ Task 2 - Test username based Brute Force Protection
 .. image:: images/brute_force_test.png
   :width: 600 px
 
+
     The request was considered as a brute force attack.
 
 #.  Near the **Brute force: Maximum Login Attempts are exceeded** header at the top of the event window click on the number under **Occurrences**:
@@ -222,6 +223,7 @@ Task 2 - Test username based Brute Force Protection
   :width: 600 px
 
     The message indicates the number of login attempts by a user exceeded the threshold.
+    
 
 Task 3 - Enable Device ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~
