@@ -60,7 +60,8 @@ Task 1 - Allowed Methods
         |lab2.1-0d|
 
 #. Examine the most recent requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**. 
-        You should see a violation for "Illegal Method"
+   
+   You should see a violation for "Illegal Method"
 
         |lab2.1-0e|
 
@@ -89,7 +90,7 @@ Task 2 - Configuring Method on per URL basis
     |lab2.1-3|
 
 #. Examine the created URI and switch to the advanced view
-#. Select the methods enforcement tab and check override policy allowed methods and 
+#. Select the methods enforcement tab and check override policy allowed methods
 #. Slide "DELETE" with a state of **allow** and click **update** 
 #. Click **Apply policy**
     

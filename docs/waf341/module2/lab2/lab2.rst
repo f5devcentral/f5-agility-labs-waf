@@ -50,7 +50,7 @@ Task 2 - Test DataGuard
 
 #.  Open a new private browsing window in **Firefox** and login as f5student@agility.com to Juiceshop
 
-#.  Navigate to **Account > Orders & Payment > My save addresses**
+#.  Navigate to **Account > Orders & Payment > My saved addresses**
 
     |lab2.2-3|
 
