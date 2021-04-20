@@ -37,13 +37,11 @@ The following table lists VLANS, IP Addresses and Credentials for all
 components. **The "password" will be provided by your instructor.**
 
 .. list-table::
-   :widths: 15 15 15 15 15
+   :widths: 15 15 15 15 20
    :header-rows: 1
-   :stub-columns: 1
-
 
    * - **Component**
-     - **mgt IP**
+     - **Mgmt IP**
      - **ClientSide IP**
      - **ServerSide IP**
      - **Credentials**
@@ -56,7 +54,9 @@ components. **The "password" will be provided by your instructor.**
      - 10.1.1.4
      - 10.1.10.245
      - 10.1.20.245
-     - https - ``admin:password``  ssh - ``f5student:password``
+     - https - ``admin:password``
+
+       ssh - ``f5student:password``
    * - Linux Server
      - 10.1.1.6
      - N/A

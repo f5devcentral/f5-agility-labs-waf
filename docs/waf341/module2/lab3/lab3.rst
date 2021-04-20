@@ -3,20 +3,14 @@ Lab 2.3: Sensitive Data
 
 .. |lab2.3-0| image:: images/lab2.3-0.png
    :width: 800px
-
 .. |lab2.3-1| image:: images/lab2.3-1.png
    :width: 800px
-
 .. |lab2.3-2| image:: images/lab2.3-2.png
    :width: 800px
-
 .. |lab2.3-5| image:: images/lab2.3-5.png
    :width: 800px
-
 .. |lab2.3-3| image:: images/lab2.3-3.png
    :width: 800px
-
-
 .. |lab2.3-9| image:: images/lab2.3-9.png
   :width: 800px
 
@@ -25,71 +19,103 @@ the request log in plain text. In some cases you may want to mask request
 information in the logs as some requests include sensitive information, such as
 authorization credentials or credit card information. When you enable Mask
 Value in Logs for a policy element, the system replaces the sensitive data with
-asterisks (\*\*\*\*\*\*). The masked data cannot be viewed by the administrator.
+asterisks (\*\*\*\*\*\*). The masked data cannot be viewed by the
+administrator.
 
 You can mask data in the logs for the following policy elements.
 
-**Parameters**	Masks the parameter value, including the value for positional parameters. The setting does not mask the parameter name.	GET /profiles/******
+**Parameters**	Masks the parameter value, including the value for positional
+parameters. The setting does not mask the parameter name.
 
-**HTTP headers**	Masks the header value. The setting does not mask the header name.	GET / HTTP/1.1
-Host: Example.com
-Connection: Keep-alive
-Authorization: ******
-Cookie: TS-Cookie
+.. code-block:: html
 
-**Cookies**	Masks the values for allowed and enforced cookies types. The setting does not mask the cookie name and does not apply to BIG-IP ASM cookies.	GET / HTTP/1.1
-Host: Example.com
-Connection: Keep-alive
-Cookie: ******
+   GET /profiles/******
 
-**JSON Profiles**	Masks elements within the JSON data whose values are should considered sensitive.	
-secID: ******
+**HTTP headers**	Masks the header value. The setting does not mask the header
+name.
 
-**XML Profiles**	Masks sensitive data in an XML document. You can specify the element or attribute whose value contains sensitive data and should be masked by the policy.	
-<secID>******</secID>
+.. code-block:: html
 
-More information can be found here :
-https://support.f5.com/csp/article/K52154401
+   GET / HTTP/1.1
+   Host: Example.com
+   Connection: Keep-alive
+   Authorization: ******
+   Cookie: TS-Cookie
+
+**Cookies**	Masks the values for allowed and enforced cookies types. The
+setting does not mask the cookie name and does not apply to BIG-IP ASM cookies.
+
+.. code-block:: html
+
+   GET / HTTP/1.1
+   Host: Example.com
+   Connection: Keep-alive
+   Cookie: ******
+
+**JSON Profiles**	Masks elements within the JSON data whose values are should
+considered sensitive.
+
+.. code-block:: html
+
+   secID: ******
+
+**XML Profiles**	Masks sensitive data in an XML document. You can specify the
+element or attribute whose value contains sensitive data and should be masked
+by the policy.
+
+.. code-block:: html
+
+   <secID>******</secID>
+
+.. seealso:: More information can be found here
+   https://support.f5.com/csp/article/K52154401
 
 Task 1 - Login Page
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
-#.  Open a new Private Browsing window in **Firefox** .
-#.  Go to the to Juiceshop login page and login as f5student@agility.com
+#. Open a new Private Browsing window in **Firefox** .
+#. Go to the to Juiceshop login page and login as f5student@agility.com
 
-#. Examine the most recent request in the event logs for /rest/user/login. Notice that you **cannot** see the password for f5student@agility.com in the request.
-   The password is masked in the logs due to a sensitive parameter setting which is created by the policy automatically.
+#. Examine the most recent request in the event logs for /rest/user/login.
+   Notice that you **cannot** see the password for f5student@agility.com in the
+   request. The password is masked in the logs due to a sensitive parameter
+   setting which is created by the policy automatically.
 
-        |lab2.3-0|
+   |lab2.3-0|
 
-#.  Open the BIG-IP GUI interface.
+#. Open the BIG-IP GUI interface.
 
-#.  Navigate to **Security -> Application Security -> Parameters List** and select the Sensitive Parameters tab and view the configuration.
+#. Navigate to **Security -> Application Security -> Parameters List** and
+   select the Sensitive Parameters tab and view the configuration.
 
-        |lab2.3-9|
+   |lab2.3-9|
 
-#. Next we will obfuscate cookies as they could contain sensitive information we would not want an administrator to have access to.
+#. Next we will obfuscate cookies as they could contain sensitive information
+   we would not want an administrator to have access to.
 
 #. Navigate to **Security -> Application Security -> Headers -> Cookies List.**
 
 #. Click Create and create the **io** cookie as seen below
 
-        |lab2.3-2|
+   |lab2.3-2|
 
 #. Click **Create and then Apply Policy**
 
-#.  Open a new Private Browsing window in **Firefox** .
+#. Open a new Private Browsing window in **Firefox** .
 
-#.  Go to the to Juiceshop login page and login
+#. Go to the to Juiceshop login page and login
 
-#.  Examine the most recent requests and compare to earlier requests in the event log by navigating to **Security -> Event Logs -> Applications -> Requests**.
+#. Examine the most recent requests and compare to earlier requests in the
+   event log by navigating to **Security -> Event Logs -> Applications ->
+   Requests**.
 
-#. The cookie content is now obfuscated in the Logs when they were visible before.
+#. The cookie content is now obfuscated in the Logs when they were visible
+   before.
 
-        |lab2.3-3|
+   |lab2.3-3|
 
-        After applying mask.
+   After applying mask.
 
-        |lab2.3-5|
+   |lab2.3-5|
 
 **This concludes section 2.3**
