@@ -46,9 +46,9 @@ Create security policy using the Guided Configuration
 
 #. Under **Select Enforcement Mode** select **Blocking**
 
-    .. note:: Typically you would deploy a new policy in a transparent mode so
-       you can observe the logs before blocking to help avoid false positives.
-       But come on....this is a lab. We are going to block stuff!
+   .. note:: Typically you would deploy a new policy in a transparent mode so
+      you can observe the logs before blocking to help avoid false positives.
+      But come on....this is a lab. We are going to block stuff!
 
 #. Click on **Show Advanced Settings** button in the upper right hand corner of
    your page.

@@ -42,9 +42,9 @@ Task 1 - Create Parameters
    click **create**. Create the **email** parameter as seen below and click
    **create**.
 
-  **email** parameter**
+   **email** parameter**
 
-  |lab3-01|
+   |lab3-01|
 
 Task 2 - Modify Learning and Blocking
 -------------------------------------
@@ -54,7 +54,7 @@ and Blocking Settings** and enable the **Parameters** settings for 'illegal
 parameter value length' and 'illegal meta character in value' as seen below in
 the **Policy Building Settings** section.
 
-   |lab3-03|
+|lab3-03|
 
 Task 3 - Test Configuration
 ---------------------------
