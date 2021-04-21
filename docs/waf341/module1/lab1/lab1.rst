@@ -244,7 +244,7 @@ Task 2 - Test username based Brute Force Protection
    ``https://juiceshop.f5agility.com/#/login``
 
 #. Attempt to login using the same username and password of your choice at
-   least 4 times or until CAPTCHA is displayed.
+   least 3 to 4 times.  
 
 #. Examine the most recent requests in the event log by navigating to Security
    -> Event Logs -> Applications -> Requests:

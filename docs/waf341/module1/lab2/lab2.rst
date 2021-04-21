@@ -42,11 +42,7 @@ Task 2 - Test Credential Stuffing Detection
    ``https://juiceshop.f5agility.com/#/login``
 
 #. Attempt to login using the username ``demo33@fidnet.com`` and password
-   ``mountainman01``. One the THIRD attempt, you should receive a blocking
-   page.
-
-   .. image:: images/blocking_page.PNG
-      :width: 600 px
+   ``mountainman01``
 
 #. Examine the most recent requests in the event log by navigating to Security
    -> Event Logs -> Applications -> Requests
