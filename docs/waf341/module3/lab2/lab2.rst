@@ -42,8 +42,6 @@ Task 1 - Create Parameters
    click **create**. Create the **email** parameter as seen below and click
    **create**.
 
-   **email** parameter**
-
    |lab3-01|
 
 Task 2 - Modify Learning and Blocking
@@ -52,7 +50,8 @@ Task 2 - Modify Learning and Blocking
 Navigate to **Security -> Application Security -> Policy Building -> Learning
 and Blocking Settings** and enable the **Parameters** settings for 'illegal
 parameter value length' and 'illegal meta character in value' as seen below in
-the **Policy Building Settings** section.
+the **Policy Building Settings** section. After you have finished making the 
+modifications click **Apply Policy**.
 
 |lab3-03|
 
