@@ -11,11 +11,11 @@ Launch Postman from the Linux desktop icon shown below:
     
 .. NOTE:: If the collection already exists choose 'replace'
 
-        https://gitlab.com/f5-examples/udf_waf_cicd/-/raw/master/WAF_342_postman_collection.json?inline=false 
+        http://gitlab.lab/waf_labs/waf_cicd/raw/master/WAF_301_postman_collection.json?inline=false
 
         .. image:: images/11-module1.png
 
-        **1.** With the collection imported, on the left-hand pane of Postman, you’ll see the collection titled ‘WAF_342’ with several declarations under it:
+        **1.** With the collection imported, on the left-hand pane of Postman, you’ll see the collection titled ‘WAF_301’ with several declarations under it:
 
         .. image:: images/12-module1.png
 
@@ -26,7 +26,7 @@ Launch Postman from the Linux desktop icon shown below:
 
         .. image:: images/13-module1.png
 
-        **4.** This validates that AS3 is running and responded with version 3.16.0
+        **4.** This validates that AS3 is running and responded with version 3.32.1
 
 **1.4.2:** We’re now going to make an AS3 declaration to the BIG-IP.  To view the JSON declaration, click on the declaration titled **as3 with_declarative_waf_and_vs** and select :guilabel:`Body` and :guilabel:`raw` as shown below:
 
