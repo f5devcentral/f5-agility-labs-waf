@@ -23,6 +23,8 @@ Log into the Linux client via RDP using the following credentials and open the T
 2.1.2 - Install Python
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+Steps 2.1.2 and 2.1.3 are all ready completed for you
+
 Within the terminal type:
 
 Password for 'sudo': f5DEMOs4u!
