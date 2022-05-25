@@ -32,15 +32,15 @@ Launch Postman from the Linux desktop icon shown below:
 
     .. image:: images/14-module1.png
 
-    In this declaration, we’re going to be creating a new Virtual Server on the BIG-IP, creating an ASM policy by referencing the template created earlier and applying it to the new Virtual Server. This virtual server front-ends a pool member that is running OWASP’s Juice Shop application that has all of the OWASP top 10 vulnerabilities.  
+    In this declaration, we’re going to be creating a new Virtual Server on the BIG-IP, creating an Advanced WAF policy by referencing the template created earlier and applying it to the new Virtual Server. This virtual server front-ends a pool member that is running OWASP’s Juice Shop application that has all of the OWASP top 10 vulnerabilities.  
 
-    Also note that the declaration is calling an external URL hosted on Gitlab and is our WAF JSON declaration that will be creating all of the configuration items mentioned above.  If you’d like, you can view the JSON declaration by using the bookmark bar in FireFox on the Linux Desktop and clicking on the ‘WAF_342’ Bookmark folder and clicking on ‘Gitlab’. login with the cached credentials and  The following screen appears:
+    Also note that the declaration is calling an external URL hosted on Gitlab and is our WAF JSON declaration that will be creating all of the configuration items mentioned above.  If you’d like, you can view the JSON declaration by using the bookmark bar in FireFox on the Linux Desktop and clicking on the ‘WAF_301’ Bookmark folder and clicking on ‘Gitlab’. login with the cached credentials and  The following screen appears:
 
         .. image:: images/15-module1.png
 
     **1** Click on ‘waf_labs / waf_cicd’ and at the bottom of the page you’ll see ‘waf_policy.json’.  Click on that to view the JSON file:
 
-.. NOTE:: in the top section you’ll see the name 'owasptop10_agility2020'.  This refers to the template we created on the BIG-IP to build the ASM policy and matches the name of the template we created in the BIG-IP.
+.. NOTE:: in the top section you’ll see the name 'owasptop10_agility2022'.  This refers to the template we created on the BIG-IP to build the Advanced WAF policy and matches the name of the template we created in the BIG-IP.
 
         .. image:: images/16-module1.png
 
@@ -48,7 +48,7 @@ Launch Postman from the Linux desktop icon shown below:
 
         .. image:: images/17-module1.png
 
-    **3** Validate that the ASM policy has been created via the previous step by logging into the BIG-IP with the following credentials.  
+    **3** Validate that the Advanced WAF policy has been created via the previous step by logging into the BIG-IP with the following credentials.  
 
         Username:	admin
 		Password:	f5DEMOs4u!
