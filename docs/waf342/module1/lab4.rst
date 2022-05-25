@@ -26,7 +26,7 @@ Launch Postman from the Linux desktop icon shown below:
 
         .. image:: images/13-module1.png
 
-        **4.** This validates that AS3 is running and responded with version 3.32.1
+        **4.** This validates that AS3 is running and responded with version 3.16
 
 **1.4.2:** We’re now going to make an AS3 declaration to the BIG-IP.  To view the JSON declaration, click on the declaration titled **as3 with_declarative_waf_and_vs** and select :guilabel:`Body` and :guilabel:`raw` as shown below:
 
