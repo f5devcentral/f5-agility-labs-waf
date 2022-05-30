@@ -22,7 +22,7 @@ Lab 1.3: Creation of ASM Policies via Importing JSON Files
 
 .. image:: images/Lab2-4.png
 
-**b.**  Navigate to the Desktop and select the 'waf342' folder
+**b.**  Navigate to the Desktop and select the 'waf301' folder
 
 .. image:: images/Lab2-5.png
         
