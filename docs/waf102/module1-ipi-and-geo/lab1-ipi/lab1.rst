@@ -167,7 +167,7 @@ Configure L7 IPI
 .. image:: images/enable_ipi.png
   :width: 600 px
  
-#. Notice at the top left drop-down that you are working within the juiceshop_waf policy context. Enable **Alarm** and **Block** for each category. 
+3. Notice at the top left drop-down that you are working within the juiceshop_waf policy context. Enable **Alarm** and **Block** for each category. 
 
 .. image:: images/waf_ipi.png
   :width: 600 px
