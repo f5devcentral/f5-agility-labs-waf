@@ -44,24 +44,24 @@ In this first lab, we will start by enabling a Global IPI Policy; much like you 
 
 | 
 
-4. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
+5. On the Main tab, click **Security > Network Firewall > IP Intelligence > Policies**. 
 
 .. image:: images/ipi.png
   :width: 600 px
 
 .. NOTE:: Network Firewall IP Intelligence Policies are a layer 3 enforcement capability and part of Advanced WAF. No additional licensing is necessary beyond Advanced WAF with an IPI Subscription. 
 
-5. Click on the **Create** button.
+6. Click on the **Create** button.
 
 #. For the name:  **global_ipi** 
 
-#. Under **IP Intelligence Policy Properties** For the Default Log Action choose **yes** to **Log Category Matches**.
+#. Under **IP Intelligence Policy Properties** For the **Default Log Action** choose **yes** to **Log Category Matches**.
 
 #. Browse to the inline **Help** tab at the top left of the GUI and examine the Default Log Action settings. Inline help is very useful when navigating the myriad of options available within any configuration screen.
 
 .. NOTE:: Notice in the setting descriptions that hardware acceleration is not available when "logging all matches". This exercise is to familiarize you with the value of inline help and will not affect our virtual lab.
 
-9. To the right of the screen, click **Add** under the categories section. 
+10. To the right of the screen, click **Add** under the categories section. 
 
 #. From the category section choose **botnets** and click **Done editing**.
 
@@ -70,7 +70,7 @@ In this first lab, we will start by enabling a Global IPI Policy; much like you 
 .. image:: images/ipi_global.png
   :width: 600 px
 
-12. Commit the Changes to the System.
+13. Commit the Changes to the System.
 
 #. Under **Global Policy Assignment > IP Intelligence Policy** click on the dropdown and select the **global_ipi** policy and click **Update**.
 
@@ -89,7 +89,7 @@ Setup Logging for Global IPI
 
 Test 
 ~~~~~~~~~~~~~~~~
-#. On the Linux Client, open a terminal and **cd** to **Agility2021wafTools**
+#. On the Linux Client, open a terminal and **cd** to **Agility2022wafTools**
 #. Run the following command to send some traffic to the site: **./ipi_tester**.
 
 .. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
@@ -162,7 +162,11 @@ Configure L7 IPI
 .. image:: images/ipi_waf.png
   :width: 600 px
 
-2. Navigate to **Security > Application Security > IP Addresses > IP Intelligence** and enable IP Intelligence by checking the box. 
+2. Navigate to **Security > Application Security > Security Policies** From the policy list select the **juiceshop_waf** policy. Click on **IP Intelligence** from the left panel. In the **IP Intelligence** screen click on the **OFF** slider to enable IP Intelligence
+
+.. image:: images/enable_ipi.png
+  :width: 600 px
+ 
 #. Notice at the top left drop-down that you are working within the juiceshop_waf policy context. Enable **Alarm** and **Block** for each category. 
 
 .. image:: images/waf_ipi.png
