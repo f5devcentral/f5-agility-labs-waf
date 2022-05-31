@@ -14,7 +14,7 @@ Geolocation
 .. image:: images/global_ipi.png   
   :width: 600 px
 
-2. Open **Security > Application Security >** click on **juiceshop_waf** policy created previously. Click **General Settings >** scroll down on the right panel to **Geolocation Enforcement**   
+2. Open **Security > Application Security > Security Policies**. Select the **juiceshop_waf** policy created previously. Click **General Settings >** scroll down the right pane to **Geolocation Enforcement**.   
 
 #. Select all Geolocations **except the United States and N/A** and move them to Disallowed Geolocations. **Save** and then **Apply Policy**.
 
