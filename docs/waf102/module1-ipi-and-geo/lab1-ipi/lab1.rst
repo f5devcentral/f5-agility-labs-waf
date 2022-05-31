@@ -162,7 +162,7 @@ Configure L7 IPI
 .. image:: images/ipi_waf.png
   :width: 600 px
 
-2. Navigate to **Security > Application Security > Security Policies** From the policy list select the **juiceshop_waf** policy. Click on **IP Intelligence** from the left panel. In the **IP Intelligence** screen click on the **OFF** slider to enable IP Intelligence
+2. Navigate to **Security > Application Security > Security Policies**. Select the **juiceshop_waf** policy from the policy list. Click **IP Intelligence** on the middle pane. In the **IP Intelligence** screen click on the **OFF** slider to enable IP Intelligence
 
 .. image:: images/enable_ipi.png
   :width: 600 px
