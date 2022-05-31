@@ -100,7 +100,7 @@ One thing you can do to greatly increase the integrity of the learning suggestio
 #. Click the little window/arrow icon next to **Trusted IP Addresses List** is empty.
 #. This takes you to: **Security > Application Security > Security Policies > Policies List > juiceshow_waf policy > IP Address Exceptions**. Click **Create**.
 
-.. image:: images/ip_exceptions.png
+.. image:: images/ip_exception.png
   :width: 600 px
  
 #. For IP Address: **10.0.0.0** and for Netmask: **255.0.0.0**. Check the box for **Policy Builder trusted IP** and click **Create** and **Apply Policy**.
