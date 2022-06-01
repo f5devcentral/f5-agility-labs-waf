@@ -103,7 +103,7 @@ One thing you can do to greatly increase the integrity of the learning suggestio
 .. image:: images/ip_exception.png
   :width: 600 px
  
-#. For IP Address: **10.0.0.0** and for Netmask: **255.0.0.0**. Check the box for **Policy Builder trusted IP** and click **Create** and **Apply Policy**.
+4. For IP Address: **10.0.0.0** and for Netmask: **255.0.0.0**. Check the box for **Policy Builder trusted IP** and click **Create** and **Apply Policy**.
 
 .. image:: images/ip.png
   :width: 600 px
@@ -186,7 +186,13 @@ In this final exercise we will examine server technologies which allow you to au
 .. image:: images/st.png
   :width: 600 px
 
-4. Scroll down to **Advanced Settings > Server Technologies** and click in the box. Search for Linux since we know the server is running Linux. The system will display a box describing which new signature sets will be applied. Click **Confirm**. 
+4. This takes you to: **Security > Application Security > Security Policies > juiceshop_waf > Genearl Settings**. Scroll down to **Advanced Settings > Server Technologies** and click in the box. Search for Linux since we know the server is running Linux. 
+
+.. image:: images/svr_tech.png
+  :width: 600 px
+
+
+The system will display a box describing which new signature sets will be applied. Click **Confirm**. 
 
 .. image:: images/ast.png
   :width: 600 px
