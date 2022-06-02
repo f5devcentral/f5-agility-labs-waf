@@ -42,10 +42,10 @@ Since we will be training the WAF for positive security, let's create an allow l
 #. Note in the upper left that this allow list is only associated with the juiceshop_blocking policy. Allow lists are unique per policy but could be defined at part of a parent policy and delegated down to child policies. 
 #. Click **Create** and configure your Exception properties according to the screenshot below, then click **Add**. Be sure to enable the **Trust this IP** under **Policy Builder Traffic**.
 
-.. image:: images/ipe3.png
+.. image:: images/ipe2.png
   :width: 600 px
 
-.. image:: images/ipe2.png
+.. image:: images/ipe3.png
   :width: 600 px
 
 .. image:: images/ipe.png
