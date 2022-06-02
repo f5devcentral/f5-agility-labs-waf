@@ -27,8 +27,8 @@ Define Login & Logout Pages
         :width: 600 px
 
 
-4.  From the tab bar at the top middle of the GUI, select **Login Enforcement** and populate the form as shown below. The **/profile** URI should never have attempted access without authentication. 
-5.  Click **Save** and make note of the **Note** in red txt. We will configure **Learning and Blocking Settings** momentarily.
+4.  In the **Authenticated URLs** field, type **/profile** and click **Add.** The **/profile** URI should never have attempted access without authentication. 
+5.  Click **Save** and make note of the alert. We will configure **Learning and Blocking Settings** momentarily.
 
 .. image:: images/le2.png
         :width: 600 px
