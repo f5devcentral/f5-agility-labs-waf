@@ -188,6 +188,7 @@ Verifying Behaviors
 #. Notice the JavaScript challenge. This IP will continue to be challenged for the duration of the de-escalation period of 360 seconds that we set earlier or as long as the server is under stress from this IP. You should also observe JS injection if you substitute **10.1.10.52 and 10.1.10.53** in the curl request.
 #. If for some reason you notice that the JS challenge is not appearing in the response to your curl request, it's possible that the cool-off period (configured in your DoS Profile) has already elapsed. If so, restart the attack (**./AB_SSL_DOS.sh > Option 1**) and let it run for a minute or so, then repeat steps 4 and 5 respectively.
 #. You should now observe a JS challenge when submitting a curl request from any of the addresses listed in Step 5 (.51, .52, or .53) even though the attack has ceased.
+
 .. image:: images/curl2.png
   :width: 600 px
 
