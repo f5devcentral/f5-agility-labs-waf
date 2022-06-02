@@ -192,4 +192,4 @@ Verifying Behaviors
 .. image:: images/curl2.png
   :width: 600 px
 
-**This concludes Lab 3**
+**This concludes Lab 3.**
