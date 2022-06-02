@@ -166,17 +166,17 @@ Enable Blocking in the DoS Profile
 5. Attempt to refresh JuiceShop..initially it is down, but within about a minute and a few refreshes later, the WAF has figured out the attack and taken mitigation action. 
 #. Navigate to **Security > Event Logs > DoS > Application Events** and review the new entries. We can see that the attack was picked up by behavioral mitigation first.
 #. Next we can see that the mitigation was changed to **DOS L7 Attack** with **Source IP-Based Client Side Integrity Defense**. This means that the WAF is actively challenging these IP addresses with JS. 
-#. Expand the **+** and you will be able to see more details about the mitigation for each of the client IP's. 
+#. Expand the **+** and you will be able to see more details about the mitigation for each of the client IPs. 
 
 .. image:: images/events1.png
   :width: 600 px
 
-.. NOTE:: The Linux client uses 10.1.10.100 as it's primary source IP. This is the IP you are coming from when using the browser. The Apache Bench script is configured to use alternate source IP's (10.1.10.51, .52, and .53).
+.. NOTE:: The Linux client uses 10.1.10.100 as it's primary source IP. This is the IP you are coming from when using the browser. The Apache Bench script is configured to use alternate source IPs (10.1.10.51, .52, and .53).
 
 Verifying Behaviors
 ~~~~~~~~~~~~~~~~~~~~~~
 
-#. Notice JuiceShop continues to load fine in the browser now that mitigations are in place for the attacking IP's. 
+#. Notice JuiceShop continues to load fine in the browser now that mitigations are in place for the attacking IPs. 
 #. Open a new terminal tab and run the following command: ``curl -k https://juiceshop.f5agility.com``
 #. Notice the default HTML being returned for the site. You are coming from the **.100** IP address. 
 
