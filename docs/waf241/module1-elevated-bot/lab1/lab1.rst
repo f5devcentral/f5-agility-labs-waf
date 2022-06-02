@@ -200,7 +200,7 @@ Here we see a response, but it isn't the default HTML of the Juiceshop page we s
 
 .. NOTE:: The Bot Profile identified the requesting party as a suspicious browser and issued a Captcha Response due to Suspicious HTTP Headers Presence or Order. That was the JavaScript we saw returned in the terminal window. 
 
-**Return to your Bot Defense Profile (Security > Bot Defense Profiles, then click on "Balanced Bot Profile") and review the Bot Mitigation options in the drop downs menus. At this point it should be getting clearer to you as to how a bot profile operates from a mitigation settings perspective and how to validate your configurations. We "could" start blocking or redirecting Untrusted Bots to another pool of servers for forensics. We "could" also send Suspicious browsers or Malicious Bots to a honeypot page.**
+Return to your Bot Defense Profile (**Security > Bot Defense Profiles, then click on "Balanced Bot Profile**) and review the Bot Mitigation options in the drop downs menus. **At this point it should be getting clearer to you as to how a bot profile operates from a mitigation settings perspective and how to validate your configurations. We "could" start blocking or redirecting Untrusted Bots to another pool of servers for forensics. We "could" also send Suspicious browsers or Malicious Bots to a honeypot page.**
 
 .. image:: images/mitig.png
   :width: 600 px
