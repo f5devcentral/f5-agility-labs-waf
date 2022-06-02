@@ -183,14 +183,14 @@ Verifying Behaviors
 .. image:: images/curl1.png
   :width: 600 px
 
-4. Stop the Apache Bench attack in the terminal window by typing **CTRL +C** and then **4** and hit **Return**. 
-#. Now run this command in terminal to send the request from an IP that is being mitigated by DoS profile. ``curl -k --interface 10.1.10.51 https://juiceshop.f5agility.com``
-#. Notice the javascript challenge. This IP will continue to be challenged for the duration of the de-escalation period of 360 seconds that we set earlier or as long as the server is under stress from this IP. 
-#. If for some reason you notice the JS challenge is not appearing in the response to your curl request, it's possible that the cool-off period has already elapsed. If so, restart the attack and let it run for a minute or so, then repeat steps 4 and 5 respectively.
+4. Stop the Apache Bench attack in the terminal window by typing **CTRL + C** and then **4** and hit **Return**. 
+#. Now run this command in terminal to send the request from an IP that is being mitigated by DoS profile. ``curl -k --interface 10.1.10.51 https://juiceshop.f5agility.com``.
+#. Notice the javascript challenge. This IP will continue to be challenged for the duration of the de-escalation period of 360 seconds that we set earlier or as long as the server is under stress from this IP. You should also observe JS injection if you substitute **10.1.10.52 and 10.1.10.53** in the curl request.
 
 .. image:: images/curl2.png
   :width: 600 px
 
-
+#. If for some reason you notice that the JS challenge is not appearing in the response to your curl request, it's possible that the cool-off period (configured in your DoS Profile) has already elapsed. If so, restart the attack (**./AB_SSL_DOS.sh > Option 1**) and let it run for a minute or so, then repeat steps 4 and 5 respectively.
+#. You should now observe a JS challenge when submitting a curl request from any of the addresses listed in Step 5 (.51, .52, or .53) even though the attack has ceased.
 
 **This concludes Lab 3**
