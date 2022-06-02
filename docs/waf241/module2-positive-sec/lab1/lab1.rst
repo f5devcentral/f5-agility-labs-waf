@@ -104,7 +104,7 @@ Exercise the App Part 2
 
 
 5. In the Advanced WAF tab navigate to **Security > Event Logs > Application > Requests** and you will see a blocked event for the review you just left. 
-#. Click on the blocked event and review the Violation. This is an **Illegal method** violation due to "Put" being used as the command to leave feedback. "Put" is not a default allowed HTTP command per the Rapid Deployment Policy Template.  
+#. Click on the blocked event and review the Violation. This is an **Illegal method** violation due to "PUT" being used as the command to leave feedback. "Put" is not a default allowed HTTP command per the Rapid Deployment Policy Template.  
 
 .. image:: images/badreview.png
   :width: 600 px
