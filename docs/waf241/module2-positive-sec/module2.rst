@@ -1,6 +1,6 @@
 Module 2: Intro to Positive Security   
 ============================================
-Expected time to complete: **20 min**
+Expected time to complete: **25-30 min**
 
 
 

@@ -2,7 +2,7 @@ Lab 2: Intro to Positive Security
 ------------------------------------
 
 In WAF102, we created and tested some of the negative security aspects of the Application Security Policy including IP Intelligence Enforcement, Geolocation, Signature Based Bot Detection and a Transparent Policy focused on Attack Signatures. 
-If you were following along in successive fashion and building your own environment, the configurations below logically pick up in the policy right where 141 left off. We will be creating a new policy for this lab that starts with "2nd day" best-practice configurations for **elevating** your WAF policy up a level but in reality you should always start your approach as recommended in the 141 class and build from there. 
+If you were following along in successive fashion and building your own environment, the configurations below logically pick up in the policy right where 102 left off. We will be creating a new policy for this lab that starts with "2nd day" best-practice configurations for **elevating** your WAF policy up a level, but in reality, you should always start your approach as recommended in WAF102 and build from there. 
 
 #. Navigate to **Security > Application Security > Security Policies > Policies List > Create** and configure a policy named **juiceshop_blocking**
 #. Choose Policy Template: **Rapid Deployment Policy**, Enforcement Mode: **Blocking** and click **Save**. 
@@ -11,7 +11,7 @@ If you were following along in successive fashion and building your own environm
   :width: 600 px
 
 3. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings**. 
-#. Under **Cookies** note the default settings. Uncheck **Learn** from **Modified ASM Cookie**. Generally we do not want to allow modification of the WAF cookie and therefor will disable learning suggestions for this. 
+#. Under **Cookies** note the default settings. Uncheck **Learn** from **Modified ASM Cookie**. Generally, we do not want to allow modification of the WAF cookie and therefor will disable learning suggestions for this. 
 #. Under **File Types** note the default Learning Mode is set to **Never (wildcard only)** Change that to be **Selective** and enable **Learn and Alarm** for **Illegal file type**. 
 
 .. image:: images/cookies.png
@@ -36,13 +36,19 @@ Choose this option if you would like to create a list of top-level URL directori
 
 Allow List
 ~~~~~~~~~~
-Since we will be training the waf for positive security, let's create an allow list. This will help to create high fidelity learning suggestions as events occur. 
+Since we will be training the WAF for positive security, let's create an allow list. This will help to create high-fidelity learning suggestions as events occur. 
 
-#. Navigate to **Security > Application Security > Security Policies > Security Policies List, then click on the "juiceshop_blocking policy" and navigate to the IP Address Exceptions menu.** and click **Create**. Configure the allow list for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
+#. Navigate to **Security > Application Security > Security Policies > Security Policies List, then click on the "juiceshop_blocking" policy and navigate to the IP Address Exceptions menu.** and click **Create**. Configure the allow list for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
 #. Note in the upper left that this allow list is only associated with the juiceshop_blocking policy. Allow lists are unique per policy but could be defined at part of a parent policy and delegated down to child policies. 
 #. Click **Create** and configure your Exception properties according to the screenshot below, then click **Add**. Be sure to enable the **Trust this IP** under **Policy Builder Traffic**.
 
 .. image:: images/ipe.png
+  :width: 600 px
+
+.. image:: images/ipe2.png
+  :width: 600 px
+
+.. image:: images/ipe3.png
   :width: 600 px
 
 Configure the Virtual Server 
@@ -69,7 +75,7 @@ Investigating an Incident
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Click back on the **Advanced WAF** tab and navigate to **Security > Event Logs > Application > Requests** and review the blocked events. In both cases it was an illegal hostname due to the checks that we enabled under **Headers** in **Learning and Blocking Settings** just moments ago. 
 #. The problem is that we enabled checking for a hostname but haven't defined what that hostname is yet. This exercise is to draw your attention to the importance of understanding what you are enabling in Learning and Blocking Settings and how to quickly resolve an issue. We can easily add the hostname. 
-#. Navigate to **Security > Application Security > Policy Building > Traffic Learning** and note the learning suggestions and score. You will see suggestions to add the top level URL and a Valid Hostname.  All of the others involve enabling various checks for evasion techniques and http protocol compliancy which are generally a good idea to enable. 
+#. Navigate to **Security > Application Security > Policy Building > Traffic Learning** and note the learning suggestions and score. You will see suggestions to add the top-level URL and a Valid Hostname.  All of the others involve enabling various checks for evasion techniques and http protocol compliancy, which are generally a good idea to enable. 
 #. Click the box to **Select All** suggestions and click **Accept > Accept suggestions** and **Apply Policy**.
 
 .. image:: images/learn.png
@@ -118,7 +124,7 @@ Exercise the App Part 2
   :width: 600 px
 
 
-**This is is how to train a waf, ferret out any false positives and why it is critical to get your policies developed from trusted sources during the testing phases of application development.**
+**This is how to train a WAF - by ferreting out any false positives early on. It's also an important example of you why it's critical to get your policies developed from trusted sources during the testing phases of application development.**
 
 Enforcing File Types
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -163,7 +169,7 @@ Testing WAF Policy
 #. In Burp browser click in the whitespace of the URL bar twice so the URL is NOT highlighted and hit the **Return** key on your keyboard to send the request for ``https://juiceshop.f5agility.com/`` 
 #. You will notice Burp Console will popover the browser with the intercepted request. You can now decide which actions to take real-time before sending the requests. 
 
-.. Important:: You may see some requests mixed in that are Google related (www.gstatic.com, googleapis.com etc). These are produced automatically by the browser and you can safely forward them until you get to the request for https://juiceshop.f5agility.com. 
+.. Important:: You may see some requests mixed in that are Google related (www.gstatic.com, googleapis.com, etc). These are produced automatically by the browser and you can safely forward them until you get to the request for https://juiceshop.f5agility.com. 
 
 
 .. image:: images/burpjuice.png
@@ -173,7 +179,7 @@ Testing WAF Policy
 #. As you can see Burp is a very powerful proxy that allows you to view each request as it is being made and potentially insert or modify that request before sending. 
 #. Click on **Intercept is on** to turn it off so the rest of the requests load and then click it again to turn it back on so that it reads **Intercept is on**.
 #. Back in the Burp Browser the page should have loaded from the previous requests so just click the **Refresh** button in the browser and **Dismiss** the popup. 
-#. You can use any of the **GET** requests for **Host: juiceshop.f5agility.com**. Simply forward any of the aformentioned Google related requests should they pop up. 
+#. You can use any of the **GET** requests for **Host: juiceshop.f5agility.com**. Simply forward any of the aforementioned Google related requests should they pop up. 
 
 .. image:: images/defaultpage.png
   :width: 600 px
@@ -224,7 +230,7 @@ Monkeying with the ASM Cookie
   :width: 600 px
 
 5. Back in Burp Console make sure you are looking at a request for Host **juiceshop.f5agility.com**. If not, click  forward until you find one. 
-6. Change the host to the ip address of the Virtual Server: **10.1.10.145** and click **Forward**. 
+6. Change the host to the IP address of the Virtual Server: **10.1.10.145** and click **Forward**. 
 
 .. image:: images/iphost.png
   :width: 600 px
@@ -234,4 +240,4 @@ Monkeying with the ASM Cookie
 
 **This concludes Lab 2**
 
-**This lab was designed to give you the tools and strategies for building and managing a more complex or "Day 2" WAF policy. You now know how to turn on and test some positive security features that will greatly elevate your application security posture.**
+**This lab was designed to give you the tools and strategies for building and managing a more complex or "Day 2" WAF policy. You now know how to turn on and test some positive security features that greatly elevate your application security posture.**
