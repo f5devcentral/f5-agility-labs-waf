@@ -171,7 +171,7 @@ Enable Blocking in the DoS Profile
 .. image:: images/events1.png
   :width: 600 px
 
-.. NOTE:: The Linux client uses 10.1.10.100 as it's primary source IP. This is the IP you are coming from when using the browser. The Apache Bench script is configured to use alternate source IP's (10.1.10.51, 52, and 53)
+.. NOTE:: The Linux client uses 10.1.10.100 as it's primary source IP. This is the IP you are coming from when using the browser. The Apache Bench script is configured to use alternate source IP's (10.1.10.51, .52, and .53)
 
 Verifying Behaviors
 ~~~~~~~~~~~~~~~~~~~~~~
