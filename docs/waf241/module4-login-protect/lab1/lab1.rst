@@ -103,7 +103,7 @@ Test Session Tracking
 .. image:: images/user.png
         :width: 600 px
 
-5. Navigate to **Reporting > Application > Session Tracking Status** and review the entries that were just created from the application request event log. 
+5. Navigate to **Security > Reporting > Application > Session Tracking Status** and review the entries that were just created from the application request event log. 
 #. Click "View Requests" for either of them to see all requests filtered by either the Device ID or Username. You may also use this page to release the Username or Device ID from Session Tracking.  
 #. These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
 #. Finally, navigate to **Security > Application Security > Session Tracking** and review the other, more detailed actions you can take based off of DeviceID, username, etc. 
