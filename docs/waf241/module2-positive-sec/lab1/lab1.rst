@@ -144,7 +144,7 @@ File types are low-hanging fruit from a positive security perspective and a grea
 .. image:: images/fileaccept.png
   :width: 600 px
 
-6. Navigate to **Security > Application Security > Policy Building > Security Policies > Security Policies List**, click on **juiceshop_blocking** policy, then navigate to **HTTP Message Protection > File Types"** within the policy to review what was added. You can also observe other availabe file types available for enforcement.
+6. Navigate to **Security > Application Security > Policy Building > Security Policies > Security Policies List**, click on **juiceshop_blocking** policy, then navigate to **HTTP Message Protection > File Types** within the policy to review what was added. You can also observe other availabe file types available for enforcement.
 
 .. image:: images/filetypes.png
   :width: 600 px
