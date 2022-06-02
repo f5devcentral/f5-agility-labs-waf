@@ -23,6 +23,11 @@ Define Login & Logout Pages
 
 3.  Fill out the **Login Page Properties** and **Access Validation** fields as shown and then click **Add**.
 
+
+.. image:: images/seshandlogin.png
+        :width: 600 px
+
+
 .. image:: images/loginp2.png
         :width: 600 px
 
