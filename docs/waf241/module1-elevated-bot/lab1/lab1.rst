@@ -205,4 +205,4 @@ Return to your Bot Defense Profile (**Security > Bot Defense Profiles, then clic
 .. image:: images/mitig.png
   :width: 600 px
 
-**This concludes Lab 1**
+**This concludes Lab 1.**

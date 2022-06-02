@@ -108,5 +108,4 @@ Test Session Tracking
 #. These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
 #. Finally, navigate to **Security > Application Security > Session Tracking** and review the other, more detailed actions you can take based off of DeviceID, username, etc. 
 
-**This concludes Lab 4**
-
+**This concludes Lab 4.**

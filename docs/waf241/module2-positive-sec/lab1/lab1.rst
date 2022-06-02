@@ -238,6 +238,6 @@ Monkeying with the ASM Cookie
 7. Close Burp
 8. Back in Advanced WAF, refresh **Security > Event Logs > Application > Requests** and review the alert. What was the violation? How could you add it to the allowed hostnames if required?
 
-**This concludes Lab 2**
-
 **This lab was designed to give you the tools and strategies for building and managing a more complex or "Day 2" WAF policy. You now know how to turn on and test some positive security features that can be used to enhance and "elevate" your application security posture.**
+
+**This concludes Lab 2.**
