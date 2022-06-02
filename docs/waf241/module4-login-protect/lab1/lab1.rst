@@ -21,16 +21,16 @@ Define Login & Logout Pages
 .. image:: images/response.png
         :width: 600 px
 
-3.  Fill out the **Login Page Properties** and **Access Validation** fields as shown and then click **Add**. 
+3.  Fill out the **Login Page Properties** and **Access Validation** fields as shown and then click **Add**.
 
 .. image:: images/loginp2.png
         :width: 600 px
 
 
 4.  From the tab bar at the top middle of the GUI, select **Login Enforcement** and populate the form as shown below. The **/profile** URI should never have attempted access without authentication. 
-5.  Click **Save** and make note of the **Note** in red txt. We will configure **Learning and Blocking Settings** momentarily. 
+5.  Click **Save** and make note of the **Note** in red txt. We will configure **Learning and Blocking Settings** momentarily.
 
-.. image:: images/le.png
+.. image:: images/le2.png
         :width: 600 px
 
 
