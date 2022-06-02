@@ -1,4 +1,4 @@
-WAF 201 – Elevated WAF Security
+WAF201 – Elevated WAF Security
 =================================================================================
 
 This class will focus on a best practice approach to elevating your WAF protection after becoming comfortable with the content in the 102 "Getting Started" class. 
