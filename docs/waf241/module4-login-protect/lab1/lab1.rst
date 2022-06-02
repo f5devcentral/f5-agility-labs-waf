@@ -42,7 +42,7 @@ Define Login & Logout Pages
 Enable Session Tracking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the **Session Tracking** tab at the top middle of the screen and under **Session Hijacking** click the **Enabled** button. Read through the notes paying close attention to the ones in **red**.
+#. To enable Session Tracking, go to **Security > Application Security > Session Tracking** and check **Enabled** next to **Detect Session Hijacking by Device ID Tracking.** Read through the notes paying close attention to the ones in **red**.
 
    - For the first red note, regarding the bot profile, we are covered since DeviceID is enabled in our **Balanced_Bot_Profile** by default and it is applied to the VS.  
    - The second is more informational and let's us know that non-browser entities will be blocked if they can not run the JS and produce a DeviceID. 
@@ -106,7 +106,7 @@ Test Session Tracking
 5. Navigate to **Reporting > Application > Session Tracking Status** and review the entries that were just created from the application request event log. 
 #. Click "View Requests" for either of them to see all requests filtered by either the Device ID or Username. You may also use this page to release the Username or Device ID from Session Tracking.  
 #. These features are useful for forensic purposes as well as blocking access to applications by Device-ID, Username, etc.
-#. Finally, navigate to **Security > Application Security > Sessions and Logins > Session Tracking** and review the other more detailed actions you can take based off of Devie ID, Username etc. 
+#. Finally, navigate to **Security > Application Security > Session Tracking** and review the other, more detailed actions you can take based off of DeviceID, username, etc. 
 
 **This concludes Lab 4**
 
