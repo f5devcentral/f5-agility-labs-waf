@@ -48,9 +48,9 @@ Since we will be training the WAF for positive security, let's create an allow l
 .. image:: images/ipe2.png
   :width: 600 px
 
-.. image:: images/ipe1.png
+.. image:: images/ipe.png
   :width: 600 px
-
+  
 Configure the Virtual Server 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
