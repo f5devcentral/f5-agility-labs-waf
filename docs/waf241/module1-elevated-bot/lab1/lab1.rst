@@ -32,7 +32,7 @@ We began WAF 102 with a Relaxed or "Signature Only" Bot Defense Profile that did
 
 #. Click the **F5 Advanced WAF bookmark** and login to TMUI. admin/[password]. 
 
-#. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IP's that receive requests for your application and proxy the requests to the backend "real" servers.
+#. On the Main tab, click **Local Traffic > Virtual Servers** and you will see the Virtual Servers that have been pre-configured for your lab. Essentially, these are the listening IPs that receive requests for your application and proxy the requests to the backend "real" servers.
 
 | You will see 3 Virtual Servers: 
 
