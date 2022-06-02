@@ -1,7 +1,7 @@
 Lab 2: Intro to Positive Security 
 ------------------------------------
 
-In WAF141 we created and tested some of the negative security aspects of the Application Security Policy including Ip Intelligence Enforcement, Geolocation, Signature Based Bot Detection and a Transparent Policy focused on Attack Signatures. 
+In WAF102, we created and tested some of the negative security aspects of the Application Security Policy including IP Intelligence Enforcement, Geolocation, Signature Based Bot Detection and a Transparent Policy focused on Attack Signatures. 
 If you were following along in successive fashion and building your own environment, the configurations below logically pick up in the policy right where 141 left off. We will be creating a new policy for this lab that starts with "2nd day" best-practice configurations for **elevating** your WAF policy up a level but in reality you should always start your approach as recommended in the 141 class and build from there. 
 
 #. Navigate to **Security > Application Security > Security Policies > Policies List > Create** and configure a policy named **juiceshop_blocking**
@@ -20,7 +20,7 @@ If you were following along in successive fashion and building your own environm
 |
 |
 
-6. Under **Headers** check the box for both Alarm and Block for **Illegal host name** and then it's **very important** to check the bottom box for **Learn New Hostnames**.
+6. Under **Headers** check the box for both Alarm and Block for **Illegal host name** and then it's **very important** to check the bottom box for **Learn Host Names**.
 7. Under **URLS** enable **Compact Mode** for "Learn New HTTP URLS" instead of **Never (wildcard only)**. Note the description of this mode: 
 
 Choose this option if you would like to create a list of top-level URL directories ``(e.g. /abc/*) and /``, while enforcing all other URLs with a wildcard rule.
@@ -38,11 +38,11 @@ Allow List
 ~~~~~~~~~~
 Since we will be training the waf for positive security, let's create an allow list. This will help to create high fidelity learning suggestions as events occur. 
 
-#. Navigate to **Security > Application Security > IP Addresses > IP Address Exceptions** and click **Create**. Configure the allow list for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
+#. Navigate to **Security > Application Security > Security Policies > Security Policies List, then click on the "juiceshop_blocking policy" and navigate to the IP Address Exceptions menu.** and click **Create**. Configure the allow list for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
 #. Note in the upper left that this allow list is only associated with the juiceshop_blocking policy. Allow lists are unique per policy but could be defined at part of a parent policy and delegated down to child policies. 
-#. Click **Create** and **Apply Policy**. 
+#. Click **Create** and configure your Exception properties according to the screenshot below, then click **Add**. 
 
-.. image:: images/list.png
+.. image:: images/ipe.png
   :width: 600 px
 
 Configure the Virtual Server 
