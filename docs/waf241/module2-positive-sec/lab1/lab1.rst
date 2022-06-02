@@ -240,4 +240,4 @@ Monkeying with the ASM Cookie
 
 **This concludes Lab 2**
 
-**This lab was designed to give you the tools and strategies for building and managing a more complex or "Day 2" WAF policy. You now know how to turn on and test some positive security features that greatly elevate your application security posture.**
+**This lab was designed to give you the tools and strategies for building and managing a more complex or "Day 2" WAF policy. You now know how to turn on and test some positive security features that can be used to enhance and "elevate" your application security posture.**
