@@ -144,9 +144,9 @@ File types are low-hanging fruit from a positive security perspective and a grea
 .. image:: images/fileaccept.png
   :width: 600 px
 
-6. Navigate to **Security > Application Security > File Types > Allowed File Types** and review what was added. Click on the **Disallowed File Types** tab at the top of the GUI and review the default disallowed files for this policy. 
+6. Navigate to **Security > Application Security > Policy Building > Security Policies > Security Policies List, click on "juiceshop_blocking" policy, then navigate to the "HTTP Message Protection > File Types"** to review what was added.
 
-.. image:: images/files.png
+.. image:: images/filetypes.png
   :width: 600 px
 
 Testing WAF Policy
