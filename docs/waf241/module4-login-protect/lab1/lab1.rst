@@ -1,7 +1,7 @@
 Lab 4: Login Page Protection
 ------------------------------
 
-In this final lab we will explore some of the login protection and session tracking capabilities present in F5 Advanced WAF and end with a fully configured Virtual Server.  F5 Advanced WAF not only has the capability to gather user identity details from login pages and APM, but can also generate a unique Device-ID for each connected client. 
+In this final lab, we will explore some of the login protection and session tracking capabilities present in F5 Advanced WAF and end with a fully configured Virtual Server.  F5 Advanced WAF not only has the capability to gather user identity details from login pages and APM, but can also generate a unique DeviceID for each connected client. 
 
 Virtual Server Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -15,15 +15,15 @@ Virtual Server Configuration
 Define Login & Logout Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  To configure a login page, go to **Security > Application Security > Sessions and Logins > Login Pages List**.  Ensure the **juiceshop_blocking** is selected at the top-middle-left of the GUI and click **Create**.
+#.  To configure a login page, go to **Security > Application Security > Security Policies > Policy List** and click on the **juiceshop_blocking** policy.  From the Policy Configuration menu, select **Sessions and Logins** and then click the **+ Add Page** next to **Login Pages.**
 #.  We'll now populate the form with data gathered from the browser inspection tools during a login attempt as shown below. 
 
 .. image:: images/response.png
         :width: 600 px
 
-3.  Fill out the **Login Page Properties** and **Access Validation** fields as shown and then click **Create**. 
+3.  Fill out the **Login Page Properties** and **Access Validation** fields as shown and then click **Add**. 
 
-.. image:: images/loginp.png
+.. image:: images/loginpage.png
         :width: 600 px
 
 
