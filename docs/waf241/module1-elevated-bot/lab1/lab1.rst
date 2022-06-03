@@ -5,20 +5,20 @@ We began WAF102 with a Relaxed or "Signature Only" Bot Defense Profile that did 
 
 **Balanced Mode Bot Profile Template Benefits**
 
-* Defines a moderate security policy that performs advanced verification of Browsers
-* Blocks Malicious Bots that bypass signature checks
-* Initiates a CAPTCHA challenge for Suspicious Browsers
-* Strong verification of Mobile Apps using Anti-Bot Mobile Security SDK (Add-on required)
+* Defines a moderate security policy that performs advanced verification of Browsers.
+* Blocks Malicious Bots that bypass signature checks.
+* Initiates a CAPTCHA challenge for Suspicious Browsers.
+* Strong verification of Mobile Apps using Anti-Bot Mobile Security SDK (Add-on required).
 * Limits the total request rate produced by Unknown bots and allows Trusted and Untrusted Bots. 
 * Malicious Bots and Suspicious Browsers are identified by using both anomaly detection algorithms and bot signatures. 
-* This mode provides an advanced protection level with reduced latency impact because Browser verification is performed by injecting challenge in HTTP response. 
+* This mode provides an advanced protection level with reduced latency impact because Browser verification is performed by injecting challenge in HTTP response.
 
 .. image:: images/prof_types.png
   :width: 600 px
 
 -  Estimated time for completion: **25** **minutes**
 
-.. IMPORTANT:: If you are continuing your lab session from WAF 101 or 102 with the same deployment, please disable any previously configured security profiles on the Virtual Server and skip down to "Configuring Bot Defense”. New students start at step 1. 
+.. IMPORTANT:: If you are continuing your lab session from WAF101 or WAF102 with the same deployment, please disable any previously configured security profiles on the Virtual Server and skip down to "Configuring Bot Defense”. New students start at Step 1. 
 
 .. image:: images/blank_vs.png
   :width: 600 px
@@ -85,7 +85,7 @@ The first step in enabling Bot Defense is to set up the log profile so we can ca
 Verify Normal HTTP Response
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new Tab in Google Chrome and **Right Click** anywhere on the page and choose **Inspect** from the menu. Click on the **Network Tab** and click **Disable cache** as shown in the screenshot below step 4.
+#. Open a new Tab in Google Chrome and **Right Click** anywhere on the page and choose **Inspect** from the menu. Click on the **Network Tab** and click **Disable cache** as shown in the screenshot below Step 4.
 #. Click the **OWASP Juice Shop Bookmark** in the Bookmark menu and click through the certificate warning if you receive one. **DO NOT Dismiss the popup or click on anything else yet.** You will see a lot of output under the Network Tab Log as the page loads. Scroll to the top of this log until you find the entry named **juiceshop.f5agility.com** and click on it. 
 #. Click on the **Response** tab and note the default HTML response when no Bot Profile is applied to the Virtual Server. This is the normal Juice Shop web page HTML. 
 #. Do not close this tab. 
