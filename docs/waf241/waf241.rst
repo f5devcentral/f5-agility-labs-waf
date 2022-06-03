@@ -18,7 +18,7 @@ Here is a complete listing of all F5 Advanced WAF classes offered at this year's
 
 * WAF301 – Automating Advanced WAF (Self-Guided)
 
-Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education and create your own test lab environment.
+Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com/training/community/>`_ to continue your education and create your own test lab environment.
 
 .. toctree::
    :maxdepth: 1
