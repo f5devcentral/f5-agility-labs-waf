@@ -110,4 +110,4 @@ Test Session Tracking
 
 **This concludes Lab 4.**
 
-**Thank you for joining us for WAF201! You have now completed this course.
+**Thank you for joining us for WAF201! You have now completed this course.**
