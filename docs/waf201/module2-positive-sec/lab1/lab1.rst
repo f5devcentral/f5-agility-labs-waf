@@ -4,7 +4,7 @@ Lab 2: Intro to Positive Security
 In WAF 102, we created and tested some of the negative security aspects of the Application Security Policy including IP Intelligence Enforcement, Geolocation, Signature Based Bot Detection and a Transparent Policy focused on Attack Signatures. 
 If you were following along in successive fashion and building your own environment, the configurations below logically pick up in the policy right where 102 left off. We will be creating a new policy for this lab that starts with "2nd day" best-practice configurations for **elevating** your WAF policy up a level, but in reality, you should always start your approach as recommended in WAF 102 and build from there. 
 
-#. Navigate to **Security > Application Security > Security Policies > Policies List > Create** and configure a policy named **juiceshop_blocking**
+#. Navigate to **Security > Application Security > Security Policies > Policies List > Create** and configure a policy named **juiceshop_blocking**.
 #. Choose Policy Template: **Rapid Deployment Policy**, Enforcement Mode: **Blocking** and click **Save**. 
 
 .. image:: images/juice_block.png
@@ -87,12 +87,12 @@ Exercise the App Part 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Go back to the Juice Shop tab and do a [Shft + Refresh].
-#. If you are continuing with the same deployment from the 141 class, skip to step 4, else click **Account > Login** in the top right and then click **Not yet a customer** on the login form. 
+#. If you are continuing with the same deployment from the 141 class, skip to step 4, else click **Account > Login** in the top right and then click **Not yet a customer** on the login form.
 
 .. image:: images/account.png
   :width: 600 px
 
-3. Use **f5student@f5agility.com** for email address and the same password you've been using for the labs. Select and complete any of the Security Questions and click **Register**. 
+3. Use **f5student@f5agility.com** for email address and the same password you've been using for the labs. Select and complete any of the Security Questions and click **Register**.
 #. Login with the new account, click on the **Apple Juice** and leave a short review and click **Submit**.
 
 .. image:: images/feedback.png
@@ -100,14 +100,14 @@ Exercise the App Part 2
 
 
 
-5. In the Advanced WAF tab navigate to **Security > Event Logs > Application > Requests** and you will see a blocked event for the review you just left. 
-#. Click on the blocked event and review the Violation. This is an **Illegal method** violation due to "PUT" being used as the command to leave feedback. "PUT" is not a default allowed HTTP command per the Rapid Deployment Policy Template.  
+5. In the Advanced WAF tab navigate to **Security > Event Logs > Application > Requests** and you will see a blocked event for the review you just left.
+#. Click on the blocked event and review the Violation. This is an **Illegal method** violation due to "PUT" being used as the command to leave feedback. "PUT" is not a default allowed HTTP command per the Rapid Deployment Policy Template.
 
 .. image:: images/badreview.png
   :width: 600 px
 
 
-7. Click the **Accept** button which will add "PUT" to the **Allowed Methods** in **Security > Application Security > Headers > Methods**
+7. Click the **Accept** button which will add "PUT" to the **Allowed Methods** in **Security > Application Security > Headers > Methods**.
 #. Navigate to **Security > Application Security > Headers > Methods** to review the addition and click **Apply Policy**.
 
 .. image:: images/put1.png
@@ -163,7 +163,7 @@ Testing WAF Policy
 
 5. In the Burp browser paste in: ``https://juiceshop.f5agility.com/`` but do **NOT** hit the Return key yet. 
 #. Back in Burp Console click on **Intercept is off** button to turn it back on.
-#. In Burp browser click in the whitespace of the URL bar twice so the URL is NOT highlighted and hit the **Return** key on your keyboard to send the request for ``https://juiceshop.f5agility.com/`` 
+#. In Burp browser click in the whitespace of the URL bar twice so the URL is NOT highlighted and hit the **Return** key on your keyboard to send the request for ``https://juiceshop.f5agility.com/``.
 #. You will notice Burp Console will popover the browser with the intercepted request. You can now decide which actions to take real-time before sending the requests. 
 
 .. Important:: You may see some requests mixed in that are Google related (www.gstatic.com, googleapis.com, etc). These are produced automatically by the browser and you can safely forward them until you get to the request for https://juiceshop.f5agility.com. 
@@ -210,9 +210,9 @@ Monkeying with the ASM Cookie
 1. Back in Burp Console make sure you are looking at a request for Host **juiceshop.f5agility.com**. If not, click  forward until you find one. 
 #. Under **Cookie** notice at least 3 cookies. 
 
-  * language (used to set language pref in the browser)
-  * io (Juice Shop session cookie)
-  * TS (Set by Advanced WAF and will always be a unique identifier) 
+  * language (used to set language pref in the browser).
+  * io (Juice Shop session cookie).
+  * TS (Set by Advanced WAF and will always be a unique identifier).
 
 
 3. Add an extra character (7) to the end of the TS cookie value and click **Forward**. 
