@@ -1,4 +1,4 @@
-WAF 141 - Getting started with WAF, Bot Detection and Threat Campaigns
+WAF 102 - Getting started with WAF, Bot Detection and Threat Campaigns
 =================================================================================
 
 This class will focus on a best practice approach to getting started with F5 WAF and application security. This introductory class will give you guidance on deploying WAF services in a successive fashion. This 141 class focuses entirely on the negative security model aspects of WAF configuration. 
