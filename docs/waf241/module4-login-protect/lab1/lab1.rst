@@ -110,4 +110,4 @@ Test Session Tracking
 
 **This concludes Lab 4.**
 
-**Thank you for joining us for WAF201! You have now completed this course. Please be sure to fill out your survey, your feedback is incredibly valuable in shaping the content of future Agility Lab events.**
+**Thank you for joining us for WAF201! You have now completed this course.
