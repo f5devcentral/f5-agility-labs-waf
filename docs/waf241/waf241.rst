@@ -8,15 +8,15 @@ This is the 2nd class in a three-part, guided lab series (WAF101, 102, and 201) 
   :width: 800 px
   :align: center
 
-Here is a complete listing of all F5 WAF classes offered at this years Agility.
+Here is a complete listing of all F5 Advanced WAF classes offered at this year's Agility event.
 
-* WAF 101 - Protect yourself against the OWASP Top 10
+* WAF101 - Protect yourself against the OWASP Top 10
 
-* WAF 102 - Getting started with WAF, Bot Defense and Threat Campaigns
+* WAF102 - Getting started with WAF, Bot Defense and Threat Campaigns
 
-* WAF 201 – Elevated WAF Security
+* WAF201 – Elevated WAF Security
 
-* WAF 301 – Automating Advanced WAF (Self-Guided)
+* WAF301 – Automating Advanced WAF (Self-Guided)
 
 Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education and create your own test lab environment.
 
