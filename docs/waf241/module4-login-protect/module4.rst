@@ -1,6 +1,6 @@
-Module 4: Login Page protection
+Module 4: Login Page Protection
 ===============================
-Expected time to complete: **20 min**
+Expected time to complete: **15 min**
 
 .. toctree::
    :maxdepth: 1

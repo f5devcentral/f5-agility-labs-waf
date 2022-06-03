@@ -1,6 +1,6 @@
-Module 3: Layer 7 DoS
-========================
-Expected time to complete: **20 min**
+Module 3: Layer 7 DoS Protection
+================================
+Expected time to complete: **30 min**
 
 .. toctree::
    :maxdepth: 1

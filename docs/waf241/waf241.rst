@@ -1,27 +1,24 @@
-WAF 241 – Elevated WAF Protection
+WAF201 – Elevated WAF Security
 =================================================================================
 
-This class will focus on a best practice approach to elevating your WAF protection after becoming comfortable with the content in the 141 "Getting Started" class. 
-This is the 2nd class in a three part lab series (141,241,341) based on: `Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_ which closely maps to this visualization of layered Application Security. 
+This class will focus on a best practice approach to elevating your WAF protection after becoming comfortable with the content in the 102 "Getting Started" class. 
+This is the 2nd class in a three-part, guided lab series (WAF101, 102, and 201) based on: `Succeeding with Application Security <https://support.f5.com/csp/article/K07359270>`_ which closely maps to this visualization of layered Application Security. 
 
 .. image:: images/attackfilters.png   
   :width: 800 px
   :align: center
 
-Here is a complete listing of all F5 WAF classes offered at this years Agility.
+Here is a complete listing of all F5 Advanced WAF classes offered at this year's Agility event.
 
-* WAF 111 - Protect yourself against the OWASP Top 10
+* WAF101 - Protect yourself against the OWASP Top 10
 
-* WAF 141 - Getting started with WAF, Bot Defense and Threat Campaigns
+* WAF102 - Getting started with WAF, Bot Defense and Threat Campaigns
 
-* WAF 241 – Elevated WAF Protection
+* WAF201 – Elevated WAF Security
 
-* WAF 341 – Advanced Protection and Positive Security
+* WAF301 – Automating Advanced WAF (Self-Guided)
 
-* WAF 342 – WAF in a CI/CD pipeline 
-
-Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com>`_ to continue your education and create your own test lab environment.
-
+Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com/training/community/>`_ to continue your education and create your own test lab environment.
 
 .. toctree::
    :maxdepth: 1
