@@ -1,8 +1,8 @@
 Lab 2: Intro to Positive Security 
 ------------------------------------
 
-In WAF102, we created and tested some of the negative security aspects of the Application Security Policy including IP Intelligence Enforcement, Geolocation, Signature Based Bot Detection and a Transparent Policy focused on Attack Signatures. 
-If you were following along in successive fashion and building your own environment, the configurations below logically pick up in the policy right where 102 left off. We will be creating a new policy for this lab that starts with "2nd day" best-practice configurations for **elevating** your WAF policy up a level, but in reality, you should always start your approach as recommended in WAF102 and build from there. 
+In WAF 102, we created and tested some of the negative security aspects of the Application Security Policy including IP Intelligence Enforcement, Geolocation, Signature Based Bot Detection and a Transparent Policy focused on Attack Signatures. 
+If you were following along in successive fashion and building your own environment, the configurations below logically pick up in the policy right where 102 left off. We will be creating a new policy for this lab that starts with "2nd day" best-practice configurations for **elevating** your WAF policy up a level, but in reality, you should always start your approach as recommended in WAF 102 and build from there. 
 
 #. Navigate to **Security > Application Security > Security Policies > Policies List > Create** and configure a policy named **juiceshop_blocking**
 #. Choose Policy Template: **Rapid Deployment Policy**, Enforcement Mode: **Blocking** and click **Save**. 
