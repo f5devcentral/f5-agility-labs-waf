@@ -23,14 +23,11 @@ Define Login & Logout Pages
 
 3.  Fill out the **Login Page Properties** and **Access Validation** fields as shown and then click **Add**.
 
-
 .. image:: images/seshandlogin.png
         :width: 600 px
 
-
 .. image:: images/loginp2.png
         :width: 600 px
-
 
 4.  In the **Authenticated URLs** field, type **/profile** and click **Add.** The **/profile** URI should never have attempted access without authentication.
 5.  Click **Save** and make note of the alert. We will configure **Learning and Blocking Settings** momentarily.
