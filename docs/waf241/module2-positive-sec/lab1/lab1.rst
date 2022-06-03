@@ -51,7 +51,7 @@ Since we will be training the WAF for positive security, let's create an allow l
 Configure the Virtual Server 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to  **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies** 
+#. Navigate to  **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies**.
 
 .. NOTE:: For Demo purposes, we will be removing the Bot Defense Profile to exclusively test the blocking Application Security Policy. In the "real world" these profiles complement each other by providing a layered defense for your application. 
 
@@ -86,7 +86,7 @@ Investigating an Incident
 Exercise the App Part 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Go back to the Juice Shop tab and do a [Shft + Refresh] 
+#. Go back to the Juice Shop tab and do a [Shft + Refresh].
 #. If you are continuing with the same deployment from the 141 class, skip to step 4, else click **Account > Login** in the top right and then click **Not yet a customer** on the login form. 
 
 .. image:: images/account.png
@@ -191,13 +191,13 @@ Testing WAF Policy
 .. image:: images/evilalert.png
   :width: 600 px
 
-.. NOTE:: Even though policy is in blocking mode, individual elements can be very granularly configured to Alarm or Block. In practice you could have a Blocking policy with everything in set in Learning and Blocking settings to only "Alarm". You can then methodically enable blocking for each individual element and validate the application. This gives you the utmost flexibility when moving from a Transparent to Blocking policy. 
+.. NOTE:: Even though policy is in blocking mode, individual elements can be very granularly configured to Alarm or Block. In practice you could have a Blocking policy with everything in set in Learning and Blocking settings to only "Alarm". You can then methodically enable blocking for each individual element and validate the application. This gives you the utmost flexibility when moving from a Transparent to Blocking policy.
 
 16. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings > File Types** and enable **Block** for **Illegal file type**.
 #. Click **Save** and **Apply Policy**. 
 
 
-17. Back in Burp Console modify another request for **evilfile.exe** again and click **Forward**. Just delete whatever URI is currently being called and replace it with ``evilfile.exe`` **Make sure the Host is set to juiceshop.f5agility.com and not a google site. If it is related to google just click forward until you get to the next juiceshop.f5agility.com "Host" request**. 
+17. Back in Burp Console modify another request for **evilfile.exe** again and click **Forward**. Just delete whatever URI is currently being called and replace it with ``evilfile.exe`` **Make sure the Host is set to juiceshop.f5agility.com and not a google site. If it is related to google just click forward until you get to the next juiceshop.f5agility.com "Host" request**.
 
 #. Navigate to **Security > Event Logs > Application > Requests** and review the alert. Was it blocked this time? 
 
@@ -232,7 +232,7 @@ Monkeying with the ASM Cookie
 .. image:: images/iphost.png
   :width: 600 px
 
-7. Close Burp
+7. Close Burp.
 8. Back in Advanced WAF, refresh **Security > Event Logs > Application > Requests** and review the alert. What was the violation? How could you add it to the allowed hostnames if required?
 
 **This lab was designed to give you the tools and strategies for building and managing a more complex or "Day 2" WAF policy. You now know how to turn on and test some positive security features that can be used to enhance and "elevate" your application security posture.**
