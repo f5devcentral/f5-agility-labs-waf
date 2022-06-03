@@ -69,7 +69,7 @@ The first step in enabling Bot Defense is to set up the log profile so we can ca
   :width: 600 px
 
 8. Click on the **Bot Mitigation Settings** tab and review the default Mitigation Settings for various classifications of bots and browsers. We will see these settings in action shortly.
-#. Click on the **Browsers** tab and under **Browser Verification** and note the settings as well as the setting for **Device ID Mode**.
+#. Click on the **Browsers** tab and under **Browser Verification** and note the settings as well as the setting for **DeviceID Mode**.
 
 * The grace period allows clients the time to be identified as non-bots while web pages, including complex pages such as those which include images, JS, and CSS, load.
 * The grace period begins after the client is validated, a configuration change occurs, or when proactive bot defense starts as a result of a detected DoS attack or high latency.
