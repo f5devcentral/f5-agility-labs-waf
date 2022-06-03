@@ -1,7 +1,7 @@
 Lab 1: Elevated Bot Defense
 -------------------------------------------
 
-We began WAF 102 with a Relaxed or "Signature Only" Bot Defense Profile that did not include any active challenges. Now to build on that knowledge, and **elevate** our security posture, we will create a Balanced Bot Mitigation Profile that includes active JavaScript challenges. 
+We began WAF102 with a Relaxed or "Signature Only" Bot Defense Profile that did not include any active challenges. Now to build on that knowledge, and **elevate** our security posture, we will create a Balanced Bot Mitigation Profile that includes active JavaScript challenges. 
 
 **Balanced Mode Bot Profile Template Benefits**
 
