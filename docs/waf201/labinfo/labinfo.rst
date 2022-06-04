@@ -28,7 +28,7 @@ The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
 -  1 x Ubuntu Linux 20.04 client
--  1 x F5 BIG-IP VE (v16.1.2.2) running Advanced WAF with Ip Intelligence & Threat Campaigns Subscription Services.  
+-  1 x F5 BIG-IP VE (v16.1.2.2) running Advanced WAF with IP Intelligence & Threat Campaign Subscription Services.  
 -  1 x Ubuntu Linux 20.04 server
 
 The following table lists VLANS, IP Addresses and Credentials for all
