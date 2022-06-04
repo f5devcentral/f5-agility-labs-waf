@@ -78,7 +78,7 @@ False Positive Remediation
 .. image:: images/sev3.png
   :width: 600 px
 
-3.  Click **Accept** to allow a new method of **Put** in our policy. Click Apply Policy. Navigate to **Security > Application Security > Headers > Methods** and you will see our newly added "Allowed Method" of **Put**.
+3.  Click **Accept** to allow a new method of **Put** in our policy. Click **Apply Policy**. Navigate to **Security > Application Security > Headers > Methods** and you will see our newly added "Allowed Method" of **Put**.
 
 .. image:: images/headmeth.png
   :width: 600 px
