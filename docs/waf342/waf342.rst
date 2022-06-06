@@ -1,10 +1,10 @@
-WAF 342 - AWAF in a CI/CD Pipeline (Self Guided)
+WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)
 =================================================
 
 Intro
 -----
 
-Welcome to F5's Agility Labs, 2020 edition! This class will focus on how to integrate F5 AWAF into a CI/CD pipeline. 
+Welcome to F5's Agility Labs, 2022 edition! This class will focus on how to integrate F5 AWAF into a CI/CD pipeline. 
 
 By the end of this lab you should be able to:
 
