@@ -84,7 +84,11 @@ Exercise the App Part 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Go back to the Juice Shop tab and do a [Shft + Refresh].
+<<<<<<< HEAD
 #. If you are continuing with the same deployment from the 102 class, skip to Step 4, else click **Account > Login** in the top right and then click **Not yet a customer** on the login form.
+=======
+#. If you are continuing with the same deployment from the 141 class, skip to step 4, else click **Account > Login** in the top right and then click **Not yet a customer** on the login form.
+>>>>>>> 2eece6e6db20709e5e79a5cf3f3b1ae1eba076f9
 
 .. image:: images/account.png
   :width: 600 px

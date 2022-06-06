@@ -78,7 +78,7 @@ False Positive Remediation
 .. image:: images/sev3.png
   :width: 600 px
 
-3.  Click **Accept** to allow a new method of **Put** in our policy and navigate to **Security > Application Security > Headers > Methods** and you will see our newly added "Allowed Method" of **Put**.
+3.  Click **Accept** to allow a new method of **Put** in our policy. Click **Apply Policy**. Navigate to **Security > Application Security > Headers > Methods** and you will see our newly added "Allowed Method" of **Put**.
 
 .. image:: images/headmeth.png
   :width: 600 px
@@ -96,9 +96,9 @@ Policy Building Process
 
 One thing you can do to greatly increase the integrity of the learning suggestions is, define trusted IP's. You can also tell the system to Only learn from trusted IP's which is a very wise thing to do if you are developing policy on an app that is exposed to untrusted or Internet traffic. 
 
-#. Go to **Security > Application Security >  Policy Building > Learning and Blocking Settings** and expand the **Policy Building Process** section at the bottom. Here you can see settings that this particular policy is using for learning. Notice that **Trusted IP Addresses List** is empty. 
+#. Go to **Security > Application Security >  Policy Building > Learning and Blocking Settings** and expand the **Policy Building Process** section at the bottom. Change the view from Basic to Advanced. Here you can see settings that this particular policy is using for learning. Notice that **Trusted IP Addresses List** is empty. 
 #. Click the little window/arrow icon next to **Trusted IP Addresses List** is empty.
-#. This takes you to: **Security > Application Security > Security Policies > Policies List > juiceshow_waf policy > IP Address Exceptions**. Click **Create**.
+#. This takes you to: **Security > Application Security > Security Policies > Policies List > juiceshow_waf policy > IP Address Exceptions**. Click **Add**.
 
 .. image:: images/ip_exception.png
   :width: 600 px
@@ -186,7 +186,7 @@ In this final exercise we will examine server technologies which allow you to au
 .. image:: images/st.png
   :width: 600 px
 
-4. This takes you to: **Security > Application Security > Security Policies > juiceshop_waf > Genearl Settings**. Scroll down to **Advanced Settings > Server Technologies** and click in the box. Search for Linux since we know the server is running Linux. 
+4. This takes you to: **Security > Application Security > Security Policies > juiceshop_waf > General Settings**. Scroll down to **Advanced Settings > Server Technologies** and click in the box. Search for Linux since we know the server is running Linux. 
 
 .. image:: images/svr_tech.png
   :width: 600 px

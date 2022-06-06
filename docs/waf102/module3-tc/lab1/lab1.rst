@@ -38,7 +38,7 @@ Review TC Signatures
 .. NOTE:: Without an Advanced WAF license and Threat Campaign Subscription you will NOT get Live Updates for Bot Signatures. 
 
 2. Navigate to **Security > Options > Application Security > Threat Campaigns** and review some of the signatures and information about them. 
-#. Click on the **Apache Struts2 Jakarta Multipart Parser BillGates** signature and note the attack type as well as the CVE reference: **CVE-2017-5638**. You can click the CVE reference link for more information. 
+#. Click on the **Apache Struts2 Jakarta Multipart Parser -gbk BillGates** signature and note the attack type as well as the CVE reference: **CVE-2017-5638**. You can click the CVE reference link for more information. 
 #. Click on the filter button and under the Reference field, type: **2020** and **Apply Filter** to search for all CVE's related to 2020. 
 
 .. image:: images/tc_sig.png
