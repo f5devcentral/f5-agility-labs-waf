@@ -67,7 +67,7 @@ For demonstration purposes in this lab, we will simply configure Source IP based
   
     * By Source IP: Click **Edit** and check the box at the bottom for **Client-Side Integrity Defense** which tells the WAF to send an Active JS challenge when under attack to verify the browser vs an attacking bot.
 
-* Set the Relative Threshold to 500% and **15** transactions per second.
+* Set the Relative Threshold to **500%** and **15** transactions per second.
 * Set the Absolute Threshold TPS to **20**.
 
 .. image:: images/behav.png
