@@ -43,7 +43,7 @@ Apply additional protections against the OWASP Top 10
     - Press **Save** at the bottom of the screen and **Apply Policy** in the top right corner.  
     - This is currently NOT resolving on on this specific build within the dashboard but you could put a checkmark on the No/Ghostbuster icon for this to get the A4 catagory to 100%.
 
-        .. image:: ../images/dtdsinxml.png
+        .. image:: ../images/dtds-in-xml.png
 
 
 #. Navigate to **Security -> Application Security -> Security Policies** and select the Juice_Shop_WAF policy we created.  We now need to block **Disallowed File Types**.  
