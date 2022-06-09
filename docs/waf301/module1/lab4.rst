@@ -11,11 +11,11 @@ Launch Postman from the Linux desktop icon shown below:
     
 .. NOTE:: If the collection already exists choose 'replace'
 
-        https://gitlab.com/f5-examples/udf_waf_cicd/-/raw/master/WAF_342_postman_collection.json?inline=false 
+        http://gitlab.lab/waf_labs/waf_cicd/raw/master/WAF_301_postman_collection.json?inline=false
 
         .. image:: images/11-module1.png
 
-        **1.** With the collection imported, on the left-hand pane of Postman, you’ll see the collection titled ‘WAF_342’ with several declarations under it:
+        **1.** With the collection imported, on the left-hand pane of Postman, you’ll see the collection titled ‘WAF_301’ with several declarations under it:
 
         .. image:: images/12-module1.png
 
@@ -26,21 +26,21 @@ Launch Postman from the Linux desktop icon shown below:
 
         .. image:: images/13-module1.png
 
-        **4.** This validates that AS3 is running and responded with version 3.16.0
+        **4.** This validates that AS3 is running and responded with version 3.16
 
 **1.4.2:** We’re now going to make an AS3 declaration to the BIG-IP.  To view the JSON declaration, click on the declaration titled **as3 with_declarative_waf_and_vs** and select :guilabel:`Body` and :guilabel:`raw` as shown below:
 
     .. image:: images/14-module1.png
 
-    In this declaration, we’re going to be creating a new Virtual Server on the BIG-IP, creating an ASM policy by referencing the template created earlier and applying it to the new Virtual Server. This virtual server front-ends a pool member that is running OWASP’s Juice Shop application that has all of the OWASP top 10 vulnerabilities.  
+    In this declaration, we’re going to be creating a new Virtual Server on the BIG-IP, creating an Advanced WAF policy by referencing the template created earlier and applying it to the new Virtual Server. This virtual server front-ends a pool member that is running OWASP’s Juice Shop application that has all of the OWASP top 10 vulnerabilities.  
 
-    Also note that the declaration is calling an external URL hosted on Gitlab and is our WAF JSON declaration that will be creating all of the configuration items mentioned above.  If you’d like, you can view the JSON declaration by using the bookmark bar in FireFox on the Linux Desktop and clicking on the ‘WAF_342’ Bookmark folder and clicking on ‘Gitlab’. login with the cached credentials and  The following screen appears:
+    Also note that the declaration is calling an external URL hosted on Gitlab and is our WAF JSON declaration that will be creating all of the configuration items mentioned above.  If you’d like, you can view the JSON declaration by using the bookmark bar in FireFox on the Linux Desktop and clicking on the ‘WAF_301’ Bookmark folder and clicking on ‘Gitlab’. login with the cached credentials and  The following screen appears:
 
         .. image:: images/15-module1.png
 
     **1** Click on ‘waf_labs / waf_cicd’ and at the bottom of the page you’ll see ‘waf_policy.json’.  Click on that to view the JSON file:
 
-.. NOTE:: in the top section you’ll see the name 'owasptop10_agility2020'.  This refers to the template we created on the BIG-IP to build the ASM policy and matches the name of the template we created in the BIG-IP.
+.. NOTE:: in the top section you’ll see the name 'owasptop10_agility2022'.  This refers to the template we created on the BIG-IP to build the Advanced WAF policy and matches the name of the template we created in the BIG-IP.
 
         .. image:: images/16-module1.png
 
@@ -48,7 +48,7 @@ Launch Postman from the Linux desktop icon shown below:
 
         .. image:: images/17-module1.png
 
-    **3** Validate that the ASM policy has been created via the previous step by logging into the BIG-IP with the following credentials.  
+    **3** Validate that the Advanced WAF policy has been created via the previous step by logging into the BIG-IP with the following credentials.  
 
         Username:	admin
 		Password:	f5DEMOs4u!
