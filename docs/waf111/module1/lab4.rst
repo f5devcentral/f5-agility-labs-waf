@@ -12,13 +12,13 @@ Apply additional protections against the OWASP Top 10
 
 #. On the OWASP Dashboard, path **Security -> Overview -> OWASP Compliance**. Click on the expand arrow next to **A2 Broken Authentication**. We still have no Login Enforcement resources.  Again you can click on the **?** to see more info on Login Enforcement or any other protections.  
 
-    - Under A2 click the link named **Not Fulfilled** next to Login Enforcement.  
+    - Under A2 click the Checkmark to the right of Session Hijacking Protection, this will enforce these related protections.
 
-        .. image:: ../images/loginenforcement.png
-
-    - Then, click on the **Login Enforcement** tab
-
-        .. image:: ../images/loginpageslist.png
+    - Next, navigate to **Security -> Application Security -> Security Policies** and select the Juice_Shop_WAF policy we created.
+    
+    - Click **Sessions and Logins** 
+    
+        .. image:: ../images/login_enforcement_16_1_2.png
 
     - In the Authenticated URLs field enter ``/#/privacy-security/`` and press the add button and ``/#/wallet`` and press the add button.  Based on app exploration we can identify that these URIs should only be accessible after successful login.
     - Press the **Save** button below.  Then press the **Apply Policy** Button in the top right corner. 
