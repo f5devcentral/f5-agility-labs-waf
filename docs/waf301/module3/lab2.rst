@@ -57,7 +57,7 @@ Explore the policy and pay attention to the **modifications** section. It should
       "description": "Add 403 to Allowed Response Codes."
     }
 
-.. note:: For the purposes of this lab, in order to avoid copy/paste errors, we have the script configured to build an entire new policy definition file rather than copy and paste just the modifications section
+.. note:: For the purposes of this lab, in order to avoid copy/paste errors, we have the script configured to build an entirely new policy definition file rather than copy and paste just the modifications section
 
 3.2.3 Update original WAF Policy JSON
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
