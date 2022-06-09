@@ -32,7 +32,8 @@ Task – We will continue applying protections while working down the Dashboard
 
 #. The following steps will declare our login page for the Juice Shop app, then we will apply more A2 Broken Authenticaton protections against it.
 
-    - Under A2 click the link named **Not Fulfilled** next to Login Enforcement.  This is just a link/shortcut to the login page settings.  
+    - First, under A2, lets select the checkmark next to Session Hijacking Protection.
+    - Next, click the link named **Not Fulfilled** next to Login Enforcement.  This is just a link/shortcut to the login page settings.  
 
         .. image:: ../images/loginenforcement.png
 
