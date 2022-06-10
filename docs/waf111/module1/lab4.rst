@@ -10,15 +10,11 @@ Objective
 Apply additional protections against the OWASP Top 10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. On the OWASP Dashboard, path **Security -> Overview -> OWASP Compliance**. Click on the expand arrow next to **A2 Broken Authentication**. We still have no Login Enforcement resources.  Again you can click on the **?** to see more info on Login Enforcement or any other protections.  
-
-    - Under A2 click the link named **Not Fulfilled** next to Login Enforcement.  
-
-        .. image:: ../images/loginenforcement.png
-
-    - Then, click on the **Login Enforcement** tab
-
-        .. image:: ../images/loginpageslist.png
+#. Navigate to **Security -> Application Security -> Security Policies** and select the Juice_Shop_WAF policy we created.
+    
+    - Select **Sessions and Logins** 
+    
+        .. image:: ../images/login_enforcement_16_1_2.png
 
     - In the Authenticated URLs field enter ``/#/privacy-security/`` and press the add button and ``/#/wallet`` and press the add button.  Based on app exploration we can identify that these URIs should only be accessible after successful login.
     - Press the **Save** button below.  Then press the **Apply Policy** Button in the top right corner. 
@@ -29,6 +25,9 @@ Apply additional protections against the OWASP Top 10
     - On this screen add a checkmark in the **Alarm** and **Block** checkboxes.
     - Press **Save** below and **Apply Policy** in the top right.
     - These protections are now applied to A2, and also the Login Enforcement protections in A5.
+
+        .. image:: ../images/Sessions-logins.png
+
 
 
 #. Back on the OWASP Dashboard, path **Security -> Overview -> OWASP Compliance**. Click on the expand arrow next to **A4  XML External Entities**.  Previous signature protections already are helping to mitigate these other XML exploits.  Here are the steps to apply disallowing DTDs.  
@@ -42,11 +41,15 @@ Apply additional protections against the OWASP Top 10
     - Go to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings**.
     - Expand the **Content Profiles** section.  Place a check in the  **Alarm** and the **Block** settings next to **XML data does not comply with format settings**.  
     - Press **Save** at the bottom of the screen and **Apply Policy** in the top right corner.  
-    - If you want to view the dashboard again you will see the A4 catagory is now at 100%.
+    - This is currently NOT resolving on on this specific build within the dashboard but you could put a checkmark on the No/Ghostbuster icon for this to get the A4 catagory to 100%.
 
-#. Back on the OWASP Dashboard, path **Security -> Overview -> OWASP Compliance**. Click on the expand arrow next to **A5  Broken Access Control**.  Previous signature protections already are helping to mitigate some of these exploits.  We satisfied the **Login Protection** a few steps ago.  We now need to block **Disallowed File Types**.  
+        .. image:: ../images/dtds-in-xml.png
 
-    - To view/edit the pre-configured allowed and disallowed file types go to **Security -> Application Security -> File Types -> Disallowed File Types**.  You can just view, and no changes need to made here.
+
+#. Navigate to **Security -> Application Security -> Security Policies** and select the Juice_Shop_WAF policy we created.  We now need to block **Disallowed File Types**.  
+
+    - Expand HTTP Message Protection and Select File Types.
+    - Here you can view/edit the pre-configured allowed and disallowed file types.  You can just view, and no changes need to made here.
     - To apply these blocks now go to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings**.
     -  Expand the **File Types** section.  Place a check in the **Alarm** and **Block** boxes for **Illegal file type**. 
     - Press **Save** at the bottom of the screen and **Apply Policy** in the top right corner.  
