@@ -70,7 +70,8 @@ Click :guilabel:`Save` to save the policy
 1.1.5 Block traffic from North Korea
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Navigate to:  Security  ››  Application Security : Geolocation Enforcement
+    Navigate to:  Security  ››  Application Security : Security Policies : Policies List
+    Select: :guilabel:`base_policy` and scroll to Advanced Settings, Geolocation Enforcement
 
         We’re going to create a Geo enforcement on this policy to block North Korea form accessing our site.  
         From the ‘Allowed Geolocations’ on the right, find ‘Korea, Democratic People’s Republic of’ and bring it to the left window titled ‘Disallowed Geolocations’:

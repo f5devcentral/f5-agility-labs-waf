@@ -26,7 +26,7 @@ Task – We will continue applying protections while working down the Dashboard
 
 #. Go back to the Dashboard.  Click **Security > Overview > OWASP Compliance**.  You now see you are 100% protected against A1 Injection.  Now expand **A2 Broken Authentication**.  You can see with some of the default protections, and the previous attack signatures we applied are providing some protections.  The signatures we applied previously protect against some auth attacks, and cookie tampering protection is on by default when applying a base policy.
 
-    - To the right of **Session Highjacking Protection** click on **Enforce** checkmark.  You will now see the potential protections percentage for Broken Authentication increase. Press the blue **Review & Update** button below.  Then the  **Save & Apply Policy** button.
+    - To the right of **Session Highjacking Protection** click on the **Enforce** checkmark.  You will now see the potential protections percentage for Broken Authentication increase. Press the blue **Review & Update** button below.  Then the  **Save & Apply Policy** button.
 
     .. Note:: Unfortunately protecting against all of the OWASP top 10 is not always as easy as applying attack signatures. In some cases you need to apply more app specific protections such as a logon page.  If your application does not have a logon page, this would be a good example of when to select the no symbol (we call it the ghostbuster symbol) button, which will ignore the requirement since it does not apply.
 
