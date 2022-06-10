@@ -28,7 +28,7 @@ traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
 -  1 x Ubuntu Linux 18.04 client, with client tools installed - aptly named: client01
--  1 x F5 BIG-IP VE (v15.1.0.1) running ASM and LTM - aptly named: bigip01
+-  1 x F5 BIG-IP VE (v16.1.2.2) running ASM and LTM - aptly named: bigip01
 -  1 x Ubuntu Linux 18.04 server, with webgoat 8 installed - aptly named: server01 
 
 .. nwdiag:: labtopology.diag
@@ -58,12 +58,12 @@ components:
      - 10.1.1.245
      - 10.1.10.245
      - 10.1.20.245
-     - https - ``admin:password`` ssh - ``f5student:password``
+     - https - ``admin:f5DEMOs4u!`` ssh - ``f5student:password``
    * - Linux Server (server01)
      - 10.1.1.252
      - N/A
      - 10.1.20.252
-     - ssh - ``f5student:password``
+     - ssh - ``f5student:f5DEMOs4u!``
 
 .. note:: External links are not required reading for the lab, rather
    supplemental if you you would like to get a different take or
