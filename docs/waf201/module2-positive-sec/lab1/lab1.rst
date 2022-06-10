@@ -37,7 +37,7 @@ Since we will be training the WAF for positive security, let's create an allow l
 
 #. Navigate to **Security > Application Security > Security Policies > Security Policies List, then click on the "juiceshop_blocking" policy and navigate to the IP Address Exceptions menu.** and click **Create**. Configure the allow list for a 10/8 to allow our internal "trusted" network as shown below and check the box for **Policy Builder trusted IP**. 
 #. Note in the upper left that this allow list is only associated with the **juiceshop_blocking policy**. Allow lists are unique per policy but could be defined at part of a parent policy and delegated down to child policies. 
-#. Click **Create** and configure your Exception properties according to the screenshot below, then click **Add**. Be sure to enable the **Trust this IP** under **Policy Builder Traffic**.
+#. Click **Create** and configure your Exception properties according to the screenshot below, then click **Add**. Be sure to enable the **Trust this IP** under **Policy Builder Traffic**. Be sure to then click **Apply Policy** in the upper-right hand corner of the UI.
 
 .. image:: images/ipe2in1.png
   :width: 600 px
