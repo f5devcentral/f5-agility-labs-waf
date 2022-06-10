@@ -101,12 +101,12 @@ Test Session Tracking
         :width: 600 px
 
 5. Navigate to **Security > Reporting > Application > Session Tracking Status** and review the entries that were just created from the application request event log.
-#. Click "View Requests" for either of them to see all requests filtered by either the DeviceID or Username. You may also use this page to release the Username or DeviceID from Session Tracking.
+#. Click **View Requests** for either of them to see all requests filtered by either the DeviceID or Username. You may also use this page to release the Username or DeviceID from Session Tracking.
 
 .. image:: images/viewrequests.png
         :width: 600 px
 
-#. These features are useful for forensic purposes as well as blocking access to applications by DeviceID, Username, etc.
-#. Finally, navigate to **Security > Application Security > Session Tracking** and review the other, more detailed actions you can take based off of DeviceID, username, etc.
+7. These features are useful for forensic purposes as well as blocking access to applications by DeviceID, Username, etc.
+8. Finally, navigate to **Security > Application Security > Session Tracking** and review the other, more detailed actions you can take based off of DeviceID, username, etc.
 
 **This concludes Lab 4. Thank you for joining us for WAF 201! You have now completed this course.**
