@@ -1,8 +1,6 @@
 name: Build the Docs
-on:
-  push:
-    branches:
-      - develop
+on: push
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,5 +20,12 @@ jobs:
         aws-region: us-east-1
 
     - name: Copy files to s3 (Staging Clouddocs)
+      # Develop branch only
+      if: github.ref == 'refs/heads/develop'
       run: |
         aws s3 sync --delete $PWD/docs/_build/html/ s3://clouddocs.f5networks.net/training/community/$S3_DIR/html/
+    - name: Copy files to s3 (Production Clouddocs)
+      # Master branch only
+      if: github.ref == 'refs/heads/master'
+      run: |
+        aws s3 sync --delete $PWD/docs/_build/html/ s3://clouddocs.f5.com/training/community/$S3_DIR/html/
