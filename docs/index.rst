@@ -7,7 +7,7 @@ Welcome
 Welcome to the |classbold| labs for F5 Agility |year|
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :caption: Contents:
    :glob:
 
