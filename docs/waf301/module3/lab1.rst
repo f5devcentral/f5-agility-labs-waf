@@ -15,7 +15,7 @@ Here are the highlevel stages we are going to execute:
 
 In the linux client RDP session open Firefox and click gitlab from the waf-342 favorites folder 
 
-:guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-342` -> :guilabel:`GitLab`
+:guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-301` -> :guilabel:`GitLab`
 
 Click on :guilabel:`waflabs / waf_cicd` Project
 
