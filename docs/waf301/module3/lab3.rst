@@ -32,7 +32,7 @@ More on tagging at |git|
 3.3.2 Tag the repo in gitlab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-342` -> :guilabel:`GitLab`
+:guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-301` -> :guilabel:`GitLab`
 
 Click on :guilabel:`waflabs / waf_cicd` Project
 
