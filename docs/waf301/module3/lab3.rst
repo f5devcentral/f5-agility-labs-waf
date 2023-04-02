@@ -53,7 +53,7 @@ Navigate to :guilabel:`CI / CD` -> :guilabel:`Pipelines` and click on the pipeli
 3.3.4 Connect to Production Juice-Shop App
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Upon successful pipeline completion you can access Juice-Shop App by selecting :guilabel:`firefox` --> :guilabel:`favorites` --> :guilabel:`WAF-342` --> :guilabel:`Production` --> :guilabel:`OWASP juice shop - PRODUCTION`
+Upon successful pipeline completion you can access Juice-Shop App by selecting :guilabel:`firefox` --> :guilabel:`favorites` --> :guilabel:`WAF-301` --> :guilabel:`Production` --> :guilabel:`OWASP juice shop - PRODUCTION`
 
 Pipeline Summary
 ----------------
