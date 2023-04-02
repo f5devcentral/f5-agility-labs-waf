@@ -32,7 +32,7 @@ More on tagging at |git|
 3.3.2 Tag the repo in gitlab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-342` -> :guilabel:`GitLab`
+:guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-301` -> :guilabel:`GitLab`
 
 Click on :guilabel:`waflabs / waf_cicd` Project
 
@@ -53,7 +53,7 @@ Navigate to :guilabel:`CI / CD` -> :guilabel:`Pipelines` and click on the pipeli
 3.3.4 Connect to Production Juice-Shop App
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Upon successful pipeline completion you can access Juice-Shop App by selecting :guilabel:`firefox` --> :guilabel:`favorites` --> :guilabel:`WAF-342` --> :guilabel:`Production` --> :guilabel:`OWASP juice shop - PRODUCTION`
+Upon successful pipeline completion you can access Juice-Shop App by selecting :guilabel:`firefox` --> :guilabel:`favorites` --> :guilabel:`WAF-301` --> :guilabel:`Production` --> :guilabel:`OWASP juice shop - PRODUCTION`
 
 Pipeline Summary
 ----------------
