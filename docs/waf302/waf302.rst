@@ -1,5 +1,5 @@
-WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)
-=================================================
+WAF 302 - AWAF in a CI/CD Pipeline with Arcadia Finance (Self Guided)
+======================================================================
 
 Intro
 -----
@@ -76,7 +76,7 @@ Modifications
 ChatOps
 -------
 
-New feature in 15.1 and above allows AWAF to use outgoing webhooks to send notifications to a Slack or MS Teams channels. This makes a great addition to a commonly-used "ChatOps" method where Devs, DevOps and DevSecOps monitor a particular channel for any notifications raised by SCM, WAF, Ci server etc.
+New feature in 15.1 and above allows AWAF to use outgoing webhooks to send notifications to a Slack or MS Teams channels. This makes a great addition to a commonly-used "ChatOps" method where Devs, DevOps and DevSecOps monitor a particular channel for any notifications raised by SCM, WAF, CI server etc.
 Webhooks are defined explicitly inside the AWAF policy and can be triggered by a number of different events. Notification messages are configurable and may contain various useful information about the event. AS it applies to AWAF, notification message can be sent when the policy has been applied, or a security event has been observed:
 
 **Webhooks are not used in this lab**
