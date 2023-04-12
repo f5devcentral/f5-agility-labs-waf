@@ -4,7 +4,7 @@ Lab 1.1: Lab En
 We’re going to be working in the BIG-IP, AS3, and Postman to deploy an ASM template with reference to a hosted swagger definition file. 
 
 1.1.1 Open RDP to the Windows Client linux
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **For users with Mac's, keystrokes won't show as you type.  Don't worry, just keep typing and login.**
 
 Log into the Linux Client via RDP using the following credentials:
