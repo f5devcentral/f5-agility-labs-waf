@@ -1,10 +1,9 @@
-Lab 1.1: Creation of an AWAF base policy
+Lab 1.1: Lab En
 =========================================
 
-We’re going to be working in the BIG-IP to create an ASM template with some specific settings applied that we can use on our VS.  
-Once the template is created, we’ll use AS3 and Postman to add an ASM policy to a VS based on our template to show how to add automation of ASM policies to applications.  
+We’re going to be working in the BIG-IP, AS3, and Postman to deploy an ASM template with reference to a hosted swagger definition file. 
 
-1.1.1 Open RDP to the Client linux
+1.1.1 Open RDP to the Windows Client linux
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **For users with Mac's, keystrokes won't show as you type.  Don't worry, just keep typing and login.**
 
