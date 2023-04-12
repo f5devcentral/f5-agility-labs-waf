@@ -26,7 +26,7 @@ components have been included in your lab environment:
 
 -  1 x Windowser Server 2019, with client tools installed
 -  1 x F5 BIG-IP VE (v16.1.2.1) running ASM and LTM
--  1 x Ubuntu Linux 20.04 server, with Docker installed
+-  1 x Ubuntu Linux 20.04 server, with Docker installed hosting the Arcadia Finance application
 
 .. nwdiag:: labtopology.diag
    :width: 800
