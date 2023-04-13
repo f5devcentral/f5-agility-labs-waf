@@ -1,64 +1,87 @@
-Lab 1 – Introduction to the Juice Shop
---------------------------------------
+Lab 2 – Hacking the Juice Shop
+------------------------------
 
 Objective
 ~~~~~~~~~
 
-- Navigate the site
+- Demonstrate the vulnerabilities in the Juice Shop web application.
 
-- Create an account
+- Demonstrate a cross site scripting (XSS) vulnerability.
 
-- Make a purchase
+- Demonstrate a SQL injection vulnerability.
+
+- Demonstrate a privilege escalation vulnerability.
+
+- Demonstrate an unauthorized file access.
+
+Task – Demonstrate a server side cross site scripting (XSS) vulnerability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Visit the About page so you can see that it hasn't been hacked yet by clicking on the hamburger menu in the top left corner of the page:
+
+.. image:: ../images/hamburger_menu.png
+
+and then click on **About Us**.
+
+.. image:: ../images/aboutus_menu.png
+
+You should see a bunch of lorem ipsum text and a slider of customer feedback entries retrieved from the database.
+
+.. image:: ../images/aboutus_page.png
+
+We will insert our cross site scripting hack into the database via the Customer Feedback form. Click on the hamburger menu again and then click on **Customer Feedback**.
+
+.. image:: ../images/customer_feedback.png
+
+In the comment area paste the following:
+
+.. code-block:: none
+
+    <<script>FUD</script>iframe allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1030254214&auto_play=true>
+
+Then, choose any amount of stars for the rating and answer the math challenge and then click Submit.
+
+.. image:: ../images/xss_cust_feedback_form.png
+
+Now head back over to the About page by clicking on the hamburger menu and then clicking on About. You should hear a jingle about the Juice Shop.
+
+Task – Demonstrate a SQL injection vulnerability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Paste the following path in your browser's location bar after the FQDN of the Juice Shop:
 
 
-Task – Navigate the Juice Shop Site
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: none
+   
+    /rest/products/search?q=qwert%27%29%29%20UNION%20SELECT%20id%2C%20email%2C%20password%2C%20%274%27%2C%20%275%27%2C%20%276%27%2C%20%277%27%2C%20%278%27%2C%20%279%27%20FROM%20Users--
 
-To access the site navigating to the ``Components`` tab and using the ``Access`` dropdown in the ``BIG-IP 16.0.1.1-0.0.6`` box under the ``F5 Products`` column click on the ``Juick Shop`` option.
+The location bar should look something like (don't copy this since your FQDN will be different):
 
-    .. image:: ../images/udf_juice_shop_link.png
+.. code-block:: none
 
-A new browser tab should pop open and the Juice Shop should load
+    https://ba3eff45-2f23-49ab-8122-2e3bdc1ed9ad.access.udf.f5.com/rest/products/search?q=qwert%27%29%29%20UNION%20SELECT%20id%2C%20email%2C%20password%2C%20%274%27%2C%20%275%27%2C%20%276%27%2C%20%277%27%2C%20%278%27%2C%20%279%27%20FROM%20Users--
 
-    .. image:: ../images/udf_juice_shop.png
+The result should be a list of all the users in the database including their hashed passwords.
 
-
-Task – Create an Account on the Juice Shop Site
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You will notice that as you click on each product you can't add the product to a basket. You will need to create an account to add products to the basket and make a purchase. Please use fake information for the login credentials. Click on the ``Account`` link and the ``Login`` in the top right of the page.
-
-    .. image:: ../images/udf_juice_shop_account.png
-
-Then click on the ``Not yet a customer`` link
-
-    .. image:: ../images/udf_juice_shop_signup.png
-
-Complete the registration and log in with your new username and password.
+.. image:: ../images/juice_shop_users.png
 
 
-Task – Make a Purchase
-~~~~~~~~~~~~~~~~~~~~~~
+Task - Demonstrate a privilege escalation vulnerability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click on any product and add it to you basket then click on ``Your Basket`` in the top right of the page.
+Use a rainbow lookup table to expose the admin user's password by navigating to https://crackstation.net/ and entering the hash
 
-    .. image:: ../images/juice_shop_basket.png
 
-Click ``Checkout`` and create a new shipping address making sure to use fake information again.
+.. image:: ../images/juice_shop_crackstation.png
 
-Select the new address and click the ``Continue`` button.
 
-    .. image:: ../images/juice_shop_address.png
+Task - Demonstrate an unauthorized file access vulnerability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Choose any of the delivery options and click the ``Continue`` button.
+Navigate to /encryptionkeys to expose an unwanted directory listing
 
-    .. image:: ../images/juice_shop_delivery.png
+.. image:: ../images/juice_shop_encryptionkeys.png
 
-Add a new (fake) credit card (use ``1111111111111111`` for the credit card number), select it and click the ``Continue`` button.
+Click on the file ``premium.key`` and attempt to download it.
 
-    .. image:: ../images/juice_shop_cc.png
-
-Then click ``Place your order and pay``
-
-    .. image:: ../images/juice_shop_pay.png
-
+The files in this directory can be downloaded. A good WAF policy should block access to sensitive file types.
