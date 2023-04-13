@@ -16,8 +16,9 @@ Here is a complete listing of all F5 Advanced WAF classes offered at this year's
 Following the Agility conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com/training/community/>`_ to continue your education and create your own test lab environment.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
+   :caption: Contents:
    :glob:
 
-    labinfo
-    module*
+   labinfo/labinfo
+   module*/module*
