@@ -1,5 +1,5 @@
-Lab Environment & Topology 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lab Environment & Topology
+===========================================================
 
 ..  |lab-diag| image:: ../images/waf111_lab_diagram.png
 
@@ -20,9 +20,8 @@ Docker Containers:
 
 **F5 BIG-IP**
 
-* Version 16.0.1.1-0.0.6
+* Version 16.1.2.1.0.0.10
 * Best Bundle (LTM, AFM, APM, ASM, DNS)
-* Advanced WAF add-on
 
 Lab Topology
 ------------
@@ -30,7 +29,7 @@ Lab Topology
 The network topology implemented for this lab is very simple. The following
 components have been included in your lab environment:
 
--  1 x F5 BIG-IP VE (v16.0) licenced with Best Bundle and Advanced WAF upgrade
+-  1 x F5 BIG-IP VE (v16.0) licenced with Best Bundle
     - external interface (external subnet)
     - management interface (management subnet)
     - internal interface (internal subnet)

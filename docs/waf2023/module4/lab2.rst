@@ -1,4 +1,4 @@
-Exercise 1.2: Add a Geolocation Policy
+Lab 2 - Add a Geolocation Policy
 -------------------------------------------------
 Another practical control to implement early on in your WAF deployment is Geolocation blocking or fencing. If we know that our application is only supposed to be accessed from certain countries or not accessed from others, now is the time to get that configured and enforced. 
 
@@ -35,6 +35,4 @@ Here is an example for future reference:
 .. image:: ../images/ltm_geo.png
   :width: 600 px
 
-**This completes Exercise 1.2**
-
-**Congratulations! You have just completed Lab 1 by implementing an IPI policy globally at Layer 3 and at Layer 7 via WAF policy for a specific application. Next you added Geolocation Enforcement to the policy and learned that this can be done via WAF policy or LTM policy. This follows our best-practice guidance for getting started with Application Security.**  
+**Congratulations! You have just completed Module 4 by implementing an IPI policy globally at Layer 3 and at Layer 7 via WAF policy for a specific application. Next you added Geolocation Enforcement to the policy and learned that this can be done via WAF policy or LTM policy. This follows our best-practice guidance for getting started with Application Security.**  
