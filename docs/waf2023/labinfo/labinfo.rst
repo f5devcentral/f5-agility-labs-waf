@@ -1,5 +1,5 @@
-Lab Environment & Topology 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lab Environment & Topology
+===========================================================
 
 ..  |lab-diag| image:: ../images/waf111_lab_diagram.png
 
@@ -43,9 +43,9 @@ A network diagram of the lab:
 |lab-diag|
 
 
-
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
+   :caption: Contents:
    :glob:
 
-    module1
+   module*/module*

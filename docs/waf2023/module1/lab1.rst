@@ -60,5 +60,4 @@ Add a new (fake) credit card (use ``1111111111111111`` for the credit card numbe
 
 Then click ``Place your order and pay``
 
-    .. image:: ../images/juice_shop_pay.png
-        
+    .. image:: ../images/juice_shop_pay.png    
