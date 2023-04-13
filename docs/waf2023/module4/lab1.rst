@@ -1,4 +1,4 @@
-Exercise 1.1: IP Intelligence Policies
+Lab 1 - IP Intelligence Policies
 ---------------------------------------
 Objective
 ~~~~~~~~~
@@ -210,4 +210,3 @@ Test XFF Inspection
 
 .. NOTE:: Attackers often use proxies to add in source IP randomness. Headers such as XFF are used to track the original source IP so the packets can be returned. In this example the HTTP request was sent from a malicious IP but through a proxy that was not known to be malicious. The request passed right through our Global Layer 3 IPI policy but was picked up at Layer 7 due to the WAF's capabilities. This demonstrates the importance of implementing security in layers. 
 
-**This completes Exercise 1.1**
