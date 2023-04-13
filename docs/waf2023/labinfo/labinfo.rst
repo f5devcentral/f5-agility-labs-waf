@@ -41,11 +41,3 @@ components have been included in your lab environment:
 A network diagram of the lab:
 
 |lab-diag|
-
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Contents:
-   :glob:
-
-    module*/module*
