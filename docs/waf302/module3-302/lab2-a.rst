@@ -1,7 +1,7 @@
 Lab 3.2: Apply WAF suggestions for trusted traffic
 ==================================================
 
-.. _lab2:
+
 
 3.2.1 Reviewing policy suggestions in the GIT repo  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -150,6 +150,4 @@ Furthermore, WAF Policy was updated to allow certain requests to pass, as an out
 * Test and update policy as necessary
 * Repeat
 
-What's Next?
 
-:doc:`Deploy Juice-Shop App to Production <lab3>`

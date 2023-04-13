@@ -1,7 +1,6 @@
 Lab 3.3: Deploy Juice-shop Web App to Production ENV and run DAST
 =================================================================
 
-.. _lab3:
 
 3.3.1 Deploy Juice-Shop App to Production
 -----------------------------------------

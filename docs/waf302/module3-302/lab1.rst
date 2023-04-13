@@ -87,6 +87,4 @@ Question - Why did the request to http://10.1.10.150/ftp/packages.json get block
 
 .. image:: images/policy_learning.png
 
-What's Next?
 
-:doc:`Apply WAF Policy Suggestions <lab2>`

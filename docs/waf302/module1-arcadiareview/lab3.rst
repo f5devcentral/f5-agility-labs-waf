@@ -1,61 +1,96 @@
-Lab 1.3: Creation of ASM Policies via Importing JSON Files
-==========================================================
+Lab 1.3: Reviewing the BIG-IP Configuration
+===========================================
 
-**1.3.1** Open Visual Studio Code by clicking on the icon shown below:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Log into the BIG-IP
+~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/Lab2-1.png
+Back on the Lab Components deployment page, click **Access** under *F5 BIG-IP* and select *TMUI*
 
-**1.3.2** Once Visual Studio Code is open, you'll see a collection on the left titled 'UDF_WAF_CICD' with several items underneath:
+Log into the BIG-IP by launching the Access > TMUI from the UDF components screen. You make logon to the :guilabel:`F5 BIG-IP` using the following credentials:
 
-.. image:: images/Lab2-2.png
+        Username:	:guilabel:`admin`
+    
+        Password:	:guilabel:`admin` 
 
-**1.3.4** Click on 'secops_waf_policy_1.json' and review the configuration of the file. 
+.. image:: images/2-module1.png
 
-.. image:: images/Lab2-3.png
+Now navigate to go to Local Traffic >> Virtual Servers
 
-**1.**  Import into the BIG-IP.
+1. On the top-right, you should see the Partition drop-down.
+2. Select the “arcadia-prod” partition.
+3. You should now see the Arcadia VIP called *vs_arcadia*
 
-**2.**  Navigate to 'Security  ››  Application Security : Security Policies : Policies List'
+.. Note::  If it’s grayed out, make sure you have clicked on Local Traffic >> Virtual Servers
+  
+  
+Click on the VIP and select the Security tab at the top.
+Verify the security policy ‘arcadia_waap_policy’ is attached.
 
-**a.**  click on the '...' next to 'Create' and select 'Import Policy':
+Review Security Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/Lab2-4.png
+Click on the vs_arcadia VIP and select the Security tab at the top.
+Verify the security policy *arcadia_waap_policy* is attached.
 
-**b.**  Navigate to the Desktop and select the 'waf301' folder
 
-.. image:: images/Lab2-5.png
-        
-**c.**  Select the 'udf_waf_cicd' folder:
+.. image:: images/big-ip-policyattached.png
 
-.. image:: images/Lab2-6.png
 
-**d.**  Select the 'secops_waf_polic_1.json' file and select 'Open' in the BIG-Ip:
+Now, let's review the security policy
 
-.. image:: images/Lab2-7.png
-        
-**e.** Select 'Import'
+Click on *Security* > *Application Security* > *Security Policies*
+Click on **arcadia_waap_policy** 
 
-.. image:: images/Lab2-8.png
-        
-**f.** You'll now see a policy imported called 'secops_waf_policy'.
+Review the settings, notice there is no Swagger file associated with this policy 
+(Note: If there was a swagger file associated with the policy, you would see the name of the swagger file instead of the upload button)
 
-**1.3.5** Return to Visual Studio Code and select the 'secops_waf_policy_2.json'
+.. image:: images/big-ip-securitypolicy.png
 
-**a.** Review the declaration:
+Click on *App Security* >> *URLs* >> *Allowed URLs*
 
-.. image:: images/Lab2-9.png
+This policy is allowing all HTTP/S URLs via a wildcard.
 
-**b.** Notice that the declaration is identical to the 'secops_waf_policy_1.json' file with some modifications.  In this declaration, you'll notice that the change is to allow the '403' response code in the Advanced WAF policy at the bottom.
+.. image:: images/big-ip-securitypolicy-urls.png
 
-**c.** Import into the BIG-IP following the same steps previously used in step 1.3.4 above.
+Click on either of the *asterisks*.
+Notice we are still enforcing attack signatures on the URLs.
+Click on *URL Parameters* at the top and again you can see we are allowing all via wildcard.
 
-**1.3.6** You'll now see two polices called:
+.. image:: images/big-ip-securitypolicy-urls-properties.png
 
-'secops_waf_policy'
+Click the asterisk parameter and again notice we are enforcing attack signatures.
 
-and
+Question?
+~~~~~~~~~
+Q: What is this policy doing as far as the APIs are concerned? 
 
-'secops_waf_policy_2'
+A: *Nothing beyond OWASP Top 10*
 
-.. image:: images/Lab2-10.png
+More testing with Postman
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+Go back to *Postman* within your Windows RDP session
+Select the *Arcadia* >> *Prod* >> *Test API* >> *PROD - buy stocks* request and review the *Headers*. Specifically, the *Content-Type* header. 
+
+This value is important for enabling F5 BIG-IP AWAF’s JSON parser.
+
+.. image:: images/postman-content-type-header.png
+
+Go back to the BIG-IP security policy, go to allowed URLs and Click one of the *asterisks*.
+Make sure the URL Properties drop-down is set to *Advanced* (not Basic)
+On the bottom of the page, select Header-based Content Profiles
+
+.. image:: images/big-ip-securitypolicy-urls-contenttype.png
+
+This is saying if the policy sees application/json as the Content-Type header, it will invoke the “Default” json content profile
+
+Click the *Default* json profile
+
+.. image:: images/big-ip-securitypolicy-json-profile.png
+
+This component tells AWAF to inspect JSON content and parse parameter values for potential security violations. Notice we can also support custom JSON Schema files which can allow your App/Dev teams to get very granular with OpenAPI/Swagger request schemas. 
+
+*For this lab we will not be using this feature.*
+
+
+

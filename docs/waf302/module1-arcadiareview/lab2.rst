@@ -1,20 +1,18 @@
-Lab 1.2: Creation of an AWAF template 
-=========================================
+Lab 1.2: Working with APIs in Postman 
+=====================================
 
 
-**1.2.1 Save policy as a template**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Review activity in Postman
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Click on **Postman** and expand **Arcadia Finance** collection.
+Click *Prod* > *Test API* > *PROD - last transaction* and click **Send**
 
-    	We’re now going to save this policy as a template.  To do so, navigate to:
+Set the response body to **Preview** for a nicer presentation
 
-	    Security  ››  Options : Application Security : Advanced Configuration : Policy Templates
+.. image:: images/postman-lasttransaction.png
 
-        On the far right of the screen click :guilabel:`Create`
-
-
-        .. image:: images/8-module1.png
+.. note:: Your transactions are stored in a NoSQL database (MongoDB)
 
 
-        Name the template :guilabel:`owasptop10_agility2022` and select ‘base_policy’ as the Template File and click ‘Create’.
-        
-        .. image:: images/9-module1.png
+
+

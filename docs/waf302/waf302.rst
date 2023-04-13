@@ -6,7 +6,7 @@ Intro
 
 Welcome to F5's Agility Labs, 2023 edition!
 
-By the end of this lab you should be able to:
+By the end of this lab, you should be able to:
 
 1. Use Postman to interact with F5 BIG-IP using F5’s declarative App Services API (AS3)
 
