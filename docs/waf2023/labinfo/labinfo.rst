@@ -48,4 +48,4 @@ A network diagram of the lab:
    :caption: Contents:
    :glob:
 
-   module*/module*
+    module*/module*
