@@ -1,4 +1,4 @@
-Lab 1 - Uprotected API
+Lab 1 - Unprotected API
 ==========================================
 
 **Narrative** PetStore has exposed their web application API via an HTTPS virtual server. We will demonstrate some of the vulnerabilities of leaving these endpoints unprotected. 
