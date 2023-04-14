@@ -8,28 +8,28 @@ Manager module to help PetStore secure their API endpoints.
 
 |
 |
-|
+
 
 1. Open Google Chrome > in the bookmark click on F5 BIG-IP. 
 
 
 |
 |
-|
+
 
 .. image:: images/chrome2.png
   :width: 600 px
 
 |
 |
-|
+
 
 2. Log in with username/password: **admin/admin**
 
 
 |
 |
-|
+
 
 .. image:: images/f5_login.png
   :width: 600 px
@@ -125,7 +125,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 
 7.	**API Protection Responses** shows the response code that will be used for Access Control, and Rate Limiting.
-    Click **Save** and **Next**
+      Click **Save** and **Next**
 
 |
 |
@@ -141,7 +141,6 @@ The result should be like the following, Click **Save** and **Next**
    **Blocking** enforcement mode, the system will start blocking either connection from attacking IP addresses or requests to attacked URLs. 
 
    **Transparent** enforcement mode, the system does not block the request but instead reviews and logs the violation event. 
-
     In the lab we will leave the setting to **Blocking** > Click **Save** and **Next**
 
 |
@@ -182,7 +181,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-    The result should look like the screen below, click **Save**
+   The result should look like the screen below, click **Save**
 
 |
 |
@@ -199,7 +198,8 @@ The result should be like the following, Click **Save** and **Next**
 10.  In the **OAuth Provider List** screen confirmed the OAuth provider selected from the previous 
      step is shown here, then click **Save** and **Next**
 
-
+|
+|
 
 .. image:: images/security-gc7.png
   :width: 600 px
@@ -208,9 +208,9 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-    The pre-configured provider allows for OAuth authorization for the user, using a LocalDB on the APM device. 
-    Access Tokens are issued from APM and included in the token are certain claims which we can use to determine 
-    the rate limiting, which are configured in Step 11.
+The pre-configured provider allows for OAuth authorization for the user, using a LocalDB on the APM device. 
+Access Tokens are issued from APM and included in the token are certain claims which we can use to determine 
+the rate limiting, which are configured in Step 11.
 
 |
 |
@@ -220,9 +220,9 @@ The result should be like the following, Click **Save** and **Next**
 11.  **Rate Liming Configuration** step, sets the maximum number of requests that are allowed
      in a time interval. When the threshold is met the request is dropped. 
     
-    For this lab set the following criteria:
+ For this lab set the following criteria:
 
-    **Rate Limiting Factor:** User
+**Rate Limiting Factor:** User
 
 |
 |
@@ -238,7 +238,7 @@ The result should be like the following, Click **Save** and **Next**
     Allow **5** requests per **1** minute
 
 
-    The end result should look like the following, Click **Save** and **Next**
+The end result should look like the following, Click **Save** and **Next**
 
 |
 |
@@ -252,15 +252,15 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-12.  In the Virtual Server Properties screen allows for the creation of a new virtual server or use 
+12.   In the Virtual Server Properties screen allows for the creation of a new virtual server or use 
      an existing virtual server.
 
-    Check the **Assign Policy to Virtual Server(s)** box
+Check the **Assign Policy to Virtual Server(s)** box
 
-    **Virtual Server** select the **Use Existing** radio button
+**Virtual Server** select the **Use Existing** radio button
 
-    Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move it to the right
-    **Selected** box as in the diagram below, click **Save** and **Next**
+Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move it to the right
+**Selected** box as in the diagram below, click **Save** and **Next**
 
 |
 |
@@ -273,7 +273,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-13.  Summary step, click on **Deploy**
+13.   Summary step, click on **Deploy**
 
      Note: this step may take a minute to complete. 
 
@@ -289,7 +289,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-14.  When the deployment is completed successfully and deployed, you should see the following screen
+14.   When the deployment is completed successfully and deployed, you should see the following screen
 
 |
 |
@@ -320,7 +320,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-15.  Let’s verify an Access Policy Manager API Protection policy was created for the Authentication request. 
+15.   Let’s verify an Access Policy Manager API Protection policy was created for the Authentication request. 
 
      Click on Access Module > Click on API Protection
 
@@ -374,7 +374,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-16.  Let’s verify the Access Policy and Security Policy have been applied to the PetStore virtual server.
+16.   Let’s verify the Access Policy and Security Policy have been applied to the PetStore virtual server.
 
 
      Click on **Local Traffic** module, click **Virtual Servers**
@@ -439,7 +439,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-17.  Now the Access Policy has been deployed, let’s go back to the Postman Collection and see
+17.   Now the Access Policy has been deployed, let’s go back to the Postman Collection and see
      what the behavior is now that we have applied the policy. 
 
      Click on the **Place Order for Pet Request** under **PetStore** > **Test API** 
@@ -464,7 +464,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 
 
-18.  Let’s set the authentication using a JSON web token (JWT)
+18.   Let’s set the authentication using a JSON web token (JWT)
 
      Click on the **Authorization** tab > Click on the drop-down arrow under **Type**, Select **OAuth2.0**
 
@@ -488,12 +488,12 @@ The result should be like the following, Click **Save** and **Next**
 |
 
 
-     In the **Configure New Token** window scroll down to the bottom. 
+In the **Configure New Token** window scroll down to the bottom. 
 
-     It is security best practice to set variables to hide Auth URL, Access Token URL, Client ID, and
-     Client Secret as seen in the image below. These values are configured as part of the APM 
-     Access->Federation->OAuth Client /Resource Server -> OAuth Server -> Client Settings
-     and would be provided in a production environment as part of the application configuration.
+It is security best practice to set variables to hide Auth URL, Access Token URL, Client ID, and
+Client Secret as seen in the image below. These values are configured as part of the APM 
+Access->Federation->OAuth Client /Resource Server -> OAuth Server -> Client Settings
+and would be provided in a production environment as part of the application configuration.
 
 
 
@@ -512,11 +512,11 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-    Note: if you are still having authentication problems sending the request through, you can try
-    clicking on the **Clear cookies** button above the Get New Access Token.
+Note: if you are still having authentication problems sending the request through, you can try
+clicking on the **Clear cookies** button above the Get New Access Token.
  
-    In the pop window for authentication, enter username: **user1** and password: **user**, and click 
-    **Logon**
+In the pop window for authentication, enter username: **user1** and password: **user**, and click 
+**Logon**
 
 |
 |
@@ -530,7 +530,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-    In the next screen, click on **Authorize**
+In the next screen, click on **Authorize**
 
 |
 |
@@ -544,7 +544,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-    Click on **Proceed**   
+Click on **Proceed**   
 
 |
 |
@@ -558,7 +558,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-    A JWT token name user1-oauth has been created. Click on Use **Token**
+A JWT token name user1-oauth has been created. Click on Use **Token**
 
 |
 |
@@ -572,7 +572,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-    Send the request for **Place Order for Pet** through again by clicking the blue **Send** button
+Send the request for **Place Order for Pet** through again by clicking the blue **Send** button
 
 |
 |
@@ -621,3 +621,13 @@ The result should be like the following, Click **Save** and **Next**
 
 
 .. image:: images/pm-api-requests.png
+ 
+
+.. toctree::
+
+  :maxdepth: 1
+
+  :glob:
+
+   lab*
+   review
