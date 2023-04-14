@@ -62,16 +62,15 @@ Check **OAuth 2.0** box
 
 The result should be like the following, Click **Save** and **Next**
 
-:raw-html:`<br />`
-
-:raw-html:`<br />`
+::
+::
 
 
 .. image:: images/security-gc4.png
 
-:raw-html:`<br />`
+::
 
-:raw-html:`<br />`
+::
 
 
 1.  **API Protection Configuration** step shows the imported paths and base path properties 
