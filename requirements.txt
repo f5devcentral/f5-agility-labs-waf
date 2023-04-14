@@ -1,4 +1,4 @@
-f5_sphinx_theme
+pip
 pre-commit
 recommonmark
 sphinx
