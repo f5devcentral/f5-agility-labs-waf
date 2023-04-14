@@ -101,9 +101,7 @@ Use vi/nano to edit *arcadia-oas3-dev.json*
 
 Under the buy_stocks.php path, find the “company” parameter settings and edit the schema object to include enumerations as shown below.
 
-.. note:: 
-	
-	If using vi, to edit the json hit ‘i’ and the editor will enter the INSERT state. When done editing hit ESC then type :wq! And hit enter.
+
 
 .. code-block:: bash
 
@@ -122,6 +120,10 @@ Under the buy_stocks.php path, find the “company” parameter settings and edi
     		          ]
             }
           },
+
+.. note:: 
+	
+	If using vi, to edit the json hit ‘i’ and the editor will enter the INSERT state. When done editing hit ESC then type :wq! And hit enter.
 
 .. image:: images/meme-vi.jpg
 

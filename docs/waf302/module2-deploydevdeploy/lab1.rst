@@ -1,13 +1,7 @@
 Lab 2.1: Review and Deploy AS3 Declaration
 ============================================
 
-
-
-2.1.2 - Install Python
-~~~~~~~~~~~~~~~~~~~~~~~
-
 In Postman, expand the *Arcadia Finance* >> *Dev* >> *Test API* >> *Deploy DEV w/ OAS* folder and select on **Deploy DEV w/ OAS**. Do not send this payload just yet. 
-
 
 .. image:: images/postman-deploydev.png
 

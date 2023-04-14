@@ -1,295 +1,56 @@
-Appendix B: Matrix of all f5 WAF Tester Attacks
+Lab 2.5 Enhance Security with AWAF Features
 =========================================================================================================
 
-.. list-table::
-   :widths: 50 50 50 50 50 50
-   :header-rows: 1
+Task 1 – Attack a Parameter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In Postman, select the *Arcadia Finance* >> *Dev* >> *Test API* >> *transfer money* request again
+Since we know the “friend” parameter is accepting alpha-numeric values, and there is a MongoDB backend, let’s see if we can sneak in a NoSQL Injection to our MongoDB
 
-   * - **Test ID**
-     - **Attack Type**
-     - **Name**
-     - **System**
-     - **Type**
-     - **Signature ID**
-   * - 100000001
-     - XSS
-     - HTML Tag Injection - script
-     - All Systems
-     - Signature
-     - 200000097
-   * - -
-     - -
-     - -
-     - -
-     - Signature
-     - 200001088
-   * - -
-     - -
-     - -
-     - -
-     - Signature
-     - 200000099
-   * - 100000002		
-     - XSS
-     - HTML Attribute Injection - onmouseover	
-     - All Systems	
-     - Signature	
-     - 200101163
-   * - -		
-     - -
-     - -	
-     - -	
-     - Signature	
-     - 200101162
-   * - -		
-     - -
-     - -	
-     - -	
-     - Signature	
-     - 200101164
-   * - 100000003		
-     - XSS
-     - HTML Attribute Injection - onmouseover	
-     - All Systems	
-     - Signature	
-     - 200001406
-   * - -		
-     - -
-     - -	
-     - -	
-     - Signature	
-     - 200001405
-   * - -	
-     - -
-     - -	
-     - -	
-     - Signature	
-     - 200001404
-   * - 100000004		
-     - SQL Injection
-     - SQL-Injection - integer field UNION
-     - General Database	
-     - Signature	
-     - 200002554
-   * - -		
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200002611
-   * - -		
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200002495
-   * - 100000005		
-     - SQL Injection
-     - Blind SQL-Injection
-     - General Database	
-     - Signature	
-     - 200002546
-   * - -		
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200002045
-   * - -		
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200001404
-   * - 100000006		
-     - SQL Injection
-     - Authentication Bypass SQL Injection
-     - General Database	
-     - Signature	
-     - 200002836
-   * - -		
-     - -
-     - -
-     - -
-     - Signature	
-     - 200002835
-   * - -		
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200002837
-   * - 100000007		
-     - NoSQL Injection
-     - MongoDB Injection - db.getCollectionNames()
-     - MongoDB	
-     - Signature	
-     - 200002784
-   * - -		
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200002783
-   * - -		
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200002785
-   * - 100000008	
-     - Command Execution
-     - Linux Command Execution - uname()
-     - Unix/Linux	
-     - Signature	
-     - 200003412
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200003921
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200100315
-   * - 100000009	
-     - Command Execution
-     - Windows Command Exeuction - powershell
-     - Microsoft Windows	
-     - Signature	
-     - 200003574
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200003573
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200003575
-   * - 100000010	
-     - Path Traversal
-     - Path Traversal
-     - All Systems	
-     - Signature	
-     - 200003055
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200003054
-   * - 100000011	
-     - Predictable Resource Location
-     - Predictable Resource Location
-     - All Systems	
-     - Signature	
-     - 200001404
-   * - 100000012	
-     - HTTP Protocol Compliance
-     - Null in request
-     - All Systems	
-     - Violation	
-     - HTTP protocol compliance - Null in request
-   * - 100000013	
-     - Detection Evasion
-     - Alternative Datastream Access
-     - Microsoft Windows	
-     - Signature	
-     - 200001404
-   * - 100000014	
-     - Insecure Deserialization
-     - Insecure Deserialization - node.js
-     - node.js	
-     - Signature	
-     - 200004283
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200004282
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200004284
-   * - 100000015	
-     - Insecure Deserialization
-     - Insecure Deserialization - PHP
-     - PHP	
-     - Signature	
-     - 200004189
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200004188
-   * - -	
-     - -
-     - -
-     - -	
-     - Signature	
-     - 200004190
-   * - 100000016	
-     - Information Leakage
-     - Illegal Method TRACE
-     - All systems	
-     - Violation	
-     - Illegal Method
-   * - 100000017	
-     - JSON Parser Attack
-     - Malformed JSON
-     - All systems	
-     - Violation	
-     - Malformed JSON data
-   * - 100000018	
-     - XML Parser Attack
-     - Malformed XML
-     - All systems	
-     - Violation	
-     - Malformed XML data
-   * - 100000019	
-     - HTTP Parser Attack
-     - Cookie not RFC-compliant
-     - All systems	
-     - Violation	
-     - Cookies - not RFC-compliant
-   * - 100000020	
-     - HTTP Parser Attack
-     - Cookie not RFC-compliant
-     - All systems	
-     - Violation	
-     - Cookies - not RFC-compliant
-   * - 100000021	
-     - HTTP Parser Attack
-     - Wrong HTTP Protocol Version
-     - All systems	
-     - Violation	
-     - HTTP protocol compliance failed
-   * - 100000022	
-     - HTTP Request Smuggling
-     - HTTP Desync Attack Attempt
-     - All systems	
-     - Signature	
-     - 200018061
-   * - 100000023	
-     - Server Side Request Forgery
-     - SSRF attempt (AWS Metadata Server)
-     - All systems	
-     - Signature	
-     - 200018040
-   * - 100000024	
-     - Server Side Request Forgery
-     - SSRF attempt - Local network IP range 10.x.x.x
-     - All systems	
-     - Signature	
-     - 200020201
+Change the friend value from Bart to the following and click Send
+
+.. code:: 
+  
+  db.collection.find({ $where: function() {return (this.product == ‘m’; sleep (10000)) }});
+ 
+.. image:: images/postman-samplemongodbexploit.png
+
+Predictably, we are blocked for a NoSQL Injection
+
+Task 2 – Encode the Attack and Try Again
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Open Chrome and go to the Base64 Encode bookmark
+Encode your NoSQL Injection string and copy the results
+ 
+.. image:: images/chrome-base64encode.png
+
+Now in the Money Transfer request, change “friend” to the new encoded string and **Send**
+ 
+.. image:: images/postman-base64encoded.png
+ 
+.. image:: images/meme-surpriseddog.png
+
+Unfortunately, this type of security is not something OpenAPI has a spec for. To protect your API against base64 encoded attacks, you would need to enable a WAF-specific feature on the parameter.
+
+Task 3 – Tune the BigIP Security Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+Go to the Arcadia dev security policy > allowed URLs > money transfer > URL Parameters
+Click the “friend” parameter and enable Base64 decoding
+
+.. image:: images/big-ip-security-enablebase64.png
+
+Click *Update* and then **Apply the Policy**
+
+Go back to Postman and re-send the same request with encoded “friend” parameter
+Check the security logs - The parameter value is now decoded and flagged as a violation.
+
+It’s important to note that changes outside of AS3 will not persist if this VIP is re-deployed. This is just an example of what’s possible. What you can do is customize the policy however you need and then export the entire policy as JSON and reference that in your AS3 declaration as an updated version. 
+
+You can do this from the Security Policies screen by clicking on your arcadia policy and then find the Export button at the top left.
+  
+.. image:: images/big-ip-security-export.png
+
+Consider the OpenAPI file as a security starting point that will get you enforcement and OWASP protection. For many organizations, that will be enough.
+
+Time for a well-deserved break!  This concludes the Arcadia OpenAPI Security Lab.
