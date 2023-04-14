@@ -124,8 +124,8 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-7.	**API Protection Responses** shows the response code that will be used for Access Control, and Rate Limiting.
-      Click **Save** and **Next**
+7.  **API Protection Responses** shows the response code that will be used for Access Control, and Rate Limiting.
+    Click **Save** and **Next**
 
 |
 |
@@ -141,6 +141,8 @@ The result should be like the following, Click **Save** and **Next**
    **Blocking** enforcement mode, the system will start blocking either connection from attacking IP addresses or requests to attacked URLs. 
 
    **Transparent** enforcement mode, the system does not block the request but instead reviews and logs the violation event. 
+|
+
     In the lab we will leave the setting to **Blocking** > Click **Save** and **Next**
 
 |
@@ -181,7 +183,7 @@ The result should be like the following, Click **Save** and **Next**
 |
 |
 
-   The result should look like the screen below, click **Save**
+  The result should look like the screen below, click **Save**
 
 |
 |
@@ -220,7 +222,7 @@ the rate limiting, which are configured in Step 11.
 11.  **Rate Liming Configuration** step, sets the maximum number of requests that are allowed
      in a time interval. When the threshold is met the request is dropped. 
     
- For this lab set the following criteria:
+For this lab set the following criteria:
 
 **Rate Limiting Factor:** User
 
@@ -253,7 +255,7 @@ The end result should look like the following, Click **Save** and **Next**
 |
 
 12.   In the Virtual Server Properties screen allows for the creation of a new virtual server or use 
-     an existing virtual server.
+      an existing virtual server.
 
 Check the **Assign Policy to Virtual Server(s)** box
 
@@ -273,11 +275,9 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-13.   Summary step, click on **Deploy**
+13.    Summary step, click on **Deploy**
+Note: this step may take a minute to complete. 
 
-     Note: this step may take a minute to complete. 
-
-|
 |
 |
 
@@ -289,7 +289,7 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-14.   When the deployment is completed successfully and deployed, you should see the following screen
+14.    When the deployment is completed successfully and deployed, you should see the following screen
 
 |
 |
@@ -304,8 +304,8 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 
 
 
-    Click Finish at the bottom. This should take you back to the Guided Configuration dashboard. 
-    The new policy you created should show up on the list green, and deployed. 
+ Click Finish at the bottom. This should take you back to the Guided Configuration dashboard. 
+ The new policy you created should show up on the list green, and deployed. 
 
 |
 |
@@ -320,9 +320,9 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-15.   Let’s verify an Access Policy Manager API Protection policy was created for the Authentication request. 
+15.    Let’s verify an Access Policy Manager API Protection policy was created for the Authentication request. 
 
-     Click on Access Module > Click on API Protection
+ Click on Access Module > Click on API Protection
 
 |
 |
@@ -349,7 +349,7 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-   Click on **Edit** link under Per-Request Policy to open the Visual Policy Editor
+ Click on **Edit** link under Per-Request Policy to open the Visual Policy Editor
 
 |
 |
@@ -374,10 +374,10 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-16.   Let’s verify the Access Policy and Security Policy have been applied to the PetStore virtual server.
+16.    Let’s verify the Access Policy and Security Policy have been applied to the PetStore virtual server.
 
 
-     Click on **Local Traffic** module, click **Virtual Servers**
+  Click on **Local Traffic** module, click **Virtual Servers**
 
 |
 |
@@ -391,10 +391,10 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-     At the top right corner find the **Partition box**, click on the drop-down arrow, and switch to 
-     the **petstore-prod** partition
+  At the top right corner find the **Partition box**, click on the drop-down arrow, and switch to 
+  the **petstore-prod** partition
 
-    Click on the **VS_API_petstore** virtual server listen on port 443
+  Click on the **VS_API_petstore** virtual server listen on port 443
 
 |
 |
@@ -408,7 +408,7 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-    Scroll down to **API Protection**, verify **petstore-api** Access Policy is applied 
+  Scroll down to **API Protection**, verify **petstore-api** Access Policy is applied 
 
 |
 |
@@ -423,8 +423,8 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-   Scroll to the top, select **Security** tab > Policies, verify **Application Security Policy** is set to
-   **Enabled** and the **petstore-api** Application Security Policy is applied
+  Scroll to the top, select **Security** tab > Policies, verify **Application Security Policy** is set to
+  **Enabled** and the **petstore-api** Application Security Policy is applied
 
 |
 |
@@ -439,10 +439,9 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 |
 
-17.   Now the Access Policy has been deployed, let’s go back to the Postman Collection and see
-     what the behavior is now that we have applied the policy. 
+17.    Now the Access Policy has been deployed, let’s go back to the Postman Collection and see what the behavior is now that we have applied the policy. 
 
-     Click on the **Place Order for Pet Request** under **PetStore** > **Test API** 
+  Click on the **Place Order for Pet Request** under **PetStore** > **Test API** 
 
 |
 |
@@ -464,7 +463,7 @@ Assign **Virtual Servers** > Select **VS_API_petstore** virtual server and move 
 |
 
 
-18.   Let’s set the authentication using a JSON web token (JWT)
+18.    Let’s set the authentication using a JSON web token (JWT)
 
      Click on the **Authorization** tab > Click on the drop-down arrow under **Type**, Select **OAuth2.0**
 
@@ -587,7 +586,7 @@ Send the request for **Place Order for Pet** through again by clicking the blue 
 
     Notice the request status now is 200 OK
 
-19.  Let’s try sending some attack requests to the API endpoints
+19.   Let’s try sending some attack requests to the API endpoints
      
      In Postman PetStore collection go to the Attacks folder. Select a couple of attack requests
      and send the requests. What is the response code? 
@@ -604,7 +603,7 @@ Send the request for **Place Order for Pet** through again by clicking the blue 
 |
 |
 
-20.  Testing Rate Limiting
+20.   Testing Rate Limiting
 
      Next, we will validate the rate limit setting defined in the Security Policy is working as expected.
      Recall in the security policy we set the rate-limiting factor as the user and the session famil
