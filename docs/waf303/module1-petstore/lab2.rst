@@ -1,4 +1,4 @@
-Lab 2 - Protecting API Endpoints
+Lab 1.2 - Protecting API Endpoints
 ===================================
 
 
@@ -141,7 +141,6 @@ The result should be like the following, Click **Save** and **Next**
    **Blocking** enforcement mode, the system will start blocking either connection from attacking IP addresses or requests to attacked URLs. 
 
    **Transparent** enforcement mode, the system does not block the request but instead reviews and logs the violation event. 
-|
 
     In the lab we will leave the setting to **Blocking** > Click **Save** and **Next**
 
@@ -229,6 +228,7 @@ For this lab set the following criteria:
 |
 |
 |
+
 .. image:: images/security-gc8.png
   :width: 600 px
 
@@ -367,6 +367,7 @@ Note: this step may take a minute to complete.
 |
 |
 |
+
 .. image:: images/apm-auth4.png
   :width: 600 px
 
@@ -621,12 +622,3 @@ Send the request for **Place Order for Pet** through again by clicking the blue 
 
 .. image:: images/pm-api-requests.png
  
-
-.. toctree::
-
-  :maxdepth: 1
-
-  :glob:
-
-   lab*
-   review

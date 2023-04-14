@@ -1,4 +1,4 @@
-Lab 3 - Report on oAuth Requests
+Lab 1.3 - Report on oAuth Requests
 ====================================
 
 Go to the **Access** module > select **Overview** > **OAuth Reports** > **Server**
@@ -40,6 +40,7 @@ Click on **Overview** > **OAuth Reports** > **Client / Resource Server**
 
 .. image:: images/apm-rpt3.png
   :width: 600 px
+  
 |
 |
 

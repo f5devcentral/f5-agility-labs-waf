@@ -23,4 +23,3 @@ Also, think about how you can test your policy since it's not going to be deploy
    :glob:
 
    lab*
-   review

@@ -1,5 +1,5 @@
-BIG-IP Security: Enabling API Protection with AWAF and APM
-==========================================================
+WAF 302 - Enabling API Protection with AWAF with Arcadia Finance
+==================================================================
 
 Intro
 -----

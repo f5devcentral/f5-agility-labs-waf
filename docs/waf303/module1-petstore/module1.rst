@@ -28,10 +28,7 @@ In this lab, we will cover the following topics below.
 The lab is pre-staged with the Pet Store application in the petstore-prod partition.  
 
 .. toctree::
-
-  :maxdepth: 1
-
-  :glob:
+   :maxdepth: 1
+   :glob:
 
    lab*
-   review

@@ -21,4 +21,3 @@ You will use F5’s declarative API, known as AS3, for deploying your new applic
    :glob:
 
    lab*
-   review

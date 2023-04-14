@@ -1,5 +1,5 @@
-BIG-IP Security: Enabling API Protection with AWAF and APM
-==========================================================
+WAF 303 - Enabling API Protection with AWAF and APM with PetStore
+=========================================================================
 
 Intro
 -----
