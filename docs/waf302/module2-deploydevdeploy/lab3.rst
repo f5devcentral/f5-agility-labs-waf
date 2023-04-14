@@ -24,12 +24,6 @@ To quickly search the report we will issue a simple jq command.
 
     You should see that both SSRF protections passed, and that your policy will thwart an attack like Capital One experienced.
 	
-    .. image:: images/report.png
-
-	
-
-
-
 
 
     **End of Module 2**

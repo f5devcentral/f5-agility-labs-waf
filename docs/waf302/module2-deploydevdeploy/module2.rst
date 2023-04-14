@@ -1,34 +1,24 @@
-Module 2: Policy testing - Intro to f5 WAF Tester (secops engineer)
+Module 2: Deploying a development instance of Arcadia Finance
 ===================================================================
-
-Expected time to complete: **10 minutes**
 
 **Intro**
 ~~~~~~~~~
 
 In this lab, we will cover the following:
 
-- Install the f5 WAF tester tool
-- Configure the tool and run it against the Juiceshop web site
-- Remediate the WAF policy so SSRF attacks are blocked
+- Deploying to F5 BIG-IP using AS3 and Postman
+- Implementing WAAP policy improvements in BiG-IP Advanced WAF
+- Implementing WAAP policy improvements from an imported OpenAPI Swagger Definition file
 
-**f5 WAF Tester**
-~~~~~~~~~~~~~~~~~
+Objective
+~~~~~~~~~~~~
 
-f5 Network's Threat Research Team has created a tool that provides an easy and fast way to integrate security testing as part of the SDLC process for basic application protection health check before moving to production.
-The tool is intended to test the WAF configuration state and its provided security posture against common web attack types. The tool will send HTTP requests containing attacks and will expect to receive a WAF blocking page in the response. In case the attack vector was not blocked, the tool will read the WAF logs and its configuration to try determine possible reasons for the attack not being blocked, and suggest corresponding actions.
+You will use F5’s declarative API, known as AS3, for deploying your new application instance. In your production security policy, recall that there is no Swagger/OAS file being used. While you could manually upload an OAS file to an existing policy, that is not the strategy Arcadia’s management wants to rely on going forward. For this lab, we will deploy the application along with the security policy which will be configured based on the OpenAPI spec file that is ready for testing.
 
-.. image:: images/f5-waf-tester.png
-
-**Disclaimer**: This tool is not meant for testing whether the application itself is vulnerable and does not replace a DAST or a SAST.  
-
-If you would like to see the GitHub repository for the tester, it can be found here:
-
-https://github.com/f5devcentral/f5-waf-tester
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
-   lab*/lab*
+   lab*
    review

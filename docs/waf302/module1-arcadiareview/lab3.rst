@@ -1,5 +1,5 @@
 Lab 1.3: Reviewing the BIG-IP Configuration
-===========================================
+============================================
 
 Log into the BIG-IP
 ~~~~~~~~~~~~~~~~~~~
@@ -67,7 +67,7 @@ Q: What is this policy doing as far as the APIs are concerned?
 A: *Nothing beyond OWASP Top 10*
 
 More testing with Postman
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Go back to *Postman* within your Windows RDP session
 Select the *Arcadia* >> *Prod* >> *Test API* >> *PROD - buy stocks* request and review the *Headers*. Specifically, the *Content-Type* header. 
