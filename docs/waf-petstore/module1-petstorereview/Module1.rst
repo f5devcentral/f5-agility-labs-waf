@@ -114,8 +114,10 @@ Observe the request URL, and the Parameters, click **Send**. Observe the respons
 What these exercises demonstrate are common security vulnerabilities of unprotected API endpoints. 
 Even simple query API like List Available Pets can be susceptible when hundreds or thousands of requests are being sent to the server causing the server resource to be overloaded. 
 To protect API endpoints from attacks, ensure proper authorization, and reduce resource starvation, we can implement solutions such as F5 Application Security Manager API Security Protection configuration. 
+
 |
 |
+
 
 .. toctree::
 
