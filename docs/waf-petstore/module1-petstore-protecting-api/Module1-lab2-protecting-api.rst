@@ -12,7 +12,7 @@ Manager module to help PetStore secure their API endpoints.
 
 
 .. image:: images/chrome2.png
-
+  :width: 600 px
 
 
 2. Log in with username/password: **admin/admin**
@@ -20,7 +20,7 @@ Manager module to help PetStore secure their API endpoints.
 
 
 .. image:: images/f5_login.png
-
+  :width: 600 px
 
 
 3. Click on **Security** > **Guided Configuration**
@@ -28,7 +28,7 @@ Manager module to help PetStore secure their API endpoints.
 
 
 .. image:: images/security-gc1.png
-
+  :width: 600 px
 
 
 4. Click on **API Security Protection** > Click on **REST API Security** > Click **Next**
@@ -36,11 +36,11 @@ Manager module to help PetStore secure their API endpoints.
 
 
 .. image:: images/security-gc2.png
-
+  :width: 600 px
 
 
 .. image:: images/security-gc3.png
-
+  :width: 600 px
 
 
 5.  In the **API Protection Properties** set the following properties
@@ -54,7 +54,7 @@ Manager module to help PetStore secure their API endpoints.
 
 
 .. image:: images/swagger.png
-    
+  :width: 600 px  
     
 Check **Use Rate Limiting** box
 Check **OAuth 2.0** box
@@ -85,7 +85,7 @@ The result should be like the following, Click **Save** and **Next**
 
 
 .. image:: images/security-api-responses.png
-
+  :width: 600 px
 
 
 8. Web Application Security Policy Properties step sets F5 Application Security Manager Enforcement mode to either blocking or transparent mode. 
