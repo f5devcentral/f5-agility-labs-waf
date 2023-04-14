@@ -125,7 +125,7 @@ Under the buy_stocks.php path, find the “company” parameter settings and edi
 
 .. image:: images/meme-vi.jpg
 
-	When we make changes to our OpenAPI file, AS3 needs to re-import the file for settings to take effect. In this case, we need to delete the current Dev VIP and re-deploy it.
+When we make changes to our OpenAPI file, AS3 needs to re-import the file for settings to take effect. In this case, we need to delete the current Dev VIP and re-deploy it.
 
 Go back to Postman and select the *Arcadia Finance* >> *Dev* >> *Test API*, click on *Delete DEV* request and hit **Send**
 Once the Delete DEV request succeeds, Send the **Deploy DEV w/OAS** request to re-deploy and import the new parameter settings.
@@ -150,7 +150,12 @@ https://arcdev.itc.demo/trading/rest/sell_stocks.php?trans_value=1750&qty=100&..
 
 Based on the production Arcadia deployment, we know this is incorrect and that our parameters are passed as json content. Let's look at the OAS file to find the problem.
 
-In Ubuntu CLI, less /home/ubuntu/repo/arcadia/dev/arcadia-oas3-dev.json
+In Ubuntu CLI:
+
+.. code-block:: bash
+
+	less /home/ubuntu/repo/arcadia/dev/arcadia-oas3-dev.json
+
 Scroll down until you see the sell_stocks path then review the parameters
 
 .. image:: images/ubuntu-swagger-query.png
