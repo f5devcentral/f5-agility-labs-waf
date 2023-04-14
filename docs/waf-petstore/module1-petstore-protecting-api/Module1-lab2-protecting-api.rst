@@ -60,20 +60,17 @@ Check **Use Rate Limiting** box
 Check **OAuth 2.0** box
 **DNS Resolver:** DNS_pub
 
-The result should be like the following, Click **Save** and **Next**
+The result should be like the following, Click **Save** and **Next**\
 
-::
-::
+
 
 
 .. image:: images/security-gc4.png
 
-::
-
-::
 
 
-1.  **API Protection Configuration** step shows the imported paths and base path properties 
+
+6.  **API Protection Configuration** step shows the imported paths and base path properties \
     imported from the swagger file you imported in the previous step.
     Click **Save** and **Next**
 
