@@ -4,7 +4,7 @@ WAF 301 - AWAF in a CI/CD Pipeline (Self Guided)
 Intro
 -----
 
-Welcome to F5's Agility Labs, 2022 edition! This class will focus on how to integrate F5 AWAF into a CI/CD pipeline. 
+Welcome to F5's Agility Labs, 2023 edition! This class will focus on how to integrate F5 AWAF into a CI/CD pipeline. 
 
 By the end of this lab you should be able to:
 
@@ -76,7 +76,7 @@ Modifications
 ChatOps
 -------
 
-New feature in 15.1 allows AWAF to use outgoing webhooks to send notifications to a Slack or MS Teams channels. This makes a great addition to a commonly-used "ChatOps" method where Devs, DevOps and DevSecOps monitor a particular channel for any notifications raised by SCM, WAF, Ci server etc.
+New feature in 15.1 and above allows AWAF to use outgoing webhooks to send notifications to a Slack or MS Teams channels. This makes a great addition to a commonly-used "ChatOps" method where Devs, DevOps and DevSecOps monitor a particular channel for any notifications raised by SCM, WAF, Ci server etc.
 Webhooks are defined explicitly inside the AWAF policy and can be triggered by a number of different events. Notification messages are configurable and may contain various useful information about the event. AS it applies to AWAF, notification message can be sent when the policy has been applied, or a security event has been observed:
 
 **Webhooks are not used in this lab**
@@ -84,7 +84,7 @@ Webhooks are defined explicitly inside the AWAF policy and can be triggered by a
 Lab structure
 -------------
 
-During this lab you will work with GitLab CE and utilize SCM and CI/CD pipelines to build, test and deploy 'OWASP Juice-Shop' App into a Docker host fronted by BIG-IP AWAF. 
+During this lab you will work with GitLab CE and utilize SCM and CI/CD pipelines to build, test and deploy 'Arcadia' App into a Docker host fronted by BIG-IP AWAF. 
 
 You use AWAF suggestions for trusted traffic to modify WAF policy and re-deploy the app all the way to Production.
 

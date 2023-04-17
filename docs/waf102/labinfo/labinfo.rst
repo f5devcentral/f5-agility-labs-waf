@@ -1,18 +1,17 @@
 Lab Environment & Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: All work is done from the Linux Client, which can
+.. NOTE:: Some activity will be performed  work is done from the Linux Client, which can
    be accessed via RDP (Remote Desktop Client) or SSH. No installation or
    interaction with your local system is required.
 
 Environment
 -----------
 
-**Linux Client:**
+**Windows Client:**
 
 **Web Attack Tools used in this lab:**
 
-- `BURP Community Edition <https://portswigger.net/burp/>`_ - Packet Crafting
 - `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
 - `Postman <https://www.postman.com/>`_ - API Development and request crafting
 
