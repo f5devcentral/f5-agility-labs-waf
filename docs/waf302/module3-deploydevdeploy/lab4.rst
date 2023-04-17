@@ -1,4 +1,4 @@
-Lab 2.4: Add Money Transfer Service to an OpenAPI File
+Lab 3.4: Add Money Transfer Service to an OpenAPI File
 ========================================================
 
 Task 1 – Configure OpenAPI Spec for New API

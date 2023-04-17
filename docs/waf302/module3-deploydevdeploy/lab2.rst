@@ -1,4 +1,4 @@
-Lab 2.2: Test Security Policy
+Lab 3.2: Test Security Policy
 =============================================================
 
 In the Postman *Arcadia Finance* >> *Dev* >> *Test API*, click on *DEV - Buy stocks* and replace the “qty” parameter value of “100” with the value of **“hundred”** and click **Send**

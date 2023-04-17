@@ -1,4 +1,4 @@
-Lab 2.3: Test Money Transfer app
+Lab 3.3: Test Money Transfer app
 =====================================================
 
 Scenario:  One of the Arcadia App teams has released a new microservice that is ready for security testing. You have been tasked with incorporating the new Money Transfer microservice into our API gateway security policy.

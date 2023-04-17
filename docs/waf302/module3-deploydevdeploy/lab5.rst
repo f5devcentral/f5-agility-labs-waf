@@ -1,4 +1,4 @@
-Lab 2.5 Enhance Security with AWAF Features
+Lab 3.5 Enhance Security with AWAF Features
 =========================================================================================================
 
 Task 1 – Attack a Parameter

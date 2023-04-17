@@ -1,4 +1,4 @@
-Lab 1.2: Working with APIs in Postman 
+Lab 2.2: Working with APIs in Postman 
 =====================================
 
 

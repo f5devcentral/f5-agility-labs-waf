@@ -1,4 +1,4 @@
-Lab 1.3: Reviewing the BIG-IP Configuration
+Lab 2.3: Reviewing the BIG-IP Configuration
 ============================================
 
 Log into the BIG-IP

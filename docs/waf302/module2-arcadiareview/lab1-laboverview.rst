@@ -1,4 +1,4 @@
-Lab 1.1: Lab Environment 
+Lab 2.1: Lab Environment 
 =================================
 
 We’re going to be working in the BIG-IP, AS3, and Postman to deploy an ASM template with reference to a hosted swagger definition file. 

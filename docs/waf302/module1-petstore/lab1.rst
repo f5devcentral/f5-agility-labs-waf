@@ -18,7 +18,7 @@ Lab 1.1 - Unprotected API
 |
 
 
-2. Click the Access > RDP and this will download the RDP shortcut link locally
+2. Click the **Access** > **RDP** and this will download the RDP shortcut link locally
    
 |
 
@@ -72,22 +72,20 @@ Lab 1.1 - Unprotected API
 |
 
 
-7. Click on **List Available Pets** request but **'do not'** click **Send** yet
-Observe Authorization, Headers, and the GET request
-Notice the auth type, and Headers we’re passing in the request. 
+7. Click on **List Available Pets** request but **'do not'** click **Send** yet. Observe Authorization method, Headers, and URL for the GET request.  
 
 |
 |
 
 
 8. Click on **Send** at the far-right side of the Postman window.
-Observe the request Status is 200 Ok, in the body of the API response lists all the available pets.
+Observe the response Status is 200 Ok, in the body of the API response lists all the available pets.
 
 |
 |
 
 
-9.	Let’s run through the same steps above on the **Place Order** for Pet and **Check Status** of Order requests.
+9.	Let’s run through the same steps above on the **Place Order for Pet** and **Check Status of Order** requests.
 
 
 
@@ -118,3 +116,7 @@ To protect API endpoints from attacks, ensure proper authorization, and reduce r
 |
 |
 
+We will explore how to do this in the lab.
+
+|
+|

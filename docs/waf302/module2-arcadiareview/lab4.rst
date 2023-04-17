@@ -1,4 +1,4 @@
-Lab 1.4: Test the Arcadia Finance Prod Security Policy
+Lab 2.4: Test the Arcadia Finance Prod Security Policy
 ========================================================
 
 Now go back to Postman, *Arcadia Finance* >> *Prod* >> *Test API* >> *PROD - buy_stocks* and click **Send** (You should get a 200 response)

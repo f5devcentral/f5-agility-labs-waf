@@ -1,4 +1,4 @@
-Lab 2.1: Review and Deploy AS3 Declaration
+Lab 3.1: Review and Deploy AS3 Declaration
 ============================================
 
 In Postman, expand the *Arcadia Finance* >> *Dev* >> *Test API* >> *Deploy DEV w/ OAS* folder and select on **Deploy DEV w/ OAS**. Do not send this payload just yet. 

@@ -1,4 +1,4 @@
-Module 2: Deploying a development instance of Arcadia Finance
+Module 3: Deploying a development instance of Arcadia Finance
 ===================================================================
 
 **Intro**

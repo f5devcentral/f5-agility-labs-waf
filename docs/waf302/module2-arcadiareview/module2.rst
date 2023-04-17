@@ -1,4 +1,4 @@
-Module 1: AWAF Policy Template Creation on BIG-IP (secops engineer) 
+Module 2: AWAF Policy Template Creation on BIG-IP (secops engineer) 
 ===================================================================
 
 **Intro**

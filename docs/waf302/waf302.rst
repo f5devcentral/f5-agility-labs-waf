@@ -1,4 +1,4 @@
-WAF 302 - Enabling API Protection with AWAF with Arcadia Finance
+WAF 302 - Enabling API Protection with APM and AWAF
 ==================================================================
 
 Intro
@@ -8,18 +8,25 @@ Welcome to F5's Agility Labs, 2023 edition!
 
 By the end of this lab, you should be able to:
 
-1. Use Postman to interact with F5 BIG-IP using F5’s declarative App Services API (AS3)
+#. Deploy a security policy using Guided Configuration template to protect API endpoints
 
-2. Leverage OpenAPI Swagger definition files to deploy and improve security
+#. Use Postman to interact with F5 BIG-IP using F5’s declarative App Services API (AS3)
+
+#. Leverage OpenAPI Swagger definition files to deploy and improve security
 
 Lab Scenario
 ------------
 
-A production instance of Arcadia Finance app is deployed with a WAF policy providing OWASP Top 10 protection.
+We have two lab scenarios to help illustrate protecting API endpoints to improve security prosture.
 
-The Arcadia Finance management team wants to migrate the Finance app to a microservices architecture. Your team has been tasked with developing an API Security strategy around F5’s Advanced WAF capabilities. The production app consists of three microservices for which your team has begun to develop an OpenAPI v3.0 spec file for the purpose of incorporating it into Arcadia’s security-first app deployment practice. This file is in your Ubuntu App server at /home/ubuntu/repo/arcadia/dev/arcadia-oas3-dev.json.
+Lab 1 - PetStore has exposed their web application API to streamline the ability to check pet availability, ordering, and status of shipment. The web application is deployed in their production environment.
 
-Objective - In this lab you will take on the role of a Security-focused DevOps engineer where you will leverage F5’s declarative App Services API (AS3) to deploy a test instance of Arcadia Finance while automatically attaching a consumable-as-code API security profile based on modern OpenAPI Spec practices and use OpenAPI standards to resolve any issues.
+Lab 2 - A production instance of Arcadia Finance app is deployed with a WAF policy providing OWASP Top 10 protection.
+
+The Arcadia Finance management team wants to migrate the Finance app to a microservices architecture. Your team has been tasked with developing an API Security strategy around F5’s Advanced WAF capabilities. The production app consists of three microservices for which your team has begun to develop an OpenAPI v3.0 spec file for the purpose of incorporating it into Arcadia’s security-first app deployment practice.
+
+
+
 
 
 .. toctree::
