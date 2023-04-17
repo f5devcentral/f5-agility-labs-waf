@@ -59,9 +59,9 @@ Deploying ASM Guided Configuration
 .. image:: images/swagger.png
   :width: 600 px  
     
- Check **Use Rate Limiting** box
- Check **OAuth 2.0** box
- **DNS Resolver:** Select **DNS_pub** from the drop-down list
+Check **Use Rate Limiting** box
+Check **OAuth 2.0** box
+**DNS Resolver:** Select **DNS_pub** from the drop-down list
 
 The result should be like the following, Click **Save and Next**
 
@@ -145,7 +145,9 @@ The result should look like the screen below, click **Save**
 
 
 |
+
 10. In the **OAuth Provider List** screen confirmed the OAuth provider selected from the previous step is shown here, then click **Save and Next**
+
 
 |
 
@@ -172,12 +174,9 @@ For this lab set the following criteria:
 .. image:: images/security-gc8.png
   :width: 600 px
 
-
-
-
-    **User ID Key**: subsession.oauth.scope.last.jwt.family
-    Check **Enable Rate Limiting Settings** box
-    Allow **5** requests per **1** minute
+**User ID Key**: subsession.oauth.scope.last.jwt.family
+Check **Enable Rate Limiting Settings** box
+Allow **5** requests per **1** minute
 
 
  The end result should look like the following, click **Save and Next**

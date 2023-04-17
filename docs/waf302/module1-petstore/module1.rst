@@ -3,6 +3,7 @@ Module 1 - API Protection Using APM oAuth
 
 |
 |
+
 **Objective:** PetStore would like to secure these API endpoints by implementing authentication and authorization methods. 
 Their requirement is to use an OAuth to authorize JSON web token for API requests, set a rate limit on how often API requests are received, and run a report on the number of API requests.  
 
