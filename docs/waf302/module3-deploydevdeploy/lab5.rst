@@ -27,6 +27,8 @@ Encode your NoSQL Injection string and copy the results
 Now in the Money Transfer request, change “friend” to the new encoded string and **Send**
  
 .. image:: images/postman-base64encoded.png
+
+|
  
 .. image:: images/meme-surpriseddog.png
 
