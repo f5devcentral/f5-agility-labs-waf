@@ -7,7 +7,7 @@ Module 3: Deploying a development instance of Arcadia Finance
 In this lab, we will cover the following:
 
 - Deploying to F5 BIG-IP using AS3 and Postman
-- Implementing WAAP policy improvements in BiG-IP Advanced WAF
+- Implementing WAAP policy improvements in BIG-IP Advanced WAF
 - Implementing WAAP policy improvements from an imported OpenAPI Swagger Definition file
 
 Objective

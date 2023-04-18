@@ -1,18 +1,10 @@
 Lab 2.3: Reviewing the BIG-IP Configuration
 ============================================
 
-Log into the BIG-IP
-~~~~~~~~~~~~~~~~~~~
+Reviewing Virtual Server Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Back on the Lab Components deployment page, click **Access** under *F5 BIG-IP* and select *TMUI*
-
-Log into the BIG-IP by launching the Access > TMUI from the UDF components screen. You make logon to the :guilabel:`F5 BIG-IP` using the following credentials:
-
-        Username:	:guilabel:`admin`
-    
-        Password:	:guilabel:`admin` 
-
-.. image:: images/2-module1.png
+Return to the the BIG-IP as you did in Module 1. 
 
 Now navigate to go to Local Traffic >> Virtual Servers
 
@@ -20,8 +12,7 @@ Now navigate to go to Local Traffic >> Virtual Servers
 2. Select the “arcadia-prod” partition.
 3. You should now see the Arcadia VIP called *vs_arcadia*
 
-.. Note::  If it’s grayed out, make sure you have clicked on Local Traffic >> Virtual Servers
-  
+.. Note::  If it’s grayed out, make sure you have clicked on *Local Traffic* >> *Virtual Servers*
   
 Click on the VIP and select the Security tab at the top.
 Verify the security policy ‘arcadia_waap_policy’ is attached.
@@ -42,7 +33,8 @@ Click on *Security* > *Application Security* > *Security Policies*
 Click on **arcadia_waap_policy** 
 
 Review the settings, notice there is no Swagger file associated with this policy 
-(Note: If there was a swagger file associated with the policy, you would see the name of the swagger file instead of the upload button)
+
+.. Note:: If there was a swagger file associated with the policy, you would see the name of the swagger file instead of the upload button)
 
 .. image:: images/big-ip-securitypolicy.png
 
