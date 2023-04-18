@@ -3,36 +3,18 @@ Lab 1.1 - Unprotected API
 
 **Narrative** PetStore has exposed their web application API via an HTTPS virtual server. We will demonstrate some of the vulnerabilities of leaving these endpoints unprotected. 
 
-|
-|
-
+Getting Started
+~~~~~~~~~~~~~~~~~
 
 1. Go to the UDF course and Log into the Client Workstation
 
-|
-|
-
 .. image:: images/access_method.png
 
-|
-|
-
-
 2. Click the **Access** > **RDP** and this will download the RDP shortcut link locally
-   
-|
 
-
-3. Open the RDP session, and type the following username/password: **user**/**user** > Click **Continue**
-
-|
-|
-
+3. Open the RDP session, and type the following username/password: **user**/**user** and Click **Continue**
 
 .. image:: images/rdp_win.png
-
-|
-|
 
 
 4. You may get a certificate validatity security warning, click **Continue.**
@@ -111,7 +93,7 @@ Observe the request URL, and the Parameters, click **Send**. Observe the respons
 
 What these exercises demonstrate are common security vulnerabilities of unprotected API endpoints. 
 Even simple query API like List Available Pets can be susceptible when hundreds or thousands of requests are being sent to the server causing the server resource to be overloaded. 
-To protect API endpoints from attacks, ensure proper authorization, and reduce resource starvation, we can implement solutions such as F5 Application Security Manager API Security Protection configuration. 
+To protect API endpoints from attacks, ensure proper authorization, and reduce resource starvation, we can implement solutions such as F5 Advanced WAF API Security Protection configuration. 
 
 |
 |
