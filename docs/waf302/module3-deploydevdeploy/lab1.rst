@@ -15,7 +15,7 @@ In the CLI type:
 
 .. code-block:: bash
 
-        cat /home/ubuntu/repo/arcadia/dev/policy-api-arcadia-dev.json
+ cat /home/ubuntu/repo/arcadia/dev/policy-api-arcadia-dev.json
 
 .. image:: images/ubuntu-policyjson.png
 
@@ -25,9 +25,9 @@ Notice at the bottom we are referencing an OpenAPI file. Let’s review this fil
 
 From CLI type: 
 
-.. code-block:: 
-
-        bashless /home/ubuntu/repo/arcadia/dev/arcadia-oas3-dev.json
+.. code-block:: bash
+ 
+ less /home/ubuntu/repo/arcadia/dev/arcadia-oas3-dev.json
 
 Hit SPACE or Enter to scroll through the file and review the settings.
 The paths and parameters should look familiar as you’ve already used them in Postman.
@@ -39,7 +39,7 @@ In Ubuntu cd /home/ubuntu and type:
 
 .. code-block:: 
 
-        ./start-web-server.sh
+ ./start-web-server.sh
 
 and hit Enter a couple times
 

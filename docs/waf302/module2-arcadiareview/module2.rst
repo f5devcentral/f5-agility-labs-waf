@@ -16,7 +16,7 @@ Also, think about how you can test your policy since it's not going to be deploy
 - Creation of an AWAF base policy (lab1) 
 - Creating a template from a base policy (lab2)
 - Creating ASM Policies via Importing JSON Files (lab3)
-- Deploying to a 'secops testing' environemnt (lab4) 
+- Deploying to a 'secops testing' environment (lab4) 
 
 .. toctree::
    :maxdepth: 1

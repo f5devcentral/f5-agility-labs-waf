@@ -16,43 +16,28 @@ Deploying ASM Guided Configuration
 
 2. Log in with username/password: **admin/admin**
 
-
-
-
 .. image:: images/f5_login.png
   :width: 600 px
-
-
 
 3. Click on **Security** > **Guided Configuration**
 
 .. image:: images/security-gc1.png
   :width: 600 px
 
-
-
 4. Click on **API Security Protection** > Click on **REST API Security** > Click **Next**
-
-
-
 
 .. image:: images/security-gc2.png
   :width: 600 px
 
-|
-|
-
 .. image:: images/security-gc3.png
   :width: 600 px
-
-
 
 5.  In the **API Protection Properties** set the following properties
 
 **Configuration Name:** petstore-api
 | **Import OpenAPI Spec File** click on **Choose File** in the File Explore window click on **petstore-swagger.json** file > Click **Open** 
 
-    .. Note:: If you do not see the JSON file click on **lab_files** folder on the left pane of the explore window, this should open the lab_files directory.
+.. Note:: If you do not see the JSON file click on **lab_files** folder on the left pane of the explore window, this should open the lab_files directory.
 
  
 
@@ -120,7 +105,7 @@ Click **Save and Next**
 9. In the **OAuthGeneral Properties** step, the setting allows for the BIG-IP to act as an OAuthprovider to request a JSON Web Token also known as a JWT token from the Authorization Server. 
 
 
-    .. Note:: OpenID Connect is not used in this scenario, even though it can be used as a way to help identify attributes to use for rate limiting. 
+.. Note:: OpenID Connect is not used in this scenario, even though it can be used as a way to help identify attributes to use for rate limiting. 
 
 
 
