@@ -8,10 +8,10 @@ Environment
 
 **Tools used in this lab:**
 
-- `Postman <www.postman.com>`_ - An API platform for building and using APIs
+- `Postman <https://www.postman.com>`_ - An API platform for building and using APIs
 - `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
 - `jsonmate <https://jsonmate.com>`_ - Build, test and share your JSON, transformations and schemas
-- `Docker <www.docker.com>`_ - Service to run containerized workloads
+- `Docker <https://www.docker.com>`_ - Service to run containerized workloads
 
 Lab Topology
 ------------
@@ -21,7 +21,7 @@ components have been included in your lab environment:
 
 -  1 x Windowser Server 2019, with client tools installed
 -  1 x F5 BIG-IP VE (v16.1.2.1) running ASM, APM, and LTM
--  1 x Ubuntu Linux 20.04 server, with Docker installed hosting the Arcadia Finance application
+-  1 x Ubuntu Linux 20.04 server, with Docker installed hosting the Arcadia Finance application aand PetStore
 
 .. nwdiag:: labtopology.diag
    :width: 800
