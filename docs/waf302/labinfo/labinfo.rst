@@ -6,12 +6,11 @@ Lab Environment & Topology
 Environment
 -----------
 
-**Windows Client:**
-
 **Tools used in this lab:**
 
 - `Postman <www.postman.com>`_ - An API platform for building and using APIs
 - `curl <https://curl.haxx.se/>`_ - command line webclient. Very useful for debugging and request crafting
+- `jsonmate <https://jsonmate.com>`_ - Build, test and share your JSON, transformations and schemas
 - `Docker <www.docker.com>`_ - Service to run containerized workloads
 
 Lab Topology
