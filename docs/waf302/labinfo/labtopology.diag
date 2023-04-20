@@ -26,12 +26,11 @@ nwdiag {
   network Back {
       address = "10.1.20.0/24";
       "BIG-IP" [address = "10.1.20.4"];
-      "App\nServer" [address = "\n10.1.10.5"];
-      "Client\nWorkstation" [address = "10.1.10.20"];
+      "App\nServer" [address = "\n10.1.20.5"];
   }
   network Front {
       address = "10.1.10.0/24";
-      "BIG-IP" [address = "10.1.20.4, 10.1.20.100-110 (VIPs)"];
+      "BIG-IP" [address = "10.1.10.4, 10.1.10.100-127 (VIPs)"];
       "Client\nWorkstation" [address = "10.1.10.6"];
   }
 }
