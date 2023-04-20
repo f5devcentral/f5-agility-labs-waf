@@ -1,14 +1,14 @@
 Lab 3.2: Test Security Policy
 =============================================================
 
-In the Postman *Arcadia Finance* >> *Dev* >> *Test API*, click on *DEV - Buy stocks* and replace the “qty” parameter value of “100” with the value of **“hundred”** and click **Send**
+1. In the Postman *Arcadia Finance* >> *Dev* >> *Test API*, click on *DEV - Buy stocks* and replace the “qty” parameter value of “100” with the value of **“hundred”** and click **Send**
 
  .. image:: images/postman-qty-hundred.png
 
-Review support ID by going to *Application Security* >> *Event Logs* >> *Application*
+2. Review support ID by going to *Application Security* >> *Event Logs* >> *Application*
 It should be the request at the top, if not click the filter icon and search for your Support ID
 
-Select the request
+3. Select the request
 
 .. image:: images/big-ip-security-event-hundred.png
 
@@ -16,7 +16,7 @@ The request is flagged for an Illegal parameter data type. On the right-side, un
 
 .. image:: images/big-ip-security-event-hundred2.png
 
-The policy expects an integer value, based on the OpenAPI file we imported
+4. The policy expects an integer value, based on the OpenAPI file we imported
 In Ubuntu CLI, type:
 
 .. code-block:: bash
@@ -27,7 +27,7 @@ Notice the schema type for qty is “integer” – this sets our security polic
 
 .. image:: images/ubuntu-swagger-qty.png
 
-Grep for “company” instead of “qty” using the same command above:
+5. Grep for “company” instead of “qty” using the same command above:
 
 .. code-block:: bash
 
@@ -41,11 +41,11 @@ How does the “string” value reflect in your security policy for this paramet
 
 
 
-Select */trading/rest/buy_stocks.php* URL and click *URL Parameters* at the top. 
+6. Select */trading/rest/buy_stocks.php* URL and click *URL Parameters* at the top. 
 
-In the BIG-IP, go to the  *Application Security* go to *URLs* >> *Allowed URLs* and select **/trading/rest/buy_stocks.php** URL and click *URL parameters*
+7. In the BIG-IP, go to the  *Application Security* go to *URLs* >> *Allowed URLs* and select **/trading/rest/buy_stocks.php** URL and click *URL parameters*
 
-Select the **“company”** parameter and notice it’s Data Type is set to Alpha-Numeric
+8. Select the **“company”** parameter and notice it’s Data Type is set to Alpha-Numeric
 
 Review how the OpenAPI parameter settings (from our last grep command) influence your policy
 	required: **true**/false
@@ -76,7 +76,7 @@ Notice the blocked request does not make it to the backend database
 
 Since we don’t want erroneous values (like fubar) being accepted in our transaction database, let’s see how we can lock this down.
 
-On the BIG-IP, go back to the company parameter for the */trading/rest/buy_stocks.php* URL (*Security* >> *Application Security* >> *Parameters* > *Parameter List* )
+9. On the BIG-IP, go back to the company parameter for the */trading/rest/buy_stocks.php* URL (*Security* >> *Application Security* >> *Parameters* > *Parameter List* )
 
 In the Enum field, add **FFIV** to the list
 
@@ -91,7 +91,7 @@ Review the security logs
 
 We have proven we can lock the parameter down to specific values but since we are deploying as code, any changes we make directly to the security policy in the BigIP config will be lost if the application is redeployed.  The changes need to be made permanent by adding them to our OpenAPI Spec file.  Fortunately, OpenAPI allows you to define parameter enumerations.
 
-In your Ubuntu CLI, 
+10. In your Ubuntu CLI, 
 
 .. code-block:: bash
 	
@@ -129,7 +129,7 @@ Under the buy_stocks.php path, find the “company” parameter settings and edi
 
 When we make changes to our OpenAPI file, AS3 needs to re-import the file for settings to take effect. In this case, we need to delete the current Dev VIP and re-deploy it.
 
-Go back to Postman and select the *Arcadia Finance* >> *Dev* >> *Test API*, click on *Delete DEV* request and hit **Send**
+11. Go back to Postman and select the *Arcadia Finance* >> *Dev* >> *Test API*, click on *Delete DEV* request and hit **Send**
 Once the Delete DEV request succeeds, Send the **Deploy DEV w/OAS** request to re-deploy and import the new parameter settings.
 
 Troubleshooting Note
@@ -152,7 +152,7 @@ https://arcdev.itc.demo/trading/rest/sell_stocks.php?trans_value=1750&qty=100&..
 
 Based on the production Arcadia deployment, we know this is incorrect and that our parameters are passed as json content. Let's look at the OAS file to find the problem.
 
-In Ubuntu CLI:
+12. In Ubuntu CLI:
 
 .. code-block:: bash
 

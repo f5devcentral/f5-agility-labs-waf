@@ -1,9 +1,22 @@
 Lab 2.1: Lab Environment 
 =================================
 
-We’re going to be working in the BIG-IP, AS3, and Postman to deploy an AWAF template with reference to a hosted swagger definition file. 
+We’re going to be working in the BIG-IP, AS3, and Postman to deploy an ASM template with reference to a hosted swagger definition file. 
 
-Within the Windows Desktop that you used in the previous module, Open Chrome and Postman (will take several seconds).
+In the Lab Components deployment page > Click the **Access** menu under the “Client Workstation” and select **RDP** 
+
+.. image:: images/udf-rdp.png
+
+Open RDP to the Windows Client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Log into the Windows Client via RDP using the following credentials:
+
+	Username:	:guilabel:`user`
+
+	Password: 	:guilabel:`user`
+
+Within the Windows Desktop, Open Chrome and Postman (will take several seconds).
 In Chrome > click the **Arcadia Finance** bookmark
 
 Within **Arcadia Finance**, find the Login page and login using admin/iloveblue as user/password
