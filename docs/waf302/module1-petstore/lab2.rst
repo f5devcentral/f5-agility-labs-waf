@@ -2,9 +2,6 @@ Lab 1.2 - Protecting API Endpoints
 ===================================
 
 
-**Narrative:** PetStore realizes the API endpoints they recently exposed are susceptible to many security vulnerabilities. We will deploy the API Security Protection Guided Configuration in F5 Application Security Manager module to help PetStore secure their API endpoints. 
-
-
 Deploying ASM Guided Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Open Google Chrome > in the bookmark click on **F5 BIG-IP**. 
@@ -16,28 +13,43 @@ Deploying ASM Guided Configuration
 
 2. Log in with username/password: **admin/admin**
 
+
+
+
 .. image:: images/f5_login.png
   :width: 600 px
+
+
 
 3. Click on **Security** > **Guided Configuration**
 
 .. image:: images/security-gc1.png
   :width: 600 px
 
+
+
 4. Click on **API Security Protection** > Click on **REST API Security** > Click **Next**
+
+
+
 
 .. image:: images/security-gc2.png
   :width: 600 px
 
+|
+|
+
 .. image:: images/security-gc3.png
   :width: 600 px
+
+
 
 5.  In the **API Protection Properties** set the following properties
 
 **Configuration Name:** petstore-api
 | **Import OpenAPI Spec File** click on **Choose File** in the File Explore window click on **petstore-swagger.json** file > Click **Open** 
 
-.. Note:: If you do not see the JSON file click on **lab_files** folder on the left pane of the explore window, this should open the lab_files directory.
+    .. Note:: If you do not see the JSON file click on **lab_files** folder on the left pane of the explore window, this should open the lab_files directory.
 
  
 
@@ -84,7 +96,7 @@ Click **Save and Next**
   :width: 600 px
 
 
-8. In the **Web Application Security Policy Properties** step sets F5 Advanced WAF Enforcement mode to either blocking or transparent mode. 
+8. In the **Web Application Security Policy Properties** step sets F5 Application Security Manager Enforcement mode to either blocking or transparent mode. 
    
    **Blocking** enforcement mode, the system will start blocking either connection from attacking IP addresses or requests to attacked URLs. 
 
@@ -102,17 +114,17 @@ Click **Save and Next**
 
 
 
-9. In the **OAuthGeneral Properties** step, the setting allows for the BIG-IP to act as an OAuthprovider to request a JSON Web Token also known as a JWT token from the Authorization Server. 
+9. In the **OAuth General Properties** step, the setting allows for the BIG-IP to act as an OAuth provider to request a JSON Web Token also known as a JWT token from the Authorization Server. 
 
 
-.. Note:: OpenID Connect is not used in this scenario, even though it can be used as a way to help identify attributes to use for rate limiting. 
+    .. Note:: OpenID Connect is not used in this scenario, even though it can be used as a way to help identify attributes to use for rate limiting. 
 
 
 
 In this step please select the following:
 
-| **OAuthProvider Type:** F5
-| **Choose OAuthProvider** click on the drop-down and select **oauthas.f5agility.com-provider**
+| **OAuth Provider Type:** F5
+| **Choose OAuth Provider** click on the drop-down and select **oauthas.f5agility.com-provider**
 
 
 .. image:: images/security-gc6.png
@@ -131,7 +143,7 @@ The result should look like the screen below, click **Save**
 
 |
 
-10. In the **OAuthProvider List** screen confirmed the OAuthprovider selected from the previous step is shown here, then click **Save and Next**
+10. In the **OAuth Provider List** screen confirmed the OAuth provider selected from the previous step is shown here, then click **Save and Next**
 
 
 |
@@ -142,7 +154,7 @@ The result should look like the screen below, click **Save**
 
 |
 
-    .. Note:: The pre-configured provider allows for OAuthauthorization for the user, using a LocalDB on the APM device. Access Tokens are issued from APM and included in the token are certain claims which we can use to determine the rate limiting, which are configured in Step 11.
+    .. Note:: The pre-configured provider allows for OAuth authorization for the user, using a LocalDB on the APM device. Access Tokens are issued from APM and included in the token are certain claims which we can use to determine the rate limiting, which are configured in Step 11.
 
 
     
@@ -160,7 +172,7 @@ For this lab set the following criteria:
   :width: 600 px
 
 **User ID Key**: subsession.oauth.scope.last.jwt.family
-Check **Enable Rate Limiting Settings** box
+Check **Enable Request Quota Settings** box
 Allow **5** requests per **1** minute
 
 
@@ -328,7 +340,7 @@ Noticed the Status is 403 Forbidden. The Access Policy Manager is blocking the a
 
 18.   Let’s set the authentication using a JSON web token (JWT).
 
-Click on the **Authorization** tab > Click on the drop-down arrow under **Type**, Select **OAuth 2.0**
+Click on the **Authorization** tab > Click on the drop-down arrow under **Type**, Select **OAuth2.0**
 |
 
 
@@ -350,7 +362,7 @@ Click on the **Authorization** tab > Click on the drop-down arrow under **Type**
 
 In the **Configure New Token** window scroll down to the bottom. 
 
-    .. Note:: It is security best practice to set variables to hide Auth URL, Access Token URL, Client ID, and Client Secret as seen in the image below. These values are configured as part of the APM Access->Federation->OAuthClient /Resource Server -> OAuthServer -> Client Settings and would be provided in a production environment as part of the application configuration.
+    .. Note:: It is security best practice to set variables to hide Auth URL, Access Token URL, Client ID, and Client Secret as seen in the image below. These values are configured as part of the APM Access->Federation->OAuth Client /Resource Server -> OAuth Server -> Client Settings and would be provided in a production environment as part of the application configuration.
 
 Click on the orange button **Get New Access Token**
 
@@ -393,7 +405,7 @@ Click on **Proceed**
 
 
 
-A JWT token name user1-OAuthhas been created. Click on Use **Token**
+A JWT token name user1-oauth has been created. Click on Use **Token**
 
 
 

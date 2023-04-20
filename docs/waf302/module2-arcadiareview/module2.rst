@@ -1,6 +1,8 @@
 Module 2: AWAF Policy Template Creation on BIG-IP (secops engineer) 
 ===================================================================
 
+Estimate time to complete: 45 minutes.
+
 **Intro**
 
 As the security engineer, you are tasked with building a WAF policy template that will be used by the application teams. 
@@ -16,7 +18,7 @@ Also, think about how you can test your policy since it's not going to be deploy
 - Creation of an AWAF base policy (lab1) 
 - Creating a template from a base policy (lab2)
 - Creating ASM Policies via Importing JSON Files (lab3)
-- Deploying to a 'secops testing' environment (lab4) 
+- Deploying to a 'secops testing' environemnt (lab4) 
 
 .. toctree::
    :maxdepth: 1

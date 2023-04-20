@@ -4,20 +4,20 @@ Lab 3.4: Add Money Transfer Service to an OpenAPI File
 Task 1 – Configure OpenAPI Spec for New API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open a new tab in Chrome and click the JSONMate bookmark
+1. Open a new tab in Chrome and click the JSONMate bookmark
 Click “New” on the left and right JSONMate window panes.
 Copy /repo/arcadia/dev/arcadia-oas3-dev.json (also accessible from: http://repo.itc.demo:8282/arcadia/dev/arcadia-oas3-dev.json) to your clipboard and paste in the left-side JSONMate window
 
 .. image:: images/jsonmate-left.png
 
 
-Highlight and copy lines 14 thru 105 (From: **"/trading/rest/buy_stocks.php": {**  to **}, )**
+2. Highlight and copy lines 14 thru 105 (From: **"/trading/rest/buy_stocks.php": {**  to **}, )**
 Paste the buy stocks path info on the right-side of JSONMate (ignore errors at bottom)
 
 .. image:: images/jsonmate-copybuystocks.png
 
 
-We are just using Buy Stocks on the right as a template for the new Money Transfer API.
+3. We are just using Buy Stocks on the right as a template for the new Money Transfer API.
 Edit the right-side so it reflects what we know about the new API.
 
 In Postman, review the transfer money request to help define the OpenAPI file configuration.
@@ -28,11 +28,11 @@ From the body and headers here we know the URI path, it contains 4 parameters, w
 
 .. image:: images/postman-moneytransfer2.png
 
-Edit the path and parameter values on the right-side JSONMate pane with the new values. 
+4. Edit the path and parameter values on the right-side JSONMate pane with the new values. 
 
-Since buy stocks has 5 parameters and we only need 4, start by deleting the “company” parameter on the right-side (Line 25 – 39) 
+5. Since buy stocks has 5 parameters and we only need 4, start by deleting the “company” parameter on the right-side (Line 25 – 39) 
 
-.. image:: images/postman-removecompany.png
+.. image:: images/postman-removecompany2.png
 
 
 - Rename line 1 to /api/rest/execute_money_transfer.php
@@ -45,14 +45,14 @@ Since buy stocks has 5 parameters and we only need 4, start by deleting the “c
 
 When complete, the right-side should resemble the image below:
 
-.. image:: images/jsonmate-rightsidecomplete.png
+.. image:: images/jsonmate-rightsidecomplete2.png
 
 Make sure to edit the RequestBody and Response examples at bottom
 You can review the Postman response body for how to configure your API spec response.
 
-.. image:: images/jsonmate-requestbodyandresponsesamples.png
+.. image:: images/jsonmate-reqbodyandresponsesample.png
 
-Once you have the new spec defined, paste it to the left-side JSONMate pane BEFORE the “/trading/rest/...” line.  If you followed all labs, this should be line 106
+6. Once you have the new spec defined, paste it to the left-side JSONMate pane BEFORE the “/trading/rest/...” line.  If you followed all labs, this should be line 106
 
 .. image:: images/jsonmate-mergeback1.png
 

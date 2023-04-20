@@ -21,23 +21,23 @@ Task 2 – Update Nginx Container Ingress
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Since this is a lab, Prod and Dev are both using the same pool. Therefore, technically this step breaks Prod. 
 
-.. image:: images/meme-rickandmorty.png
+.. image:: images/meme-rickandmorty2.png
 
-In the Ubuntu CLI, 
+1. In the Ubuntu CLI, 
 
 .. code:: bash
 
 	vi /home/ubuntu/nginx.conf 
 
-remove the # in front of upstream app2 (lines 11-13) as well as in front of location /api (lines 33-35) for. 
+2. Remove the # in front of upstream app2 (lines 11-13) as well as in front of location /api (lines 33-35) 
 
-Do not remove the # from any other line. Save the file (hit ESC,type :wq!)
+Do not remove the # from any other line. Save the file (hit **ESC**,type: **wq!**)
 
-.. image:: images/ubuntu-nginx1.png
+.. image:: images/ubuntu-nginx1a.png
 
-.. image:: images/ubuntu-nginx2.png
+.. image:: images/ubuntu-nginx2a.png
 
-From the Ubuntu CLI enter the command: docker stop nginx && docker rm nginx 
+3. From the Ubuntu CLI enter the command: docker stop nginx && docker rm nginx 
 
 Now enter (copy/paste all as one line):  
 
@@ -59,33 +59,33 @@ Then enter,
 Task 3 – Test the New Microservice
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Postman, select *Arcadia Finance* >> *Dev* >> *Test API*, click on *DEV transfer money* and click **Send**
+1. In Postman, select *Arcadia Finance* >> *Dev* >> *Test API*, click on *DEV transfer money* and click **Send**
 
 As we had previously locked down the URLs allowed, this request is blocked
 
 Review the security event log and then we'll correct the issue.
 
-For testing purposes, we will simulate the Prod policy and add wildcard URL and Parameter values to the existing policy.
+2. For testing purposes, we will simulate the Prod policy and add wildcard URL and Parameter values to the existing policy.
 Go to *Application Security* go to *URLs* >> *Allowed URLs* and Create New HTTP URL:
 
 	Settings
-	URL Example:  Wildcard – POST - /api/* 
+	**URL Example:**  Wildcard – POST - /api/* 
 
-	Click Create
+	Click **Create**
 
 .. image:: images/big-ip-security-url-api.png
 
-Since you will be passing parameters in the request, you need to account for that in the 	policy. Go back to your list of allowed URL’s and click on /api/* then select URL 		Parameters at the top.
+3. Since you will be passing parameters in the request, you need to account for that in the 	policy. Go back to your list of allowed URL’s and click on /api/* then select URL 		Parameters at the top.
 
 .. image:: images/big-ip-security-api2.png
 
-Add another wildcard for testing. Click Create and configure as below
+4. Add another wildcard for testing. Click Create and configure as below
 
 .. image:: images/big-ip-security-api3.png
 	
-Click *Create* and go back to *Security Policy* and **Apply Policy**
+5. Click *Create* and go back to *Security Policy* and **Apply Policy**
 
-In Postman retry the Money Transfer request and it should now succeed
+6. In Postman retry the Money Transfer request and it should now succeed
 
 .. image:: images/postman-moneytransfer.png
 
