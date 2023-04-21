@@ -146,7 +146,14 @@ Troubleshooting Note
 
 Back to our regularly scheduled lab...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The policy is expecting our parameters to be sent as part of the query string rather than in the content. This would mean passing parameters in the form of:	
+
+In Postman, select the *Arcadia Finance > Dev > Test API > DEV* - sell stocks request and click **Send**
+
+Why was the request blocked? Review the security event logs. On the right side, click the "5" under Occurrences.
+
+.. image:: images/sellstock2.png
+
+The policy is expecting our parameters to be sent as part of the query string rather than in the content. This would mean passing parameters in the form of
 
 https://arcdev.itc.demo/trading/rest/sell_stocks.php?trans_value=1750&qty=100&.... 
 
