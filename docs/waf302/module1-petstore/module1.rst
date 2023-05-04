@@ -6,8 +6,8 @@ Estimate time to complete: 30 minutes.
 |
 |
 
-**Objective:** PetStore recently exposed their web application APIs. These API endpoints are exposed and susceptible to security vulnerabilities. In this lab, we will first use Postman to review the different types of request, and demonstrate some of these vulnerabilities. 
-In subsequent lab we will use the BIG-IP to act as a API gateway to protect these API endpoints by deploying API Protection Guided Configuration under the Application Security Manager module of BIG-IP. The guided configuration is a template in BIG-IP that'll help guide you through setting oAuth Provider, JSON Web Token, and configure rate limiting on API requests.  
+**Objective:** PetStore recently exposed their web application APIs. These API endpoints are exposed and susceptible to security vulnerabilities. In this lab, you will first use Postman to review the different type of API endpoints, and demonstrate vulnerabilities by simulating attacks on these endpoints. 
+In subsequent labs we will use the BIG-IP to act as a API gateway to protect these API endpoints by deploying API Protection Guided Configuration under the Application Security Manager module of BIG-IP. The guided configuration is a template in BIG-IP that'll help guide you through setting oAuth Provider, JSON Web Token, and configure rate limiting on API requests.  
 
 |
 |

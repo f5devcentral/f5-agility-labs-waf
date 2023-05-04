@@ -82,7 +82,7 @@ In the Enum field, add **FFIV** to the list
 
 .. image:: images/big-ip-security-ffiv.png
 
-Click *Update* and be sure to **Apply the policy**
+10. Click *Update* and be sure to **Apply the policy**
 
 In Postman click the Buy Stocks request and change the company name to FFIV and click send
 Request should succeed
@@ -91,7 +91,7 @@ Review the security logs
 
 We have proven we can lock the parameter down to specific values but since we are deploying as code, any changes we make directly to the security policy in the BigIP config will be lost if the application is redeployed.  The changes need to be made permanent by adding them to our OpenAPI Spec file.  Fortunately, OpenAPI allows you to define parameter enumerations.
 
-10. In your Ubuntu CLI, 
+11. In your Ubuntu CLI, 
 
 .. code-block:: bash
 	
@@ -129,7 +129,7 @@ Under the buy_stocks.php path, find the “company” parameter settings and edi
 
 When we make changes to our OpenAPI file, AS3 needs to re-import the file for settings to take effect. In this case, we need to delete the current Dev VIP and re-deploy it.
 
-11. Go back to Postman and select the *Arcadia Finance* >> *Dev* >> *Test API*, click on *Delete DEV* request and hit **Send**
+12. Go back to Postman and select the *Arcadia Finance* >> *Dev* >> *Test API*, click on *Delete DEV* request and hit **Send**
 Once the Delete DEV request succeeds, Send the **Deploy DEV w/OAS** request to re-deploy and import the new parameter settings.
 
 Troubleshooting Note
@@ -147,7 +147,7 @@ Troubleshooting Note
 Back to our regularly scheduled lab...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Postman, select the *Arcadia Finance > Dev > Test API > DEV* - sell stocks request and click **Send**
+13. In Postman, select the *Arcadia Finance > Dev > Test API > DEV* - sell stocks request and click **Send**
 
 Why was the request blocked? Review the security event logs. On the right side, click the "5" under Occurrences.
 
@@ -159,7 +159,7 @@ https://arcdev.itc.demo/trading/rest/sell_stocks.php?trans_value=1750&qty=100&..
 
 Based on the production Arcadia deployment, we know this is incorrect and that our parameters are passed as json content. Let's look at the OAS file to find the problem.
 
-12. In Ubuntu CLI:
+14. In Ubuntu CLI:
 
 .. code-block:: bash
 
@@ -174,13 +174,13 @@ Chances are whoever created this file did a copy/paste and forgot to edit this v
 Compare the parameter settings in OAS file between buy_stocks and sell_stocks
 Since we know the requests have the same format, edit the arcadia-oas3-dev.json file sell_stocks parameters so they are located correctly in our security policy.
 
-When you have finished editing the file, you will need to delete and re-deploy your VIP from Postman as you did earlier.
+15. When you have finished editing the file, you will need to delete and re-deploy your VIP from Postman as you did earlier.
 *Arcadia Finance* >> *Dev* >> *Test API*, click on *Delete DEV*
 *Arcadia Finance* >> *Dev* >> *Test API*, click on *Deploy Dev w/OAS* - this will update our policy with new settings.
 
 Ensure the security policy is accepting requests for DEV Buy, Sell and Last Transactions
 
-Select either Buy or Sell Stocks and change the Content-Type header to text/plain as you did earlier in Prod, hit **Send**.
+16. Select either Buy or Sell Stocks and change the Content-Type header to text/plain as you did earlier in Prod, hit **Send**.
 
 .. image:: images/postman-contenttype.png
 	

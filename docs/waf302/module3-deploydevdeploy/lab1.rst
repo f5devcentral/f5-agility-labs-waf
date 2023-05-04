@@ -71,3 +71,4 @@ Notice how there are no wildcard parameters and parameters names are now defined
 
 .. image:: images/big-ip-urls-buystocks.png
 
+You have successfully created a web application firewall policy using AS3 Declaration. 

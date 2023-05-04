@@ -458,3 +458,5 @@ Next, we will validate the rate limit setting defined in the Security Policy is 
 
 .. image:: images/pm-api-requests.png
  
+
+You have successfully setup a security policy to protect PetStore resources. Now off to review some analytics you can gather from your hard work.

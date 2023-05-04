@@ -4,10 +4,11 @@ Lab 2.2: Working with APIs in Postman
 
 Review activity in Postman
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-Click on **Postman** and expand **Arcadia Finance** collection.
-Click *Prod* > *Test API* > *PROD - last transaction* and click **Send**
+1. Click on **Postman** and expand **Arcadia Finance** collection.
 
-Set the response body to **Preview** for a nicer presentation
+2. Click *Prod* > *Test API* > *PROD - last transaction* and click **Send**
+
+3. Set the response body to **Preview** for a nicer presentation
 
 .. image:: images/postman-lasttransaction.png
 
@@ -16,3 +17,4 @@ Set the response body to **Preview** for a nicer presentation
 
 
 
+This completes this lab.

@@ -1,8 +1,7 @@
 Lab 3.4: Add Money Transfer Service to an OpenAPI File
 ========================================================
 
-Task 1 – Configure OpenAPI Spec for New API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Configure OpenAPI Spec for New API**
 
 1. Open a new tab in Chrome and click the JSONMate bookmark
 Click “New” on the left and right JSONMate window panes.
@@ -60,10 +59,9 @@ You can review the Postman response body for how to configure your API spec resp
 
 Look for any formatting errors in red at bottom of left side. The last character in your output should be a comma ( , ) on line 181
 
-Task 2 – Create New OAS File for Testing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Create New OAS File for Testing**
 
-Copy the left-side JSONMate to clipboard and create a new OAS file in your repo.
+7. Copy the left-side JSONMate to clipboard and create a new OAS file in your repo.
 
 .. code:: bash
 
@@ -84,7 +82,7 @@ edit openapi spec file location to the test version we just created in the previ
 .. image:: images/ubuntu-policyjson2.png
 
 Redeploy the Dev VIP to update our security policy
-In Postman, *Arcadia Finance* >> *Dev* >> *delete* and then **re-deploy** the Dev VIP
+8. In Postman, *Arcadia Finance* >> *Dev* >> *delete* and then **re-deploy** the Dev VIP
 As long as your JSON file is valid, you should receive a success indication
 
 In Postman send the DEV transfer money request. If you have any issues, resolve them in the OpenAPI file.

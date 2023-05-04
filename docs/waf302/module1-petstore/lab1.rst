@@ -1,9 +1,8 @@
 Lab 1.1 - Unprotected API
 ==========================================
 
-|
-|
-
+Observe and simulate attacks on unprotected API endpoints
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Go to the UDF course and Log into the Client Workstation
 
@@ -107,14 +106,14 @@ Observe the request URL, and the Parameters, click **Send**. Observe the respons
 |
 
 
-What these exercises demonstrate are common security vulnerabilities of unprotected API endpoints. 
-Even simple query API like List Available Pets can be susceptible when hundreds or thousands of requests are being sent to the server causing the server resource to be overloaded. 
-To protect API endpoints from attacks, ensure proper authorization, and reduce resource starvation, we can implement solutions such as F5 Application Security Manager API Security Protection configuration. 
+What these exercises demonstrated are common security vulnerabilities of unprotected API endpoints. 
+Even simple API queries like List Available Pets can be susceptible when hundreds or thousands of requests are sent to the server causing resource starvation. 
+To protect API endpoints from attacks, ensure proper authorization, and reduce resource starvation, we can implement F5 Application Security Manager using API Security Protection guided configuration.
 
 |
 |
 
-We will explore how to do this in the lab.
+We will explore how to do this in the next lab.
 
 |
 |
