@@ -1,6 +1,9 @@
 Lab 1.3 - Viewing oAuth Analytics 
 =================================
 
+Reviewing OAuth Analytics
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Go to the **Access** module > select **Overview** > **OAuth Reports** > **Server**
 
 |
@@ -49,4 +52,6 @@ Click on **Overview** > **OAuth Reports** > **Client / Resource Server**
 Access Policy Manager is acting as an OAuth client, so it logs token validations, along with
 authorization failures. Mouse over the graph to see the different request metrics. If you don’t
 have enough dataset, go back to Postman, and send a few more requests, with and without the
-JWT token. Come back to this report and click **Refresh** in the top right corner. \ck\a
+JWT token. Come back to this report and click **Refresh** in the top right corner.
+
+Yay! You have completed Lab 1.
