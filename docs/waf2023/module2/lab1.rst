@@ -18,7 +18,7 @@ Create security policy using the Guided Configuration
 
     .. image:: ../images/bigiplogin.png
 
-#. Login to the BIG-IP with the ever so secure credentails of Username  ``admin`` and Password ``admin``.  
+#. Login to the BIG-IP with the ever so secure credentails of Username  ``admin`` and Password ``f5demos4u!``.  
 
 #. On the Main tab to your left, select **Security > Guided Configuration**. This opens the Guided Configuration screen.
 
