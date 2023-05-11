@@ -1,0 +1,42 @@
+WAF 302 - Enabling API Protection with APM and AWAF
+==================================================================
+
+Intro
+-----
+
+Welcome to F5's Agility Labs, 2023 edition!
+
+By the end of this lab, you should be able to:
+
+#. Deploy a security policy using Application Security Manager Guided Configuration template to protect API endpoints
+
+#. Use Postman to interact with F5 BIG-IP using F5’s declarative App Services API (AS3)
+
+#. Leverage OpenAPI Swagger definition files to deploy and improve security
+
+Lab Scenario
+------------
+
+We have two lab scenarios to help illustrate protecting API endpoints to improve security prosture.
+
+**Lab 1** - PetStore has exposed their web application API endpoints to streamline the their customer's ability to check pet availability, order pet, and check status of shipment. The web application is deployed in their production environment.
+
+After discovering the vulnerabilities of leaving unprotected API endpoints exposed to the internet. PetStore management team would like to implement a security solution to protect these endpoints. You reached out to your friendly and knowledgeable F5 Solutions Engineer for their help. The plan of action is to use the API Protection Guided Configuration available in F5 BIG-IP Application Security Manager module to accomplish this task. 
+
+The lab has been prestaged with F5 BIG-IP Access Policy Manager acting as a OAuth 2.0 Authorization Server. The OAuth Server will generate a JWT (JSON Web Token) access token to authorize API requests to the resource server.
+
+**Lab 2** - A production instance of Arcadia Finance app is deployed with a WAF policy providing OWASP Top 10 protection.
+
+The Arcadia Finance management team wants to migrate the Finance appliction to a microservices architecture. Your team has been tasked with developing an API Security strategy around F5’s Advanced WAF (Web Application Firewall) capabilities. The production application consists of three microservices for which your team has begun to develop an OpenAPI v3.0 spec file for the purpose of incorporating it into Arcadia’s security-first application deployment practice.
+
+
+
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+   :glob:
+
+   labinfo/labinfo
+   module*/module*

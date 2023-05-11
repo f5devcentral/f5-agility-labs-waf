@@ -135,7 +135,7 @@ Pipeline jobs reported the same result so it's time to test the connectivity to 
 3.2.7 Staging Juice-Shop App
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Upon successful pipeline completion you can access Juice-Shop App by selecting :guilabel:`firefox` --> :guilabel:`favorites` --> :guilabel:`WAF-342` --> :guilabel:`Staging` --> :guilabel:`OWASP juice shop`
+Upon successful pipeline completion you can access Juice-Shop App by selecting :guilabel:`firefox` --> :guilabel:`WAF-301` --> :guilabel:`Staging` --> :guilabel:`OWASP juice shop`
 
 .. image:: images/juiceshop_staging.png
 

@@ -15,7 +15,7 @@ Here are the highlevel stages we are going to execute:
 
 In the linux client RDP session open Firefox and click gitlab from the waf-342 favorites folder 
 
-:guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-342` -> :guilabel:`GitLab`
+:guilabel:`client RDP` -> :guilabel:`firefox` -> :guilabel:`waf-301` -> :guilabel:`GitLab`
 
 Click on :guilabel:`waflabs / waf_cicd` Project
 
@@ -56,13 +56,14 @@ With automated WAF Policy testing built into the pipeline there is no need to ru
 for learning purposes you can send the 'trusted traffic', check the response and check the AWAF logs. 
 in the client linux terminal: 
 
-    .. code-block:: console
+.. code-block:: console
 
         curl http://10.1.10.150/ftp/packages.json -v
         curl http://10.1.10.150/ftp/errors.yml -v
         curl http://10.1.10.150/ftp/security_report.json.bak -v
 
 The expected result should look something like the following: (AWAF default blocking page) 
+
 .. code-block:: console
 
     <html><head><title>Request Rejected</title></head><body>The requested URL was rejected. Please consult with your administrator.<br><br>Your support ID is: 15023059139070787972<br><br><a href='javascript:history.back();'>[Go Back]</a></body></html>
