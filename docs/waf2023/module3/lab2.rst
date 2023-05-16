@@ -4,76 +4,61 @@ Lab 2 – Use the F5 WAF Tester Tool
 Objective
 ~~~~~~~~~
 
-- Initialize the F5 WAF Tester Tool
+- Install the F5 WAF Tester Tool
+- Configire the F5 WAF Tester Tool
 - Use the F5 WAF Tester Tool 
 
-Task - Initialize the F5 WAF Tester Tool
+Task - Install the F5 WAF Tester Tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Either SSH into the External Jump Server or use the Web Shell. If using the Web Shell change from the root user to the ubuntu user
+RDP into the Client Jumpbox. 
 
-``su - ubuntu``
+.. image:: ../images/rdp-ubuntu.png
 
-Initialize the WAF Tester Tool by running the following command:
+Open a terminal and browse to the f5student home directory  **/home/f5student**
+
+.. image:: ../images/f5student-home.png
+
+Perform an **apt** update to ensure we have the right libraries unstalled  
+
+``sudo apt update``
+
+Install pip for python3
+
+``sudo apt install python3-pip``
+
+Confirm the pip version
+
+``pip3 --version``
+
+Now install the **f5-waf-tester**
+
+``pip install git+https://github.com/aknot242/f5-waf-tester.git``
+
+.. image:: ../images/f5-waf-tester-installed.png
+
+
+Task - Configure the F5 WAF Tester Tool
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While still on the terminal where you installed the F5-WAF-Tester, enter the code below to begin the configuration: 
 
 ``f5-waf-tester --init``
 
-The output from running the command above will look like the following:
+You will be asked a series of questions for the configuration. Enter the following below into the appropiate fields. Any other fields that are propmted, just hit enter to leave blank. 
 
-::
+.. code-block:: bash
 
-   [BIG-IP] Host []: 10.1.1.4
-   [BIG-IP] Username []: admin
-   [BIG-IP] Password []:
-   ASM Policy Name []: juice_shop_waf
-   Virtual Server URL []: http://10.1.10.102
-   Blocking Regular Expression Pattern [<br>Your support ID is: (?P<id>\d+)<br>]:
-   Number OF Threads [25]:
-   [Filters] Test IDs to include (Separated by ',') []:
-   [Filters] Test Systems to include (Separated by ',') []:
-   [Filters] Test Attack Types to include (Separated by ',') []:
-   [Filters] Test IDs to exclude (Separated by ',') []:
-   [Filters] Test Systems to exclude (Separated by ',') []:
-   [Filters] Test Attack Types to exclude (Separated by ',') []:
+  [BIG-IP] Host []: 10.1.1.4
+  [BIG-IP] Username []: admin
+  [BIG-IP] Password []: f5demos4u!
+  Virtual Server URL []: https://juiceshop.f5agility.com
 
-Edit the configuration if required. It is much easier to edit the config file than re-running the --init if you made a mistake.
+Your Confoguration prompts will look like this: 
 
-::
-
-   vi ~/.local/lib/python2.7/site-packages/f5_waf_tester/config/config.json
-
-Or if you prefer not to type all that out there is a bash alias:
-
-``waf_config``
-
-After initialization the configuration file should look like this:
-
-::
-
-   {
-     "asm_policy_name": "juice_shop_waf",
-     "big-ip": {
-       "username": "admin",
-       "host": "10.1.1.4",
-       "password": "admin"
-     },
-     "blocking_regex": "<br>Your support ID is: (?P<id>\\d+)<br>",
-     "threads": 25,
-     "filters": {
-       "exclude": {
-         "attack_type": [],
-         "id": [],
-         "system": []
-       },
-       "include": {
-         "attack_type": [],
-         "id": [],
-         "system": []
-       }
-     },
-     "virtual_server_url": "http://10.1.10.102"
-   }
-
+.. image:: ../images/f5-waf-tester-config.png
+  
+If you need to edit the configuration, re-initialize the tool by running ``f5-waf-tester --init`` again. Then enter your changes. 
 
 Task - Use the F5 WAF Tester Tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,13 +69,9 @@ Run the tool as follows:
 
     f5-waf-tester -r f5_waf_tester_report_1.json
 
-Or if you prefer not to type all that out there is a bash alias:
+.. note:: When using this tool at home and many of the tests fail, the signatures may be out of date. Ensure the latest signatures have been installed. The following article provides instructions on how to do that: https://support.f5.com/csp/article/K82512024. This lab does have an up to date signature set installed. 
 
-::
-
-    waf_test
-
-If many of the tests failed, the signatures may be out of date so ensure the latest signatures have been installed. The following article provides instructions on how to do that: https://support.f5.com/csp/article/K82512024
+.. note:: Also check the configration attributte **URL** of the **f5-waf-tester** tool if most of the tests have failed. It is possible the testing tool is not sending traffic to the right location. 
 
 Quickly check how many tests passed and failed:
 
@@ -98,13 +79,6 @@ Quickly check how many tests passed and failed:
 
     grep true f5_waf_tester_report_1.json | wc -l
     grep false f5_waf_tester_report_1.json | wc -l
-
-Or use the these bash aliaes to save you some typing:
-
-::
-
-    true_count
-    false_count
 
 View the results of the test:
 
