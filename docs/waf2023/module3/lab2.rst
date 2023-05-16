@@ -5,7 +5,7 @@ Objective
 ~~~~~~~~~
 
 - Install the F5 WAF Tester Tool
-- Initialize the F5 WAF Tester Tool
+- Configire the F5 WAF Tester Tool
 - Use the F5 WAF Tester Tool 
 
 Task - Install the F5 WAF Tester Tool
@@ -15,7 +15,7 @@ RDP into the Client Jumpbox.
 
 .. image:: ../images/rdp-ubuntu.png
 
-Open a terminal and browse to the f5Student home directory  **/home/f5student**
+Open a terminal and browse to the f5student home directory  **/home/f5student**
 
 .. image:: ../images/f5student-home.png
 
@@ -38,7 +38,7 @@ Now install the **f5-waf-tester**
 .. image:: ../images/f5-waf-tester-installed.png
 
 
-Task - Initialize the F5 WAF Tester Tool
+Task - Configure the F5 WAF Tester Tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 While still on the terminal where you installed the F5-WAF-Tester, enter the code below to begin the configuration: 
@@ -49,34 +49,15 @@ You will be asked a series of questions for the configuration. Enter the followi
 
 .. code-block:: bash
 
-  ``[BIG-IP] Host []: 10.1.1.4``
-  ``[BIG-IP] Username []: admin``
-  ``[BIG-IP] Password []: f5demos4u!``
-  ``ASM Policy Name []: juice_shop_waf``
-  ``Virtual Server URL []: https://juiceshop.f5agility.com``
+  [BIG-IP] Host []: 10.1.1.4
+  [BIG-IP] Username []: admin
+  [BIG-IP] Password []: f5demos4u!
+  Virtual Server URL []: https://juiceshop.f5agility.com
 
 Your Confoguration prompts will look like this: 
 
 .. image:: ../images/f5-waf-tester-config.png
-
-The output from running the command above will look like the following:
-
-::
-
-   [BIG-IP] Host []: 10.1.1.4
-   [BIG-IP] Username []: admin
-   [BIG-IP] Password []:
-   ASM Policy Name []: juice_shop_waf
-   Virtual Server URL []: http://10.1.10.102
-   Blocking Regular Expression Pattern [<br>Your support ID is: (?P<id>\d+)<br>]:
-   Number OF Threads [25]:
-   [Filters] Test IDs to include (Separated by ',') []:
-   [Filters] Test Systems to include (Separated by ',') []:
-   [Filters] Test Attack Types to include (Separated by ',') []:
-   [Filters] Test IDs to exclude (Separated by ',') []:
-   [Filters] Test Systems to exclude (Separated by ',') []:
-   [Filters] Test Attack Types to exclude (Separated by ',') []:
-
+  
 If you need to edit the configuration, re-initialize the tool by running ``f5-waf-tester --init`` again. Then enter your changes. 
 
 Task - Use the F5 WAF Tester Tool
