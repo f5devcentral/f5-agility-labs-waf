@@ -25,7 +25,7 @@ Task - Restart the Juice Shop Application
 
 The Juice Shop application must be restarted to reset the database. Log onto the Internal LAMP Server by navigating to the Systems column, clicking on the Access dropdown and then clicking on **WEB SHELL**
 
-.. image:: ../images/web_shell_internal_lamp.png
+.. image:: ../images/web_shell_server.png
 
 At the shell prompt, type the following commands to restart the Juice Shop application. The first command will list the running docker containers. Note the STATUS. The second command restarts the Juice Shop docker container (only the first 3 unique charcters of the container ID are required) and the third command will list the running container where you should see the STATUS listed as Up for a few seconds which confirms the application was restarted.
 
@@ -37,7 +37,7 @@ In the web shell run the command ``docker ps``. The output will look like the fo
     b0b868b1af95        bkimminich/juice-shop   "docker-entrypoint.s…"   4 hours ago         Up 2 hours          0.0.0.0:3000->3000/tcp   reverent_raman
     
     
-Run the command ``docker restart b0b``, but make sure to type the first 3 characters of your Juice Shop container ID. The output will be the first 3 characters of the container ID:
+Run the command ``docker restart b0b``, but make sure to type the **first 3 characters of your Juice Shop container ID**. The output will be the first 3 characters of the container ID:
 
 .. code-block:: none
 
@@ -63,6 +63,8 @@ Task - Load the Juice Shop application.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After restarting the Juice Shop application you can go back to the UDF Deployment screen and open the newly started application by clicking on the Access link under the BIG-IP section and then clicking on Juice Shop.
+
+.. image:: ../images/udf-juiceshop.png
  
 Task - Try hacking the Juice Shop application again.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
