@@ -74,16 +74,16 @@ Go back to the Module 1 / Lab 3 page and run through the hacks. They should fail
 Task - Compare results of XSS hacking attempt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The attempt to injected the XSS hack via the feedback form should fail and the you should see something similar to this on the page:
+The attempt to injected the XSS hack via the order parameter should fail and the you should see something similar to this on the page:
 
-.. image:: ../images/block_xss.png
+.. image:: ../images/mod3lab1-xss.png
 
-If you visit the Customer Feedback page you should NOT hear the jingle.
+The search results will not produce the parameter value on the screen since the request was blocked by the XSS signatures applied.
 
 Task - View the Application Request Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI ``/api/Feedbacks/``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. Also, make sure to scroll to the bottom of the Decoded Request section to see the string that was entered in the form.
+Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI `` /rest/track-order/``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. Also, make sure to scroll to the bottom of the Decoded Request section to see the string that was entered in the form.
 
 .. image:: ../images/event_log_xss.png
 
