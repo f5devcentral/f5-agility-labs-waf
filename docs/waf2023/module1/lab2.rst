@@ -14,36 +14,32 @@ Objective
 
 - Demonstrate an unauthorized file access.
 
-Task – Demonstrate a server side cross site scripting (XSS) vulnerability
+Task – Demonstrate a cross site scripting (XSS) vulnerability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This hack we will cause a simple reflected XSS attack on the Juice Shop application by compromising a parameter value in the URL. First go to **Account** in the upper right corner, then to **Orders and Payment**, select **Order History**.
 
-Visit the About page so you can see that it hasn't been hacked yet by clicking on the hamburger menu in the top left corner of the page:
+.. image:: ../images/mod1lab2-xss-orderhistory.png
 
-.. image:: ../images/hamburger_menu.png
+Click on the truck. This will take you to an expected delivery page with search results. Carefully look at the URI and notice that it is not encoded or using a trusted html link for the parameter value. 
 
-and then click on **About Us**.
 
-.. image:: ../images/aboutus_menu.png
+.. image:: ../images/mod1lab2-xss-uricompare.png
 
-You should see a bunch of lorem ipsum text and a slider of customer feedback entries retrieved from the database.
-
-.. image:: ../images/aboutus_page.png
-
-We will insert our cross site scripting hack into the database via the Customer Feedback form. Click on the hamburger menu again and then click on **Customer Feedback**.
-
-.. image:: ../images/customer_feedback.png
-
-In the comment area paste the following:
+Paste the following code after **yourhost.access.udf.f5.com/#/track-result?id=** in the URI. 
 
 .. code-block:: none
+    
+    <iframe src="javascript:alert(`data all over this screen that wasnt planned`)">
 
-    <<script>FUD</script>iframe allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1030254214&auto_play=true>
+The full URL will look like this after encoding is done by the browser. Dont paste this code below into the browser. This is meant for reference since you will have a different host. 
 
-Then, choose any amount of stars for the rating and answer the math challenge and then click Submit.
+.. code-block:: none
+    
+    https://ea06dc66-bfd7-4aa2-a99c-72137fd3ea1a.access.udf.f5.com/#/track-result?id=%3Ciframe%20src%3D%22javascript:alert(%60data%20all%20over%20this%20screen%20that%20wasnt%20planned%60)%22%3E
 
-.. image:: ../images/xss_cust_feedback_form.png
 
-Now head back over to the About page by clicking on the hamburger menu and then clicking on About. You should hear a jingle about the Juice Shop.
+
+.. image:: ../images/mod1lab2-xss-uricompare2.png
 
 Task – Demonstrate a SQL injection vulnerability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

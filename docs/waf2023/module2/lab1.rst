@@ -58,7 +58,7 @@ Create security policy using the Guided Configuration
 
 #. Check off **Assign Policy to Virtual Server**, under **Virtual Server** choose **Use Existing**, and move the Juice_Shop_VS to the selected window.  Press **Save & Next**
 
-    .. image:: ../images/addvs.png
+    .. image:: ../images/addvs1.png
 
 #. The next page will summarize the objects and policy configuration.  Review, and take note that you can also go back and edit if required.  When done click **Deploy** at the bottom of the screen.  It will take a few moments to complete the policy build.
 

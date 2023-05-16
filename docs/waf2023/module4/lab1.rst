@@ -6,11 +6,11 @@ Objective
 - Configure Global IPI Profile & Logging
 - Review Global IPI Logs
 - Configure Custom Category and add an IP 
-- Create your first WAF Policy and implement IPI w/ XFF inspection
+- Apply IPI to a WAF Policy and implement IPI w/ XFF inspection
 
 - Estimated time for completion: **30** **minutes**.
 
-Create Your 1st L3 IPI Policy
+Create A Layer 3 IPI Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 An IPI policy can be created and applied globally, at the virtual server (VS) level or within the WAF policy itself. 
 We will follow security best-practice by applying IPI via a Global Policy to secure Layer 3 device-wide and within the Layer 7 WAF policy to protect the App by inspecting the HTTP X-Forwarded-For Header.
@@ -18,9 +18,9 @@ We will follow security best-practice by applying IPI via a Global Policy to sec
 .. image:: ../images/ipi_options.png
   :width: 600 px
 
-In this first lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
+In this lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
 
-#. RDP to the Linux Client by choosing the RDP access method from your UDF environment page. You will be presented with the following prompt where you will enter the password only. The **f5student** account is hard-coded into XRDP for your convenience. 
+#. RDP to the Linux Client by choosing the RDP access method from your UDF environment page. You will be presented with the following prompt where you will enter the password only **f5DEMOs4u!**. The **f5student** account is hard-coded into XRDP for your convenience. 
 
 .. image:: ../images/xrdp.png
   :width: 600 px
@@ -89,7 +89,7 @@ Setup Logging for Global IPI
 
 Test 
 ~~~~~~~~~~~~~~~~
-#. On the Linux Client, open a terminal and **cd** to **Agility2022wafTools**
+#. On the Linux Client, open a terminal and **cd** to **/home/f5student/Agility2022wafTools**
 #. Run the following command to send some traffic to the site: **./ipi_tester**.
 
 .. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
@@ -138,31 +138,15 @@ Create Custom Category
 | **We will now configure a Layer 7 WAF policy to inspect the X-Forwarded-For HTTP Header.**
 
 
-Create your first WAF Policy 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Navigate to **Security > Application Security > Security Policies** and click the Plus (+) button. 
-#. Name the policy: **juiceshop_waf**
-#. Select Policy Template: **Rapid Deployment Policy** (accept the popup)
-#. Select Virtual Server: **owasp-juiceshop_443_vs**
-#. Logging Profiles: **Log all requests**
-#. Notice that the Enforcement Mode is already in **Transparent Mode** and Signature Staging is **Enabled**
-#. Click **Save**.
+Attach an IPI policy to your exisiting WAF Policy for Layer 7 Protection 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../images/waf_policy.png
-  :width: 600 px
-
-Configure L7 IPI
-~~~~~~~~~~~~~~~~~~~~
-
-#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. 
-
-.. NOTE::  These are the settings that govern what happens when a violation occurs such as **Alarm** and **Block**. We will cover these concepts later in the lab but for now the policy is still transparent so the blocking setting has no effect. 
-
+#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section of the juiceshop_waf policy. These settings were configured earlier in the OWASP Dashboard lab to enabled, but observe where IPI and Geolocation is set to alarm and/or block.  
 
 .. image:: ../images/ipi_waf.png
   :width: 600 px
 
-2. Navigate to **Security > Application Security > Security Policies**. Select the **juiceshop_waf** policy from the policy list. Click **IP Intelligence** on the middle pane. In the **IP Intelligence** screen click on the **OFF** slider to enable IP Intelligence
+2. Navigate to **Security > Application Security > Security Policies > Policy List **. Select the **juiceshop_waf** policy from the policy list. Click **IP Intelligence** on the middle pane. In the **IP Intelligence** screen click on the **OFF** slider to enable IP Intelligence
 
 .. image:: ../images/enable_ipi.png
   :width: 600 px
@@ -172,13 +156,13 @@ Configure L7 IPI
 .. image:: ../images/waf_ipi.png
   :width: 600 px
 
-4. Click **Save** and **Apply Policy**. You will get an "Are you sure" popup that you can banish by clicking **Do not ask for this confirmation again**.
+4. Click **Save** and **Apply Policy**. 
 
-.. image:: ../images/annoy.png
+5. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and click on **juiceshop_waf** policy. Scroll down under **General Settings** and click **Enabled** under **Trust XFF Header**.  
+
+.. image:: ../images/mod4lab1-xff.png
   :width: 600 px
 
-5. Enable XFF inspection in the WAF policy by going to **Security > Application Security > Security Policies > Policies List >** and click on **juiceshop_waf** policy.
-#. Finally, scroll down under **General Settings** and click **Enabled** under **Trust XFF Header**.  
 #. Click **Save** and **Apply Policy**
 
 Test XFF Inspection

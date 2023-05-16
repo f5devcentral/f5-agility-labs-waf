@@ -25,7 +25,7 @@ Task - Restart the Juice Shop Application
 
 The Juice Shop application must be restarted to reset the database. Log onto the Internal LAMP Server by navigating to the Systems column, clicking on the Access dropdown and then clicking on **WEB SHELL**
 
-.. image:: ../images/web_shell_internal_lamp.png
+.. image:: ../images/web_shell_server.png
 
 At the shell prompt, type the following commands to restart the Juice Shop application. The first command will list the running docker containers. Note the STATUS. The second command restarts the Juice Shop docker container (only the first 3 unique charcters of the container ID are required) and the third command will list the running container where you should see the STATUS listed as Up for a few seconds which confirms the application was restarted.
 
@@ -37,7 +37,7 @@ In the web shell run the command ``docker ps``. The output will look like the fo
     b0b868b1af95        bkimminich/juice-shop   "docker-entrypoint.s…"   4 hours ago         Up 2 hours          0.0.0.0:3000->3000/tcp   reverent_raman
     
     
-Run the command ``docker restart b0b``, but make sure to type the first 3 characters of your Juice Shop container ID. The output will be the first 3 characters of the container ID:
+Run the command ``docker restart b0b``, but make sure to type the **first 3 characters of your Juice Shop container ID**. The output will be the first 3 characters of the container ID:
 
 .. code-block:: none
 
@@ -63,25 +63,27 @@ Task - Load the Juice Shop application.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After restarting the Juice Shop application you can go back to the UDF Deployment screen and open the newly started application by clicking on the Access link under the BIG-IP section and then clicking on Juice Shop.
+
+.. image:: ../images/udf-juiceshop.png
  
 Task - Try hacking the Juice Shop application again.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Go back to the Module 1 / Lab 3 page and run through the hacks. They should fail. Click `here <../module0/lab3.html>`_ to jump to that page and then click the browser back button to come back to this page to compare your results.
+Go back to the Module 1 / Lab 3 page and run through the hacks. They should fail. Click `here <https://clouddocs.f5.com/training/community/waf/html/waf2023/module1/lab2.html>`_ to jump to that page and then click the browser back button to come back to this page to compare your results.
 
 Task - Compare results of XSS hacking attempt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The attempt to injected the XSS hack via the feedback form should fail and the you should see something similar to this on the page:
+The attempt to injected the XSS hack via the order parameter should fail and the you should see something similar to this on the page:
 
-.. image:: ../images/block_xss.png
+.. image:: ../images/mod3lab1-xss.png
 
-If you visit the Customer Feedback page you should NOT hear the jingle.
+The search results will not produce the parameter value on the screen since the request was blocked by the XSS signatures applied.
 
 Task - View the Application Request Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI ``/api/Feedbacks/``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. Also, make sure to scroll to the bottom of the Decoded Request section to see the string that was entered in the form.
+Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI ``/rest/track-order/``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. Also, make sure to scroll to the bottom of the Decoded Request section to see the string that was entered in the form.
 
 .. image:: ../images/event_log_xss.png
 

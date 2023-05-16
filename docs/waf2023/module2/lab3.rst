@@ -74,7 +74,7 @@ Task – We will continue applying protections while working down the Dashboard
     - Click on the **checkmark** for all processes that your organization is currently following for the application.  You can also click the **No/Ghostbuster** symbol here if the condition is not met.
     - Below is an example, but you may complete this any way you choose.
 
-        .. image:: ../images/securitymisconfig.png
+        .. image:: ../images/securitymisconfig1.png
 
         .. Note:: In this example, we have marked that we are performing application and vulnerability scanning.  We have chosen to ignore the app and system patching (An example why would be a legacy system or app that no longer recieves patching).  In this instance, we want to ignore that requirement as it is not applicable to the application. In our example, App System hardening is a practice that we have not yet implemented, so we will leave this unsatisfied until that is complete. 
 
