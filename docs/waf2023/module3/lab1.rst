@@ -69,7 +69,7 @@ After restarting the Juice Shop application you can go back to the UDF Deploymen
 Task - Try hacking the Juice Shop application again.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Go back to the Module 1 / Lab 3 page and run through the hacks. They should fail. Click `here <../module0/lab3.html>`_ to jump to that page and then click the browser back button to come back to this page to compare your results.
+Go back to the Module 1 / Lab 3 page and run through the hacks. They should fail. Click `here <https://clouddocs.f5.com/training/community/waf/html/waf2023/module1/lab2.html>`_ to jump to that page and then click the browser back button to come back to this page to compare your results.
 
 Task - Compare results of XSS hacking attempt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,7 +83,7 @@ The search results will not produce the parameter value on the screen since the 
 Task - View the Application Request Logs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI `` /rest/track-order/``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. Also, make sure to scroll to the bottom of the Decoded Request section to see the string that was entered in the form.
+Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI ``/rest/track-order/``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. Also, make sure to scroll to the bottom of the Decoded Request section to see the string that was entered in the form.
 
 .. image:: ../images/event_log_xss.png
 
