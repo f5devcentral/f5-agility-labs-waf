@@ -18,7 +18,7 @@ We will follow security best-practice by applying IPI via a Global Policy to sec
 .. image:: ../images/ipi_options.png
   :width: 600 px
 
-In this first lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
+In this lab, we will start by enabling a Global IPI Policy; much like you would do, as a day 1 task for your WAF:
 
 #. RDP to the Linux Client by choosing the RDP access method from your UDF environment page. You will be presented with the following prompt where you will enter the password only **f5DEMOs4u!**. The **f5student** account is hard-coded into XRDP for your convenience. 
 
@@ -89,7 +89,7 @@ Setup Logging for Global IPI
 
 Test 
 ~~~~~~~~~~~~~~~~
-#. On the Linux Client, open a terminal and **cd** to **Agility2022wafTools**
+#. On the Linux Client, open a terminal and **cd** to **/home/f5student/Agility2022wafTools**
 #. Run the following command to send some traffic to the site: **./ipi_tester**.
 
 .. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
@@ -141,7 +141,7 @@ Create Custom Category
 Attach an IPI policy to your exisiting WAF Policy for Layer 7 Protection 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section. 
+#. Navigate to **Security > Application Security > Policy Building > Learning and Blocking Settings** and expand the **IP Addresses and Geolocations** section of the juiceshop_waf policy. These settings were configured earlier in the OWASP Dashboard lab to enabled, but observe where IPI and Geolocation is set to alarm and/or block.  
 
 .. image:: ../images/ipi_waf.png
   :width: 600 px
