@@ -16,11 +16,12 @@ Objective
 
 Task – Demonstrate a cross site scripting (XSS) vulnerability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This hack we will cause a simple reflected XSS attack on the Juice Shop application by compromising a parameter value in the URL. First go to Account in the upper right corner, then to Orders and Payment, select Order History.
+This hack we will cause a simple reflected XSS attack on the Juice Shop application by compromising a parameter value in the URL. First go to **Account** in the upper right corner, then to **Orders and Payment**, select **Order History**.
 
 .. image:: ../images/mod1lab2-xss-orderhistory.png
 
-Click on the truck. This will take you to an expected delivery page with search results. Carefully look at the URI and notice that it is not encoded or is using a trusted html link. This may indicate that input sanitation is not occurring.
+Click on the truck. This will take you to an expected delivery page with search results. Carefully look at the URI and notice that it is not encoded or using a trusted html link for the parameter value. 
+
 
 .. image:: ../images/mod1lab2-xss-uricompare.png
 
@@ -35,6 +36,8 @@ The full URL will look like this after encoding is done by the browser. Dont pas
 .. code-block:: none
     
     https://ea06dc66-bfd7-4aa2-a99c-72137fd3ea1a.access.udf.f5.com/#/track-result?id=%3Ciframe%20src%3D%22javascript:alert(%60data%20all%20over%20this%20screen%20that%20wasnt%20planned%60)%22%3E
+
+
 
 .. image:: ../images/mod1lab2-xss-uricompare2.png
 
