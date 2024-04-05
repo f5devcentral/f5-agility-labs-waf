@@ -103,9 +103,8 @@ Testing Additional User-Agents
 
 .. NOTE:: What you just added is an iRule that inserts poorly spoofed User-Agents. Our ipi_tester script has been sending traffic through this Virtual Server all along and spoofing source IP's to the main site via the ipi_tester iRule. 
 
-2. Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. 
-3. All the **Unknown** bots are getting rate-limited and the known browsers that do not match the appropriate signatures, such as the spoofed Safari request in this example, are being marked as **Suspicious or Malicious**.
-(Hint: Look for a log entry with a comment on the second line of "Presenting as Safari (Suspicious Browser)" or similar.​)
+2. Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs.
+3. All the **Unknown** bots are getting rate-limited and the known browsers that do not match the appropriate signatures, such as the spoofed Safari request in this example, are being marked as **Suspicious or Malicious**. (Hint: Look for a log entry with a comment on the second line of "Presenting as Safari (Suspicious Browser)" or similar.​)
 
 .. image:: images/ua-spoof-log.png
   :width: 600 px
