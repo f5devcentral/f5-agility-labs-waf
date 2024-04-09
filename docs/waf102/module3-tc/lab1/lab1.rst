@@ -22,7 +22,7 @@ Prep the Virtual Server
 These steps are necessary for this demonstration. In the "real world" having the Bot Defense Profile pick up this type of attack coming from a tool, not a browser, would be preferred, going back to the layered security approach.
 
 #. Navigate to **Local Traffic > Virtual Servers > Virtual Server List > owasp-juiceshop_443_vs > Security > Policies**. 
-#. **Enable the Application Security Policy: juiceshop_waf**. Threat Campaign Signatures are part of your WAF policy. 
+#. **Set Application Security Policy to "Enabled"** and select the juiceshop_waf policy.** Threat Campaign Signatures are part of your WAF policy. 
 #. **Disable the Bot Defense Profile** We are removing the bot profile since we will be using a "Bot" to test the Threat Campaign signatures. 
 #. **Remove the Bot_Log profile** and click **Update**. Your virtual should look like this: 
 
