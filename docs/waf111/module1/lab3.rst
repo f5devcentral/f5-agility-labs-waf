@@ -17,7 +17,7 @@ Task – We will continue applying protections while working down the Dashboard
 #. At this point clicking on the checkmark and applying would implement Evasion Technique protection.  You are welcome to do this from the dashboard, but let's see how the dashboard interacts with a manual change to the policy.  Perform the following steps to apply in the policy.
 
     - Go to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings**
-    - Click and expand the section titled **Evasion Technique detected** 
+    - Click and expand the section titled **Evasion Technique detected**. (You may need to scroll down to see this section.)
     - Click the checkbox for **Enable** all
     - Press **Save** at the bottom of that screen
     - Press **Apply Policy** button at the top right corner of your screen
@@ -64,7 +64,7 @@ Task – We will continue applying protections while working down the Dashboard
 
     - To the right of **DataGuard** click on the **Enforce** checkmark.  You will now see the potential protections increase to 100%.  Press the blue **Review & Update** button below.  Then the  **Save & Apply Policy** button.
 
-    .. Note:: The default settings of Data Guard will prevent the transmission of number sequences matching credit card and social security numbers.  This can be customized to match patterns sensitive within your organization, but is out of scope for this level of class.  To see these settings though, go to menu **Security -> Application Security -> Data Guard**
+    .. Note:: The default settings of Data Guard will prevent the transmission of number sequences matching credit card and social security numbers.  This can be customized to match patterns sensitive within your organization, but is out of scope for this level of class.  To see these settings though, go to menu **Security -> Application Security -> Security Policies -> Policies List**, click on the JuiceShop WAF policy, expand **Advanced Protection**, and click **Data Guard**.
 
 #. Back on the OWASP Dashboard, path **Security -> Overview -> OWASP Compliance**. At this time we are going to skip a few of the next controls, as their configuration is a little more advanced.  Click on the expand arrow next to **A6 Security Misconfiguration**.
 
