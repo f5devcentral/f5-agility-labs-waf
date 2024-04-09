@@ -179,7 +179,7 @@ Server Technologies & Attack Signatures
 
 In this final exercise we will examine server technologies which allow you to automatically discover server-side frameworks, web servers and operating systems. This feature helps when the backend technologies are not well known or communicated from the Dev team.
 
-#. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures**
+#. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures**. (You may need to expand **Policy Building Settings** in order to see the Attack Signatures.​)
 #. Review the Attack Signatures that were applied during policy creation from back in Lab 1. **Generic Detection Signatures (High/Medium Accuracy)**. Notice that they are set to **Learn/Alarm/Block and Staging is enabled**. 
 #. Locate Server Technologies and expand the option. Click **Enable Server Technology Detection**, click **Save** and then click the **New Window Icon** next to Server Technologies. 
 
@@ -199,7 +199,7 @@ The system will display a box describing which new signature sets will be applie
 
 **Make sure to Save and Apply Policy.**
 
-5. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures** and notice the new Unix/Linux Server Technology signature sets that were added to the policy. 
+5. Go to **Security > Application Security > Policy Building > Learning and Blocking Settings > Attack Signatures** (again, expand **Policy Building Settings** if needed) and notice the new Unix/Linux Server Technology signature sets that were added to the policy. 
 
 .. image:: images/unix.png
   :width: 600 px
