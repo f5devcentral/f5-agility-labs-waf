@@ -64,6 +64,8 @@ Create security policy using the Guided Configuration
 
     .. image:: ../images/ready_to_deploy.png
 
+#. Click Finish on the next screen.
+
 #.  After the policy is created, we will want to apply a logging profile to our new security policy.
 
     - Go to **Securirty -> Overview -> Summary**, and the policy you just created should be listed. 
