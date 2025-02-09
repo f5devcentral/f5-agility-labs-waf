@@ -1,38 +1,96 @@
-Lab 2 - Add a Geolocation Policy
--------------------------------------------------
-Another practical control to implement early on in your WAF deployment is Geolocation blocking or fencing. If we know that our application is only supposed to be accessed from certain countries or not accessed from others, now is the time to get that configured and enforced. 
+Lab 2 - Execute Attacks and Review Logs
+---------------------------------------
 
-.. NOTE:: Much like our Layer 7 IPI Policy, with Advanced WAF the Geolocation logic happens at the policy level. You may have many policies each with their own unique configuration per application or you may use a parent policy that has baseline settings. 
+Execute an attack via a python script
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Geolocation
-~~~~~~~~~~~~~
 
-**For demonstration purposes you will now disable the Layer 3 Global IPI policy to ensure Layer 7 Geolocation & IPI events occur.**
+#. Open Terminal on the LInux jump host
 
-#. Browse to **Security > Network Firewall > IP Intelligence > Policies** and set the Global Policy Assignment to **None** and click **Update**. 
+#. cd /graphql
 
-.. image:: ../images/global_ipi.png   
-  :width: 600 px
+#. python3 <script name>
 
-2. Open **Security > Application Security > Security Policies**. Select the **juiceshop_waf** policy created previously. Click **General Settings >** scroll down the right pane to **Geolocation Enforcement**.   
+.. image:: ../images/py_term.png
 
-#. Select all Geolocations **except the United States and N/A** and move them to Disallowed Geolocations. **Save** and then **Apply Policy**.
 
-.. image:: ../images/geo_policy.png   
-  :width: 600 px
+Execute an attack using the GraphiQL Chrome extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: N/A covers all RFC1918 private addresses. If you aren’t dropping them at your border router (layer 3), you may decide to geo-enforce at ASM (Layer 7) if no private IP’s will be accessing the site.
+#. Copy the graphQL payload from the Solution
 
-4. Navigate to **Security > Event Logs > Application > Requests** and review the entries in the event log that contain both IPI and Geolocation violations.
+.. image:: ../images/deep_recur.png   
 
-.. image:: ../images/geo_violation.png
-  :width: 600 px
+2. Open GraphiQL Chrome extension
 
-.. NOTE:: You can also perform Geolocation Enforcement with LTM policies attached to Virtual Servers even if you are only licensed for Advanced WAF. Blocking decisions made here would not be reflected in the Application Requests WAF Log but can be still be logged. 
+#. Enter http://dvga.f5appworld.com/graphql into the target field
 
-Here is an example for future reference:
+#. 4.	Paste the graphql payload from solution
 
-.. image:: ../images/ltm_geo.png
-  :width: 600 px
+#. Send the request
 
-**Congratulations! You have just completed Module 4 by implementing an IPI policy globally at Layer 3 and at Layer 7 via WAF policy for a specific application. Next you added Geolocation Enforcement to the policy and learned that this can be done via WAF policy or LTM policy. This follows our best-practice guidance for getting started with Application Security.**  
+.. image:: ../images/graphiql.png
+
+
+
+Execute an attack using the Burp Suite
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Open Burp Suite from the desktop icon
+
+.. image:: ../images/burp.png
+
+
+2. Click “Next” and “Start Burp”.
+
+#. Go to the “InQL” Burp extension tab.
+
+#. Enter http://dvga.f5appworld.com/graphql in the GraphQL Endpoint field.
+
+#. Click "Analyze"
+
+.. NOTE:: This will run introspection on DVGA and return the entire schema.  You should see violations in the WAF logs for this.
+
+6. You should now see a directory for DVGA in the schema folders below.
+
+#. Expand the DVGA folder and the date-specific folder.
+
+#. Select the request type that best matches the attack payload youa re trying to use.
+
+#. In the GraphQL paylod area to the right, right-click and select "Send to Repeater"
+
+.. image:: /images/inql.png
+
+
+10. Select the "Repeater" tab
+
+#. Paste the attack paylod from the SOlution into the Request area.
+
+#. Click "Send"
+
+#. Review the response.
+
+.. image:: /images/repeater.png
+
+
+
+Review WAF Logs
+~~~~~~~~~~~~~~~
+
+#. In Chrome on the LInux jump host, go to the F5 Advanced WAF shortcut and Login
+
+**user: admin**
+
+**password: f5demos4u!**
+
+2. Navigate to the WAF Request Logs screen
+
+#. Select the request with your most recent attack
+
+#. Review the request and any GRAPHQL violations that may have triggered.
+
+.. image:: ../images/waf_log.png
+
+
+
+**Congratulations! You have just completed Module 4**
