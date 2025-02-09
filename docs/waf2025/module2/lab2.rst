@@ -3,6 +3,9 @@ Lab 2 – Discover the OWASP Dashboard
 Objective
 ~~~~~~~~~~~~~~~~
 
+**BIG-IP 17.1 includes updates to the OWASP Compliance Dashboard bringing the list of controls in line with the 2021 top 10 list.**
+
+
 - Open up and view the OWASP Compliance Dashboard
 
 - Apply some basic attack signatures using the Dashboard
