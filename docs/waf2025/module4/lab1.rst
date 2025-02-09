@@ -30,11 +30,11 @@ Explore DVGA
 
 .. image:: ../images/dvga_stuck.png
 
-#. Select an attack type...in this case select **"Batch Query Attack"**
+3. Select an attack type...in this case select **"Batch Query Attack"**
 
 .. image:: ../images/challenge_s.png
 
-#. Click the green "Show" button.
+4. Click the green "Show" button.
 
 .. image:: ../images/batch_query.png
 
