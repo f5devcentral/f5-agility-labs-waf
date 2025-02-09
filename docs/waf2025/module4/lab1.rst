@@ -16,10 +16,13 @@ Connect to the Linux Client
 #. RDP to the Linux Client by choosing the RDP access method from your UDF environment page. 
 
 **user: f5student**
-**password: f5DEMOs4u!**. 
+**password: f5DEMOs4u!**
 
 .. image:: ../images/rdp.png
 
+
+Explore DVGA
+~~~~~~~~~~~~
 
 #. Once logged in, launch Chrome Browser and go to http://dvga.f5appworld.com.
 
