@@ -56,7 +56,7 @@ Apply additional protections against the OWASP Top 10
 
         .. NOTE:: Some mitigations can be configrued direction in the OWASP Dashboard like this. Evasion techniques refer to techniques apoplied by hackers to attempt to access resources or evade what would otherwise be identified as an attack.
 
-        .. image:: ../image/evasion.png
+        .. image:: ../images/evasion.png
 
     
 
