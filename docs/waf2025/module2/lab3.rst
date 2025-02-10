@@ -70,6 +70,6 @@ Navigate to /encryptionkeys to expose an unwanted directory listing
 
 Click on the file ``premium.key`` and attempt to download it.
 
-.. image:: ../images/files_test.png
+.. image:: ../images/file_test.png
 
 Notice that while you can get to **/encryptionkeys**, an attempt to download the file is now blocked by BIG-IP Advanced WAF.
