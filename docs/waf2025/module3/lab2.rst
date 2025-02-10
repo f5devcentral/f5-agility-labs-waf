@@ -59,7 +59,7 @@ Execute an attack using the Burp Suite
 
 #. In the GraphQL paylod area to the right, right-click and select "Send to Repeater"
 
-.. image:: /images/inql.png
+.. image:: ../images/inql.png
 
 
 10. Select the "Repeater" tab
@@ -70,7 +70,7 @@ Execute an attack using the Burp Suite
 
 #. Review the response.
 
-.. image:: /images/repeater.png
+.. image:: ../images/repeater.png
 
 
 
