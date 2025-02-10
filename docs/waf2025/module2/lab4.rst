@@ -1,9 +1,9 @@
 Lab 4 – Advanced configuration Options
 --------------------------------------
 Objective
-~~~~~~~~~~~
+~~~~~~~~~
 
-- Apply some configurations to protect against the remaining OWASP Top 10
+Digging deeper into the OWASP Top 10 Compliance Dashboard
 
 
 
@@ -46,10 +46,22 @@ Apply additional protections against the OWASP Top 10
 
 
 
+#. On the OWASP COmpliance Dashboard, click on **A3 Injection** and take a look at your options.
+    
+    - Notice that there are Required Protections in addition to the signature sets that we have already enforced.
+
+        .. image:: ../images/a3check.png
+
+    - Click on **NOT FULLFILLED** next to Evasion Techniques and then click on **Review & Update** at the bottom.
+
+        .. NOTE:: Some mitigations can be configrued direction in the OWASP Dashboard like this. Evasion techniques refer to techniques apoplied by hackers to attempt to access resources or evade what would otherwise be identified as an attack.
+
+        .. image:: ../image/evasion.png
+
+    
 
 
 Conclusion
 ~~~~~~~~~~~
 
-Now for our last step, once again go back to the OWASP Dashboard, path **Security -> Overview -> OWASP Compliance**.
-You should now be mostly compliant in all categories that a WAF can control and reduce risk in those areas. The compliance topics of A6 and A9 a WAF cannot mitigate these risks. The user would need to go into each of these sections and mark accordingly how their environment is configured. While it is nice to see completion, the goal of the dashboard is not always to immediately reach 100% in all categories. The true value is providing visibility and measuring the security controls that are applyed to our applications. 
+You can continue to explore the OWASP Compliance Dashboard until the class is ready to move forward.
