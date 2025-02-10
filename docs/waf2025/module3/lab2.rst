@@ -1,89 +1,96 @@
-Lab 2 – Use the F5 WAF Tester Tool
-----------------------------------
+Lab 2 - Execute Attacks and Review Logs
+---------------------------------------
 
-Objective
-~~~~~~~~~
-
-- Install the F5 WAF Tester Tool
-- Configire the F5 WAF Tester Tool
-- Use the F5 WAF Tester Tool 
-
-Task - Install the F5 WAF Tester Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-RDP into the Client Jumpbox. 
-
-.. image:: ../images/rdp-ubuntu.png
-
-Open a terminal and browse to the f5student home directory  **/home/f5student**
-
-.. image:: ../images/f5student-home.png
-
-Perform an **apt** update to ensure we have the right libraries unstalled  
-
-``sudo apt update``
-
-Install pip for python3
-
-``sudo apt install python3-pip``
-
-Confirm the pip version
-
-``pip3 --version``
-
-Now install the **f5-waf-tester**
-
-``pip install git+https://github.com/aknot242/f5-waf-tester.git``
-
-.. image:: ../images/f5-waf-tester-installed.png
+Execute an attack via a python script
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Task - Configure the F5 WAF Tester Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Open Terminal on the Linux jump host
 
-While still on the terminal where you installed the F5-WAF-Tester, enter the code below to begin the configuration: 
+#. cd /graphql
 
-``f5-waf-tester --init``
+#. python3 <script name>
 
-You will be asked a series of questions for the configuration. Enter the following below into the appropiate fields. Any other fields that are propmted, just hit enter to leave blank. 
+.. image:: ../images/py_term.png
 
-.. code-block:: bash
 
-  [BIG-IP] Host []: 10.1.1.4
-  [BIG-IP] Username []: admin
-  [BIG-IP] Password []: f5demos4u!
-  Virtual Server URL []: https://juiceshop.f5agility.com
+Execute an attack using the GraphiQL Chrome extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Your Confoguration prompts will look like this: 
+#. Copy the graphQL payload from the Solution
 
-.. image:: ../images/f5-waf-tester-config.png
-  
-If you need to edit the configuration, re-initialize the tool by running ``f5-waf-tester --init`` again. Then enter your changes. 
+.. image:: ../images/deep_recur.png   
 
-Task - Use the F5 WAF Tester Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. Open GraphiQL Chrome extension
 
-Run the tool as follows: 
+#. Enter http://dvga.f5appworld.com/graphql into the target field
 
-::
+#. 4.	Paste the graphql payload from solution
 
-    f5-waf-tester -r f5_waf_tester_report_1.json
+#. Send the request
 
-.. note:: When using this tool at home and many of the tests fail, the signatures may be out of date. Ensure the latest signatures have been installed. The following article provides instructions on how to do that: https://support.f5.com/csp/article/K82512024. This lab does have an up to date signature set installed. 
+.. image:: ../images/graphiql.png
 
-.. note:: Also check the configration attributte **URL** of the **f5-waf-tester** tool if most of the tests have failed. It is possible the testing tool is not sending traffic to the right location. 
 
-Quickly check how many tests passed and failed:
 
-::
+Execute an attack using the Burp Suite
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    grep true f5_waf_tester_report_1.json | wc -l
-    grep false f5_waf_tester_report_1.json | wc -l
+#. Open Burp Suite from the desktop icon
 
-View the results of the test:
+.. image:: ../images/burp.png
 
-::
 
-    less f5_waf_tester_report_1.json
+2. Click “Next” and “Start Burp”.
 
-Continue to tune your WAF policy and check the OWASP Dashboard and then re-run the F5 WAF Tester.
+#. Go to the “InQL” Burp extension tab.
+
+#. Enter http://dvga.f5appworld.com/graphql in the GraphQL Endpoint field.
+
+#. Click "Analyze"
+
+.. NOTE:: This will run introspection on DVGA and return the entire schema.  You should see violations in the WAF logs for this.
+
+6. You should now see a directory for DVGA in the schema folders below.
+
+#. Expand the DVGA folder and the date-specific folder.
+
+#. Select the request type that best matches the attack payload youa re trying to use.
+
+#. In the GraphQL paylod area to the right, right-click and select "Send to Repeater"
+
+.. image:: /images/inql.png
+
+
+10. Select the "Repeater" tab
+
+#. Paste the attack paylod from the SOlution into the Request area.
+
+#. Click "Send"
+
+#. Review the response.
+
+.. image:: /images/repeater.png
+
+
+
+Review WAF Logs
+~~~~~~~~~~~~~~~
+
+#. In Chrome on the LInux jump host, go to the F5 Advanced WAF shortcut and Login
+
+**user: admin**
+
+**password: f5demos4u!**
+
+2. Navigate to the WAF Request Logs screen
+
+#. Select the request with your most recent attack
+
+#. Review the request and any GRAPHQL violations that may have triggered.
+
+.. image:: ../images/waf_log.png
+
+
+
+**Congratulations! You have just completed Module 4**

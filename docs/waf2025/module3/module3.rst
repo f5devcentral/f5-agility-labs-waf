@@ -1,7 +1,7 @@
-Module 3 – Test Your WAF Policy
-===============================
+Module 3 - Protecting GraphQL Applications with F5 Advanced WAF
+===============================================================
 
-This module will guide you through testing the effictiveness of the WAF policy you just built by attempting the XSS and injection hacks performed in Module 1. In addition, the F5 WAF Tester Tool will be leveraged to test the policy and provide a report on its status.
+In this module you will be using the “Solutions” provided in the DVGA GraphQL application to send attacks using various tools.
 
 .. toctree::
    :maxdepth: 1

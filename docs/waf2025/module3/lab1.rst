@@ -1,123 +1,52 @@
-Lab 1 – Attempt to Hack the Juice Shop
---------------------------------------
-
+Lab 1 - Find DVGA Attack Types
+---------------------------------------
 Objective
 ~~~~~~~~~
 
-- Close the Juice Shop tab or window.
-- Restart the Juice Shop application.
-- Load the Juice Shop application.
-- Attempt the server side XSS hack.
-- View the illegal request log entry.
-- Attempt the SQL injection hack.
-- View the illegal request log entry.
-- Compare results of an unauthorized file access attempt.
-- Search for log entry using a Support ID.
-- View the illegal request log entry.
-
-Task - Close the Juice Shop tab or window
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Make sure to close the tab or window that you have the Juice Shop running in to avoid any issues with cached content or metadata.
-
-Task - Restart the Juice Shop Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The Juice Shop application must be restarted to reset the database. Log onto the Internal LAMP Server by navigating to the Systems column, clicking on the Access dropdown and then clicking on **WEB SHELL**
-
-.. image:: ../images/web_shell_server.png
-
-At the shell prompt, type the following commands to restart the Juice Shop application. The first command will list the running docker containers. Note the STATUS. The second command restarts the Juice Shop docker container (only the first 3 unique charcters of the container ID are required) and the third command will list the running container where you should see the STATUS listed as Up for a few seconds which confirms the application was restarted.
-
-In the web shell run the command ``docker ps``. The output will look like the following:
-
-.. code-block:: none
-
-    CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                    NAMES
-    b0b868b1af95        bkimminich/juice-shop   "docker-entrypoint.s…"   4 hours ago         Up 2 hours          0.0.0.0:3000->3000/tcp   reverent_raman
-    
-    
-Run the command ``docker restart b0b``, but make sure to type the **first 3 characters of your Juice Shop container ID**. The output will be the first 3 characters of the container ID:
-
-.. code-block:: none
-
-    b0b
+Familiarize yourself with DVGA and Challenge Solutions
 
 
-Run the command ``docker ps`` to ensure the container was restarted. Your web shell should look very similar to the following:
+Connect to the Linux Client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: none
+.. NOTE:: All steps in this lab exercise will be performed from the Linux jump host.
 
-    root@ip-10-1-1-5:~# docker ps
-    CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                    NAMES
-    b0b868b1af95        bkimminich/juice-shop   "docker-entrypoint.s…"   4 hours ago         Up 2 hours          0.0.0.0:3000->3000/tcp   reverent_raman
-    root@ip-10-1-1-5:~# docker restart b0b
-    b0b
-    root@ip-10-1-1-5:~# docker ps
-    CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                    NAMES
-    b0b868b1af95        bkimminich/juice-shop   "docker-entrypoint.s…"   4 hours ago         Up 1 second         0.0.0.0:3000->3000/tcp   reverent_raman
-    root@ip-10-1-1-5:~#
+#. On your UDF page, go to your Client component, click the Access drop down menu and choose RDP 
+
+#. RDP to the Linux Client by choosing the RDP access method from your UDF environment page. 
+
+**user: f5student**
+**password: f5DEMOs4u!**
+
+.. image:: ../images/rdp.png
 
 
-Task - Load the Juice Shop application.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Explore DVGA
+~~~~~~~~~~~~
 
-After restarting the Juice Shop application you can go back to the UDF Deployment screen and open the newly started application by clicking on the Access link under the BIG-IP section and then clicking on Juice Shop.
+#. Once logged in, launch Chrome Browser and go to http://dvga.f5appworld.com.
 
-.. image:: ../images/udf-juiceshop.png
- 
-Task - Try hacking the Juice Shop application again.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Scroll down to “Got Stuck?” section and click “Solutions” link.
 
-Go back to the Module 1 / Lab 3 page and run through the hacks. They should fail. Click `here <https://clouddocs.f5.com/training/community/waf/html/waf2023/module1/lab2.html>`_ to jump to that page and then click the browser back button to come back to this page to compare your results.
+.. image:: ../images/dvga_stuck.png
 
-Task - Compare results of XSS hacking attempt
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Select an attack type...in this case select **"Batch Query Attack"**
 
-The attempt to injected the XSS hack via the order parameter should fail and the you should see something similar to this on the page:
+.. image:: ../images/challenge_s.png
 
-.. image:: ../images/mod3lab1-xss.png
+4. Click the green "Show" button.
 
-The search results will not produce the parameter value on the screen since the request was blocked by the XSS signatures applied.
+.. image:: ../images/batch_query.png
 
-Task - View the Application Request Logs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI ``/rest/track-order/``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. Also, make sure to scroll to the bottom of the Decoded Request section to see the string that was entered in the form.
 
-.. image:: ../images/event_log_xss.png
+.. NOTE:: Each solution may show a script or just a graphQL payload to use to execute the attack. If it shows a script, you will find a script file matching that attack type in the /graphql directory in the user’s home directory. If the solution shows a GraphQL payload you may choose either the GraphiQL Chrome extension or Burp Suite to execute the attack. After each attack you should review the WAF logs to see the results and which violations triggered. See the “Review Waf Logs” section at the end of Lab 2 for instructions.
 
-Task - Compare results of SQL injection hacking attempt
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The attempt to inject the malicious SQL query should fail and the you should see something similar to the following in your browser:
 
-.. image:: ../images/block_sql_injection.png
 
-Task - View the Application Request Logs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to **Security -> Event Logs -> Application -> Requests** where you should see an illegal request for the URI ``/rest/products/search``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type. You can see the query at the top of the Decoded Request section.
 
-.. image:: ../images/log_sql_injection.png
 
-Task - Compare results of an unauthorized file access attempt
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The attempt to download the file in the ``/encryptionkeys`` directory fails with the following message:
 
-.. image:: ../images/support_id_file_1.png
-
-Task - Search for log entry using a Support ID
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Navigate to **Security -> Event Logs -> Application -> Requests** and then click on the ``Open Filter`` icon (beside Order by Date / Newest) and then enter the support ID shown on the blocked page in the Support ID field at the bottom of the filter window then click the ``Apply Filter`` button:
-
-.. image:: ../images/support_id_1.png
-
-Task - View the Application Request Logs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Once the filter is applied you should only see one illegal request for the URI ``/encryptionkeys/premium.key``. Click on that request and explore details of the rejected request by clicking on the Violation listed and the Attack Type.
-
-.. image:: ../images/log_file_access_1.png
