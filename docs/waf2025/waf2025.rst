@@ -1,0 +1,20 @@
+WAF 2025 - Mitigating App Vulnerabilities with BIG-IP Advanced WAF
+=================================================================================
+
+BIG-IP Advanced Web Applications Firewall, AWAF, is an incredibly powerful security tool to protect applications. Protecting your apps against critical risks such as the threats listed in the OWASP Top 10, requires comprehensive and consistent security. F5 AWAF technology provides a strategic stop gap against common vulnerabilities like injection and cross-site scripting. In this lab we will look at the OWASP Top 10 Wzard and support for GraphQL.
+
+.. image:: attackfilters.png   
+  :width: 800 px
+  :align: center
+
+
+
+Following the AppWorld 2025 conference you can visit `clouddocs.f5.com <https://clouddocs.f5.com/training/community/>`_ to continue your education and create your own test lab environment.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+   :glob:
+
+   labinfo/labinfo
+   module*/module*
