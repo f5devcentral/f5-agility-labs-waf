@@ -49,7 +49,7 @@ Execute an attack via a python script
 
 #. Open Terminal on the Linux jump host
 
-#. cd /graphql
+#. cd graphql
 
 #. python3 <script name>
 
