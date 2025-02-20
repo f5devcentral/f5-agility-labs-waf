@@ -20,6 +20,7 @@ Connect to the Linux Client
 
 .. image:: ../images/rdp.png
 
+.. NOTE:: you should only need to enter the password, the username should be auto-populated.
 
 Explore DVGA
 ~~~~~~~~~~~~
