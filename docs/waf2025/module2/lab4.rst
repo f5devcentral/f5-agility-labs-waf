@@ -52,7 +52,7 @@ Apply additional protections against the OWASP Top 10
 
         .. image:: ../images/a3check.png
 
-    - Click on **NOT FULLFILLED** next to Evasion Techniques and then click on **Review & Update** at the bottom.
+    - Mouse over **NOT FULLFILLED** next to Evasion Techniques and click on the checkmark to the right to mark it FULLFILLED. Then click on **Review & Update** at the bottom.
 
         .. NOTE:: Some mitigations can be configrued direction in the OWASP Dashboard like this. Evasion techniques refer to techniques apoplied by hackers to attempt to access resources or evade what would otherwise be identified as an attack.
 
