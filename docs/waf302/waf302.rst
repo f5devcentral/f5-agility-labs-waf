@@ -17,7 +17,7 @@ By the end of this lab, you should be able to:
 Lab Scenario
 ------------
 
-We have two lab scenarios to help illustrate protecting API endpoints to improve security prosture.
+We have two lab scenarios to help illustrate protecting API endpoints to improve security posture.
 
 **Lab 1** - PetStore has exposed their web application API endpoints to streamline the their customer's ability to check pet availability, order pet, and check status of shipment. The web application is deployed in their production environment.
 

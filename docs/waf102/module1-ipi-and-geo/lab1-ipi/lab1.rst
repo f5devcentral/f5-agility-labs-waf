@@ -89,7 +89,7 @@ Setup Logging for Global IPI
 
 Test 
 ~~~~~~~~~~~~~~~~
-#. On the Linux Client, open a terminal and **cd** to **Agility2022wafTools**
+#. On the RDP Linux Client, open a terminal (double-click on "Terminal Emulator" on the desktop) and **cd** to **Agility2022wafTools**
 #. Run the following command to send some traffic to the site: **./ipi_tester**.
 
 .. NOTE:: The script should continue to run for the remainder of Lab 1 & 2. Do NOT stop the script. 
