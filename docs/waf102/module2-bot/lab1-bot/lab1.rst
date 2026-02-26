@@ -40,7 +40,7 @@ Apply the Policy and Logging Profile
 
 .. IMPORTANT:: To clearly demonstrate just the Bot Defense profile, please disable all security policy on the virtual server. The ipi_tester script should still be running!
 
-2. Navigate to **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies** and **disable the Application Security Policy** and **enable the Bot Defense Profile and Bot_Log Profile.**
+2. Navigate to **Local Traffic > Virtual Servers > owasp-juiceshop_443_vs > Security > Policies**, disable the **Application Security** Policy, enable the **Bot Defense** Profile, select **juiceshop_bot** from the Profile drop-down list and, for the Log Profile selection, move the **Bot_Log** Profile from the "Available" list to the "Selected" list. Also, be sure **Log all requests** is in the "Selected" list.
 #. Click **Update**
 
 .. image:: images/blank_vs.png
@@ -86,7 +86,7 @@ Whitelisting a Bot & Demonstrating Rate-Limiting
 .. image:: images/bot-whitelist.png
   :width: 600 px
 
-7. Click the down arrow under **Mitigation Action** and note the reason for the alarm. 
+7. Click the down arrow for **Mitigation Action** (next to **Alarm (Unknown)** in the right-hand column) and note the reason for the alarm. 
 
 .. NOTE:: Even though we have whitelisted this bot we can still ensure that it is rate-limited to prevent stress on the application and any violations to that rate-limit will be Alarmed. This bot is currently violating the rate-limit of 5 TPS. 
 
@@ -103,8 +103,8 @@ Testing Additional User-Agents
 
 .. NOTE:: What you just added is an iRule that inserts poorly spoofed User-Agents. Our ipi_tester script has been sending traffic through this Virtual Server all along and spoofing source IP's to the main site via the ipi_tester iRule. 
 
-2. Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs. 
-#. All the **Unknown** bots are getting rate-limited and the known browsers that do not match the appropriate signatures, such as the spoofed Safari request in this example, are being marked as **Suspicious or Malicious**.
+2. Navigate to **Security > Event Logs > Bot Defense > Bot Requests** and review the event logs.
+3. All the **Unknown** bots are getting rate-limited and the known browsers that do not match the appropriate signatures, such as the spoofed Safari request in this example, are being marked as **Suspicious or Malicious**. (Hint: Look for a log entry with a comment on the second line of "Presenting as Safari (Suspicious Browser)" or similar.​)
 
 .. image:: images/ua-spoof-log.png
   :width: 600 px
